@@ -1,0 +1,32 @@
+
+  <ion-grid class="login">
+    <ion-grid class="login-triangle"></ion-grid>
+    
+    <h2 class="login-header">Registra a tu nuevo elemento</h2>
+  
+    <form #frmRegister="ngForm" class="login-container" (ngSubmit)="Register(frmRegister)">
+
+      <p><ion-input type="text" name="nombre" placeholder="Nombre" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="curp" placeholder="CURP" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="domicilio" placeholder="domicilio" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="number" name="telefono" placeholder="Telefono Adicional" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="number" name="telefonoadicional" placeholder="domicilio" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="creditodeInfonavit" placeholder="Tiene credito de Infonavit" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="talladeplayera" placeholder="Cual es su talla de playera" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="niveldeescolaridad" placeholder="Cual es su nivel de escolaridad" ngModel required=""> </ion-input> </p>
+      <h1>Puesto al que estas contratando</h1>
+      <p><ion-input type="text" name="rol" placeholder="Cual sera su puesto" ngModel required=""> </ion-input> </p>
+    
+      <p><ion-input type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
+      <p><input type="submit" value="Registrar"> </p>
+    </form>
+  </ion-grid>
