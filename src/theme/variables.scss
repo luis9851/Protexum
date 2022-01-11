@@ -76,6 +76,12 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
+.fondo{
+  --background:url("../../src/assets/banner07.jpg")no-repeat center center / cover;
+  }
+  .color2{
+    --background:#FED03D ;
+  }
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors

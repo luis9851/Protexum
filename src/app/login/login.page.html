@@ -1,24 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar class="color2">
+    <img src="../../assets/logonew01_v.png" width="30%" alt=""/>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
-  <ion-grid class="login">
-    
-    <h2 class="login-header">Log in</h2>
-  
+<ion-content class="fondo">
+  <ion-grid class="login"> 
+    <h2 class="login-header">
+    </h2>
+    <img class="logo" src="../../assets/logonew01_v.png" width="80%" alt="logotipo"/>
+
     <form #frmLogin="ngForm" class="login-container" (ngSubmit)="Login(frmLogin)">
       <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
       <p><ion-input type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
-      <p><input type="submit" value="Log in"> </p>
+      <p><input type="submit" value="Iniciar Sesion"> </p>
 
-
-      <ion-label [routerLink]="['/registro']" > ¿Olvidaste tu contraseña? </ion-label>
+     
+      <ion-label class="link" [routerLink]="['/registro']" > ¿Olvidaste tu contraseña? </ion-label>
       
      
     </form>
   </ion-grid>
-</ion-content>
+</ion-content> 
+
