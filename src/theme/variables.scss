@@ -78,11 +78,13 @@
 
 .fondo{
   --background: #fff url('../../src/assets/image/protexum.png') no-repeat center center / cover;
-}
-ion-toolbar{
-  --background: #FED03D;
-}
-
+  }
+  .color2{
+    --background:#FED03D ;
+  }
+  ion-toolbar{
+    --background: #FED03D;
+  }
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors

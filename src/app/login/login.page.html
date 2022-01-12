@@ -1,25 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="49px" width="320px" alt="Logo">
-    <!-- <ion-title>login</ion-title> -->
+  <ion-toolbar class="color2">
+    <img src="../../assets/logonew01_v.png" width="30%" alt=""/>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="fondo">
-  
-  <ion-grid class="login">
-    
-    <h2 class="login-header">Login</h2>
-  
+  <ion-grid class="login"> 
+    <h2 class="login-header">
+    </h2>
+    <img class="logo" src="../../assets/logonew01_v.png" width="80%" alt="logotipo"/>
+
     <form #frmLogin="ngForm" class="login-container" (ngSubmit)="Login(frmLogin)">
-      <p><ion-input class="inputs" type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
-      <p><ion-input class="inputs" type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
-      <p><input class="btn_login" type="submit" value="Login"> </p>
+      <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
+      <p><ion-input type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
+      <p><input type="submit" value="Iniciar Sesion"> </p>
 
-
-      <ion-label [routerLink]="['/registro']" style="text-align: center !important;"> ¿Olvidaste tu contraseña? </ion-label>
+     
+      <ion-label class="link" [routerLink]="['/registro']" > ¿Olvidaste tu contraseña? </ion-label>
       
      
     </form>
   </ion-grid>
-</ion-content>
+</ion-content> 
+
