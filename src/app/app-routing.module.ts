@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'lista-elementos',
     loadChildren: () => import('./lista-elementos/lista-elementos.module').then( m => m.ListaElementosPageModule)
   },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
  
 ];
 
