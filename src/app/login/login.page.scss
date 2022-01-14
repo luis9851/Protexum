@@ -118,3 +118,57 @@ body {
 .login input[type="submit"]:focus {
   border-color: #FE693D;
 }
+
+/* Navbar login */
+body{
+  padding-bottom: 50px;
+}
+
+.main-container{
+  margin-top: 20px;
+}
+
+.img-logo{
+    width: 120px;
+}
+
+
+
+
+/* Animaciones */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  margin-left: 0;
+}
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-collapse {
+    margin-left: 70%;
+  }
+}
