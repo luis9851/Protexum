@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service/services/service.service';
+import { Users } from '../models/users/users';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  users: Users[]=[]; 
+
+  constructor(private _Service: ServiceService, private router: Router) { }
 
   ngOnInit() {
+    this._Service.getUsers().subscribe(res => {
+      this.users = res;
+    })
+  }
+
+  verUser(_id:number){
+    this.router.navigate(['/libro', _id]);
   }
 
 }

@@ -24,7 +24,7 @@
     
       </div>
     </nav>
-    <!-- <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="49px" width="320px" alt="Logo"> -->
+    
   </ion-toolbar>
 </ion-header>
 
@@ -36,13 +36,14 @@
     
 
     <form #frmLogin="ngForm" class="login-container" (ngSubmit)="Login(frmLogin)">
-      <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
-      <p><ion-input type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
-      <p><input type="submit" value="Iniciar Sesion"> </p>
+      <p><ion-input class="login-inputs" type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
+      <p><ion-input class="login-inputs" type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
+      <p><button class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Iniciar Sesion">Iniciar Sesion</button></p>
+      <!-- <p><input type="submit" value="Iniciar Sesion"> </p> -->
 
      
       <ion-label class="link" [routerLink]="['/registro']" > ¿Olvidaste tu contraseña? </ion-label>
-      
+      <br>
      
     </form>
   </ion-grid>

@@ -1,0 +1,11 @@
+<ion-item>
+  <ion-avatar slot="start">
+    <img src="{{ users.RutaImagen }}" style="width: 40px;height: 40px; border-radius: 150px;"/>
+  </ion-avatar>
+  <ion-label>
+    <h2>{{ users.Nombre }} {{ users.Ap_pat }} {{ users.Ap_mat }}</h2>
+    <h3>Correo: {{ users.correo }}</h3>
+    <p>Telefono: {{ users.Telefono }}</p>
+  </ion-label>
+  <button (click)="verUser()" class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Ver más</button>
+</ion-item>

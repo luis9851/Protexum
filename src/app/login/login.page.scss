@@ -12,7 +12,7 @@ body {
   left: 10%;
 }
 .login {
-  width: 400px;
+  width: 70%;
   margin: 16px auto;
   background-color: #FED03D;
   border-bottom-right-radius: 10px;
@@ -164,11 +164,28 @@ body{
   animation-name: fadeIn;
 }
 
+.login-inputs{
+  background-color: #FFFFFF; 
+  border-radius: 10px;
+}
+
 .navbar-expand-lg .navbar-collapse {
   margin-left: 0;
 }
 @media (min-width: 992px){
   .navbar-expand-lg .navbar-collapse {
     margin-left: 70%;
+  }
+  .login {
+    width: 30%;
+    margin: 16px auto;
+    background-color: #FED03D;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 16px;
+    background: #FED03D;
+    border-radius: 15px;
+     -webkit-box-shadow: 0 30px 60px 0 rgb(0, 0, 0);
+      box-shadow: 0 30px 60px 0 rgb(0, 0, 0)
   }
 }
