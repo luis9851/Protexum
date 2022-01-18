@@ -4,29 +4,67 @@
     
     <h2 class="login-header">Registra a tu nuevo elemento</h2>
   
-    <form #frmRegister="ngForm" class="login-container" (ngSubmit)="Register(frmRegister)">
+    <form #frmRegister="ngForm" class="login-container" (ngSubmit)="Register(frmRegister)" >
 
       <p><ion-input type="text" name="nombre" placeholder="Nombre" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="curp" placeholder="CURP" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="apellidos" placeholder="apellidos" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="curp" placeholder="CURP" ngModel required="" class="mayusculas"> </ion-input> </p>
       <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
       <p><ion-input type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
       <p><ion-input type="text" name="domicilio" placeholder="domicilio" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="number" name="telefono" placeholder="Telefono Adicional" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="number" name="telefonoadicional" placeholder="domicilio" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="creditodeInfonavit" placeholder="Tiene credito de Infonavit" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="date" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="date" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="tel" name="telefono" placeholder="Telefono " ngModel required=""> </ion-input> </p>
+      <p><ion-input type="tel" name="telefonoadicional" placeholder="Telefono Adicional" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
+      <!-- <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p> -->
+      <ion-item  >
+        <ion-label>Cual es su estado Civil:</ion-label>
+        <ion-select   ngModel   name="estadocivil" required="" >
+            <ion-select-option value="Soltero">Soltero</ion-select-option>
+            <ion-select-option value="Casado">Casado</ion-select-option>
+            <ion-select-option value="Divorciado">Divorciado</ion-select-option>
+            <ion-select-option value="Viudo">Viudo</ion-select-option>
+          
+        </ion-select>
+    </ion-item>
       <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="talladeplayera" placeholder="Cual es su talla de playera" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="niveldeescolaridad" placeholder="Cual es su nivel de escolaridad" ngModel required=""> </ion-input> </p>
-      <h1>Puesto al que estas contratando</h1>
-      <p><ion-input type="text" name="rol" placeholder="Cual sera su puesto" ngModel required=""> </ion-input> </p>
+      <p><ion-input type="text" name="talladeplayera" placeholder="Cual es su talla de playera" ngModel required="" maxlength="25"> </ion-input> </p>
+     
+      <p><ion-input type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
+      <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
+      <ion-item  >
+        <ion-label>Es pensionado:</ion-label>
+        <ion-select   ngModel   name="pensionado" required="" >
+            <ion-select-option value="Si">Si</ion-select-option>
+            <ion-select-option value="No">No</ion-select-option>
+          
+          
+        </ion-select>
+    </ion-item>
+      <!-- <p><ion-input type="text" name="niveldeescolaridad" placeholder="Nivel de Escolaridad" ngModel required=""> </ion-input> </p>   -->
     
-      <p><ion-input type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
+      <ion-item  >
+        <ion-label>Nivel de Escolaridad:</ion-label>
+        <ion-select   ngModel   name="niveldeescolaridad" required="" >
+            <ion-select-option value="Primaria">Primaria</ion-select-option>
+            <ion-select-option value="Secundaria">Secundaria </ion-select-option>
+            <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
+          
+        </ion-select>
+    </ion-item>
+    
+      <p><ion-input type="password" name="contrasena" placeholder="Contrasena" ngModel required> </ion-input></p> 
+      <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
+        <input type="file" placeholder="File" (change)="onFileChange($event)"
+       formControlName="file" >
+       
+      
+       </form>
+      
       <p><input type="submit" value="Registrar"> </p>
+      
     </form>
+   
+   
   </ion-grid>

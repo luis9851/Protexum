@@ -3,7 +3,9 @@ export interface JwtResponseI {
         id: number,
         nombre: string,
         correoelectronico: string,
+        rol:string;
         accessToken: string,
-        expiresIn: string
+        expiresIn: string,
+       
     }
 }
