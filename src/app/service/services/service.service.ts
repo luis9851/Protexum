@@ -45,4 +45,14 @@ const httpOptions = {
         );
     }
 
+    getUser( _id: string):Observable<Users>{
+      console.log('getUser');
+      let url = `${this.apiUrl}user/${_id}`;
+      console.log(url);
+      return this.http.get<Users>(url, httpOptions).pipe(
+        tap(data => {console.log(JSON.stringify(data))}),
+        catchError(this.handleError)
+      );
+    }
+
   }

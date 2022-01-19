@@ -1,5 +1,6 @@
+import { Router,ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ServiceService } from '../service/services/service.service';
 
 @Component({
   selector: 'app-user',
@@ -8,10 +9,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserPage implements OnInit {
   public folder: string;
-  constructor(private activatedRoute: ActivatedRoute) { }
+  user: any=[];
+  id: string = "";
+  accion: string = "2";
+  public ismodelShown: boolean = false;
+  constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.activatedRoute.params.subscribe( params => {
+      this.id = params['id'];
+      this._Service.getUser(params['id']).subscribe(usuario =>{
+        this.user = usuario;
+      },
+      error =>{
+
+      });
+      console.log(this.user);
+    })
   }
 
 }

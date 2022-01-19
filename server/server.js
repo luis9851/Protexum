@@ -41,3 +41,17 @@ app.get('/api/users',function( req,res ){
         });
     });
 });
+
+app.get('/api/user/:id',function(req,res){
+    console.log("user");
+    console.log("Access, " + parseInt(req.params.id));
+    client.connect( function(err){
+        if(err) throw err;
+        var dbo = client.db(dbName);
+        var query = { _id: parseInt(req.params.id)};
+        dbo.collection("users").findOne(query, function(err, result) {
+            if (err) handleError(res, err.message,'Failed to get document');
+            res.json(result);
+        });
+    });
+});
