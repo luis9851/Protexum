@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
         data: res.dataUser.nombre
       })
 
-      this.router.navigate(['/lista-elementos'])
+      this.router.navigate(['/home'])
 
     })
 

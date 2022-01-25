@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 const url = 'mongodb://localhost:27017';
-const dbName = "protexum";
+const dbName = "Control";
 
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
@@ -31,13 +31,14 @@ app.listen(port, function(){
 });
 
 app.get('/api/users',function( req,res ){
-    console.log("uno");
+    console.log("User_List");
     client.connect(function(err) {
         if (err) throw err;
         var dbo = client.db(dbName);
         dbo.collection("users").find({}).toArray(function(err,result){
             if (err) throw err;
             res.json(result);
+            console.log(result);
         });
     });
 });
