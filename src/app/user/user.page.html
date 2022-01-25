@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <div class="perfil-usuario-avatar">
+                <img src="{{ user.fileUrl }}" alt="img-avatar">
+                <button type="button" class="boton-avatar">
+                    <i class="far fa-image"></i>
+                </button>
+            </div>
+            <button type="button" class="boton-portada">
+                <i class="far fa-image"></i> Cambiar fondo
+            </button>
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo">{{ user.nombre }} {{ user.apellidos }} </h3>
+            <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="perfil-usuario-footer">
+            <ul class="lista-datos">
+                <li><i class="icono fas fa-map-signs"></i>Dirección: {{ user.domicilio }}</li>
+                <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ user.telefono}}</li>
+                <li><i class="icono fas fa-phone-alt"></i>Tel. adicional: {{ user.telefonoadicional }}</li>
+                <li><i class="icono fas fa-envelope"></i>Correo: {{ user.correoelectronico }}</li>
+                <li><i class="icono fas fa-file"></i>RFC: {{ user.rfc }}</li>
+                <li><i class="icono fas fa-building"></i>Estado civil: {{ user.estadocivil }}</li>
+                <li><i class="icono fas fa-credit-card"></i>Credito Infonavit: {{ user.creditodeInfonavit }}</li>
+            </ul>
+            <ul class="lista-datos">
+                <li><i class="icono fas fa-briefcase"></i>Pensionado: {{ user.pensionado }}</li>
+                <li><i class="icono fas fa-graduation-cap"></i>Nivel de estudios: {{ user.niveldeescolaridad }}</li>
+                <li><i class="icono fas fa-box-open"></i>Talla de uniforme: {{ user.talladeplayera }} {{user.talladepantalon}} </li>
+                <li><i class="icono fas fa-calendar-alt"></i> Fecha de nac: {{dd}}/{{mm}}/{{yy}} </li>
+                <li type="date" ><i class="icono fas fa-calendar-alt"></i> Fecha de entrada: {{ddE}}/{{mmE}}/{{yyE}}</li>
+                <li><i class="icono fas fa-file"></i>No. Seguro Social: {{ user.nsegurosocial}}</li>
+                <li><i class="icono fas fa-user"></i>Tipo:{{user.rol}} </li>
+            </ul>
+        </div>
+    </div>
+</section>
+</ion-content>

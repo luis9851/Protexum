@@ -1,3 +1,5 @@
+import { UserI } from './user';
+import { Users } from './users/users';
 export interface JwtResponseI {
     dataUser :{
         id: number,
@@ -8,4 +10,6 @@ export interface JwtResponseI {
         expiresIn: string,
        
     }
+
+  users : Users[];
 }
