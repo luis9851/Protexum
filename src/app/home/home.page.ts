@@ -10,7 +10,7 @@ import { Users } from '../models/users/users';
 })
 export class HomePage implements OnInit {
 
-  users: Users[]=[]; 
+  users: any=[]; 
 
   constructor(private _Service: ServiceService, private router: Router) { }
 
