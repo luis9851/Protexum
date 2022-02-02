@@ -6,26 +6,31 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
-  {
-    path: 'lista-elementos',
-    loadChildren: () => import('./lista-elementos/lista-elementos.module').then( m => m.ListaElementosPageModule)
-  },
+
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
- 
+  {
+    path: 'user/:id',
+    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+  },
+  {
+    path: 'editar-user/:id',
+    loadChildren: () => import('./editar-user/editar-user.module').then( m => m.EditarUserPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+
 ];
 
 @NgModule({

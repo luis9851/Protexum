@@ -35,13 +35,7 @@ export class UserPage implements OnInit {
       // fecha de entrada
       this.yyE = this.user.fechadeentrada[0] + this.user.fechadeentrada[1] + this.user.fechadeentrada[2] + this.user.fechadeentrada[3];
       this.mmE =  this.user.fechadeentrada[5] + this.user.fechadeentrada[6];
-      this.ddE = this.user.fechadeentrada[8] + this.user.fechadeentrada[0];
-      
- 
-     
-       
-     
-          
+      this.ddE = this.user.fechadeentrada[8] + this.user.fechadeentrada[0];     
       },
       error =>{
 

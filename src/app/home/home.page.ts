@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
 import { Users } from '../models/users/users';
-import { UserI } from '../models/user';
+
 
 @Component({
   selector: 'app-home',
