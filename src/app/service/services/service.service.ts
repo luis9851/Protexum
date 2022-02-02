@@ -43,7 +43,8 @@ const httpOptions = {
       let url = `${this.apiUrl}idimage/consulta`;
       return this.http.get(url).pipe(map((resp) => {
          return resp 
-      }),  catchError(this.handleError) )    }
+      }),  catchError(this.handleError) )    
+    }
     
     // getUsers():Observable<Users[]>{
     //     console.log('getUsers');
@@ -58,7 +59,15 @@ const httpOptions = {
       let url = `${this.apiUrl}idimage/consulta/${id}`;
       return this.http.get(url).pipe(map((resp) => {
          return resp 
-      }),  catchError(this.handleError) )    }
+      }),  catchError(this.handleError) )    
+    }
+
+    getSearch(search: string): Observable<any> {
+      let url = `${this.apiUrl}idimage/buscar/${search}`;
+      return this.http.get(url).pipe(map((resp) => {
+         return resp 
+      }),  catchError(this.handleError) )    
+    }
 
 
 

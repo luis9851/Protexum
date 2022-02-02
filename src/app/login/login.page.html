@@ -1,6 +1,29 @@
 <ion-header>
   <ion-toolbar class="color2">
-    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="49px" width="320px" alt="Logo">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #FED03D !important;">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <a class="navbar-brand" href="#">
+        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
+      </a>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- active es la clase para hacer que resalte en el menu -->
+          <li class="nav-item" routerLinkActive="active">
+            <a style="color: #FFFFFF;" class="nav-link" href="#">Inicio</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a style="color: #FFFFFF;" class="nav-link" href="/registro">Registrarse</a>
+          </li>
+        </ul>
+    
+      </div>
+    </nav>
   </ion-toolbar>
 </ion-header>
 
@@ -12,12 +35,12 @@
     
 
     <form #frmLogin="ngForm" class="login-container" (ngSubmit)="Login(frmLogin)">
-      <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
-      <p><ion-input type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
-      <p><input type="submit" value="Iniciar Sesion"> </p>
+      <p><ion-input class="login-inputs" type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
+      <p><ion-input class="login-inputs" type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
+      <p><button class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Iniciar Sesion">Iniciar Sesion</button></p>
 
      
-      <ion-label class="link" [routerLink]="['/registro']" > ¿Olvidaste tu contraseña? </ion-label>
+      <ion-label class="link" [routerLink]="['/']" > ¿Olvidaste tu contraseña? </ion-label>
       
      
     </form>
