@@ -1,0 +1,181 @@
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup , Validators  } from '@angular/forms'
+import { LoginService } from '../service/login.service';
+import { UserI } from '../models/user';
+import { NgForm } from '@angular/forms';
+import { imageI } from '../models/images';
+import { ActivatedRoute, Router } from '@angular/router';
+@Component({
+  selector: 'app-editar-user',
+  templateUrl: './editar-user.page.html',
+  styleUrls: ['./editar-user.page.scss'],
+})
+export class EditarUserPage implements OnInit {
+  // es para agregar una imagem
+  usuario : UserI;
+  imageForm! : FormGroup
+  file: any;
+
+// esta variebles son para redirecionar informacion
+  idimage: imageI
+  idUser : any
+  id: string;
+
+// variables para editar usuario
+userForm: FormGroup
+//imagen del usuario
+urlfile:any=[];
+   
+
+  constructor(private servicio: LoginService, private activatedRoute:ActivatedRoute , private router: Router,
+    private fb: FormBuilder) {
+     this.userForm =  this.fb.group({
+       nombre: ['', Validators.required],
+      apellidos: ['', Validators.required],
+       curp: ['', Validators.required],
+       nsegurosocial: ['', Validators.required],
+       rfc: ['', Validators.required],
+       domicilio: ['', Validators.required],
+       fechadeentrada: ['', Validators.required],
+       fechadenacimiento: ['', Validators.required],
+       telefono: ['', Validators.required],
+       telefonoadicional: ['', Validators.required],
+       creditodeInfonavit: ['', Validators.required],
+       estadocivil: ['', Validators.required],
+       correoelectronico: ['', Validators.required],
+       talladeplayera: ['', Validators.required],
+       talladepantalon: ['', Validators.required],
+       pensionado: ['', Validators.required],
+       niveldeescolaridad: ['', Validators.required],
+       contrasena: ['', Validators.required],
+       
+     })
+
+     this.activatedRoute.params.subscribe( params => {
+      this.id = params['id'];
+     
+    })
+
+     }
+
+
+
+  ngOnInit() {
+    
+    this.imageForm = new FormGroup({
+      name: new FormControl(null,Validators.required),
+      file: new FormControl(null, Validators.required)
+    })
+  
+   this.Editar();
+  }
+
+
+
+  Editar(){
+
+     if(this.id !== null){
+      
+       this.servicio.obtenerUser(this.id).subscribe( data => {
+
+          console.log(data.user)
+          this.urlfile = data.user.fileUrl
+
+      let user = data.user;
+      
+        this.userForm.patchValue(user)
+      
+         // para poner en la parte de fecha la hora correcta
+    this.userForm.patchValue({ fechadeentrada: new Date(user.fechadeentrada).toLocaleDateString("en-GB")});
+    this.userForm.patchValue({ fechadenacimiento: new Date(user. fechadenacimiento).toLocaleDateString("en-GB")});
+    console.log(this.userForm.value)
+        
+       })
+    }
+
+
+  }
+
+  actualizar(){
+ // recorada ponerle una alerta para cuando actualizar las imagenes y preguntar si los datos esta bien puestos
+   
+
+
+     this.servicio.Editar_U(this.id ,this.userForm.value ).subscribe(  ( res => {
+      console.log(res.dataUser);
+    //  // igualo la variable idUser para que tenga los datos de id del user
+       this.idUser = this.id
+       
+      
+
+   
+
+      this.router.navigate(['/home'])
+     }
+    
+     ))
+  }
+  onFileChange(event: any){
+  
+    if(event.target.files && event.target.files.length > 0 ){
+      const file = event.target.files[0];
+      if(file.type.includes("image")){
+        const reader = new FileReader()
+        reader.readAsDataURL(file);
+        
+ 
+        this.file = file;
+        console.log(file)
+      }else{
+        console.log("there was an error")
+      }
+    }
+   }
+ 
+ 
+   updateurl2(){
+     this.servicio. disparadoridmage.subscribe(data =>{
+      console.log(this.id)
+     
+     //  aqui estoy mandando a llamar la funcion para id
+    this.servicio.actualizarimagen( this.id,data.data).subscribe((res => {
+
+      console.log(res)
+   
+   } ))
+      
+     })
+       
+ 
+   }
+ 
+   onSubmit(){
+     
+     const form = this.imageForm;
+   
+     form.value.name = "Foto"
+    
+       this.servicio.uploadImage(form.value.name, this.file)
+       .subscribe(res => {
+         this. updateurl2()
+       
+         this.servicio.disparadoridmage.emit({
+           data: res.dataimage.fileUrl
+         })
+ 
+         
+         this.imageForm = new FormGroup({
+           name : new FormControl (null),
+           file: new FormControl(null)
+          
+         })
+        
+         
+           
+         
+       })
+     
+ 
+   }
+
+}

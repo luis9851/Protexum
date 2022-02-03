@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpParams, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import { Users } from 'src/app/models/users/users';
 
 
 const httpOptions = {
@@ -19,7 +17,7 @@ const httpOptions = {
   
     constructor(private http: HttpClient ) { 
       console.log("Servicio listo...");
-      this.apiUrl ="http://localhost:3000/api/";
+      this.apiUrl ="http://localhost:3001/api/";
     }
   
     private handleError(error: HttpErrorResponse){
@@ -37,22 +35,37 @@ const httpOptions = {
       return body || {};
     }
     
-    getUsers():Observable<Users[]>{
-        console.log('getUsers');
-        let url = `${this.apiUrl}users`;
-        return this.http.get<Users[]>(url, httpOptions).pipe(
-        catchError(this.handleError)
-        );
+    getobtener(): Observable<any> {
+      let url = `${this.apiUrl}idimage/consulta`;
+      return this.http.get(url).pipe(map((resp) => {
+         return resp 
+      }),  catchError(this.handleError) )    
+    }
+    
+
+
+    getobtenerid(id: string): Observable<any> {
+      let url = `${this.apiUrl}idimage/consulta/${id}`;
+      return this.http.get(url).pipe(map((resp) => {
+         return resp 
+      }),  catchError(this.handleError) )    
     }
 
-    getUser( _id: string):Observable<Users>{
-      console.log('getUser');
-      let url = `${this.apiUrl}user/${_id}`;
-      console.log(url);
-      return this.http.get<Users>(url, httpOptions).pipe(
-        tap(data => {console.log(JSON.stringify(data))}),
-        catchError(this.handleError)
-      );
+    getSearch(search: string): Observable<any> {
+      let url = `${this.apiUrl}idimage/buscar/${search}`;
+      return this.http.get(url).pipe(map((resp) => {
+         return resp 
+      }),  catchError(this.handleError) )  
+        
     }
 
-  }
+
+
+
+}
+
+   
+
+    
+
+  

@@ -1,5 +1,5 @@
 
-  <ion-grid class="login">
+  <ion-grid class="login" >
     <ion-grid class="login-triangle"></ion-grid>
     
     <h2 class="login-header">Registra a tu nuevo elemento</h2>
@@ -12,11 +12,13 @@
       <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
       <p><ion-input type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
       <p><ion-input type="text" name="domicilio" placeholder="domicilio" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="date" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="date" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
+      <ion-label>Fecha de entrada </ion-label>
+       <p><ion-input type="date" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p> 
+       <ion-label>Fecha de Nacimiento</ion-label>
+       <p><ion-input type="date" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p> 
       <p><ion-input type="tel" name="telefono" placeholder="Telefono " ngModel required=""> </ion-input> </p>
       <p><ion-input type="tel" name="telefonoadicional" placeholder="Telefono Adicional" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
+      <p><ion-input type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito de Infonavit si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
       <!-- <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p> -->
       <ion-item  >
         <ion-label>Cual es su estado Civil:</ion-label>
@@ -53,18 +55,21 @@
           
         </ion-select>
     </ion-item>
-    
+      
       <p><ion-input type="password" name="contrasena" placeholder="Contrasena" ngModel required> </ion-input></p> 
+      <ion-label>Agrega Foto del Elemento</ion-label>
       <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
         <input type="file" placeholder="File" (change)="onFileChange($event)"
        formControlName="file" >
        
-      
        </form>
       
-      <p><input type="submit" value="Registrar"> </p>
+      <p><input type="submit" value="Registrar"  > </p>
       
     </form>
    
    
   </ion-grid>
+
+
+  
