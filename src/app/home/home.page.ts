@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
   users: Users[] =[]; 
   busc: any = [];
   search: String = "";
+  
 
   constructor(private servicio : ServiceService , private router: Router,private activatedRoute: ActivatedRoute) { }
  // obtener los usuario

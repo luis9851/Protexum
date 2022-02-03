@@ -66,7 +66,8 @@ const httpOptions = {
       let url = `${this.apiUrl}idimage/buscar/${search}`;
       return this.http.get(url).pipe(map((resp) => {
          return resp 
-      }),  catchError(this.handleError) )    
+      }),  catchError(this.handleError) )  
+        
     }
 
 
