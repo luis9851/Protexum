@@ -3,10 +3,6 @@ import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpParams, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import { Users } from 'src/app/models/users/users';
-import { JwtResponseI } from '../../models/jwt-response';
-import { UserI } from '../../models/user';
 
 
 const httpOptions = {
@@ -46,13 +42,6 @@ const httpOptions = {
       }),  catchError(this.handleError) )    
     }
     
-    // getUsers():Observable<Users[]>{
-    //     console.log('getUsers');
-    //     let url = `${this.apiUrl}idimage/consulta`;
-    //     return this.http.get<JwtResponseI>(url, httpOptions).pipe(  map(({users}) => users ),
-    //     catchError(this.handleError)
-    //     );
-    // }
 
 
     getobtenerid(id: string): Observable<any> {
@@ -69,6 +58,7 @@ const httpOptions = {
       }),  catchError(this.handleError) )  
         
     }
+
 
 
 

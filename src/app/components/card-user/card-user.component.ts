@@ -13,7 +13,7 @@ export class CardUserComponent implements OnInit {
 
   @Input() users: any = {};
   @Input() index: string;
-  
+  @Input() indexE: string;
   @Output() userSeleccionado: EventEmitter<number>;
 
   constructor(private router: Router, private servicio: LoginService, private toast: ToastController,private Sconsultas: ServiceService ) {
@@ -28,12 +28,21 @@ export class CardUserComponent implements OnInit {
     console.log(this.index)
    
   }
+
+  Editar_U(_id: string){
+    this.indexE = _id;
+    this.router.navigate(['/editar-user', this.indexE]);
+    console.log(this.indexE)
+  }
+
   delete(_id: string){
     this.servicio.deleteuser(_id).subscribe(data => {
       this.presentToast();
 
     })
   }
+
+
 
 
   
