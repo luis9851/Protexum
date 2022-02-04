@@ -1,70 +1,173 @@
+<ion-header>
+  <ion-toolbar class="color2">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #FED03D !important;">
 
-  <ion-grid class="login">
-    <ion-grid class="login-triangle"></ion-grid>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     
-    <h2 class="login-header">Registra a tu nuevo elemento</h2>
-  
-    <form #frmRegister="ngForm" class="login-container" (ngSubmit)="Register(frmRegister)" >
+      <a class="navbar-brand" href="#">
+        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
+      </a>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <!-- active es la clase para hacer que resalte en el menu -->
+          <li class="nav-item" routerLinkActive="active">
+            <a style="color: #FFFFFF;" class="nav-link" href="#">Inicio</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a style="color: #FFFFFF;" class="nav-link" href="/registro">Registrarse</a>
+          </li>
+        </ul>
+    
+      </div>
+    </nav>
+  </ion-toolbar>
+</ion-header>
 
-      <p><ion-input type="text" name="nombre" placeholder="Nombre" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="apellidos" placeholder="apellidos" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="curp" placeholder="CURP" ngModel required="" class="mayusculas"> </ion-input> </p>
-      <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="domicilio" placeholder="domicilio" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="date" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="date" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="tel" name="telefono" placeholder="Telefono " ngModel required=""> </ion-input> </p>
-      <p><ion-input type="tel" name="telefonoadicional" placeholder="Telefono Adicional" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
+
+<ion-content [fullscreen]="true">
+  <div class="login" style="position: absolute;width: 100%; height: auto;">
+    <main>
+      <h2 class="login-header">Registra a tu nuevo elemento</h2>
+  
+    <form #frmRegister="ngForm" class="formulario" (ngSubmit)="Register(frmRegister)">
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="nombre" placeholder="Nombre" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="apellidos" placeholder="apellidos" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input mayusculas" type="text" name="curp" placeholder="CURP" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>  
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
+        </div>
+        </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="domicilio" placeholder="domicilio" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-label class="formulario__label">Fecha de entrada </ion-label>
+          <p><ion-input class="formulario__input" type="date" name="fechadeentrada" placeholder="Fecha de entrada" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-label class="formulario__label">Fecha de Nacimiento</ion-label>
+          <p><ion-input class="formulario__input" type="date" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>  
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefono" placeholder="Telefono " ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefonoadicional" placeholder="Telefono Adicional" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito de Infonavit si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
+        </div>
+      </div>
       <!-- <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p> -->
-      <ion-item  >
-        <ion-label>Cual es su estado Civil:</ion-label>
-        <ion-select   ngModel   name="estadocivil" required="" >
-            <ion-select-option value="Soltero">Soltero</ion-select-option>
-            <ion-select-option value="Casado">Casado</ion-select-option>
-            <ion-select-option value="Divorciado">Divorciado</ion-select-option>
-            <ion-select-option value="Viudo">Viudo</ion-select-option>
-          
-        </ion-select>
-    </ion-item>
-      <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico" ngModel required=""> </ion-input> </p>
-      <p><ion-input type="text" name="talladeplayera" placeholder="Cual es su talla de playera" ngModel required="" maxlength="25"> </ion-input> </p>
-     
-      <p><ion-input type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
-      <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
-      <ion-item  >
-        <ion-label>Es pensionado:</ion-label>
-        <ion-select   ngModel   name="pensionado" required="" >
-            <ion-select-option value="Si">Si</ion-select-option>
-            <ion-select-option value="No">No</ion-select-option>
-          
-          
-        </ion-select>
-    </ion-item>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Cual es su estado Civil:</ion-label>
+            <ion-select   ngModel   name="estadocivil" required="" >
+                <ion-select-option value="Soltero">Soltero</ion-select-option>
+                <ion-select-option value="Casado">Casado</ion-select-option>
+                <ion-select-option value="Divorciado">Divorciado</ion-select-option>
+                <ion-select-option value="Viudo">Viudo</ion-select-option>
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" name="correoelectronico" placeholder="correoelectronico" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="talladeplayera" placeholder="Cual es su talla de playera" ngModel required="" maxlength="25"> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
+        </div>
+      </div>
+        <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item  class="formulario__input">
+            <ion-label>Es pensionado:</ion-label>
+            <ion-select   ngModel   name="pensionado" required="" >
+                <ion-select-option value="Si">Si</ion-select-option>
+                <ion-select-option value="No">No</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      
       <!-- <p><ion-input type="text" name="niveldeescolaridad" placeholder="Nivel de Escolaridad" ngModel required=""> </ion-input> </p>   -->
     
-      <ion-item  >
-        <ion-label>Nivel de Escolaridad:</ion-label>
-        <ion-select   ngModel   name="niveldeescolaridad" required="" >
-            <ion-select-option value="Primaria">Primaria</ion-select-option>
-            <ion-select-option value="Secundaria">Secundaria </ion-select-option>
-            <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
-          
-        </ion-select>
-    </ion-item>
-    
-      <p><ion-input type="password" name="contrasena" placeholder="Contrasena" ngModel required> </ion-input></p> 
-      <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
-        <input type="file" placeholder="File" (change)="onFileChange($event)"
-       formControlName="file" >
-       
-      
-       </form>
-      
-      <p><input type="submit" value="Registrar"> </p>
-      
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item  class="formulario__input">
+            <ion-label>Nivel de Escolaridad:</ion-label>
+            <ion-select ngModel   name="niveldeescolaridad" required="" >
+                <ion-select-option value="Primaria">Primaria</ion-select-option>
+                <ion-select-option value="Secundaria">Secundaria </ion-select-option>
+                <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="password" name="contrasena" placeholder="Contrasena" ngModel required> </ion-input></p>
+        </div> 
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-label>Agrega Foto del Elemento</ion-label>
+          <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
+            <input type="file" placeholder="File" (change)="onFileChange($event)"
+          formControlName="file" >
+          </form>
+        </div>
+      </div>
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Registrar"> </p>
     </form>
+  </main>
    
-   
-  </ion-grid>
+  </div>
+</ion-content>
+
+  

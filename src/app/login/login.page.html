@@ -18,13 +18,12 @@
             <a style="color: #FFFFFF;" class="nav-link" href="#">Inicio</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a style="color: #FFFFFF;" class="nav-link" href="#">Registrarse</a>
+            <a style="color: #FFFFFF;" class="nav-link" href="/registro">Registrarse</a>
           </li>
         </ul>
     
       </div>
     </nav>
-    
   </ion-toolbar>
 </ion-header>
 
@@ -39,12 +38,7 @@
       <p><ion-input class="login-inputs" type="email" name="correoelectronico" placeholder="correoelectronico"  ngModel required=""> </ion-input> </p>
       <p><ion-input class="login-inputs" type="password" name="contrasena" placeholder="contrasena" ngModel required=""> </ion-input></p>
       <p><button class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Iniciar Sesion">Iniciar Sesion</button></p>
-      <!-- <p><input type="submit" value="Iniciar Sesion"> </p> -->
-
-     
-      <ion-label class="link" [routerLink]="['/registro']" > ¿Olvidaste tu contraseña? </ion-label>
-      <br>
-     
+      <ion-label class="link" [routerLink]="['/']" > ¿Olvidaste tu contraseña? </ion-label>
     </form>
   </ion-grid>
 </ion-content> 

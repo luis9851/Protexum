@@ -1,11 +1,11 @@
 import { Injectable, Output,EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserI } from '../models/user';
 import { JwtResponseI } from '../models/jwt-response';
-import {tap} from 'rxjs/operators';
-import { Observable, BehaviorSubject } from 'rxjs';
+import {tap, catchError, map} from 'rxjs/operators';
+import { Observable, BehaviorSubject, pipe } from 'rxjs';
 import { imageI } from '../models/images';
-
+import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +16,27 @@ export class LoginService {
   idimage : any = []
  @Output() disparadorderol: EventEmitter<any> = new EventEmitter();
  @Output() disparadoridmage: EventEmitter<any> = new EventEmitter();
+ @Output() disparadoralertas: EventEmitter<any> = new EventEmitter();
+ @Output() disparadoractualizadorId: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) { }
+
+  private handleError(error: HttpErrorResponse){
+    if(error.error instanceof ErrorEvent){
+      console.error(error.error.message);
+    }
+    else{
+      console.error(`Error status: ${error.status}, error: ${error.error}`);
+    }
+    return throwError( 'Hubo un error en la aplicacion. Verificar logs');
+  }
+
+
+  obtenerUser(id: String):Observable<any>{
+   return this.http.get(`${this.AUTH_SERVER}/api/obtener/${id}`).pipe(map((resp) => {
+    return resp 
+ }),  catchError(this.handleError) )    
+  }
 
 // registrar usuario
   register(user:UserI ): Observable<JwtResponseI>{
@@ -30,21 +49,42 @@ export class LoginService {
          
         }
       }
-    ))
+    ), catchError(this.handleError))
   }
-  // AgregarIdimagen( idUser:any ,fileUrl: any ){  
-  //   console.log(fileUrl)
-  //   return this.http.put(`${this.AUTH_SERVER}/api/idimage/image/${idUser}`,fileUrl)
-   
-  // }
+  Editar_U(id:any ,user:UserI ): Observable<JwtResponseI>{
+    return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/update/${id}`,
+    user).pipe(tap(
+      (res: JwtResponseI)=> {
+       
+      }
+    ), catchError(this.handleError))
+  }
+
   AgregarIdimagen(idUser:any, fileUrl:String ): Observable<JwtResponseI>{
     return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/image/${idUser}`,
     {url:fileUrl}).pipe(tap(
       (res: JwtResponseI)=> {
       
       }
-    ))
+    ),catchError(this.handleError) )
  }
+
+ actualizarimagen(id:any, fileUrl:String ): Observable<JwtResponseI>{
+  return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/actualizarimg/${id}`,
+  {url:fileUrl}).pipe(tap(
+    (res: JwtResponseI)=> {
+    
+    }
+  ),catchError(this.handleError) )
+}
+
+ deleteuser(_id: String): Observable<JwtResponseI>{
+  return this.http.delete<JwtResponseI>(`${this.AUTH_SERVER}/api/delete/${_id}`).pipe(tap(
+    (res: JwtResponseI)=> {
+    
+    }
+  ), catchError(this.handleError) )
+}
   // login 
   login(user:UserI): Observable<JwtResponseI>{
     return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/login`,
@@ -76,11 +116,9 @@ export class LoginService {
         
         
       }
-    ))
+    ), catchError(this.handleError))
     }
-    
-
-  
+     
   logout(): void{
     this.token ='';
     localStorage.removeItem("ACCESS_TOKEN");

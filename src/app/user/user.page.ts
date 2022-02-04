@@ -1,6 +1,7 @@
 import { Router,ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/services/service.service';
+import { ComponentsModule } from '../components/components.module';
 
 @Component({
   selector: 'app-user',
@@ -9,8 +10,14 @@ import { ServiceService } from '../service/services/service.service';
 })
 export class UserPage implements OnInit {
   public folder: string;
+  dd: string
+  mm: string
+  yy: string
+  ddE: string
+  mmE: string
+  yyE: string
   user: any=[];
-  id: string = "";
+  id: string;
   accion: string = "2";
   public ismodelShown: boolean = false;
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
@@ -18,13 +25,22 @@ export class UserPage implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
-      this._Service.getUser(params['id']).subscribe(usuario =>{
-        this.user = usuario;
+      this._Service.getobtenerid(params['id']).subscribe(data =>{
+        this.user = data.user;
+        console.log(this.user)
+       // formato de fechas
+      this.yy = this.user.fechadenacimiento[0] + this.user.fechadenacimiento[1] + this.user.fechadenacimiento[2] + this.user.fechadenacimiento[3];
+      this.mm =  this.user.fechadenacimiento[5] + this.user.fechadenacimiento[6];
+      this.dd = this.user.fechadenacimiento[8] + this.user.fechadenacimiento[0];
+      // fecha de entrada
+      this.yyE = this.user.fechadeentrada[0] + this.user.fechadeentrada[1] + this.user.fechadeentrada[2] + this.user.fechadeentrada[3];
+      this.mmE =  this.user.fechadeentrada[5] + this.user.fechadeentrada[6];
+      this.ddE = this.user.fechadeentrada[8] + this.user.fechadeentrada[0];     
       },
       error =>{
 
       });
-      console.log(this.user);
+    
     })
   }
 
