@@ -74,7 +74,7 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
                  console.log(this.idUser)
                    this.updateurl(this.idUser)
         
-                  //  this.router.navigate(['/home'])
+                  this.router.navigate(['/login']);
       
                  }))
 
