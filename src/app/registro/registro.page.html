@@ -1,8 +1,12 @@
 
+<ion-content [fullscreen]="true">
   <ion-grid class="login" >
+
     <ion-grid class="login-triangle"></ion-grid>
-    
+ 
+   
     <h2 class="login-header">Registra a tu nuevo elemento</h2>
+    
   
     <form #frmRegister="ngForm" class="login-container" (ngSubmit)="Register(frmRegister)" >
 
@@ -62,14 +66,14 @@
         <input type="file" placeholder="File" (change)="onFileChange($event)"
        formControlName="file" >
        
-       </form>
       
+       </form>
+     
       <p><input type="submit" value="Registrar"  > </p>
       
     </form>
-   
-   
+
   </ion-grid>
 
-
+</ion-content>
   

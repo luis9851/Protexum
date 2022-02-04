@@ -1,17 +1,19 @@
+
+      <a class="navbar-brand" href="#">
+        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
+      </a>
+<ion-content  class="fondo" [fullscreen]="true">
 <ion-grid class="login" >
-  <ion-grid class="login-triangle"></ion-grid>
+  <ion-grid class=""></ion-grid>
+
+  <a class="navbar-brand" href="#">
+    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="60px" width="mr-auto" alt="Logo">
+  </a>
   
-  <h2 class="login-header">Actualizar informacion de un Elemento</h2>
+  <h2 class="login-header">Actualizar informacion</h2>
 
 
-  <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
-    <input type="file" placeholder="File" (change)="onFileChange($event)"
-   formControlName="file" >
-
-
-   <input type="submit" value="Actualizar Foto">
   
-   </form>
   <form [formGroup]="userForm" class="login-container" (ngSubmit)="actualizar()" >
 
 
@@ -75,15 +77,29 @@
         
       </ion-select>
   </ion-item>
-  
-  
+
+
+
+  <ion-label>Seleccione una nueva fotografía</ion-label>
+
+  <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
+    <input type="file" placeholder="File" (change)="onFileChange($event)"
+   formControlName="file" >
+
+   <p>
+   <input style="background-color: #FE693D"  type="submit" value="Actualizar Foto">
+  </p>
+   </form>
+
 
 
     
-    
-    <p><input type="submit" value="Actualizar"> </p>
+  <p> 
+  <button routerLink="/user/:id" (click)=EditarPerfil class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Actualizar</button>
+</p> 
     
   </form>
- 
+
  
 </ion-grid>
+</ion-content>
