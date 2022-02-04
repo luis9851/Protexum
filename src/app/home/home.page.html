@@ -21,11 +21,12 @@
     <app-card-user (userSeleccionado)="verUser( $event )" [users]= "foo" [index]="i" *ngFor="let foo of users; let i = index"></app-card-user>
 
   </ion-list>
-  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add" [routerLink]="['/registro'] "> </ion-icon>
     </ion-fab-button>
   </ion-fab>
+  <!-- 
   <ion-footer class="ion-no-border">
     <ion-toolbar>
       <ion-title>Footer - No Border</ion-title>

@@ -1,5 +1,4 @@
-import { Router,ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
 import { ComponentsModule } from '../components/components.module';
 
@@ -9,6 +8,8 @@ import { ComponentsModule } from '../components/components.module';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
+  @Input() index: string;
+  @Input() indexE: string;
   public folder: string;
   dd: string
   mm: string
@@ -19,6 +20,7 @@ export class UserPage implements OnInit {
   user: any=[];
   id: string;
   accion: string = "2";
+ 
   public ismodelShown: boolean = false;
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
@@ -42,6 +44,6 @@ export class UserPage implements OnInit {
       });
     
     })
+    
+  }  
   }
-
-}
