@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../service/login.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController,ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AlertController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   
 
-  constructor(private servicio: LoginService, private router: Router, private alertController: AlertController) { }
+  constructor(private servicio: LoginService, private toast: ToastController, private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {
  
@@ -21,7 +22,7 @@ export class LoginPage implements OnInit {
     
     if(form.value.correoelectronico == "" || form.value.contrasena == ""){
      
-     this.presentAlert()
+     this.FaltanDatos()
     
     } else{
     this.servicio.disparadoralertas.subscribe(data => {
@@ -47,24 +48,22 @@ export class LoginPage implements OnInit {
 
 
   }
-  async presentAlert(){
-    const alert = await this.alertController.create({
-      header: "LLena todos los datos ",
-      buttons:["ok"]
+  async FaltanDatos(){
+    const toast = await this.toast.create({
+      message: "Porfavor llena todos los datos",
+      duration: 2000,
+      position: "bottom"
     });
-    await alert.present()
-    let result = await alert.onDidDismiss();
-    console.log(result);
-  }
+    toast.present()
+  } 
 
   async algofallo(){
-    const alert = await this.alertController.create({
-      header: "La contraseña o correo que ingresaste no es valido, Por favor, intentalo de nuevo",
-      buttons:["ok"]
+    const toast = await this.toast.create({
+      message: "La contraseña o correo que ingresaste no es valido, Por favor, intentalo de nuevo",
+      duration: 2000,
+      position: "bottom"
     });
-    await alert.present()
-    let result = await alert.onDidDismiss();
-    console.log(result);
+    toast.present()
   }
 
   async exelente(){
