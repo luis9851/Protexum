@@ -2,49 +2,45 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from '../../service/login.service';
-
 @Component({
-  selector: 'app-card-user',
-  templateUrl: './card-user.component.html',
-  styleUrls: ['./card-user.component.scss'],
+  selector: 'app-card-client',
+  templateUrl: './card-client.component.html',
+  styleUrls: ['./card-client.component.scss'],
 })
-export class CardUserComponent implements OnInit {
+export class CardClientComponent implements OnInit {
 
-  @Input() users: any = {};
-  @Input() index: string;
-  @Input() indexE: string;
+  @Input() clients: any = {};
+  @Input() indexc: string;
+  @Input() indexEc: string;
+
   @Output() userSeleccionado: EventEmitter<number>;
-
+  
   constructor(private router: Router, private servicio: LoginService, private toast: ToastController) {
     this.userSeleccionado = new EventEmitter();
    }
 
   ngOnInit() {}
 
-  verUser(_id: string){
-    this.index = _id;
-    this.router.navigate(['/user',this.index]);
-    console.log(this.index)
+  verClient(_id: string){
+    this.indexc = _id;
+    this.router.navigate(['/client',this.indexc]);
+    console.log(this.indexc)
    
   }
 
   Editar_U(_id: string){
-    this.indexE = _id;
-    this.router.navigate(['/editar-user', this.indexE]);
-    console.log(this.indexE)
+    this.indexEc = _id;
+    this.router.navigate(['/editar-client', this.indexEc]);
+    console.log(this.indexEc)
   }
 
   delete(_id: string){
-    this.servicio.deleteuser(_id).subscribe(data => {
+    this.servicio.deletecliente(_id).subscribe(data => {
       this.presentToast();
 
     })
   }
 
-
-
-
-  
   async presentToast(){
     const toast = await this.toast.create({
       message: "El Usuario fue eliminado con exito",
@@ -53,5 +49,4 @@ export class CardUserComponent implements OnInit {
     });
     toast.present()
   } 
-
 }

@@ -6,6 +6,7 @@ import {tap, catchError, map} from 'rxjs/operators';
 import { Observable, BehaviorSubject, pipe } from 'rxjs';
 import { imageI } from '../models/images';
 import { throwError } from 'rxjs';
+import { ClientResponseI } from '../models/client-response';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,7 +32,7 @@ export class LoginService {
     return throwError( 'Hubo un error en la aplicacion. Verificar logs');
   }
 
-
+// me trae los datos de usuario para posterio mente modificar los datos con el metodo de editar_u
   obtenerUser(id: String):Observable<any>{
    return this.http.get(`${this.AUTH_SERVER}/api/obtener/${id}`).pipe(map((resp) => {
     return resp 
@@ -60,7 +61,7 @@ export class LoginService {
     ), catchError(this.handleError))
   }
 
-  AgregarIdimagen(idUser:any, fileUrl:String ): Observable<JwtResponseI>{
+  AgregarIdimagen(idUser:any, fileUrl:String): Observable<JwtResponseI>{
     return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/image/${idUser}`,
     {url:fileUrl}).pipe(tap(
       (res: JwtResponseI)=> {
@@ -77,7 +78,7 @@ export class LoginService {
     }
   ),catchError(this.handleError) )
 }
-
+//eliminar usuarios
  deleteuser(_id: String): Observable<JwtResponseI>{
   return this.http.delete<JwtResponseI>(`${this.AUTH_SERVER}/api/delete/${_id}`).pipe(tap(
     (res: JwtResponseI)=> {
@@ -85,6 +86,17 @@ export class LoginService {
     }
   ), catchError(this.handleError) )
 }
+
+
+//eliminar clientes
+deletecliente(_id: String): Observable<ClientResponseI>{
+  return this.http.delete<ClientResponseI>(`${this.AUTH_SERVER}/api/deleteclients/${_id}`).pipe(tap(
+    (res: ClientResponseI)=> {
+    
+    }
+  ), catchError(this.handleError) )
+}
+
   // login 
   login(user:UserI): Observable<JwtResponseI>{
     return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/login`,

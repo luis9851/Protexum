@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';import { Router,ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
-import { ComponentsModule } from '../components/components.module';
+
 
 @Component({
   selector: 'app-user',

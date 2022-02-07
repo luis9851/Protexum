@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'list-clients',
     pathMatch: 'full'
   },
   {
@@ -30,6 +30,31 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'registroclients',
+    loadChildren: () => import('./registroclients/registroclients.module').then( m => m.RegistroclientsPageModule)
+  },
+  {
+    path: 'registropersonal',
+    loadChildren: () => import('./registropersonal/registropersonal.module').then( m => m.RegistropersonalPageModule)
+  },
+  {
+    path: 'list-clients',
+    loadChildren: () => import('./list-clients/list-clients.module').then( m => m.ListClientsPageModule)
+  },
+  {
+    path: 'client/:id',
+    loadChildren: () => import('./client/client.module').then( m => m.ClientPageModule)
+  },
+  {
+    path: 'editar-client/:id',
+    loadChildren: () => import('./editar-client/editar-client.module').then( m => m.EditarClientPageModule)
+  },
+
+
+
+
+
 
 ];
 

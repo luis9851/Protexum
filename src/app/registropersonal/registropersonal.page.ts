@@ -7,26 +7,25 @@ import { imageI } from '../models/images';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
-
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss'],
+  selector: 'app-registropersonal',
+  templateUrl: './registropersonal.page.html',
+  styleUrls: ['./registropersonal.page.scss'],
 })
-export class RegistroPage implements OnInit {
-  //datetime
-fechaNaci: Date = new Date();
+export class RegistropersonalPage implements OnInit {
+ //datetime
+ fechaNaci: Date = new Date();
 
 
-usuario : UserI;
-imageForm! : FormGroup
-file: any;
-// aqui esta la variabale para poder usarla en todo el ts
-idimage: imageI
-idUser : any
-id: string;
-
-constructor(private servicio: LoginService, private activatedRoute:ActivatedRoute , private router: Router,
+ usuario : UserI;
+ imageForm! : FormGroup
+ file: any;
+ // aqui esta la variabale para poder usarla en todo el ts
+ idimage: imageI
+ idUser : any
+ id: string;
+ 
+ constructor(private servicio: LoginService, private activatedRoute:ActivatedRoute , private router: Router,
   private toast: ToastController) { }
 
   ngOnInit() {
@@ -47,7 +46,7 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
   }
 
   Register(form : NgForm){
- 
+    console.log(form)
     
       if(form.value.apellidos == "" || form.value.contrasena == "" || form.value.correoelectronico == "" || 
       form.value.curp == "" || form.value.domicilio == "" || form.value.estadocivil == "" || form.value.fechadeentrada == ""  ||
@@ -63,8 +62,6 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
                  this.onSubmit()
 
 
-
-
                  // los datos de el elemento
                  this.servicio.register(form.value).subscribe( (res => {
     
@@ -72,12 +69,11 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
                  console.log(res.dataUser);
                  // igualo la variable idUser para que tenga los datos de id del user
                 this.idUser = res.dataUser.id
-               
       
                  console.log(this.idUser)
                    this.updateurl(this.idUser)
         
-                  this.router.navigate(['/login']);
+                  // this.router.navigate(['/home']);
       
                  }))
 
@@ -162,6 +158,5 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
     });
     toast.present()
   } 
- 
 
 }

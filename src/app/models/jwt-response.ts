@@ -1,4 +1,4 @@
-import { UserI } from './user';
+
 import { Users } from './users/users';
 export interface JwtResponseI {
     dataUser :{

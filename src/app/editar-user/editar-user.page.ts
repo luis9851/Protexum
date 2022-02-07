@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup , Validators  } from '@angular/forms'
 import { LoginService } from '../service/login.service';
 import { UserI } from '../models/user';
-import { NgForm } from '@angular/forms';
+
 import { imageI } from '../models/images';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -71,7 +71,7 @@ urlfile:any=[];
   }
 
 
-
+// este metodo es para mandar a traer los datos del usuario
   Editar(){
 
      if(this.id !== null){
@@ -85,10 +85,10 @@ urlfile:any=[];
       
         this.userForm.patchValue(user)
       
-         // para poner en la parte de fecha la hora correcta
-    this.userForm.patchValue({ fechadeentrada: new Date(user.fechadeentrada).toLocaleDateString("en-GB")});
-    this.userForm.patchValue({ fechadenacimiento: new Date(user. fechadenacimiento).toLocaleDateString("en-GB")});
-    console.log(this.userForm.value)
+    //      // para poner en la parte de fecha la hora correcta
+    // this.userForm.patchValue({ fechadeentrada: new Date(user.fechadeentrada).toLocaleDateString("en-GB")});
+    // this.userForm.patchValue({ fechadenacimiento: new Date(user. fechadenacimiento).toLocaleDateString("en-GB")});
+    // console.log(this.userForm.value)
         
        })
     }

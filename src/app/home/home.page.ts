@@ -10,6 +10,7 @@ import { Users } from '../models/users/users';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+// recuerden que si le mueven documenten el para saber para que sirven las cosas
 
   load: boolean=false;
   res: any =[];
@@ -37,7 +38,7 @@ export class HomePage implements OnInit {
     
     
   }
-  
+  // se usa para mandar a llamar los usuarios que estan activos en la base de datos
   obteneruser(){
     this.servicio.getobtener().subscribe(res => {
       console.log(res.user)
@@ -47,7 +48,7 @@ export class HomePage implements OnInit {
       console.log(error)
     })
   }
-
+//
   Bsearch(sea: string){
     this.servicio.getSearch(sea).subscribe(res =>{
       console.log(res.user);
