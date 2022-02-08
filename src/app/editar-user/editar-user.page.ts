@@ -85,10 +85,7 @@ urlfile:any=[];
       
         this.userForm.patchValue(user)
       
-    //      // para poner en la parte de fecha la hora correcta
-    // this.userForm.patchValue({ fechadeentrada: new Date(user.fechadeentrada).toLocaleDateString("en-GB")});
-    // this.userForm.patchValue({ fechadenacimiento: new Date(user. fechadenacimiento).toLocaleDateString("en-GB")});
-    // console.log(this.userForm.value)
+   
         
        })
     }

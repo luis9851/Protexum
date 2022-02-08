@@ -20,61 +20,62 @@ const httpOptions = {
       this.apiUrl ="http://localhost:3001/api/";
     }
   //detector de errores
-    private handleError(error: HttpErrorResponse){
-      if(error.error instanceof ErrorEvent){
-        console.error(error.error.message);
-      }
-      else{
-        console.error(`Error status: ${error.status}, error: ${error.error}`);
-      }
-      return throwError( 'Hubo un error en la aplicacion. Verificar logs');
+  private handleError(error: HttpErrorResponse){
+    if(error.error instanceof ErrorEvent){
+      console.error(error.error.message);
     }
-  
-    private extractData(res: Response){
-      let body = res;
-      return body || {};
+    else{
+      console.error(`Error status: ${error.status}, error: ${error.error}`);
     }
-    // trae los usuarios de la base de datos al home
-    getobtener(): Observable<any> {
-      let url = `${this.apiUrl}idimage/consulta`;
-      return this.http.get(url).pipe(map((resp) => {
-         return resp 
-      }),  catchError(this.handleError) )    
-    }
+    return throwError( 'Hubo un error en la aplicacion. Verificar logs');
+  }
+
+  private extractData(res: Response){
+    let body = res;
+    return body || {};
+  }
+  // trae los usuarios de la base de datos al home
+  getobtener(): Observable<any> {
+    let url = `${this.apiUrl}idimage/consulta`;
+    return this.http.get(url).pipe(map((resp) => {
+       return resp 
+    }),  catchError(this.handleError) )    
+  }
 
 
-    // trea los clientes de la base de datos al list-client
+  // trea los clientes de la base de datos al list-client
 
-     getobtenerclients(): Observable<any> {
-      let url = `${this.apiUrl}idimage/consultaclients`;
-      return this.http.get(url).pipe(map((resp) => {
-         return resp 
-      }),  catchError(this.handleError) )    
-    }
+   getobtenerclients(): Observable<any> {
+    let url = `${this.apiUrl}idimage/consultaclients`;
+    return this.http.get(url).pipe(map((resp) => {
+       return resp 
+    }),  catchError(this.handleError) )    
+  }
 
-  // obtiene la info del usuario para ponerlo en el perfil
-    getobtenerid(id: string): Observable<any> {
-      let url = `${this.apiUrl}idimage/consulta/${id}`;
-      return this.http.get(url).pipe(map((resp) => {
-         return resp 
-      }),  catchError(this.handleError) )    
-    }
+// obtiene la info del usuario para ponerlo en el perfil
+  getobtenerid(id: string): Observable<any> {
+    let url = `${this.apiUrl}idimage/consulta/${id}`;
+    return this.http.get(url).pipe(map((resp) => {
+       return resp 
+    }),  catchError(this.handleError) )    
+  }
 
-    // obtiene la info del cliente para ponerlo en el perfil
-     getobteneridcliente(id: string): Observable<any> {
-      let url = `${this.apiUrl}idimage/consultaclients/${id}`;
-      return this.http.get(url).pipe(map((resp) => {
-         return resp 
-      }),  catchError(this.handleError) )    
-    }
+  // obtiene la info del cliente para ponerlo en el perfil
+   getobteneridcliente(id: string): Observable<any> {
+    let url = `${this.apiUrl}idimage/consultaclients/${id}`;
+    return this.http.get(url).pipe(map((resp) => {
+       return resp 
+    }),  catchError(this.handleError) )    
+  }
+// usar el buscador de usuarios
+  getSearch(search: string): Observable<any> {
+    let url = `${this.apiUrl}idimage/buscar/${search}`;
+    return this.http.get(url).pipe(map((resp) => {
+       return resp 
+    }),  catchError(this.handleError) )  
+      
+  }
 
-    getSearch(search: string): Observable<any> {
-      let url = `${this.apiUrl}idimage/buscar/${search}`;
-      return this.http.get(url).pipe(map((resp) => {
-         return resp 
-      }),  catchError(this.handleError) )  
-        
-    }
 
 
 

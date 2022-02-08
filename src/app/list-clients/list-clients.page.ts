@@ -46,14 +46,4 @@ export class ListClientsPage implements OnInit {
     })
   }
 
-  Bsearch(sea: string){
-    this.servicio.getSearch(sea).subscribe(res =>{
-      console.log(res.user);
-      this.clients = res.user;
-      this.load = false;
-    },error => {
-      console.log(error)
-    })
-  }
-
 }

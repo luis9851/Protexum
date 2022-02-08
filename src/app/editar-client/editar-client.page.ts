@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup , Validators  } from '@angular/forms'
-import { LoginService } from '../service/login.service';
-import { UserI } from '../models/user';
-
-import { imageI } from '../models/images';
+import { ClientsService } from '../service/clients.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -18,28 +15,28 @@ export class EditarClientPage implements OnInit {
 idUser : any
 id: string;
   // variables para editar usuario
-userForm: FormGroup
-constructor(private servicio: LoginService, private activatedRoute:ActivatedRoute , private router: Router,
+clientForm: FormGroup
+constructor(private servicio: ClientsService, private activatedRoute:ActivatedRoute , private router: Router,
   private fb: FormBuilder) {
-   this.userForm =  this.fb.group({
+   this.clientForm =  this.fb.group({
      nombre: ['', Validators.required],
-    apellidos: ['', Validators.required],
-     curp: ['', Validators.required],
-     nsegurosocial: ['', Validators.required],
      rfc: ['', Validators.required],
-     domicilio: ['', Validators.required],
-     fechadeentrada: ['', Validators.required],
-     fechadenacimiento: ['', Validators.required],
-     telefono: ['', Validators.required],
-     telefonoadicional: ['', Validators.required],
-     creditodeInfonavit: ['', Validators.required],
-     estadocivil: ['', Validators.required],
      correoelectronico: ['', Validators.required],
-     talladeplayera: ['', Validators.required],
-     talladepantalon: ['', Validators.required],
-     pensionado: ['', Validators.required],
-     niveldeescolaridad: ['', Validators.required],
-     contrasena: ['', Validators.required],
+     servicio: ['', Validators.required],
+     domicilio: ['', Validators.required],
+     telefono: ['', Validators.required],
+     cdnombre: ['', Validators.required],
+     cdtelefono: ['', Validators.required],
+     cdcorreoelectronicoempresa: ['', Validators.required],
+     cdcorreoelectronico: ['', Validators.required],
+     rfcdefacturacion: ['', Validators.required],
+     domciliofiscal: ['', Validators.required],
+     cfdi: ['', Validators.required],
+     formadepago: ['', Validators.required],
+     metododepago: ['', Validators.required],
+     fechadefacturacion: ['', Validators.required],
+     tipodecredito: ['', Validators.required],
+     comentarios: ['', Validators.required]
      
    })
 
@@ -52,25 +49,22 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
 
 
   ngOnInit() {
-    this.Editar();
+    this.consultardatos();
   }
-  Editar(){
+  consultardatos(){
 
     if(this.id !== null){
      
-      this.servicio.obtenerUser(this.id).subscribe( data => {
+      this.servicio.obtenerClient(this.id).subscribe( data => {
 
-         console.log(data.user)
+         console.log(data.client)
          
 
-     let user = data.user;
+     let client = data.client;
      
-       this.userForm.patchValue(user)
+       this.clientForm.patchValue(client)
      
-   //      // para poner en la parte de fecha la hora correcta
-   // this.userForm.patchValue({ fechadeentrada: new Date(user.fechadeentrada).toLocaleDateString("en-GB")});
-   // this.userForm.patchValue({ fechadenacimiento: new Date(user. fechadenacimiento).toLocaleDateString("en-GB")});
-   // console.log(this.userForm.value)
+       
        
       })
    }
@@ -78,4 +72,24 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
 
  }
 
+ actualizar(){
+  // recorada ponerle  y preguntar si los datos esta bien puestos
+    
+ 
+ 
+      this.servicio.Editar_C(this.id ,this.clientForm.value ).subscribe(  ( res => {
+       console.log(res.dataClient);
+     //  // igualo la variable idUser para que tenga los datos de id del user
+        this.idUser = this.id
+        
+       
+ 
+    
+ 
+       this.router.navigate(['/list-clients'])
+      }
+     
+      ))
+   }
+ 
 }

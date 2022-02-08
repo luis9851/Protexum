@@ -4,6 +4,7 @@ export interface ClientResponseI {
         id: number,
         nombre: string,
         correoelectronico: string,
+        fechadefacturacion: Date
       
         
        

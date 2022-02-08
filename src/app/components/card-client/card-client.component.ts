@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { LoginService } from '../../service/login.service';
+import { ClientsService } from 'src/app/service/clients.service';
 @Component({
   selector: 'app-card-client',
   templateUrl: './card-client.component.html',
@@ -15,7 +15,7 @@ export class CardClientComponent implements OnInit {
 
   @Output() userSeleccionado: EventEmitter<number>;
   
-  constructor(private router: Router, private servicio: LoginService, private toast: ToastController) {
+  constructor(private router: Router, private servicio: ClientsService, private toast: ToastController) {
     this.userSeleccionado = new EventEmitter();
    }
 

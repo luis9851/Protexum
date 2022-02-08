@@ -39,9 +39,7 @@ export class NavbarComponent implements OnInit {
     
   }
 
-  /* buscarLibro(termino:string){
-    this.router.navigate(['/buscar',termino]);
-  } */
+  
 
   buscar(termino: string){
     this.find = termino;
