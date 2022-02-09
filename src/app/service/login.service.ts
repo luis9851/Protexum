@@ -79,23 +79,34 @@ export class LoginService {
   ),catchError(this.handleError) )
 }
 //eliminar usuarios
- deleteuser(_id: String): Observable<JwtResponseI>{
+ eliminarusuario(_id: String): Observable<JwtResponseI>{
   return this.http.delete<JwtResponseI>(`${this.AUTH_SERVER}/api/delete/${_id}`).pipe(tap(
     (res: JwtResponseI)=> {
     
     }
   ), catchError(this.handleError) )
 }
+ 
+// enviar correo 
+enviarcorreo(user: UserI): Observable<JwtResponseI>{
+  return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/olvidastecontrasena`,
+  user).pipe(tap(
+    (res: JwtResponseI)=>{
 
-
-//eliminar clientes
-deletecliente(_id: String): Observable<ClientResponseI>{
-  return this.http.delete<ClientResponseI>(`${this.AUTH_SERVER}/api/deleteclients/${_id}`).pipe(tap(
-    (res: ClientResponseI)=> {
-    
     }
-  ), catchError(this.handleError) )
+  ),catchError(this.handleError) )
 }
+
+// cambiar contraseña 
+cambiarcontraseña(user: UserI): Observable<JwtResponseI>{
+  return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/crearcontrasena`,
+  user).pipe(tap(
+    (res: JwtResponseI)=>{
+
+    }
+  ),catchError(this.handleError) )
+}
+
 
   // login 
   login(user:UserI): Observable<JwtResponseI>{
@@ -116,6 +127,10 @@ deletecliente(_id: String): Observable<ClientResponseI>{
     
   }
 
+
+
+
+// subir la imagen
   uploadImage( name: string , file : File) : Observable<imageI>{
     const form1 = new FormData()
     form1.append('name', name);

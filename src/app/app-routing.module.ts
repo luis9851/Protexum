@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'list-clients',
+    redirectTo: 'olvidastecontrasena',
     pathMatch: 'full'
   },
   {
@@ -50,6 +50,16 @@ const routes: Routes = [
     path: 'editar-client/:id',
     loadChildren: () => import('./editar-client/editar-client.module').then( m => m.EditarClientPageModule)
   },
+  {
+    path: 'olvidastecontrasena',
+    loadChildren: () => import('./olvidastecontrasena/olvidastecontrasena.module').then( m => m.OlvidastecontrasenaPageModule)
+  },
+  {
+    path: 'recuperarcontrasena/:token',
+    loadChildren: () => import('./recuperarcontrasena/recuperarcontrasena.module').then( m => m.RecuperarcontrasenaPageModule)
+  },
+
+
 
 
 
