@@ -1,5 +1,5 @@
 export interface ClientsI {
-    id: number,
+    id: string,
     nombre: string,
     rfc: string,
     correoelectronico: string,

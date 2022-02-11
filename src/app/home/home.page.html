@@ -18,7 +18,7 @@
     </div>
   </div>
   <ion-list>
-    <app-card-client (userSeleccionado)="verUser( $event )" [users]= "foo" [index]="i" *ngFor="let foo of users; let i = index"></app-card-client>
+    <app-card-user (userSeleccionado)="verUser( $event )" [users]= "foo" [index]="i" *ngFor="let foo of users; let i = index"></app-card-user>
 
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

@@ -26,6 +26,7 @@ export class LoginService {
     if(error.error instanceof ErrorEvent){
       console.error(error.error.message);
     }
+
     else{
       console.error(`Error status: ${error.status}, error: ${error.error}`);
     }
@@ -98,9 +99,9 @@ enviarcorreo(user: UserI): Observable<JwtResponseI>{
 }
 
 // cambiar contraseña 
-cambiarcontraseña(user: UserI): Observable<JwtResponseI>{
-  return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/crearcontrasena`,
-  user).pipe(tap(
+cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
+  return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/crearcontrasena/${token}`,
+  {contrasena:user}).pipe(tap(
     (res: JwtResponseI)=>{
 
     }

@@ -25,38 +25,38 @@ export class ClientsService {
   }
 
 
- // registrar cliente
- register(client:ClientsI ): Observable<ClientResponseI>{
-  return this.http.post<ClientResponseI>(`${this.AUTH_SERVER}/api/registerclients`,
-  client).pipe(tap(
-    (res: ClientResponseI)=> {
+  // registrar cliente
+  register(client:ClientsI ): Observable<ClientResponseI>{
+    return this.http.post<ClientResponseI>(`${this.AUTH_SERVER}/api/registerclients`,
+    client).pipe(tap(
+      (res: ClientResponseI)=> {
 
-    }
-  ), catchError(this.handleError))
-}
+      }
+    ), catchError(this.handleError))
+  }
 
-// me trae los datos de cliente para posterio mente modificar los datos con el metodo de editar_u
-obtenerClient(id: String):Observable<any>{
-  return this.http.get(`${this.AUTH_SERVER}/api/obtenerclienteA/${id}`).pipe(map((resp) => {
-   return resp 
-}),  catchError(this.handleError) )    
- }
+  // me trae los datos de cliente para posterio mente modificar los datos con el metodo de Editar_C
+  obtenerClient(id: String):Observable<any>{
+    return this.http.get(`${this.AUTH_SERVER}/api/obtenerclienteA/${id}`).pipe(map((resp) => {
+     return resp 
+  }),  catchError(this.handleError) )    
+   }
 
-//eliminar clientes
-deletecliente(_id: String): Observable<ClientResponseI>{
-  return this.http.delete<ClientResponseI>(`${this.AUTH_SERVER}/api/deleteclients/${_id}`).pipe(tap(
-    (res: ClientResponseI)=> {
-    
-    }
-  ), catchError(this.handleError) )
-}
+  //eliminar clientes
+  deletecliente(_id: String): Observable<ClientResponseI>{
+    return this.http.delete<ClientResponseI>(`${this.AUTH_SERVER}/api/deleteclients/${_id}`).pipe(tap(
+      (res: ClientResponseI)=> {
+      
+      }
+    ), catchError(this.handleError) )
+  }
 // actualizar los datos de cliente
-Editar_C(id:any ,client:ClientsI ): Observable<ClientResponseI>{
-  return this.http.put<ClientResponseI>(`${this.AUTH_SERVER}/api/updateclients/${id}`,
-  client).pipe(tap(
-    (res: ClientResponseI)=> {
-     
-    }
-  ), catchError(this.handleError))
-}
+  Editar_C(id:any ,client:ClientsI ): Observable<ClientResponseI>{
+    return this.http.put<ClientResponseI>(`${this.AUTH_SERVER}/api/updateclients/${id}`,
+    client).pipe(tap(
+      (res: ClientResponseI)=> {
+       
+      }
+    ), catchError(this.handleError))
+  }
 }

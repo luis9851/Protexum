@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'olvidastecontrasena',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -58,6 +58,26 @@ const routes: Routes = [
     path: 'recuperarcontrasena/:token',
     loadChildren: () => import('./recuperarcontrasena/recuperarcontrasena.module').then( m => m.RecuperarcontrasenaPageModule)
   },
+  {
+    path: 'registroservices',
+    loadChildren: () => import('./registroservices/registroservices.module').then( m => m.RegistroservicesPageModule)
+  },
+  {
+    path: 'list-services',
+    loadChildren: () => import('./list-services/list-services.module').then( m => m.ListServicesPageModule)
+  },
+  {
+    path: 'services/:id',
+    loadChildren: () => import('./services.pages/services.module').then( m => m.ServicesPageModule)
+  },
+  {
+    path: 'editar-service/:id',
+    loadChildren: () => import('./editar-service/editar-service.module').then( m => m.EditarServicePageModule)
+  },
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegistroclientsPage implements OnInit {
 
-  constructor(private servicio: ClientsService, private activatedRoute:ActivatedRoute , private router: Router,
+  constructor(private servicio: ClientsService,  private router: Router,
     private toast: ToastController) { }
 
   ngOnInit() {
@@ -37,6 +37,8 @@ export class RegistroclientsPage implements OnInit {
                // los datos de el elemento
                this.servicio.register(form.value).subscribe( (res => {
                 console.log(res.dataClient)
+                this.exito()
+
  
               
               
@@ -51,7 +53,14 @@ export class RegistroclientsPage implements OnInit {
 }
 
 
-
+async exito(){
+  const toast = await this.toast.create({
+    message: "El registro fue exitoso",
+    duration: 2000,
+    position: "bottom"
+  });
+  toast.present()
+} 
 
 
 async FaltanDatos(){

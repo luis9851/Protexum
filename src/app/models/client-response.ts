@@ -1,7 +1,7 @@
-
+import {Clients} from './clients/client'
 export interface ClientResponseI {
     dataClient :{
-        id: number,
+        id: string,
         nombre: string,
         correoelectronico: string,
         fechadefacturacion: Date
@@ -9,6 +9,6 @@ export interface ClientResponseI {
         
        
     }
-
+    clients : Clients[];
 
 }
