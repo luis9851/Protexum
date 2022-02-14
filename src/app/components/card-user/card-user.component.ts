@@ -35,7 +35,7 @@ export class CardUserComponent implements OnInit {
   }
 
   delete(_id: string){
-    this.servicio.deleteuser(_id).subscribe(data => {
+    this.servicio.eliminarusuario(_id).subscribe(data => {
       this.presentToast();
 
     })
