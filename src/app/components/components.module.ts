@@ -4,18 +4,20 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardUserComponent } from './card-user/card-user.component';
 import { IonicModule } from '@ionic/angular';
 import { CardClientComponent } from './card-client/card-client.component';
-
+import { CardServiceComponent } from './card-service/card-service.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     CardUserComponent,
-    CardClientComponent
+    CardClientComponent,
+    CardServiceComponent
   ],
   exports:[
     NavbarComponent,
     CardUserComponent,
-    CardClientComponent
+    CardClientComponent,
+    CardServiceComponent
   ],
   imports: [
     CommonModule,

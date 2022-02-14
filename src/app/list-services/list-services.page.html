@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <div class="row animated fadeIn fast" *ngIf="users.length == 0">
+  <div class="row animated fadeIn fast" *ngIf="services.length == 0">
     <div class="col-md-12">
       <div class="alert alert-info" role="alert">
         No existen resultados con el termino: {{ this.busc.search }}
@@ -18,12 +18,12 @@
     </div>
   </div>
   <ion-list>
-    <app-card-user (userSeleccionado)="verUser( $event )" [users]= "foo" [index]="i" *ngFor="let foo of users; let i = index"></app-card-user>
+    <app-card-service (userSeleccionado)="verUser( $event )" [services]="foo" [indexs]="i" *ngFor="let foo of services; let i = index"></app-card-service>
 
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
-      <ion-icon name="add" [routerLink]="['/registropersonal'] "> </ion-icon>
+      <ion-icon name="add" [routerLink]="['/registroclients'] "> </ion-icon>
     </ion-fab-button>
   </ion-fab>
   <!-- 

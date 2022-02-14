@@ -65,7 +65,7 @@ export class RegistropersonalPage implements OnInit {
                  // los datos de el elemento
                  this.servicio.register(form.value).subscribe( (res => {
     
-   
+                 this.exito()
                  console.log(res.dataUser);
                  // igualo la variable idUser para que tenga los datos de id del user
                 this.idUser = res.dataUser.id
@@ -148,7 +148,14 @@ export class RegistropersonalPage implements OnInit {
 
   }
  
-
+  async exito(){
+    const toast = await this.toast.create({
+      message: "El registro fue exitoso",
+      duration: 2000,
+      position: "bottom"
+    });
+    toast.present()
+  } 
    
   async FaltanDatos(){
     const toast = await this.toast.create({

@@ -74,9 +74,6 @@ constructor(private servicio: ClientsService, private activatedRoute:ActivatedRo
 
  actualizar(){
   // recorada ponerle  y preguntar si los datos esta bien puestos
-    
- 
- 
       this.servicio.Editar_C(this.id ,this.clientForm.value ).subscribe(  ( res => {
        console.log(res.dataClient);
      //  // igualo la variable idUser para que tenga los datos de id del user
@@ -91,5 +88,5 @@ constructor(private servicio: ClientsService, private activatedRoute:ActivatedRo
      
       ))
    }
- 
+
 }

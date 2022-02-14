@@ -62,8 +62,7 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
                // pasa subir la imagem
                  this.onSubmit()
 
-
-
+                 this.exito()
 
                  // los datos de el elemento
                  this.servicio.register(form.value).subscribe( (res => {
@@ -152,7 +151,14 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
 
   }
  
-
+  async exito(){
+    const toast = await this.toast.create({
+      message: "El registro fue exitoso",
+      duration: 2000,
+      position: "bottom"
+    });
+    toast.present()
+  } 
    
   async FaltanDatos(){
     const toast = await this.toast.create({
