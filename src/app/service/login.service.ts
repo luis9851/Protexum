@@ -17,6 +17,7 @@ export class LoginService {
   idimage : any = []
  @Output() disparadorderol: EventEmitter<any> = new EventEmitter();
  @Output() disparadoridmage: EventEmitter<any> = new EventEmitter();
+ 
  @Output() disparadoralertas: EventEmitter<any> = new EventEmitter();
  @Output() disparadoractualizadorId: EventEmitter<any> = new EventEmitter();
 
@@ -71,6 +72,10 @@ export class LoginService {
     ),catchError(this.handleError) )
  }
 
+
+  
+  
+ // actualizar la imagen de usuario
  actualizarimagen(id:any, fileUrl:String ): Observable<JwtResponseI>{
   return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/actualizarimg/${id}`,
   {url:fileUrl}).pipe(tap(

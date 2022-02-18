@@ -45,11 +45,62 @@
                 <li><i class="icono fa fa-credit-card-alt"></i>Metodo de pago:{{client.metododepago}} </li>
                 <li><i class="icono fas fa-calendar-alt"></i> Fecha para facturacion: {{dd}}/{{mm}}/{{yy}} </li>
                 <li><i class="icono fas fa-user"></i>Tipo de credito:{{client.tipodecredito}} </li>
-              
-               
+
 
             </ul>
+
+            <ul>
+                <ion-label> Servicios que Tienen contratados </ion-label>
+                <ul *ngFor="let service of services"  > 
+                
+                    <li><i class="icono fas fa-user"></i>Contacto directo:{{service.contactodelservicio}} </li>
+                    <li><i class="icono fas fa-user"></i>Jefe de turno:{{service.jefedeservicio}} </li>
+                      <li><i class="icono fas fa-map-signs"></i>Dirección: {{ service.domicilio }}</li>
+                      <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ service.telefono}}</li>
+                      <li><i class="icono fas fa-phone-alt"></i>telefonoprotexum: {{ service.telefonoprotexum }}</li>
+                      <li><i class=""></i>Servicio: {{ service.tipodeservicio }}</li>
+               
+                     
+                      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Dias</th>
+      <th scope="col">12X12</th>
+      <th scope="col">24X24</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    
+      <td>Lunes</td>
+      <td>Martes</td>
+      <td>Miercoles</td>
+      <td>Jueves</td>
+      <td>Viernes</td>
+      <td>Sabado</td>
+      <td>Domingo</td>
+    </tr>
+    <tr>
+    
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+     
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+                      <br>
+                </ul>
+            </ul>
+
+           
         </div>
+       
     </div>
 </section>
 </ion-content>

@@ -100,8 +100,8 @@ getobtenerservices(): Observable<any> {
 
 
     // aqui empieza lo del modulo de servicio
-    registrarS(service:ServiceI): Observable<ServiceResponseI>{
-      return this.http.post<ServiceResponseI>(`${this.apiUrl}registerservice`,
+    registrarS(id:string,service:ServiceI  ): Observable<ServiceResponseI>{
+      return this.http.put<ServiceResponseI>(`${this.apiUrl}registerservice/${id}`,
       service).pipe(tap (
         (res:ServiceResponseI)=>{
 
@@ -130,6 +130,19 @@ getobtenerservices(): Observable<any> {
   Editar_S(id:any ,service:ServiceI ): Observable<ServiceResponseI>{
     return this.http.put<ServiceResponseI>(`${this.apiUrl}updateservice/${id}`,
     service).pipe(tap(
+      (res: ServiceResponseI)=> {
+       
+      }
+    ), catchError(this.handleError))
+  }
+
+
+
+  //actualizar el id de servicio en Client
+  
+  actualizar_servicioid(id:any ,idservicio:string ): Observable<ServiceResponseI>{
+    return this.http.put<ServiceResponseI>(`${this.apiUrl}idimage/idClienteservicio/${id}`,
+    {servicios:idservicio }).pipe(tap(
       (res: ServiceResponseI)=> {
        
       }

@@ -8,7 +8,8 @@ export interface JwtResponseI {
         rol:string;
         accessToken: string,
         expiresIn: string,
-        resetToken: string
+        resetToken: string,
+        idequip:string
        
     }
 

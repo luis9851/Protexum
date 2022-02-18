@@ -13,6 +13,9 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegistroclientsPage implements OnInit {
 
+
+
+  idClient: String
   constructor(private servicio: ClientsService,  private router: Router,
     private toast: ToastController) { }
 
@@ -36,13 +39,15 @@ export class RegistroclientsPage implements OnInit {
           
                // los datos de el elemento
                this.servicio.register(form.value).subscribe( (res => {
-                console.log(res.dataClient)
+                console.log(res.dataClient.id)
+
                 this.exito()
+                
 
  
               
               
-                this.router.navigate(['/']);
+                
     
                }))
 

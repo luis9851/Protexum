@@ -52,8 +52,8 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
       if(form.value.apellidos == "" || form.value.contrasena == "" || form.value.correoelectronico == "" || 
       form.value.curp == "" || form.value.domicilio == "" || form.value.estadocivil == "" || form.value.fechadeentrada == ""  ||
       form.value.fechadenacimiento == "" || form.value.niveldeescolaridad == "" || form.value.nombre == "" || form.value.nsegurosocial == "" ||
-      form.value.pensionado == "" || form.value.rfc == "" || form.value.rol == "" || form.value.talladepantalon == "" || 
-      form.value.talladeplayera == "" || form.value.telefono == "" || form.value.telefonoadicional == ""){ 
+      form.value.pensionado == "" || form.value.rfc == "" || form.value.rol == ""  || 
+     form.value.telefono == "" || form.value.telefonoadicional == ""){ 
   
        this.FaltanDatos()
        

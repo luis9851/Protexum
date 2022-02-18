@@ -12,7 +12,8 @@ export interface ServiceResponseI {
         horariosguardias: Date,
         jefedeservicio: string,
         cantidaddeguardiasporturno: Number,
-        cantidaddeguardiasporturnonoche: Number
+        cantidaddeguardiasporturnonoche: Number,
+        cliente: string
     
        
     }

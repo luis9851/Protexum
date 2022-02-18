@@ -12,6 +12,7 @@ export class CardClientComponent implements OnInit {
   @Input() clients: any = {};
   @Input() indexc: string;
   @Input() indexEc: string;
+  
 
   @Output() userSeleccionado: EventEmitter<number>;
   
@@ -20,6 +21,14 @@ export class CardClientComponent implements OnInit {
    }
 
   ngOnInit() {}
+
+
+  services(_id :string){
+    this.indexc = _id;
+    this.router.navigate(['/registroservices',this.indexc]);
+    console.log(this.indexc)
+
+  }
 
   verClient(_id: string){
     this.indexc = _id;

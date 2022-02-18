@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/services/service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-registroservices',
@@ -10,14 +10,22 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegistroservicesPage implements OnInit {
 
-  constructor( private servicio: ServiceService,  private router: Router, private toast: ToastController) { }
+
+ 
+  id: string;
+  constructor( private servicio: ServiceService,  private router: Router, private toast: ToastController, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe( params => {
+      this.id = params['id'];
+      
+    
+    })
   }
 
   Registerservice(form){
 
-    if(form.value.cantidaddeguardiasporturno == "" || form.value.cantidaddeguardiasporturnonoche == "" || form.value.contactodelservicio == "" || 
+    if(form.value.turno12x12 == "" || form.value.turno24x24 == "" || form.value.contactodelservicio == "" || 
     form.value.domicilio == "" || form.value.jefedeservicio == "" || form.value.nombre == "" || form.value.telefono == ""  ||
     form.value.telefonoprotexum == "" || form.value.tipodeservicio == "" ){ 
 
@@ -28,14 +36,34 @@ export class RegistroservicesPage implements OnInit {
 
 
     
-  this.servicio.registrarS(form.value).subscribe( (res => {
-    console.log(res.dataService)
+  this.servicio.registrarS(this.id,form.value).subscribe( (res => {
+    console.log(res.dataService.id)
+     res.dataService.id;
+   
     this.exito();
 
 
-    this.router.navigate(['/'])
+    
+     this.agregaridDeServicioausuario(res.dataService.id)
+    
   }))
   }
+
+  agregaridDeServicioausuario(idService){
+    this.servicio.actualizar_servicioid(this.id, idService).subscribe((res => {
+    
+     
+      console.log(res)
+      
+
+
+    } ) )
+    
+     
+
+
+    }
+  
 
 
   async exito(){

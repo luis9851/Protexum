@@ -20,12 +20,7 @@
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input mayusculas" type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
         </div>
-      </div>
-      <div class="formulario__grupo">
-        <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="email" name="correoelectronico" placeholder="Correoelectronico" ngModel required=""> </ion-input> </p>
-        </div>
-      </div>  
+      </div> 
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-item class="formulario__input" >
@@ -35,7 +30,7 @@
                 <ion-select-option value="Residencial">Residencial</ion-select-option>
                 <ion-select-option value="Centro-comercia">Centro comercia</ion-select-option>
                 <ion-select-option value="Empresarial">Empresarial</ion-select-option>
-                <ion-select-option value="Codependencia-de-gobierno">Codependencia-de-gobierno</ion-select-option>
+                <ion-select-option value="Codependencia-de-gobierno">Dependencia-de-gobierno</ion-select-option>
                 
                 
               
@@ -75,6 +70,11 @@
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" name="correoelectronicofacturacion" placeholder="Correoelectronico de facturacion" ngModel required=""> </ion-input> </p>
+        </div>
+      </div> 
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input mayusculas" type="text" name="rfcdefacturacion" placeholder="RFC de Facturacion" ngModel required=""> </ion-input> </p>
         </div>
       </div>
@@ -86,7 +86,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-item class="formulario__input" >
-            <ion-label>Agrega el CFDI:</ion-label>
+            <ion-label>Uso del CFDI:</ion-label>
             <ion-select   ngModel   name="cfdi" required="" >
                 <ion-select-option value="Por-definir">Por definir</ion-select-option>
                 <ion-select-option value="Gastos-en-general">Gastos en general</ion-select-option>
@@ -101,9 +101,10 @@
           <ion-item class="formulario__input" >
             <ion-label>Agrega la forma de pago:</ion-label>
             <ion-select   ngModel   name="formadepago" required="" >
-                <ion-select-option value="Efectivo">Por definir</ion-select-option>
+                <ion-select-option value="Efectivo">Efectivo</ion-select-option>
                 <ion-select-option value="Transferencia-electronica">Transferencia electronica</ion-select-option>
                 <ion-select-option value="Tarjeta-de-credito">Tarjeta de credito</ion-select-option>
+                <ion-select-option value="Tarjeta-de-debito">Tarjeta de debito</ion-select-option>
                 <ion-select-option value="Por-definir">por definir</ion-select-option>
                 
               
@@ -114,10 +115,11 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-item class="formulario__input" >
-            <ion-label>Agrega el metodo de pago:</ion-label>
+            <ion-label> Metodo de pago:</ion-label>
             <ion-select   ngModel   name="metododepago" required="" >
-                <ion-select-option value="Pago-en-una-exibicion">Por definir</ion-select-option>
-                <ion-select-option value="Parcialidades o deferido">Parcialidades o deferido</ion-select-option>
+                <ion-select-option value="Por-definir">Por definir</ion-select-option>
+                <ion-select-option value="Parcialidades-o-deferido">Parcialidades o deferido</ion-select-option>
+                <ion-select-option value="Pago-en-una-exibicion">Pago en una exibicion</ion-select-option>
               
             </ion-select>
           </ion-item>

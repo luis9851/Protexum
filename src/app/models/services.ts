@@ -9,4 +9,5 @@ export interface ServiceI {
     jefedeservicio: string,
     cantidaddeguardiasporturno: Number;
     cantidaddeguardiasporturnonoche: Number;
+    cliente: string;
 }

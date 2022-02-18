@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'registropersonal',
     pathMatch: 'full'
   },
   {
@@ -59,7 +59,7 @@ const routes: Routes = [
     loadChildren: () => import('./recuperarcontrasena/recuperarcontrasena.module').then( m => m.RecuperarcontrasenaPageModule)
   },
   {
-    path: 'registroservices',
+    path: 'registroservices/:id',
     loadChildren: () => import('./registroservices/registroservices.module').then( m => m.RegistroservicesPageModule)
   },
   {
@@ -74,6 +74,11 @@ const routes: Routes = [
     path: 'editar-service/:id',
     loadChildren: () => import('./editar-service/editar-service.module').then( m => m.EditarServicePageModule)
   },
+  {
+    path: 'equiporecibido/:id',
+    loadChildren: () => import('./equiporecibido/equiporecibido.module').then( m => m.EquiporecibidoPageModule)
+  },
+
 
 
 

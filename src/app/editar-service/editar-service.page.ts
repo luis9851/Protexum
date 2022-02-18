@@ -26,8 +26,8 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
      tipodeservicio: ['', Validators.required],
      domicilio: ['', Validators.required],
      jefedeservicio: ['', Validators.required],
-     cantidaddeguardiasporturno: ['', Validators.required],
-     cantidaddeguardiasporturnonoche: ['', Validators.required]  
+     turno12x12: ['', Validators.required],
+    turno24x24: ['', Validators.required]  
      
    })
 

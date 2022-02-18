@@ -9,7 +9,7 @@ import { ServiceService } from 'src/app/service/services/service.service';
 })
 export class CardServiceComponent implements OnInit {
 
-
+  
   @Input() services: any = {};
   @Input() indexs: string;
   @Input() indexS: string;

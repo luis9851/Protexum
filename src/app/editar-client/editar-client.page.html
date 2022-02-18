@@ -19,7 +19,7 @@
 
     <p><ion-input type="text" placeholder="Nombre" formControlName="nombre" require="" > </ion-input>
     <p><ion-input type="text" name="rfc" placeholder="RFC" formControlName="rfc"  required="" class="mayusculas"> </ion-input> </p>
-    <p><ion-input type="text" name="correoelectronico" placeholder="correoelectronico"  required="" formControlName="correoelectronico"  > </ion-input> </p>
+   
     <ion-item  >
       <ion-label>Tipo de Servicio brindando:</ion-label>
       <ion-select  formControlName="servicio"    name="servicio" required="" >
@@ -37,7 +37,8 @@
     <p><ion-input type="text" name="cdnombre" placeholder="cdnombre" formControlName="cdnombre"  required=""> </ion-input> </p>
     <p><ion-input type="tel" name="cdtelefono" placeholder="cdtelefono"  formControlName="cdtelefono"  required="" > </ion-input> </p>
     <p><ion-input type="text" name="cdcorreoelectronicoempresa" placeholder="cdcorreoelectronicoempresa"  formControlName="cdcorreoelectronicoempresa"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="cdcorreoelectronico" placeholder="cdcorreoelectronico"  formControlName="cdcorreoelectronico"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="cdcorreoelectronico" placeholder="correoelectronicofacturacion"  formControlName="correoelectronicofacturacion"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="correoelectronicofacturacion" placeholder="correoelectronico"  required="" formControlName="correoelectronico"  > </ion-input> </p>
     <p><ion-input type="text" name="rfcdefacturacion" placeholder="rfcdefacturacion"  formControlName="rfcdefacturacion" class="mayusculas" required="" > </ion-input> </p>
      <p><ion-input type="text" name="domciliofiscal" placeholder="domciliofiscal"  formControlName="domciliofiscal"  required="" > </ion-input> </p>
     
@@ -58,6 +59,7 @@
         <ion-select-option value="Efectivo">Efectivo</ion-select-option>
         <ion-select-option value="Transferencia-electronica">Transferencia electronica</ion-select-option>
         <ion-select-option value="Tarjeta-de-credito">Tarjeta de credito</ion-select-option>
+        <ion-select-option value="Tarjeta-de-debito">Tarjeta de debito</ion-select-option>
         <ion-select-option value="Por-definir">por definir</ion-select-option>
         
         
@@ -68,8 +70,9 @@
     <ion-item  >
       <ion-label>Agrega el metodo de pago:</ion-label>
       <ion-select    formControlName="metododepago"   name="metododepago" required="" >
-        <ion-select-option value="Pago-en-una-exibicion">Por definir</ion-select-option>
-        <ion-select-option value="Parcialidades o deferido">Parcialidades o deferido</ion-select-option>
+        <ion-select-option value="Por-definir">Por definir</ion-select-option>
+        <ion-select-option value="Parcialidades-o-deferido">Parcialidades o deferido</ion-select-option>
+        <ion-select-option value="Pago-en-una-exibicion">Pago en una exibicion</ion-select-option>
       </ion-select>
   </ion-item>
 
