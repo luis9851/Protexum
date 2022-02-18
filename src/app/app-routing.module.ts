@@ -6,7 +6,11 @@ const routes: Routes = [
   
   {
     path: '',
+<<<<<<< HEAD
     redirectTo: 'registropersonal',
+=======
+    redirectTo: 'login',
+>>>>>>> 760300f481b1e177ebe304d2970a51e968322d91
     pathMatch: 'full'
   },
   {
