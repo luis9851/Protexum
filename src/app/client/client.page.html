@@ -59,42 +59,73 @@
                       <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ service.telefono}}</li>
                       <li><i class="icono fas fa-phone-alt"></i>telefonoprotexum: {{ service.telefonoprotexum }}</li>
                       <li><i class=""></i>Servicio: {{ service.tipodeservicio }}</li>
+                      
+                      
                
                      
-                      <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Dias</th>
-      <th scope="col">12X12</th>
-      <th scope="col">24X24</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    
-      <td>Lunes</td>
-      <td>Martes</td>
-      <td>Miercoles</td>
-      <td>Jueves</td>
-      <td>Viernes</td>
-      <td>Sabado</td>
-      <td>Domingo</td>
-    </tr>
-    <tr>
-    
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-     
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+                    
                       <br>
+                      <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Dias</th>
+                            <th scope="col">Turno 12x12</th>
+                            <th scope="col">Turno 24x24</th>
+                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                       
+                          <tr>
+                            <th scope="row">Lunes</th>
+                            <td> {{service.lturnodoce}} </td>
+                            <td>{{service.lturnovienti}} </td>
+                          
+                          </tr>
+                          <tr>
+                            <th scope="row">Martes</th>
+                            <td> {{service.mturnodoce}} </td>
+                            <td>{{service.mturnovienti}}</td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row">Miercoles</th>
+                            <td> {{service.miturnodoce}} </td>
+                            <td>{{service.miturnovienti}}</td>
+                        
+                          </tr>
+                          <tr>
+                            <th scope="row">Jueves</th>
+                            <td> {{service.jturnodoce}} </td>
+                            <td>{{service.jturnovienti}}</td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row">Viernes</th>
+                            <td> {{service.vturnodoce}} </td>
+                            <td>{{service.vturnovienti}}</td>
+                         
+                          </tr>
+                          <tr>
+                            <th scope="row">Sabado</th>
+                            <td> {{service.sturnodoce}} </td>
+                            <td>{{service.sturnovienti}}</td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row">Domingo</th>
+                            <td> {{service.dturnodoce}} </td>
+                            <td>{{service.dturnovienti}}</td>
+                            
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                      
+                     
+
+                      
+
                 </ul>
             </ul>
 
