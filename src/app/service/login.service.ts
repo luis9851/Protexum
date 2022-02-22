@@ -6,6 +6,7 @@ import {tap, catchError, map} from 'rxjs/operators';
 import { Observable, BehaviorSubject, pipe } from 'rxjs';
 import { imageI } from '../models/images';
 import { throwError } from 'rxjs';
+import { ClientResponseI } from '../models/client-response';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,7 @@ export class LoginService {
   idimage : any = []
  @Output() disparadorderol: EventEmitter<any> = new EventEmitter();
  @Output() disparadoridmage: EventEmitter<any> = new EventEmitter();
+ 
  @Output() disparadoralertas: EventEmitter<any> = new EventEmitter();
  @Output() disparadoractualizadorId: EventEmitter<any> = new EventEmitter();
 
@@ -25,13 +27,14 @@ export class LoginService {
     if(error.error instanceof ErrorEvent){
       console.error(error.error.message);
     }
+
     else{
       console.error(`Error status: ${error.status}, error: ${error.error}`);
     }
     return throwError( 'Hubo un error en la aplicacion. Verificar logs');
   }
 
-
+// me trae los datos de usuario para posterio mente modificar los datos con el metodo de editar_u
   obtenerUser(id: String):Observable<any>{
    return this.http.get(`${this.AUTH_SERVER}/api/obtener/${id}`).pipe(map((resp) => {
     return resp 
@@ -60,7 +63,7 @@ export class LoginService {
     ), catchError(this.handleError))
   }
 
-  AgregarIdimagen(idUser:any, fileUrl:String ): Observable<JwtResponseI>{
+  AgregarIdimagen(idUser:any, fileUrl:String): Observable<JwtResponseI>{
     return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/image/${idUser}`,
     {url:fileUrl}).pipe(tap(
       (res: JwtResponseI)=> {
@@ -69,6 +72,10 @@ export class LoginService {
     ),catchError(this.handleError) )
  }
 
+
+  
+  
+ // actualizar la imagen de usuario
  actualizarimagen(id:any, fileUrl:String ): Observable<JwtResponseI>{
   return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/actualizarimg/${id}`,
   {url:fileUrl}).pipe(tap(
@@ -77,14 +84,36 @@ export class LoginService {
     }
   ),catchError(this.handleError) )
 }
-
- deleteuser(_id: String): Observable<JwtResponseI>{
+//eliminar usuarios
+ eliminarusuario(_id: String): Observable<JwtResponseI>{
   return this.http.delete<JwtResponseI>(`${this.AUTH_SERVER}/api/delete/${_id}`).pipe(tap(
     (res: JwtResponseI)=> {
     
     }
   ), catchError(this.handleError) )
 }
+ 
+// enviar correo 
+enviarcorreo(user: UserI): Observable<JwtResponseI>{
+  return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/olvidastecontrasena`,
+  user).pipe(tap(
+    (res: JwtResponseI)=>{
+
+    }
+  ),catchError(this.handleError) )
+}
+
+// cambiar contraseña 
+cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
+  return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/crearcontrasena/${token}`,
+  {contrasena:user}).pipe(tap(
+    (res: JwtResponseI)=>{
+
+    }
+  ),catchError(this.handleError) )
+}
+
+
   // login 
   login(user:UserI): Observable<JwtResponseI>{
     return this.http.post<JwtResponseI>(`${this.AUTH_SERVER}/api/login`,
@@ -104,6 +133,10 @@ export class LoginService {
     
   }
 
+
+
+
+// subir la imagen
   uploadImage( name: string , file : File) : Observable<imageI>{
     const form1 = new FormData()
     form1.append('name', name);

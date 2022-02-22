@@ -15,10 +15,10 @@
         <ul class="navbar-nav mr-auto">
           <!-- active es la clase para hacer que resalte en el menu -->
           <li class="nav-item" routerLinkActive="active">
-            <a style="color: #000000;" class="nav-link" href="#">Inicio</a>
+            <a style="color: #FFFFFF;" class="nav-link" href="#">Inicio</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a style="color: #000000;" class="nav-link" href="/registro">Registrarse</a>
+            <a style="color: #FFFFFF;" class="nav-link" href="/registro">Registrarse</a>
           </li>
         </ul>
     
@@ -56,12 +56,12 @@
         </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input mayusculas" type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="domicilio" placeholder="domicilio" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="text" name="domicilio" placeholder="Av.Chicahuales, JesusMaria, Ags, codigo postal: 20000 " ngModel required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">
@@ -111,17 +111,7 @@
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="email" name="correoelectronico" placeholder="correoelectronico" ngModel required=""> </ion-input> </p>
         </div>
-      </div>
-      <div class="formulario__grupo">
-        <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="talladeplayera" placeholder="Cual es su talla de playera" ngModel required="" maxlength="25"> </ion-input> </p>
-        </div>
-      </div>
-      <div class="formulario__grupo">
-        <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
-        </div>
-      </div>
+      </div> 
         <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
@@ -149,6 +139,7 @@
           </ion-item>
         </div>
       </div>
+     
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="password" name="contrasena" placeholder="Contrasena" ngModel required> </ion-input></p>

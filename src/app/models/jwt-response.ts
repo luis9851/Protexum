@@ -1,4 +1,4 @@
-import { UserI } from './user';
+
 import { Users } from './users/users';
 export interface JwtResponseI {
     dataUser :{
@@ -8,6 +8,8 @@ export interface JwtResponseI {
         rol:string;
         accessToken: string,
         expiresIn: string,
+        resetToken: string,
+        idequip:string
        
     }
 

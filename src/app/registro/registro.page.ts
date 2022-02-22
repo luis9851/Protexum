@@ -5,7 +5,7 @@ import { UserI } from '../models/user';
 import { NgForm } from '@angular/forms';
 import { imageI } from '../models/images';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController,ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -52,8 +52,8 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
       if(form.value.apellidos == "" || form.value.contrasena == "" || form.value.correoelectronico == "" || 
       form.value.curp == "" || form.value.domicilio == "" || form.value.estadocivil == "" || form.value.fechadeentrada == ""  ||
       form.value.fechadenacimiento == "" || form.value.niveldeescolaridad == "" || form.value.nombre == "" || form.value.nsegurosocial == "" ||
-      form.value.pensionado == "" || form.value.rfc == "" || form.value.rol == "" || form.value.talladepantalon == "" || 
-      form.value.talladeplayera == "" || form.value.telefono == "" || form.value.telefonoadicional == ""){ 
+      form.value.pensionado == "" || form.value.rfc == "" || form.value.rol == ""  || 
+     form.value.telefono == "" || form.value.telefonoadicional == ""){ 
   
        this.FaltanDatos()
        
@@ -62,6 +62,7 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
                // pasa subir la imagem
                  this.onSubmit()
 
+                 this.exito()
 
                  // los datos de el elemento
                  this.servicio.register(form.value).subscribe( (res => {
@@ -70,6 +71,7 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
                  console.log(res.dataUser);
                  // igualo la variable idUser para que tenga los datos de id del user
                 this.idUser = res.dataUser.id
+               
       
                  console.log(this.idUser)
                    this.updateurl(this.idUser)
@@ -149,7 +151,14 @@ constructor(private servicio: LoginService, private activatedRoute:ActivatedRout
 
   }
  
-
+  async exito(){
+    const toast = await this.toast.create({
+      message: "El registro fue exitoso",
+      duration: 2000,
+      position: "bottom"
+    });
+    toast.present()
+  } 
    
   async FaltanDatos(){
     const toast = await this.toast.create({

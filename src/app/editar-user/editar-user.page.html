@@ -39,6 +39,7 @@
     <p><ion-input type="text" name="nsegurosocial" placeholder="Numero de seguro social"  formControlName="nsegurosocial"  required=""> </ion-input> </p>
     <p><ion-input type="text" name="rfc" placeholder="RFC"  formControlName="rfc"  required=""> </ion-input> </p>
     <p><ion-input type="text" name="domicilio" placeholder="domicilio" formControlName="domicilio"  required=""> </ion-input> </p>
+    <p><ion-input type="tel" name="telefono" placeholder="Telefono" formControlName="telefono"  required=""> </ion-input> </p>
     <p><ion-input type="tel" name="telefonoadicional" placeholder="Telefono Adicional" formControlName="telefonoadicional"  required=""> </ion-input> </p>
     <p><ion-input type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito si lo tiene"  formControlName="creditodeInfonavit"  required="" maxlength="15"> </ion-input> </p>
     <!-- <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p> -->
@@ -52,12 +53,31 @@
         
       </ion-select>
   </ion-item>
+  
     <p><ion-input type="email" name="correoelectronico" placeholder="correoelectronico" formControlName="correoelectronico"  required=""> </ion-input> </p>
-    <p><ion-input type="text" name="talladeplayera" placeholder="Cual es su talla de playera" formControlName="talladeplayera"  required="" maxlength="25"> </ion-input> </p>
+     <ion-label > Cantidad y Descripcion de playera </ion-label>
+    <p><ion-input type="text" name="cdeplayera" placeholder="Cantidad de playeras" formControlName="cdeplayera"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="ddeplayera" placeholder="Descripcion de playeras" formControlName="ddeplayera"  required="" maxlength="25"> </ion-input> </p>
+    <ion-label > Cantidad y Descripcion de pantalon </ion-label>
+    <p><ion-input type="text" name="cdepantalon" placeholder="Cantidad de pantalon" formControlName="cdepantalon"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="ddepantalon" placeholder="Descripcion de pantalon" formControlName="ddepantalon"  required="" maxlength="25"> </ion-input> </p>
+    <ion-label > Cantidad y Descripcion de botas </ion-label>
+    <p><ion-input type="text" name="cdebotas" placeholder="Cantidad de botas" formControlName="cdebotas"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="ddebotas" placeholder="Descripcion de botas" formControlName="ddebotas"  required="" maxlength="25"> </ion-input> </p>
+    <ion-label > Cantidad y Descripcion de cachucha</ion-label>
+    <p><ion-input type="text" name="cdecachucha" placeholder="Cantidad de cachucha" formControlName="cdecachucha"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="ddecachucha" placeholder="Descripcion de cachucha" formControlName="ddecachucha"  required="" maxlength="25"> </ion-input> </p>
+    <ion-label > Cantidad y Descripcion de chamarra</ion-label>
+    <p><ion-input type="text" name="cdechamarra" placeholder="Cantidad de chamarra" formControlName="cdechamarra"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="ddechamarra" placeholder="Descripcion de chamarra" formControlName="ddechamarra"  required="" maxlength="25"> </ion-input> </p>
+    <ion-label > Cantidad y Descripcion de chaleco </ion-label>
+    <p><ion-input type="text" name="cdechaleco" placeholder="Cantidad de chaleco" formControlName="cdechaleco"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="cdechaleco" placeholder="Descripcion de chaleco" formControlName="ddechaleco"  required="" maxlength="25"> </ion-input> </p>
+    <ion-label > Cantidad y Descripcion de lentes </ion-label>
+    <p><ion-input type="text" name="cdelentes" placeholder="Cantidad de lentes"formControlName="cdelentes"  required="" maxlength="25"> </ion-input> </p>
+    <p><ion-input type="text" name="ddelentes" placeholder="Descripcion de lentes" formControlName="ddelentes"  required="" maxlength="25"> </ion-input> </p>
    
-    <p><ion-input type="text" name="talladepantalon" placeholder="Cual es su talla de pantalon" formControlName="talladepantalon"  required="" maxlength="25"> </ion-input> </p>
-    <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
-    <ion-item  >
+       <ion-item  >
       <ion-label>Es pensionado:</ion-label>
       <ion-select  formControlName="pensionado"    name="pensionado" required="" >
           <ion-select-option value="Si">Si</ion-select-option>
@@ -66,7 +86,7 @@
         
       </ion-select>
   </ion-item>
-    <!-- <p><ion-input type="text" name="niveldeescolaridad" placeholder="Nivel de Escolaridad" ngModel required=""> </ion-input> </p>   -->
+      
   
     <ion-item  >
       <ion-label>Nivel de Escolaridad:</ion-label>
@@ -77,6 +97,7 @@
         
       </ion-select>
   </ion-item>
+ 
 
 
 
@@ -95,7 +116,7 @@
 
     
   <p> 
-  <button (click)="Editar()" class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Actualizar</button>
+    <input  class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="submit" value="Actualizar">
 </p> 
     
   </form>

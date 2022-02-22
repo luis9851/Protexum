@@ -1,0 +1,15 @@
+<ion-item *ngIf="clients.activo">
+
+  <ion-label>
+    <h2>Nombre: {{ clients.nombre }}  </h2>
+    <h2>RFC: {{ clients.rfc }}</h2>
+    <h3>Correo: {{ clients.correoelectronico }}</h3>
+    <p>Domicilio: {{ clients.domicilio }}</p>
+    <p>Telefono: {{ clients.telefono }}</p>
+
+  </ion-label>
+  <button (click)=services(clients._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Agregar Servicio</button>
+  <button (click)=verClient(clients._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Ver más</button>
+  <ion-icon name="trash" (click)="delete(clients._id)"></ion-icon>
+  <ion-icon name="clipboard" (click)="Editar_U(clients._id)"></ion-icon> 
+</ion-item>

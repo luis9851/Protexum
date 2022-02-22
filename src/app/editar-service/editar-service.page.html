@@ -1,0 +1,51 @@
+
+      <a class="navbar-brand" href="#">
+        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
+      </a>
+<ion-content  class="fondo" [fullscreen]="true">
+<ion-grid class="login" >
+  <ion-grid class=""></ion-grid>
+
+  <a class="navbar-brand" href="#">
+    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="60px" width="mr-auto" alt="Logo">
+  </a>
+  
+  <h2 class="login-header">Actualizar informacion</h2>
+
+
+  
+  <form [formGroup]="serviceForm" class="login-container" (ngSubmit)="actualizar()" >
+
+
+    <p><ion-input type="text" placeholder="Nombre" formControlName="nombre" require="" > </ion-input>
+    <p><ion-input type="text" name="contactodelservicio" placeholder="contactodelservicio" formControlName="contactodelservicio"  required="" > </ion-input> </p>
+    <p><ion-input type="tel" name="telefono" placeholder="telefono"  required="" formControlName="telefono"  > </ion-input> </p>
+    <p><ion-input type="tel" name="telefonoprotexum" placeholder="telefonoprotexum"  required="" formControlName="telefonoprotexum"  > </ion-input> </p>
+    <ion-item  >
+      <ion-label>Tipo de Servicio brindando:</ion-label>
+      <ion-select  formControlName="tipodeservicio"    name="servicio" required="" >
+        <ion-select-option value="Industrial">Industria</ion-select-option>
+        <ion-select-option value="Residencial">Residencial</ion-select-option>
+        <ion-select-option value="Centro-comercia">Centro comercia</ion-select-option>
+        <ion-select-option value="Empresarial">Empresarial</ion-select-option>
+        <ion-select-option value="Codependencia-de-gobierno">Codependencia-de-gobierno</ion-select-option>
+        
+        
+      </ion-select>
+  </ion-item>
+    <p><ion-input type="text" name="domicilio" placeholder="domicilio"  formControlName="domicilio"  required=""> </ion-input> </p>
+    <p><ion-input type="text" name="jefedeservicio" placeholder="jefedeservicio" formControlName="jefedeservicio"  required=""> </ion-input> </p>
+    <ion-label> Datos para la tabla de turno </ion-label>
+    <p><ion-input type="text" name="turno12x12" placeholder="turno12x12"  formControlName="turno12x12"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="turno24x24" placeholder="turno24x24"  formControlName="turno24x24"  required="" > </ion-input> </p>
+  
+
+  <p> 
+  <input  class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="submit" value="Actualizar">
+</p> 
+    
+  </form>
+
+ 
+</ion-grid>
+</ion-content>

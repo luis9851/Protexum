@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'list-clients',
     pathMatch: 'full'
   },
   {
@@ -30,6 +30,66 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'registroclients',
+    loadChildren: () => import('./registroclients/registroclients.module').then( m => m.RegistroclientsPageModule)
+  },
+  {
+    path: 'registropersonal',
+    loadChildren: () => import('./registropersonal/registropersonal.module').then( m => m.RegistropersonalPageModule)
+  },
+  {
+    path: 'list-clients',
+    loadChildren: () => import('./list-clients/list-clients.module').then( m => m.ListClientsPageModule)
+  },
+  {
+    path: 'client/:id',
+    loadChildren: () => import('./client/client.module').then( m => m.ClientPageModule)
+  },
+  {
+    path: 'editar-client/:id',
+    loadChildren: () => import('./editar-client/editar-client.module').then( m => m.EditarClientPageModule)
+  },
+  {
+    path: 'olvidastecontrasena',
+    loadChildren: () => import('./olvidastecontrasena/olvidastecontrasena.module').then( m => m.OlvidastecontrasenaPageModule)
+  },
+  {
+    path: 'recuperarcontrasena/:token',
+    loadChildren: () => import('./recuperarcontrasena/recuperarcontrasena.module').then( m => m.RecuperarcontrasenaPageModule)
+  },
+  {
+    path: 'registroservices/:id',
+    loadChildren: () => import('./registroservices/registroservices.module').then( m => m.RegistroservicesPageModule)
+  },
+  {
+    path: 'list-services',
+    loadChildren: () => import('./list-services/list-services.module').then( m => m.ListServicesPageModule)
+  },
+  {
+    path: 'services/:id',
+    loadChildren: () => import('./services.pages/services.module').then( m => m.ServicesPageModule)
+  },
+  {
+    path: 'editar-service/:id',
+    loadChildren: () => import('./editar-service/editar-service.module').then( m => m.EditarServicePageModule)
+  },
+  {
+    path: 'equiporecibido/:id',
+    loadChildren: () => import('./equiporecibido/equiporecibido.module').then( m => m.EquiporecibidoPageModule)
+  },
+
+
+
+
+
+
+
+
+
+
+
+
 
 ];
 

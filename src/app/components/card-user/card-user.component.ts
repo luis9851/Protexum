@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { ServiceService } from '../../service/services/service.service';
 import { LoginService } from '../../service/login.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class CardUserComponent implements OnInit {
   @Input() indexE: string;
   @Output() userSeleccionado: EventEmitter<number>;
 
-  constructor(private router: Router, private servicio: LoginService, private toast: ToastController,private Sconsultas: ServiceService ) {
+  constructor(private router: Router, private servicio: LoginService, private toast: ToastController) {
     this.userSeleccionado = new EventEmitter();
    }
 
@@ -36,7 +35,7 @@ export class CardUserComponent implements OnInit {
   }
 
   delete(_id: string){
-    this.servicio.deleteuser(_id).subscribe(data => {
+    this.servicio.eliminarusuario(_id).subscribe(data => {
       this.presentToast();
 
     })

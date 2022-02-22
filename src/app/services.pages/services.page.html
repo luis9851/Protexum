@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <app-navbar></app-navbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <section class="seccion-perfil-usuario">
+      <div class="perfil-usuario-header">
+          <div class="perfil-usuario-portada">
+            
+              <button type="button" class="boton-portada">
+                  <i class="far fa-image"></i> Cambiar fondo
+              </button>
+          </div>
+      </div>
+      <div class="perfil-usuario-body">
+          <div class="perfil-usuario-bio">
+              <h3 class="titulo">{{ service.nombre }} </h3>
+              <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="perfil-usuario-footer">
+              <ul class="lista-datos">
+                <li><i class="icono fas fa-user"></i>Contacto directo:{{service.contactodelservicio}} </li>
+                <li><i class="icono fas fa-user"></i>Jefe de turno:{{service.jefedeservicio}} </li>
+                  <li><i class="icono fas fa-map-signs"></i>Dirección: {{ service.domicilio }}</li>
+                  <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ service.telefono}}</li>
+                  <li><i class="icono fas fa-phone-alt"></i>telefonoprotexum: {{ service.telefonoprotexum }}</li>
+                  <li><i class=""></i>Servicio: {{ service.tipodeservicio }}</li>
+                  <li><i class="icono fas fa-building"></i>Cantidad de guardias por turno: {{ service.cantidaddeguardiasporturno }}</li>
+                  <li><i class="icono fas fa-building"></i>Cantidad de guardias por turno Noche: {{ service.cantidaddeguardiasporturnonoche }}</li>
+              </ul>
+             
+          </div>
+      </div>
+  </section>
+  </ion-content>
