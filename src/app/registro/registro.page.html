@@ -15,10 +15,10 @@
         <ul class="navbar-nav mr-auto">
           <!-- active es la clase para hacer que resalte en el menu -->
           <li class="nav-item" routerLinkActive="active">
-            <a style="color: #FFFFFF;" class="nav-link" href="#">Inicio</a>
+            <a style="color: #000000;font-weight: bold;" class="nav-link" href="#">Inicio</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a style="color: #FFFFFF;" class="nav-link" href="/registro">Registrarse</a>
+            <a style="color: #000000;font-weight: bold;" class="nav-link" href="/registro">Registrarse</a>
           </li>
         </ul>
     
@@ -94,16 +94,17 @@
       <!-- <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p> -->
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <ion-item class="formulario__input" >
-            <ion-label>Cual es su estado Civil:</ion-label>
-            <ion-select   ngModel   name="estadocivil" required="" >
-                <ion-select-option value="Soltero">Soltero</ion-select-option>
-                <ion-select-option value="Casado">Casado</ion-select-option>
-                <ion-select-option value="Divorciado">Divorciado</ion-select-option>
-                <ion-select-option value="Viudo">Viudo</ion-select-option>
-              
-            </ion-select>
-          </ion-item>
+          <p>
+            <ion-item class="formulario__input" >
+              <ion-label>Cual es su estado Civil:</ion-label>
+              <ion-select   ngModel   name="estadocivil" required="" >
+                  <ion-select-option value="Soltero">Soltero</ion-select-option>
+                  <ion-select-option value="Casado">Casado</ion-select-option>
+                  <ion-select-option value="Divorciado">Divorciado</ion-select-option>
+                  <ion-select-option value="Viudo">Viudo</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
         </div>
       </div>
       
@@ -115,13 +116,15 @@
         <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <ion-item  class="formulario__input">
-            <ion-label>Es pensionado:</ion-label>
-            <ion-select   ngModel   name="pensionado" required="" >
-                <ion-select-option value="Si">Si</ion-select-option>
-                <ion-select-option value="No">No</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <p>
+            <ion-item  class="formulario__input">
+              <ion-label>Es pensionado:</ion-label>
+              <ion-select   ngModel   name="pensionado" required="" >
+                  <ion-select-option value="Si">Si</ion-select-option>
+                  <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
         </div>
       </div>
       
@@ -129,14 +132,16 @@
     
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <ion-item  class="formulario__input">
-            <ion-label>Nivel de Escolaridad:</ion-label>
-            <ion-select ngModel   name="niveldeescolaridad" required="" >
-                <ion-select-option value="Primaria">Primaria</ion-select-option>
-                <ion-select-option value="Secundaria">Secundaria </ion-select-option>
-                <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <p>
+            <ion-item  class="formulario__input">
+              <ion-label>Nivel de Escolaridad:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">Primaria</ion-select-option>
+                  <ion-select-option value="Secundaria">Secundaria </ion-select-option>
+                  <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
         </div>
       </div>
      
@@ -154,7 +159,7 @@
           </form>
         </div>
       </div>
-      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Registrar"> </p>
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #000000;font-weight: bold;" type="submit" value="Registrar"> </p>
     </form>
   </main>
    

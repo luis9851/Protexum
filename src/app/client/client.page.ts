@@ -33,7 +33,7 @@ export class ClientPage implements OnInit {
       
         this.client= data.client
         this.services= data.client.servicios
-        this.equips = data.client.servicios
+        this.equips = data.client.servicios.equiporecibido
         
 
         

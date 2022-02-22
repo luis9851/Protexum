@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'list-clients',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
