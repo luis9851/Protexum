@@ -28,12 +28,12 @@ export class ClientPage implements OnInit {
       this._Service.getobteneridcliente(params['id']).subscribe(data =>{
        console.log(data.client)
        console.log(data.client.servicios)
-       console.log(data.client.servicios[0].equiporecibido)
+       console.log(data.client.servicios.equiporecibido)
       
       
         this.client= data.client
         this.services= data.client.servicios
-        this.equips = data.client.servicios[0].equiporecibido
+        this.equips = data.client.servicios
         
 
         
