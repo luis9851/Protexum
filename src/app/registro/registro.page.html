@@ -41,7 +41,7 @@
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="apellidos" placeholder="apellidos" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="text" name="apellidos" placeholder="Apellidos" ngModel required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">
@@ -51,7 +51,7 @@
       </div>  
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="nsegurosocial" placeholder="Numero de seguro social" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="text" name="nsegurosocial" placeholder="Número de Seguro Social" ngModel required=""> </ion-input> </p>
         </div>
         </div>
       <div class="formulario__grupo">
@@ -73,7 +73,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label class="formulario__label">Fecha de Nacimiento</ion-label>
-          <p><ion-input class="formulario__input" type="date" name="fechadenacimiento" placeholder="Fecha de Nacimiento" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="date" name="fechadenacimiento" placeholder="Fecha de nacimiento" ngModel required=""> </ion-input> </p>
         </div>
       </div>  
       <div class="formulario__grupo">
@@ -88,40 +88,43 @@
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de credito de Infonavit si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="text" name="creditodeInfonavit" placeholder="Ingrese el numero de crédito Infonavit si lo tiene" ngModel required="" maxlength="15"> </ion-input> </p>
         </div>
       </div>
       <!-- <p><ion-input type="text" name="estadocivil" placeholder="Cual es su estado Civil" ngModel required=""> </ion-input> </p> -->
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <ion-item class="formulario__input" >
-            <ion-label>Cual es su estado Civil:</ion-label>
-            <ion-select   ngModel   name="estadocivil" required="" >
-                <ion-select-option value="Soltero">Soltero</ion-select-option>
-                <ion-select-option value="Casado">Casado</ion-select-option>
-                <ion-select-option value="Divorciado">Divorciado</ion-select-option>
-                <ion-select-option value="Viudo">Viudo</ion-select-option>
-              
-            </ion-select>
-          </ion-item>
+          <p>
+            <ion-item class="formulario__input" >
+              <ion-label>Estado Civil:</ion-label>
+              <ion-select   ngModel   name="estadocivil" required="" >
+                  <ion-select-option value="Soltero">Soltero</ion-select-option>
+                  <ion-select-option value="Casado">Casado</ion-select-option>
+                  <ion-select-option value="Divorciado">Divorciado</ion-select-option>
+                  <ion-select-option value="Viudo">Viudo</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
         </div>
       </div>
       
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="email" name="correoelectronico" placeholder="correoelectronico" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="email" name="correoelectronico" placeholder="Correo Electronico" ngModel required=""> </ion-input> </p>
         </div>
       </div> 
         <!-- <p><ion-input type="text" name="pensionado" placeholder="Es pensionado" ngModel required=""> </ion-input> </p>   -->
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <ion-item  class="formulario__input">
-            <ion-label>Es pensionado:</ion-label>
-            <ion-select   ngModel   name="pensionado" required="" >
-                <ion-select-option value="Si">Si</ion-select-option>
-                <ion-select-option value="No">No</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <p>
+            <ion-item  class="formulario__input">
+              <ion-label>¿Es pensionado?</ion-label>
+              <ion-select   ngModel   name="pensionado" required="" >
+                  <ion-select-option value="Si">Si</ion-select-option>
+                  <ion-select-option value="No">No</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
         </div>
       </div>
       
@@ -129,20 +132,22 @@
     
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <ion-item  class="formulario__input">
-            <ion-label>Nivel de Escolaridad:</ion-label>
-            <ion-select ngModel   name="niveldeescolaridad" required="" >
-                <ion-select-option value="Primaria">Primaria</ion-select-option>
-                <ion-select-option value="Secundaria">Secundaria </ion-select-option>
-                <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <p>
+            <ion-item  class="formulario__input">
+              <ion-label>Nivel de Escolaridad:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">Primaria</ion-select-option>
+                  <ion-select-option value="Secundaria">Secundaria </ion-select-option>
+                  <ion-select-option value="Preparatoria">Preparatoria</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
         </div>
       </div>
      
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="password" name="contrasena" placeholder="Contrasena" ngModel required> </ion-input></p>
+          <p><ion-input class="formulario__input" type="password" name="contrasena" placeholder="Contraseña" ngModel required> </ion-input></p>
         </div> 
       </div>
       <div class="formulario__grupo">
@@ -154,7 +159,7 @@
           </form>
         </div>
       </div>
-      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Registrar"> </p>
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #000000;font-weight: bold;" type="submit" value="Registrar"> </p>
     </form>
   </main>
    

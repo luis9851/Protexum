@@ -24,10 +24,18 @@ export class RegistroservicesPage implements OnInit {
   }
 
   Registerservice(form){
+    console.log(form)
 
     if(form.value.turno12x12 == "" || form.value.turno24x24 == "" || form.value.contactodelservicio == "" || 
     form.value.domicilio == "" || form.value.jefedeservicio == "" || form.value.nombre == "" || form.value.telefono == ""  ||
-    form.value.telefonoprotexum == "" || form.value.tipodeservicio == "" ){ 
+    form.value.telefonoprotexum == "" || form.value.tipodeservicio == "" ||
+    form.value.lturnodoce == "" || form.value.lturnovienti == "" ||
+    form.value.mturnodoce == "" || form.value.mturnovienti == "" ||
+    form.value.miturnodoce == "" || form.value.miturnovienti == "" ||
+    form.value.jturnodoce == "" || form.value.jturnovienti == "" ||
+    form.value.vturnodoce == "" || form.value.vturnovienti == "" ||
+    form.value.sturnodoce == "" || form.value.sturnovienti == "" ||
+    form.value.dturnodoce == "" || form.value.dturnovienti == "" ){ 
 
      this.FaltanDatos()
      
@@ -37,7 +45,7 @@ export class RegistroservicesPage implements OnInit {
 
     
   this.servicio.registrarS(this.id,form.value).subscribe( (res => {
-    console.log(res.dataService.id)
+    console.log(res.dataService)
      res.dataService.id;
    
     this.exito();
@@ -45,6 +53,7 @@ export class RegistroservicesPage implements OnInit {
 
     
      this.agregaridDeServicioausuario(res.dataService.id)
+     this.router.navigate([`/equiporecibido/${res.dataService.id}`])
     
   }))
   }

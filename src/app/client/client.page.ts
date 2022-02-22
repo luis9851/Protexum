@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
 import {Services} from '../models/services/services'
-import { Equip } from '../models/equips/equip';
+/* import { Equip } from '../models/equips/equip'; */
 @Component({
   selector: 'app-client',
   templateUrl: './client.page.html',
@@ -16,7 +16,7 @@ export class ClientPage implements OnInit {
   yy: string
   client: any=[];
   services: Services[] =[]; 
-  equip:Equip[]= [];
+  equip: any = [];
   id: string;
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
