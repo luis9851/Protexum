@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
 import {Services} from '../models/services/services'
 import { Equip } from '../models/equips/equip';
+import { EquiporecibidoPage } from '../equiporecibido/equiporecibido.page';
 @Component({
   selector: 'app-client',
   templateUrl: './client.page.html',
@@ -15,9 +16,10 @@ export class ClientPage implements OnInit {
   mm: string
   yy: string
   client: any=[];
-  services: Services[] =[]; 
-  equips:Equip[]= [];
+  services: any[] =[]; 
+
   id: string;
+
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -28,13 +30,16 @@ export class ClientPage implements OnInit {
       this._Service.getobteneridcliente(params['id']).subscribe(data =>{
        console.log(data.client)
        console.log(data.client.servicios)
-       console.log(data.client.servicios.equiporecibido)
+       
       
       
         this.client= data.client
         this.services= data.client.servicios
-        this.equips = data.client.servicios
         
+      
+          
+
+       
 
         
        // formato de fechas para facturacion
@@ -42,7 +47,7 @@ export class ClientPage implements OnInit {
       this.mm =  this.client.fechadefacturacion[5] + this.client.fechadefacturacion[6];
       this.dd = this.client.fechadefacturacion[8] + this.client.fechadefacturacion[0];
 
-      // this._Service.getobteneridequipo()
+  
       
       },
       error =>{

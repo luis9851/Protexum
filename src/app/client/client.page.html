@@ -50,16 +50,16 @@
             </ul>
 
             <ul>
-                <ion-label> Servicios que Tienen contratados </ion-label>
-                <ul *ngFor="let service of services"  > 
                 
+                <ul *ngFor="let service of services" > 
+                  <ion-label> Servicios que Tienen contratados </ion-label>
                     <li><i class="icono fas fa-user"></i>Contacto directo:{{service.contactodelservicio}} </li>
                     <li><i class="icono fas fa-user"></i>Jefe de turno:{{service.jefedeservicio}} </li>
                       <li><i class="icono fas fa-map-signs"></i>Dirección: {{ service.domicilio }}</li>
                       <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ service.telefono}}</li>
                       <li><i class="icono fas fa-phone-alt"></i>telefonoprotexum: {{ service.telefonoprotexum }}</li>
                       <li><i class=""></i>Servicio: {{ service.tipodeservicio }}</li>
-                      
+                     
                       
                
                      
@@ -122,54 +122,50 @@
                         </tbody>
                       </table>
                       
-                     
-
-                      
+                    
+       
+            <ul *ngFor="let equip of service.equiporecibido">
+            <ion-label> equipoo Entregado </ion-label>
+           <li><i class="icono fas fa-user"></i>Celular:{{equip.celular}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion Celular:{{equip.dcelular}} </li>
+           <li><i class="icono fas fa-user"></i>Radio:{{equip.radio}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion radio:{{equip.dradio}} </li>
+           <li><i class="icono fas fa-user"></i>Lamparas:{{equip.lamparas}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion lamparas:{{equip.dlamparas}} </li>
+           <li><i class="icono fas fa-user"></i>Fornitura:{{equip.fornitura}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion fornitura:{{equip.dfornitura}} </li>
+           <li><i class="icono fas fa-user"></i>Tonfa:{{equip.tonfa}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion tonfa:{{equip.dtonfa}} </li>
+           <li><i class="icono fas fa-user"></i>Gas:{{equip.gas}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion gas:{{equip.dgas}} </li>
+           <li><i class="icono fas fa-user"></i>teaser:{{equip.teaser}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion teaser:{{equip.dteaser}} </li>
+           <li><i class="icono fas fa-user"></i>Impermeable:{{equip.impermeable}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion impermeable:{{equip.dimpermeable}} </li>
+           <li><i class="icono fas fa-user"></i>Espejoderevision:{{equip.espejoderevision}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion espejoderevision:{{equip.despejoderevision}} </li>
+           <li><i class="icono fas fa-user"></i>Detectordemetales:{{equip.detectordemetales}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion detectordemetales:{{equip.ddetectordemetales}} </li>
+           <li><i class="icono fas fa-user"></i>Mazo:{{equip.mazo}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion mazo:{{equip.dmazo}} </li>
+           <li><i class="icono fas fa-user"></i>Botasimpermeables:{{equip.botasimpermeables}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion botasimpermeables:{{equip.dbotasimpermeables}} </li>
+           <li><i class="icono fas fa-user"></i>Bicicleta:{{equip.bicicleta}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion bicicleta:{{equip.dbicicleta}} </li>
+           <li><i class="icono fas fa-user"></i>Patrulla:{{equip.patrulla}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion patrulla:{{equip.dpatrulla}} </li>
+           <li><i class="icono fas fa-user"></i>Rondinero:{{equip.rondinero}} </li>
+           <li><i class="icono fas fa-user"></i>Descripcion rondinero:{{equip.drondinero}} </li>
+     
+ 
+         </ul>
+ 
+ 
+          </ul>          
 
                 </ul>
-            </ul>
 
-
-         <ul *ngFor="let equip of equips">
-           <ion-label> Equipo Entregado </ion-label>
-          <li><i class="icono fas fa-user"></i>Celular:{{equip.celular}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion Celular:{{equip.dcelular}} </li>
-          <li><i class="icono fas fa-user"></i>Radio:{{equip.radio}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion radio:{{equip.dradio}} </li>
-          <li><i class="icono fas fa-user"></i>Lamparas:{{equip.lamparas}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion lamparas:{{equip.dlamparas}} </li>
-          <li><i class="icono fas fa-user"></i>Fornitura:{{equip.fornitura}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion fornitura:{{equip.dfornitura}} </li>
-          <li><i class="icono fas fa-user"></i>Tonfa:{{equip.tonfa}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion tonfa:{{equip.dtonfa}} </li>
-          <li><i class="icono fas fa-user"></i>Gas:{{equip.gas}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion gas:{{equip.dgas}} </li>
-          <li><i class="icono fas fa-user"></i>teaser:{{equip.teaser}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion teaser:{{equip.dteaser}} </li>
-          <li><i class="icono fas fa-user"></i>Impermeable:{{equip.impermeable}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion impermeable:{{equip.dimpermeable}} </li>
-          <li><i class="icono fas fa-user"></i>Espejoderevision:{{equip.espejoderevision}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion espejoderevision:{{equip.despejoderevision}} </li>
-          <li><i class="icono fas fa-user"></i>Detectordemetales:{{equip.detectordemetales}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion detectordemetales:{{equip.ddetectordemetales}} </li>
-          <li><i class="icono fas fa-user"></i>Mazo:{{equip.mazo}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion mazo:{{equip.dmazo}} </li>
-          <li><i class="icono fas fa-user"></i>Botasimpermeables:{{equip.botasimpermeables}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion botasimpermeables:{{equip.dbotasimpermeables}} </li>
-          <li><i class="icono fas fa-user"></i>Bicicleta:{{equip.bicicleta}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion bicicleta:{{equip.dbicicleta}} </li>
-          <li><i class="icono fas fa-user"></i>Patrulla:{{equip.patrulla}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion patrulla:{{equip.dpatrulla}} </li>
-          <li><i class="icono fas fa-user"></i>Rondinero:{{equip.rondinero}} </li>
-          <li><i class="icono fas fa-user"></i>Descripcion rondinero:{{equip.drondinero}} </li>
-    
-
-
-
-
-         </ul>
-
-           
+       
         </div>
        
     </div>
