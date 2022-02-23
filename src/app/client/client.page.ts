@@ -35,6 +35,10 @@ export class ClientPage implements OnInit {
       
         this.client= data.client
         this.services= data.client.servicios
+
+
+       
+
         
       
           
