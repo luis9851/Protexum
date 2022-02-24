@@ -11,6 +11,7 @@ import { ServiceService } from '../service/services/service.service';
 export class ServicesPage implements OnInit {
   @Input() index: string;
   @Input() indexS: string;
+  @Input() indexSe: string;
 
   public folder: string;
   service: any=[];
@@ -24,6 +25,7 @@ export class ServicesPage implements OnInit {
       this.id = params['id'];
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
         this.service = data.service;
+        console.log(this.service)
       
        
       },
@@ -32,6 +34,11 @@ export class ServicesPage implements OnInit {
       });
     
     })
+  }
+  Editar_E(_id: string){
+    this.indexSe = _id;
+    this.router.navigate(['/editar-equip', this.indexSe]);
+    console.log(this.indexSe)
   }
 
 }

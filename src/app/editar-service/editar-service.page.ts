@@ -26,8 +26,20 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
      tipodeservicio: ['', Validators.required],
      domicilio: ['', Validators.required],
      jefedeservicio: ['', Validators.required],
-     turno12x12: ['', Validators.required],
-    turno24x24: ['', Validators.required]  
+     lturnodoce: ['', Validators.required],
+     lturnovienti: ['', Validators.required],
+     mturnodoce: ['', Validators.required],
+     mturnovienti: ['', Validators.required], 
+     miturnodoce: ['', Validators.required],
+     miturnovienti: ['', Validators.required], 
+     jturnodoce: ['', Validators.required],
+     jturnovienti: ['', Validators.required], 
+     vturnodoce: ['', Validators.required],
+     vturnovienti: ['', Validators.required],   
+     sturnodoce: ['', Validators.required],
+     sturnovienti: ['', Validators.required], 
+     dturnodoce: ['', Validators.required],
+     dturnovienti: ['', Validators.required] 
      
    })
 

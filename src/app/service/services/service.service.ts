@@ -4,7 +4,9 @@ import { HttpClient, HttpParams, HttpResponse, HttpErrorResponse, HttpHeaders } 
 import { catchError, tap, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ServiceI } from 'src/app/models/services';
+import { EquipI } from 'src/app/models/equip';
 import { ServiceResponseI } from 'src/app/models/service-response';
+import { EquipResponseI } from 'src/app/models/equip-response';
 import { Services } from '../../models/services/services';
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -121,6 +123,14 @@ getobtenerservices(): Observable<any> {
   }),  catchError(this.handleError) )    
    }
 
+     // me trae los datos de equipo para posterio mente modificar los datos con el metodo de Editar_Se
+  obtenerequip(id: String):Observable<any>{
+ 
+    return this.http.get(`${this.apiUrl}obtenerequips/${id}`).pipe(map((resp) => {
+     return resp 
+  }),  catchError(this.handleError) )    
+   }
+
    //eliminar servicio
    deleteservice(_id: String): Observable<ServiceResponseI>{
     return this.http.delete<ServiceResponseI>(`${this.apiUrl}deleteservice/${_id}`).pipe(tap(
@@ -141,6 +151,15 @@ getobtenerservices(): Observable<any> {
   }
 
 
+  // actualizar los datos de equipo
+  Editar_Se(id:any ,equip:EquipI ): Observable<EquipResponseI>{
+    return this.http.put<EquipResponseI>(`${this.apiUrl}updateequips/${id}`,
+    equip).pipe(tap(
+      (res: EquipResponseI)=> {
+       
+      }
+    ), catchError(this.handleError))
+  }
 
   //actualizar el id de servicio en Client
   

@@ -6,7 +6,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'list-clients',
     pathMatch: 'full'
   },
   {
@@ -78,21 +78,15 @@ const routes: Routes = [
     path: 'equiporecibido/:id',
     loadChildren: () => import('./equiporecibido/equiporecibido.module').then( m => m.EquiporecibidoPageModule)
   },
+  {
+    path: 'editar-equip/:id',
+    loadChildren: () => import('./editar-equip/editar-equip.module').then( m => m.EditarEquipPageModule)
+  },
 
 
 
 
-
-
-
-
-
-
-
-
-
-];
-
+]
 @NgModule({
   imports: [
  
