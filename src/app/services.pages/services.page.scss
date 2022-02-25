@@ -44,7 +44,11 @@ Copiar esto
     position: relative;
     width: 90%;
     height: 17rem;
-    background: linear-gradient(45deg, #FED03D, #FE693D);
+    background-image: url("https://cuadernosdeseguridad.com/wp-content/uploads/2018/10/empresa-seguridad.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
     border-radius: 0 0 20px 20px;
 }
 
