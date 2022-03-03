@@ -20,7 +20,7 @@ export class ListServicesPage implements OnInit {
 
   ngOnInit() {
     // setInterval(() => this. obteneruser(), 15000)
-    this.obtenerservice();
+    // this.obtenerservice();
     // this.activatedRoute.queryParams.subscribe((params)=>{
     //   this.load = true;
     //   this.busc = params;

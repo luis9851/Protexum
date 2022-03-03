@@ -29,13 +29,13 @@ export class RegistroservicesPage implements OnInit {
     if(form.value.turno12x12 == "" || form.value.turno24x24 == "" || form.value.contactodelservicio == "" || 
     form.value.domicilio == "" || form.value.jefedeservicio == "" || form.value.nombre == "" || form.value.telefono == ""  ||
     form.value.telefonoprotexum == "" || form.value.tipodeservicio == "" ||
-    form.value.lturnodoce == "" || form.value.lturnovienti == "" ||
-    form.value.mturnodoce == "" || form.value.mturnovienti == "" ||
-    form.value.miturnodoce == "" || form.value.miturnovienti == "" ||
-    form.value.jturnodoce == "" || form.value.jturnovienti == "" ||
-    form.value.vturnodoce == "" || form.value.vturnovienti == "" ||
-    form.value.sturnodoce == "" || form.value.sturnovienti == "" ||
-    form.value.dturnodoce == "" || form.value.dturnovienti == "" ){ 
+    form.value.lturnodoce == "" || form.value.lturnoNdoce == "" || form.value.lturnovienti == "" ||
+    form.value.mturnodoce == "" || form.value.mturnoNdoce == "" || form.value.mturnovienti == "" ||
+    form.value.miturnodoce == ""|| form.value.miturnoNdoce == "" || form.value.miturnovienti == "" ||
+    form.value.jturnodoce == "" || form.value.jturnoNdoce == "" ||form.value.jturnovienti == "" ||
+    form.value.vturnodoce == "" || form.value.vturnoNdoce == "" || form.value.vturnovienti == "" ||
+    form.value.sturnodoce == "" || form.value.sturnoNdoce == "" || form.value.sturnovienti == "" ||
+    form.value.dturnodoce == "" || form.value.dturnoNdoce == "" || form.value.dturnovienti == "" ){ 
 
      this.FaltanDatos()
      

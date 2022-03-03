@@ -26,9 +26,13 @@ export class EquiporecibidoPage implements OnInit {
     console.log(form)
     
       if(form.value.celular == "" || form.value.radio == "" || form.value.lamparas == "" || 
+      form.value.dcelular == "" || form.value.dradio == "" || form.value.dlamparas == "" || 
       form.value.fornitura == "" || form.value.tonfa == "" || form.value.gas == "" || form.value.teaser == ""  ||
+      form.value.dfornitura == "" || form.value.dtonfa == "" || form.value.dgas == "" || form.value.dteaser == ""  ||
       form.value.impermeable == "" || form.value.espejoderevision == "" || form.value.detectordemetales == "" || form.value.mazo == "" ||
-      form.value.botasimpermeables == "" || form.value.bicicleta == "" || form.value.patrulla == "" || form.value.rondinero == "" ){ 
+      form.value.dimpermeable == "" || form.value.despejoderevision == "" || form.value.ddetectordemetales == "" || form.value.dmazo == "" ||
+      form.value.botasimpermeables == "" || form.value.bicicleta == "" || form.value.patrulla == "" || form.value.rondinero == "" ||
+      form.value.dbotasimpermeables == "" || form.value.dbicicleta == "" || form.value.dpatrulla == "" || form.value.drondinero == "" ){ 
   
        this.FaltanDatos()
        
@@ -42,6 +46,8 @@ export class EquiporecibidoPage implements OnInit {
                
 
                   this.agregaridenequipo(res.dataEquip.id)
+                  
+                  // this.router.navigate(['[/list-clients] '])
 
                     
                   }))
