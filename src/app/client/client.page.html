@@ -16,35 +16,35 @@
     <div class="perfil-usuario-body">
         <div class="perfil-usuario-bio">
             <h3 class="titulo">{{ client.nombre }}</h3>
-            <p class="texto"> {{client.comentarios}} </p>
+            <p class="texto">Comentarios: {{client.comentarios}} </p>
         </div>
         <div class="perfil-usuario-footer">
             <ul class="lista-datos">
-                <li><i class="icono fas fa-map-signs"></i>Dirección: {{ client.domicilio }} </li>
-                <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ client.telefono}}</li>
-                <li><i class="icono fas fa-envelope"></i>Correo: {{ client.correoelectronico }}</li>
+                <li><i class="icono fas fa-file"></i>RFC: {{ client.rfc }}</li>
                 <li><i class=""></i>Servicio: {{ client.servicio }}</li>
                 <li><i class="icono fas fa-map-signs"></i>Dirección: {{ client.domicilio }} </li>
-                <li><i class="icono fas fa-file"></i>RFC: {{ client.rfc }}</li>
-            </ul>
-            <ul class="lista-datos">
+                <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ client.telefono}}</li>
                 <li><i class=""></i> informacion de contacto directo </li>
                 <li><i class="icono fas fa-map-signs"></i>Nombre: {{ client.cdnombre }} </li>
                 <li><i class="icono fas fa-map-signs"></i>Telefono: {{ client.cdtelefono }} </li>
                 <li><i class="icono fas fa-envelope"></i>Correo de la empresa: {{ client.cdcorreoelectronicoempresa }}</li>
                 <li><i class="icono fas fa-envelope"></i>Correo de el contacto : {{ client.cdcorreoelectronico }}</li>
-                <li><i class="icono fas fa-file"></i>RFC de facturacion {{ client.rfcdefacturacion }}</li>
                 <li><i class="icono fas fa-map-signs"></i>Dirección fiscal: {{ client.domciliofiscal }} </li>
                
+                
+                
             </ul>
+         
 
             <ul class="lista-datos">
                 <li><i class=""></i> informacion de Facturacion </li>
                 <li><i class="icono fas fa-file"></i>CFDI: {{ client.cfdi}}</li>
+                <li><i class="icono fas fa-file"></i>RFC de facturacion: {{ client.rfcdefacturacion }}</li>
                 <li><i class="icono fa fa-credit-card-alt"></i>Forma de pago:{{client.formadepago}} </li>
                 <li><i class="icono fa fa-credit-card-alt"></i>Metodo de pago:{{client.metododepago}} </li>
                 <li><i class="icono fas fa-calendar-alt"></i> Fecha para facturacion: {{dd}}/{{mm}}/{{yy}} </li>
                 <li><i class="icono fas fa-user"></i>Tipo de credito:{{client.tipodecredito}} </li>
+                <li><i class="icono fas fa-envelope"></i>Correo de facturacion: {{ client.correoelectronicofacturacion }}</li>
 
                 
 

@@ -30,7 +30,7 @@ export class UserPage implements OnInit {
       this.id = params['id'];
       this._Service.getobtenerid(params['id']).subscribe(data =>{
         this.user = data.user;
-        console.log(this.user)
+       
        // formato de fechas
       this.yy = this.user.fechadenacimiento[0] + this.user.fechadenacimiento[1] + this.user.fechadenacimiento[2] + this.user.fechadenacimiento[3];
       this.mm =  this.user.fechadenacimiento[5] + this.user.fechadenacimiento[6];

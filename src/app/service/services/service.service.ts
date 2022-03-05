@@ -6,6 +6,7 @@ import { throwError } from 'rxjs';
 import { ServiceI } from 'src/app/models/services';
 import { EquipI } from 'src/app/models/equip';
 import { ServiceResponseI } from 'src/app/models/service-response';
+import { ClientResponseI } from 'src/app/models/client-response';
 import { EquipResponseI } from 'src/app/models/equip-response';
 import { Services } from '../../models/services/services';
 const httpOptions = {
@@ -19,7 +20,7 @@ const httpOptions = {
     apiUrl:string;
   
     constructor(private http: HttpClient ) { 
-      console.log("Servicio listo...");
+      
       this.apiUrl ="http://localhost:3001/api/";
     }
   //detector de errores
@@ -112,7 +113,7 @@ getobtenerservices(): Observable<any> {
         (res:ServiceResponseI)=>{
 
         }
-      ))
+      ), catchError(this.handleError))
     }
 
 
@@ -163,10 +164,10 @@ getobtenerservices(): Observable<any> {
 
   //actualizar el id de servicio en Client
   
-  actualizar_servicioid(id:any ,idservicio:string ): Observable<ServiceResponseI>{
-    return this.http.put<ServiceResponseI>(`${this.apiUrl}idimage/idClienteservicio/${id}`,
+  actualizar_servicioid(id:any ,idservicio:string ): Observable<ClientResponseI>{
+    return this.http.put<ClientResponseI>(`${this.apiUrl}idimage/idClienteservicio/${id}`,
     {servicios:idservicio }).pipe(tap(
-      (res: ServiceResponseI)=> {
+      (res: ClientResponseI)=> {
        
       }
     ), catchError(this.handleError))

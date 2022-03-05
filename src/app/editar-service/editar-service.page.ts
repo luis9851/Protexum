@@ -93,7 +93,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
 
    
 
-      this.router.navigate(['/list-services'])
+      this.router.navigate(['/home'])
      }
     
      ))

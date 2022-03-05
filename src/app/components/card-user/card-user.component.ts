@@ -13,6 +13,7 @@ export class CardUserComponent implements OnInit {
   @Input() users: any = {};
   @Input() index: string;
   @Input() indexE: string;
+  @Input() indexp: string;
   @Output() userSeleccionado: EventEmitter<number>;
 
   constructor(private router: Router, private servicio: LoginService, private toast: ToastController) {
@@ -20,6 +21,13 @@ export class CardUserComponent implements OnInit {
    }
 
   ngOnInit() {}
+
+  prestamos(_id :string){
+    this.indexp = _id;
+    this.router.navigate(['/registroprestamos',this.indexp]);
+    console.log(this.indexp)
+
+  }
 
   verUser(_id: string){
     this.index = _id;

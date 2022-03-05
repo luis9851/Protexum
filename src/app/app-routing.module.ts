@@ -82,6 +82,11 @@ const routes: Routes = [
     path: 'editar-equip/:id',
     loadChildren: () => import('./editar-equip/editar-equip.module').then( m => m.EditarEquipPageModule)
   },
+  {
+    path: 'registroprestamos/:id',
+    loadChildren: () => import('./registroprestamos/registroprestamos.module').then( m => m.RegistroprestamosPageModule)
+  },
+
 
 
 
