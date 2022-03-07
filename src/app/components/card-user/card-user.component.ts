@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from '../../service/login.service';
 
@@ -14,13 +14,30 @@ export class CardUserComponent implements OnInit {
   @Input() index: string;
   @Input() indexE: string;
   @Output() userSeleccionado: EventEmitter<number>;
+  public ismodelShown: boolean = false;
+  id: String = "";
 
-  constructor(private router: Router, private servicio: LoginService, private toast: ToastController) {
+  constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController) {
     this.userSeleccionado = new EventEmitter();
    }
 
   ngOnInit() {}
 
+  confirmar(){
+    this.ismodelShown = false;
+  }
+
+  cerrarModal(configuracion:boolean){
+    this.ismodelShown = false;
+    if(configuracion){
+      console.log('Eliminar' + this.ismodelShown);
+      /* this.delete(); */
+      console.log('Eliminado'+this.id);
+    }else{
+      console.log('No elimar' + this.ismodelShown);
+    }
+  }
+  
   verUser(_id: string){
     this.index = _id;
     this.router.navigate(['/user',this.index]);
@@ -35,6 +52,7 @@ export class CardUserComponent implements OnInit {
   }
 
   delete(_id: string){
+    this.id == _id;
     this.servicio.eliminarusuario(_id).subscribe(data => {
       this.presentToast();
 
