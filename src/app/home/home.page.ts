@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
   // se usa para mandar a llamar los usuarios que estan activos en la base de datos
   obteneruser(){
     this.servicio.getobtener().subscribe(res => {
-      console.log(res.user)
+     
       this.users = res.user;
       this.load = false;
     }, error => {

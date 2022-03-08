@@ -21,7 +21,7 @@ export class UserPage implements OnInit {
   user: any=[];
   id: string;
   accion: string = "2";
- 
+  borrow: any=[];
   public ismodelShown: boolean = false;
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
@@ -30,6 +30,7 @@ export class UserPage implements OnInit {
       this.id = params['id'];
       this._Service.getobtenerid(params['id']).subscribe(data =>{
         this.user = data.user;
+        this.borrow = data.user.prestamos;
        
        // formato de fechas
       this.yy = this.user.fechadenacimiento[0] + this.user.fechadenacimiento[1] + this.user.fechadenacimiento[2] + this.user.fechadenacimiento[3];

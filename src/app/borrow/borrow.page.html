@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <!-- <button type="button" class="boton-portada">
+                <i class="far fa-image"></i> Cambiar fondo
+            </button> -->
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo">{{ borrow.nombre }}</h3>
+            <p class="texto"> </p>
+        </div>
+        <div class="perfil-usuario-footer">
+            <ul class="lista-datos">
+                <li><i class="icono fas fa-file"></i>Monto prestado: {{ borrow.montoprestado }}</li>
+                <li><i class="icono fas fa-file"></i>Fecha de prestamo: {{ borrow.fechadeprestamo }}</li>
+                <li><i class="icono fas fa-file"></i>numero de pagos: {{ borrow.numerodepagos }}</li>
+               
+               
+               
+    
+                
+                
+            </ul>
+         
+
+         
+            
+           
+
+       
+        </div>
+       
+    </div>
+</section>
+</ion-content>

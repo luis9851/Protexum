@@ -49,4 +49,18 @@ export class BorrowingService {
       }
     ), catchError(this.handleError))
   }
+    // me trae los datos de usuario para posterio mente para agregar los datos
+    obtenerprestamos(id: String):Observable<any>{
+      return this.http.get(`${this.apiUrl}idimage/consulta/${id}`).pipe(map((resp) => {
+       return resp 
+    }),  catchError(this.handleError) )    
+     }
+
+     // obtiene la info del prestamo para ponerlo en el perfil
+     getobteneridprestamo(id: string): Observable<any> {
+     let url = `${this.apiUrl}idimage/consultaprestamos/${id}`;
+     return this.http.get(url).pipe(map((resp) => {
+     return resp 
+     }),  catchError(this.handleError) )    
+     }
 }

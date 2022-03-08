@@ -63,6 +63,13 @@
                   <!-- <button routerLink="/editar-user/:id"  class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Editar Perfil</button> -->
 
               </ul>
+              <ul>
+                <label> Prestamos que tienen en uso: </label>
+               <ion-list>
+                   <app-card-borrow  [borrow]="foo" [indexs]="i" *ngFor="let foo of borrow; let i = index"></app-card-borrow>
+                      
+                </ion-list>
+                </ul>
           </div>
       </div>
   </section>

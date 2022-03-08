@@ -86,6 +86,11 @@ const routes: Routes = [
     path: 'registroprestamos/:id',
     loadChildren: () => import('./registroprestamos/registroprestamos.module').then( m => m.RegistroprestamosPageModule)
   },
+  {
+    path: 'borrow/:id',
+    loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
+  },
+
 
 
 

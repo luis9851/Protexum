@@ -8,27 +8,27 @@
 <ion-content [fullscreen]="true">
   <div class="login" style="position: absolute;width: 100%; height: auto;">
     <main>
-      <h2 class="login-header">Registra a tu nuevo Cliente</h2>
+      <h2 class="login-header">Registra el prestamo</h2>
   
     <form [formGroup]="borrowingForm" class="formulario" (ngSubmit)="Register()">
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="text" name="nombreg" placeholder="Nombre de guardia" formControlName="nombreg" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="text" name="nombre" placeholder="Nombre de guardia" formControlName="nombre"  required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="number" name="montoprestado" placeholder="montoprestado" formControlName="montoprestado" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="montoprestado" placeholder="monto prestado" formControlName="montoprestado"  required=""> </ion-input> </p>
         </div>
       </div> 
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="date" name="fechadepresamo"  formControlName="fechadepresamo" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="date" name="fechadeprestamo"  formControlName="fechadeprestamo"  required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="number" name="numerodepagos" placeholder="ejemplo  3" formControlName="numerodepagos" ngModel required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="numerodepagos" placeholder="Numero de pagos" formControlName="numerodepagos"  required=""> </ion-input> </p>
         </div>
       </div>
    

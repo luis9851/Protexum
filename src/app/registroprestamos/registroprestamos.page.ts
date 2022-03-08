@@ -21,9 +21,9 @@ borrowingForm: FormGroup
   constructor(private servicio: BorrowingService,  private router: Router,
     private toast: ToastController,  private activatedRoute: ActivatedRoute, private fb: FormBuilder) {
       this.borrowingForm =  this.fb.group({
-        nombreg: ['', Validators.required],
+        nombre: ['', Validators.required],
         montoprestado: ['', Validators.required],
-        fechadepresamo: ['', Validators.required],
+        fechadeprestamo: ['', Validators.required],
         numerodepagos: ['', Validators.required],
       })
 
@@ -35,12 +35,35 @@ borrowingForm: FormGroup
      }
 
   ngOnInit() {
-   
+    this.consultardatos()
   }
+
+
+  consultardatos(){
+
+    if(this.id !== null){
+     
+      this.servicio.obtenerprestamos(this.id).subscribe( data => {
+
+         console.log(data.user)
+         
+
+     let prestamo = data.user;
+     
+       this.borrowingForm.patchValue(prestamo)
+     
+       
+       
+      })
+   }
+
+
+ }
+
   Register(){
    // los datos de el elemento
    this.servicio.registrar(this.id,this.borrowingForm.value).subscribe( (res => {
-   console.log(res.dataPrestamo.id)
+   
    
    this.agregaridDeServicioausuario(res.dataPrestamo.id)
    this.router.navigate(['/home'])
