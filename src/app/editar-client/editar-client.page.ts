@@ -29,6 +29,7 @@ constructor(private servicio: ClientsService, private activatedRoute:ActivatedRo
      cdtelefono: ['', Validators.required],
      cdcorreoelectronicoempresa: ['', Validators.required],
      cdcorreoelectronico: ['', Validators.required],
+     correoelectronicofacturacion: ['', Validators.required],
      rfcdefacturacion: ['', Validators.required],
      domciliofiscal: ['', Validators.required],
      cfdi: ['', Validators.required],

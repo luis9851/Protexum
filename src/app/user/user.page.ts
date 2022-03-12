@@ -11,6 +11,7 @@ import { ServiceService } from '../service/services/service.service';
 export class UserPage implements OnInit {
   @Input() index: string;
   @Input() indexE: string;
+  @Input() indexP: string;
   public folder: string;
   dd: string
   mm: string
@@ -21,7 +22,7 @@ export class UserPage implements OnInit {
   user: any=[];
   id: string;
   accion: string = "2";
- 
+ borrow:any=[];
   public ismodelShown: boolean = false;
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
@@ -30,7 +31,11 @@ export class UserPage implements OnInit {
       this.id = params['id'];
       this._Service.getobtenerid(params['id']).subscribe(data =>{
         this.user = data.user;
+        this.borrow =data.user.prestamos;
         console.log(this.user)
+        console.log(data.user.prestamos)
+      
+       
        // formato de fechas
       this.yy = this.user.fechadenacimiento[0] + this.user.fechadenacimiento[1] + this.user.fechadenacimiento[2] + this.user.fechadenacimiento[3];
       this.mm =  this.user.fechadenacimiento[5] + this.user.fechadenacimiento[6];

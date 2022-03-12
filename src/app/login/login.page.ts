@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
       data: res.dataUser.rol
     })
 
-    this.router.navigate(['/home'])
+    this.router.navigate(['/main'])
 
      
   })

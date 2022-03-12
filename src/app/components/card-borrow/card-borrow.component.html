@@ -1,0 +1,16 @@
+<ion-item *ngIf="borrow.activo">
+
+  <ion-label>
+    <h2>Nombre: {{ borrow.nombre }}  </h2>
+    <h2>monto prestado: {{ borrow.montoprestado }}</h2>
+    <h3>fechadeprestamo: {{ borrow.fechadeprestamo }}</h3>
+    <p>numerodepagos: {{ borrow.numerodepagos }}</p>
+   
+
+  </ion-label>
+  
+ 
+  <button (click)=verPrestamo(borrow._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold;margin: 10px;" type="button">Ver más</button>
+  <ion-icon name="trash" (click)="delete(borrow._id)"></ion-icon>
+  <ion-icon name="create-outline" (click)="Editar_P(borrow._id)"></ion-icon> 
+</ion-item>

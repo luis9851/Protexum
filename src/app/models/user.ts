@@ -2,7 +2,7 @@ export interface UserI {
     id: number,
     nombre: string,
     apellidos: string,
-    curp: string,
+    curp: string,  
     nsegurosocial: string,
     rfc: string,
     domicilio:string,

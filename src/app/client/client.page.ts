@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
-import {Services} from '../models/services/services'
-import { Equip } from '../models/equips/equip';
-import { EquiporecibidoPage } from '../equiporecibido/equiporecibido.page';
+
 @Component({
   selector: 'app-client',
   templateUrl: './client.page.html',

@@ -27,18 +27,25 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
      domicilio: ['', Validators.required],
      jefedeservicio: ['', Validators.required],
      lturnodoce: ['', Validators.required],
+     lturnoNdoce: ['', Validators.required],
      lturnovienti: ['', Validators.required],
      mturnodoce: ['', Validators.required],
+     mturnoNdoce: ['', Validators.required],
      mturnovienti: ['', Validators.required], 
      miturnodoce: ['', Validators.required],
+     miturnoNdoce: ['', Validators.required],
      miturnovienti: ['', Validators.required], 
      jturnodoce: ['', Validators.required],
+     jturnoNdoce: ['', Validators.required],
      jturnovienti: ['', Validators.required], 
      vturnodoce: ['', Validators.required],
+     vturnoNdoce: ['', Validators.required],
      vturnovienti: ['', Validators.required],   
      sturnodoce: ['', Validators.required],
+     sturnoNdoce: ['', Validators.required],
      sturnovienti: ['', Validators.required], 
      dturnodoce: ['', Validators.required],
+     dturnoNdoce: ['', Validators.required],
      dturnovienti: ['', Validators.required] 
      
    })
@@ -86,7 +93,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
 
    
 
-      this.router.navigate(['/list-services'])
+      this.router.navigate(['/home'])
      }
     
      ))
