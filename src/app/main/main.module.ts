@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { BorrowPageRoutingModule } from './borrow-routing.module';
+import { MainPageRoutingModule } from './main-routing.module';
 
-import { BorrowPage } from './borrow.page';
+import { MainPage } from './main.page';
 import { ComponentsModule } from '../components/components.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BorrowPageRoutingModule,
-    ComponentsModule,
+    MainPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [BorrowPage]
+  declarations: [MainPage]
 })
-export class BorrowPageModule {}
+export class MainPageModule {}

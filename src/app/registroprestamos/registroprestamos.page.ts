@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { BorrowingService } from '../service/borrowing.service';
 import {FormBuilder, FormControl, FormGroup , Validators  } from '@angular/forms'
-import { NgForm } from '@angular/forms';
+
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -13,8 +13,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./registroprestamos.page.scss'],
 })
 export class RegistroprestamosPage implements OnInit {
-// notas recuerda que vas a mandar a llamar el nombre de guardia y lo vas a poner en el form para que sea facil 
-// y despues vas a mandar a llamar en perfil de usuario los prestamos 
+
   id: string;
   // variables para editar servicios
 borrowingForm: FormGroup
@@ -38,19 +37,17 @@ borrowingForm: FormGroup
     this.consultardatos()
   }
 
-
   consultardatos(){
 
     if(this.id !== null){
      
-      this.servicio.obtenerprestamos(this.id).subscribe( data => {
+      this.servicio.obteneruser(this.id).subscribe( data => {
 
          console.log(data.user)
-         
-
-     let prestamo = data.user;
+     let user = data.user;
+   
      
-       this.borrowingForm.patchValue(prestamo)
+       this.borrowingForm.patchValue(user)
      
        
        
@@ -59,18 +56,23 @@ borrowingForm: FormGroup
 
 
  }
-
   Register(){
+  
+     if(this.borrowingForm.value.nombre == "" || this.borrowingForm.value.montoprestado == "" || this.borrowingForm.value.fechadeprestamo == "" || 
+     this.borrowingForm.value.numerodepagos == ""  ){
+       this.FaltanDatos()
+     } 
+     else { 
    // los datos de el elemento
    this.servicio.registrar(this.id,this.borrowingForm.value).subscribe( (res => {
-   
-   
+   console.log(res.dataPrestamo.id)
+   this.exito()
    this.agregaridDeServicioausuario(res.dataPrestamo.id)
    this.router.navigate(['/home'])
        
    }))
   
-   
+  }
   }
 
   agregaridDeServicioausuario(idprestamo){
@@ -81,6 +83,24 @@ borrowingForm: FormGroup
     } ) )
     
     }
+
+    async exito(){
+      const toast = await this.toast.create({
+        message: "El registro fue exitoso",
+        duration: 2000,
+        position: "bottom"
+      });
+      toast.present()
+    } 
+     
+    async FaltanDatos(){
+      const toast = await this.toast.create({
+        message: "Por Favor llena todos los datos",
+        duration: 2000,
+        position: "bottom"
+      });
+      toast.present()
+    } 
 }   
     
    

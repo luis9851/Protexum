@@ -46,7 +46,7 @@ export class RegistropersonalPage implements OnInit {
   }
 
   Register(form : NgForm){
-    console.log(form)
+   
     
       if(form.value.apellidos == "" || form.value.contrasena == "" || form.value.correoelectronico == "" || 
       form.value.curp == "" || form.value.domicilio == "" || form.value.estadocivil == "" || form.value.fechadeentrada == ""  ||
@@ -79,7 +79,7 @@ export class RegistropersonalPage implements OnInit {
 
 
                
-                     this.router.navigate(['/home']);
+                     this.router.navigate(['/main']);
       
             
         

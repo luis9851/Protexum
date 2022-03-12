@@ -19,7 +19,16 @@ export class CardServiceComponent implements OnInit {
    }
 
   ngOnInit() {}
-
+  Controldeplaneacion(_id: string){
+    this.indexs = _id;
+    this.router.navigate(['/table-control',this.indexs]);
+    console.log(this.indexs)
+  }
+  AgregarGuardia(_id: string){
+    this.indexs = _id;
+    this.router.navigate(['/home',this.indexs]);
+    console.log(this.indexs)
+  }
   verService(_id: string){
     this.indexs = _id;
     this.router.navigate(['/services',this.indexs]);

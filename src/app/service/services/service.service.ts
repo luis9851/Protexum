@@ -173,6 +173,16 @@ getobtenerservices(): Observable<any> {
     ), catchError(this.handleError))
   }
 
+  //agregar el id de usuarios a servicios
+AgregarGuardias(id:any, Guardias:String): Observable<ServiceResponseI>{
+  return this.http.put<ServiceResponseI>(`${this.apiUrl}idimage/idGuardia/${id}`,
+  {Guardias:Guardias}).pipe(tap(
+    (res: ServiceResponseI)=> {
+    
+    }
+  ),catchError(this.handleError) )
+}
+
 }
 
    

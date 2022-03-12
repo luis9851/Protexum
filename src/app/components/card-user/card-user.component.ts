@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from '../../service/login.service';
-
+import { ServiceService } from 'src/app/service/services/service.service';
 @Component({
   selector: 'app-card-user',
   templateUrl: './card-user.component.html',
@@ -15,12 +15,44 @@ export class CardUserComponent implements OnInit {
   @Input() indexE: string;
   @Input() indexp: string;
   @Output() userSeleccionado: EventEmitter<number>;
-
-  constructor(private router: Router, private servicio: LoginService, private toast: ToastController) {
+  public ismodelShown: boolean = false;
+  id: String = "";
+  idservice: string ;
+  hayservicio: boolean = false;
+  constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController, private servicio2: ServiceService) {
     this.userSeleccionado = new EventEmitter();
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activateRouter.params.subscribe( params => {
+      this.idservice = params['id'];
+      
+      if( this.idservice != null && this.users.Servicio == null  ){
+        this.hayservicio = true ;
+        
+      }  else if( this.users.Servicio != null){
+        this.hayservicio = false ;
+       
+      } 
+      
+    })
+  }
+
+  Agregar(_id :string){
+   this.servicio.AgregarServicios(_id,this.idservice).subscribe((res => {
+  console.log(res)
+  this.router.navigate(['/list-services']);
+  this.AgregaraServicio(_id)
+  } ))
+
+  }
+
+  AgregaraServicio(_id){
+    this.servicio2.AgregarGuardias(this.idservice,_id).subscribe((res => {
+   console.log(res)
+   } ))
+ 
+   }
 
   prestamos(_id :string){
     this.indexp = _id;
@@ -29,6 +61,21 @@ export class CardUserComponent implements OnInit {
 
   }
 
+  confirmar(){
+    this.ismodelShown = false;
+  }
+
+  cerrarModal(configuracion:boolean){
+    this.ismodelShown = false;
+    if(configuracion){
+      console.log('Eliminar' + this.ismodelShown);
+      /* this.delete(); */
+      console.log('Eliminado'+this.id);
+    }else{
+      console.log('No elimar' + this.ismodelShown);
+    }
+  }
+  
   verUser(_id: string){
     this.index = _id;
     this.router.navigate(['/user',this.index]);
@@ -43,6 +90,7 @@ export class CardUserComponent implements OnInit {
   }
 
   delete(_id: string){
+    this.id == _id;
     this.servicio.eliminarusuario(_id).subscribe(data => {
       this.presentToast();
 

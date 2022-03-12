@@ -106,6 +106,7 @@ urlfile:any=[];
   }
 
   actualizar(){
+    console.log(this.userForm)
  // recorada ponerle una alerta para cuando actualizar las imagenes y preguntar si los datos esta bien puestos
    
 

@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar class="day-nam"></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="seccion-perfil-usuario">
+    
+    
+       <!-- class="perfil-usuario-footer" -->
+        <div   >
+
+        <div class ="header-calendar"  >
+          <div>
+            <!-- es para ir al mes de atras -->
+            <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ></button> 
+          </div>
+         
+          <h1>{{dateSelectM}} {{dataSYear}}  </h1>
+         <div>
+           <!-- es para ir al mes de adelante -->
+           <button (click)="changeMonth(1)" value="Siguiente"></button> 
+        </div>
+       
+       </div>
+        
+          
+           <ol>
+           <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}} </li>
+           
+
+           <li [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+           *ngFor="let day of monthSelect; let first = first">
+             <span>{{day ?.value}} </span>
+           </li>
+           
+
+
+          
+
+         
+         </ol>    
+
+         <table class="table">
+           
+          <thead class="thead-dark">
+           
+            <tr>
+              <th scope="col" >#</th>
+              <th scope="col" >Nombre</th>
+              <th scope="col" *ngFor="let day of week" >{{day | slice:0:3}} </th>
+             
+            </tr>
+          </thead>
+          <tbody *ngFor="let g of guardias; let i = index">
+         
+            <tr>
+              <th scope="row">{{i + 1}} </th>
+              <td> {{g.nombre}}  </td>
+              <td>  </td>
+              <td></td>
+            </tr>
+         
+             <tr>
+              <th scope="row" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+              *ngFor="let day of monthSelect; let first = first"> </th>
+              <td>  </td>
+              <td>  </td>
+              <td> </td>
+            </tr> 
+        
+           
+        
+          
+       
+         
+           
+          
+          </tbody>
+        </table>
+
+
+        </div>
+        
+        
+        
+       
+  
+</section>
+</ion-content>
+ <style>
+  div{
+    text-align:center;
+    width: 400px;
+  }
+
+  li{
+    text-align: center;
+  }
+
+ol{
+
+list-style:  none;
+display: grid;
+grid-template-columns:  repeat(7, 1fr);
+padding: 0;
+}
+
+.first-day{
+  grid-column-start: 5;
+  font-weight: bold;
+  text-align: center ;
+}
+
+</style> 

@@ -62,7 +62,7 @@ export class LoginService {
       }
     ), catchError(this.handleError))
   }
-
+//agregar la imagen en usuario
   AgregarIdimagen(idUser:any, fileUrl:String): Observable<JwtResponseI>{
     return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/image/${idUser}`,
     {url:fileUrl}).pipe(tap(
@@ -132,6 +132,15 @@ cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
     ))
     
   }
+//agregar el id de servicio a usuarios
+AgregarServicios(id:any, Servicio:String): Observable<JwtResponseI>{
+  return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/idservecio/${id}`,
+  {Servicio:Servicio}).pipe(tap(
+    (res: JwtResponseI)=> {
+    
+    }
+  ),catchError(this.handleError) )
+}
 
 
 
@@ -151,6 +160,9 @@ cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
       }
     ), catchError(this.handleError))
     }
+
+
+
      
   logout(): void{
     this.token ='';

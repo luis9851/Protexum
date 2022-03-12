@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
 import { Users } from '../models/users/users';
-
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-main',
+  templateUrl: './main.page.html',
+  styleUrls: ['./main.page.scss'],
 })
-export class HomePage implements OnInit {
-// recuerden que si le mueven documenten el para saber para que sirven las cosas
+export class MainPage implements OnInit {
+
+  // recuerden que si le mueven documenten el para saber para que sirven las cosas
 
   load: boolean=false;
   res: any =[];

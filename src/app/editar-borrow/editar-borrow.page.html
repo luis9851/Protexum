@@ -1,16 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <app-navbar></app-navbar>
-  </ion-toolbar>
-</ion-header>
 
 
 <ion-content [fullscreen]="true">
   <div class="login" style="position: absolute;width: 100%; height: auto;">
     <main>
-      <h2 class="login-header">Registra Prestamo</h2>
+      <h2 class="login-header">Actualizar Prestamos</h2>
   
-    <form [formGroup]="borrowingForm" class="formulario" (ngSubmit)="Register()">
+    <form [formGroup]="borrowingEForm" class="formulario" (ngSubmit)="Editar_Pe()">
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="nombre" placeholder="Nombre de guardia" formControlName="nombre"  required=""> </ion-input> </p>
@@ -23,19 +18,19 @@
       </div> 
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="date" name="fechadeprestamo"  formControlName="fechadeprestamo"  required=""> </ion-input> </p>
+          <p><ion-input type="date" name="fechadeprestamo" placeholder="fechadeprestamo"  formControlName="fechadeprestamo"  required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input class="formulario__input" type="number" name="numerodepagos" placeholder="ejemplo 3" formControlName="numerodepagos"  required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="numerodepagos" placeholder="ejemplo  3" formControlName="numerodepagos"  required=""> </ion-input> </p>
         </div>
       </div>
    
    
    
      
-      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Registrar"> </p>
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #ffff;" type="submit" value="Actualizar"> </p>
     </form>
   </main>
    

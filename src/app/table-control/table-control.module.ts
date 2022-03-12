@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { BorrowPageRoutingModule } from './borrow-routing.module';
+import { TableControlPageRoutingModule } from './table-control-routing.module';
 
-import { BorrowPage } from './borrow.page';
+import { TableControlPage } from './table-control.page';
 import { ComponentsModule } from '../components/components.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BorrowPageRoutingModule,
-    ComponentsModule,
+    TableControlPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [BorrowPage]
+  declarations: [TableControlPage]
 })
-export class BorrowPageModule {}
+export class TableControlPageModule {}

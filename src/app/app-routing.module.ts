@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes, Router } from '@angular/router';
 
 
+
 const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'main',
     pathMatch: 'full'
   },
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'home',
+    path: 'home/:id',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -90,6 +91,21 @@ const routes: Routes = [
     path: 'borrow/:id',
     loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
   },
+  {
+    path: 'editar-borrow/:id',
+    loadChildren: () => import('./editar-borrow/editar-borrow.module').then( m => m.EditarBorrowPageModule)
+  },
+  {
+    path: 'table-control/:id',
+    loadChildren: () => import('./table-control/table-control.module').then( m => m.TableControlPageModule)
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
+  },
+
+
+
 
 
 
