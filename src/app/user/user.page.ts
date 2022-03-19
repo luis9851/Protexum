@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
-
+import { Borrow } from '../models/borrowing/borrow';
+import { Users } from '../models/users/users';
 
 @Component({
   selector: 'app-user',
@@ -22,7 +23,7 @@ export class UserPage implements OnInit {
   user: any=[];
   id: string;
   accion: string = "2";
- borrow:any=[];
+  borrow: any[];
   public ismodelShown: boolean = false;
   constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
@@ -31,9 +32,10 @@ export class UserPage implements OnInit {
       this.id = params['id'];
       this._Service.getobtenerid(params['id']).subscribe(data =>{
         this.user = data.user;
-        this.borrow =data.user.prestamos;
-        console.log(this.user)
-        console.log(data.user.prestamos)
+        this.borrow = data.user.prestamos;
+     console.log(data.user)
+       
+      
       
        
        // formato de fechas

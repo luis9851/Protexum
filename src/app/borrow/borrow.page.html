@@ -18,7 +18,36 @@
             <h3 class="titulo"></h3>
             <p class="texto"> </p>
         </div>
-        <div class="perfil-usuario-footer">
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Cliente:</th>
+              <th scope="col">Plazo </th>
+              <th scope="col">Taza_interes</th>
+              <th scope="col">Monto</th>
+              <th scope="col">interes</th>
+              <th scope="col">IVA</th>
+              <th scope="col">ago</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td> {{borrow.nombre}} </td>
+              <td> {{borrow.lturnoNdoce}} </td>
+              <td>{{borrow.lturnovienti}} </td>
+            </tr>
+        
+            
+           
+         
+            
+          </tbody>
+        </table>
+        <!-- <div class="perfil-usuario-footer">
+          
             <ul class="lista-datos">
               <li><i class="icono fas fa-file"></i>Nombre: {{ borrow.nombre }}</li>
               <li><i class=""></i>Monto prestado: {{ borrow.montoprestado }}</li>
@@ -27,8 +56,9 @@
 
                 
             </ul>
+            
 
-        </div>
+        </div> -->
        
     </div>
 </section>

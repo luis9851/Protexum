@@ -51,7 +51,7 @@ export class BorrowingService {
   }
      // me trae los datos de user para posterio mente para agregar un prestamo
      obteneruser(id: String):Observable<any>{
-      return this.http.get(`${this.apiUrl}idimage/consulta/${id}`).pipe(map((resp) => {
+      return this.http.get(`${this.apiUrl}idimage/consultap/${id}`).pipe(map((resp) => {
        return resp 
     }),  catchError(this.handleError) )    
      }

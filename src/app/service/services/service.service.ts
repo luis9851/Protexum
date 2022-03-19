@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output,EventEmitter } from '@angular/core';
 import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpParams, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
@@ -18,11 +18,13 @@ const httpOptions = {
   })
   export class ServiceService {
     apiUrl:string;
-  
+    @Output() disparadordedias: EventEmitter<any> = new EventEmitter();
+    
     constructor(private http: HttpClient ) { 
-      
+    
       this.apiUrl ="http://localhost:3001/api/";
     }
+    
   //detector de errores
     private handleError(error: HttpErrorResponse){
       if(error.error instanceof ErrorEvent){

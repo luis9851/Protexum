@@ -20,7 +20,9 @@ export class CardBorrowComponent implements OnInit {
     this.userSeleccionado = new EventEmitter();
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
 
 
 
