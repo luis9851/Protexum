@@ -48,10 +48,6 @@ const routes: Routes = [
     loadChildren: () => import('./client/client.module').then( m => m.ClientPageModule)
   },
   {
-    path: 'editar-client/:id',
-    loadChildren: () => import('./editar-client/editar-client.module').then( m => m.EditarClientPageModule)
-  },
-  {
     path: 'olvidastecontrasena',
     loadChildren: () => import('./olvidastecontrasena/olvidastecontrasena.module').then( m => m.OlvidastecontrasenaPageModule)
   },
@@ -83,12 +79,9 @@ const routes: Routes = [
     path: 'editar-equip/:id',
     loadChildren: () => import('./editar-equip/editar-equip.module').then( m => m.EditarEquipPageModule)
   },
+
   {
-    path: 'registroprestamos/:id',
-    loadChildren: () => import('./registroprestamos/registroprestamos.module').then( m => m.RegistroprestamosPageModule)
-  },
-  {
-    path: 'borrow/:id',
+    path: 'borrow',
     loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
   },
   {
@@ -100,9 +93,18 @@ const routes: Routes = [
     loadChildren: () => import('./table-control/table-control.module').then( m => m.TableControlPageModule)
   },
   {
+    path: 'registroprestamos/:id',
+    loadChildren: () => import('./registroprestamos/registroprestamos.module').then( m => m.RegistroprestamosPageModule)
+  },
+  {
     path: 'main',
     loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
   },
+  {
+    path: 'table/:id',
+    loadChildren: () => import('./table/table.module').then( m => m.TablePageModule)
+  },
+
 
 
 

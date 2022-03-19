@@ -16,6 +16,7 @@ import { CardBorrowComponent } from './card-borrow/card-borrow.component';
     CardServiceComponent,
     MessageComponent,
     CardBorrowComponent
+    
   ],
   exports:[
     NavbarComponent,
@@ -24,6 +25,7 @@ import { CardBorrowComponent } from './card-borrow/card-borrow.component';
     CardServiceComponent,
     MessageComponent,
     CardBorrowComponent
+    
   ],
   imports: [
     CommonModule,

@@ -26,11 +26,16 @@ export class CardUserComponent implements OnInit {
   ngOnInit() {
     this.activateRouter.params.subscribe( params => {
       this.idservice = params['id'];
-      
-      if( this.idservice != null && this.users.Servicio == null  ){
+      console.log(this.users.Servicio._id)
+
+   
+
+
+      // falto cambiarle para que si ya le toco le servicio no aparezca
+      if( this.idservice != null && this.users.rol == 'Guardia' ){
         this.hayservicio = true ;
         
-      }  else if( this.users.Servicio != null){
+      }  else if( this.users.rol != 'Guardia' ){
         this.hayservicio = false ;
        
       } 

@@ -18,7 +18,9 @@ export class CardServiceComponent implements OnInit {
     this.userSeleccionado = new EventEmitter();
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+ 
+  }
   Controldeplaneacion(_id: string){
     this.indexs = _id;
     this.router.navigate(['/table-control',this.indexs]);

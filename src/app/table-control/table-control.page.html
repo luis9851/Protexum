@@ -26,13 +26,17 @@
        </div>
         
           
-           <ol>
+           <!-- <ol>
+          
            <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}} </li>
            
 
            <li [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
            *ngFor="let day of monthSelect; let first = first">
-             <span>{{day ?.value}} </span>
+             <span >{{day ?.value}} 
+               <ion-select (click)="agregar()" ngModel >
+                <ion-select-option *ngFor="let g of guardias"  value="day.value,g._id" >{{g.nombre}} {{g.apellidos}} </ion-select-option>
+               </ion-select> </span>
            </li>
            
 
@@ -40,45 +44,83 @@
           
 
          
-         </ol>    
+         </ol>     -->
 
-         <table class="table">
+          <table class="table"   >
            
-          <thead class="thead-dark">
+          <thead class="thead-dark" >
            
-            <tr>
-              <th scope="col" >#</th>
-              <th scope="col" >Nombre</th>
-              <th scope="col" *ngFor="let day of week" >{{day | slice:0:3}} </th>
+        
+
+            <tr >
+               
+              <th scope="col" > </th>
+              <th scope="col" > </th>
+              <th scope="col" > </th>
+              <th scope="col" *ngFor="let day of monthSelect">{{day.name | slice:0:3}} </th>
+             
              
             </tr>
-          </thead>
-          <tbody *ngFor="let g of guardias; let i = index">
-         
+            
             <tr>
-              <th scope="row">{{i + 1}} </th>
-              <td> {{g.nombre}}  </td>
-              <td>  </td>
-              <td></td>
+              <th scope="col" >  </th>
+              <th scope="col" >* </th>
+              <th scope="col" >Nombre </th>
+              <th scope="col" 
+              *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
+              
             </tr>
+          </thead>
+          <tbody  > 
          
-             <tr>
-              <th scope="row" [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
-              *ngFor="let day of monthSelect; let first = first"> </th>
-              <td>  </td>
-              <td>  </td>
-              <td> </td>
-            </tr> 
-        
+            <tr scope="row" *ngFor="let g of guardias; let i = index" >
+              <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold;" type="button"> + </th>
+              <th scope="row">{{i + 1}}</th>
+              <td > {{g.nombre}} {{g.apellidos}} </td>
+              <td > {{g.tlp}} </td>
+              <td > {{g.tmp}} </td>
+              <td > {{g.tmip}} </td>
+              <td > {{g.tjp}} </td>
+              <td > {{g.tvp}} </td>
+              <td > {{g.tsp}} </td>
+              <td > {{g.tdp}} </td>
+              <td > {{g.tls}} </td>
+              <td > {{g.tms}} </td>
+              <td > {{g.tmis}} </td>
+              <td > {{g.tjs}} </td>
+              <td > {{g.tvs}} </td>
+              <td > {{g.tss}} </td>
+              <td > {{g.tds}} </td>
+              <td > {{g.tlt}} </td>
+              <td > {{g.tmt}} </td>
+              <td > {{g.tmit}} </td>
+              <td > {{g.tjt}} </td>
+              <td > {{g.tvt}} </td>
+              <td > {{g.tst}} </td>
+              <td > {{g.tdt}} </td>
+              <td > {{g.tlc}} </td>
+              <td > {{g.tmc}} </td>
+              <td > {{g.tmic}} </td>
+              <td > {{g.tjc}} </td>
+              <td > {{g.tvc}} </td>
+              <td > {{g.tsc}} </td>
+              <td > {{g.tdc}} </td>
+              <td > {{g.tlq}} </td>
+              <td > {{g.tmq}} </td>
+              <td > {{g.tmiq}} </td>
            
-        
-          
-       
-         
+             
+              
+           
+             
+            </tr>
+
+           
+
            
           
           </tbody>
-        </table>
+        </table> 
 
 
         </div>

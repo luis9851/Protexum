@@ -24,6 +24,7 @@ borrowingForm: FormGroup
         montoprestado: ['', Validators.required],
         fechadeprestamo: ['', Validators.required],
         numerodepagos: ['', Validators.required],
+        
       })
 
       this.activatedRoute.params.subscribe( params => {
@@ -58,8 +59,8 @@ borrowingForm: FormGroup
  }
   Register(){
   
-     if(this.borrowingForm.value.nombre == "" || this.borrowingForm.value.montoprestado == "" || this.borrowingForm.value.fechadeprestamo == "" || 
-     this.borrowingForm.value.numerodepagos == ""  ){
+     if(this.borrowingForm.value.nombre == "" || this.borrowingForm.value.montoprestado == "" || this.borrowingForm.value.fechadeprestamo == ""  
+     ){
        this.FaltanDatos()
      } 
      else { 
@@ -68,7 +69,7 @@ borrowingForm: FormGroup
    console.log(res.dataPrestamo.id)
    this.exito()
    this.agregaridDeServicioausuario(res.dataPrestamo.id)
-   this.router.navigate(['/home'])
+   this.router.navigate(['/main'])
        
    }))
   
@@ -108,4 +109,3 @@ borrowingForm: FormGroup
   
   
  
-

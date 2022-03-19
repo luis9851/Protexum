@@ -1,8 +1,9 @@
-import { Component, Directive, OnInit } from '@angular/core';
+import { Component, Directive, OnInit, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ServiceService } from '../service/services/service.service';
 import { ServiceI } from '../models/services';
+import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
 
 @Component({
   selector: 'app-table-control',
@@ -19,12 +20,15 @@ week: any = [
   "Jueves",
   "Viernes",
   "Sabado",
-  "Domingo",
- 
+  "Domingo"
 ];
 
+
+@Input() indexh: string;
 monthSelect: any[];
+
 dateSelectM: any;
+dateSelectD: any;
 dateSelect: any;
 dataSYear: any;
 guardias: any=[];
@@ -34,17 +38,22 @@ id: string;
 constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
 
    ngOnInit() : void{
-    this.getDaysFromDate(2,2022)
+    const fecham =  new Date();
+    var  month = fecham.getMonth() 
+     var year  = fecham.getFullYear() 
+
+    
+    this.getDaysFromDate(month,year)
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
         this.service = data.service;
         this.guardias = data.service.Guardias;
+     
         console.log(data)
-        console.log(this.service)
-        console.log(this.guardias)
+       
+
         
-      
        
       },
       error =>{
@@ -56,6 +65,7 @@ constructor(private _Service: ServiceService,private router: Router,private acti
   }
 
   getDaysFromDate(month, year){
+  
    //  se usa para agarrar mes y año y cree un objecto  basado en año mes y el 01 es para que inicie en ese mes
     const startDate = moment(`${year}/${month}/01`)
     // cuando finaliza el mes el clone es para que no iterar la fecha  
@@ -71,19 +81,43 @@ constructor(private _Service: ServiceService,private router: Router,private acti
       a = parseInt(a) + 1;
 // un dato tipo fecha para sabber que dia en el indice es 
       const dayObject = moment(`${year}-${month}-${a}`);
-        
+    
+
+      
+
+       let day = dayObject.format("dddd")
+           const ChangeWeek = {
+      'Monday': 'Lunes',
+      'Tuesday': 'Martes',
+      'Wednesday': 'Miercoles',
+      'Thursday': 'Jueves',
+      'Friday': 'Viernes',
+      'Saturday': 'Sabado',
+      'Sunday': 'Domingo',
+    
+      
+    }
+
+    const FechaD = ChangeWeek[day]
+   
       return{
-        name: dayObject.format("dddd"),
+        name: FechaD,
         month: dayObject.format("MMMM"),
         year: dayObject.format("yyyy"),
         value: a,
         indexWeek: dayObject.isoWeekday()
       }
+    
       
-    })
+    })  
 
     this.monthSelect =  arrayDays;
+
+  
+    
+  
 console.log(this.monthSelect)
+
       
     const Mes = this.monthSelect[0].month
 
@@ -101,16 +135,28 @@ console.log(this.monthSelect)
       'November': 'Noviembre',
       'December': 'Diciembre'
 
-      
     }
-    
     const Fecha = ChangeMonth[Mes]
     this.dateSelectM =  Fecha;
     this.dataSYear = year
-  
-  
 
-  }// para navegar en las fechas
+   
+
+  }
+  
+  Agregarhorario( _id : string  ){
+    this.indexh = _id;
+    this.router.navigate(['/table',this.indexh]);
+    this._Service.disparadordedias.emit({
+      data: this.monthSelect
+      
+      
+    })
+   }
+  
+  
+  
+  // para navegar en las fechas
   changeMonth(flag){
     // si el valor es menor a 0 se va a borrar un mes a la fecha seleccionada
     if(flag < 0 ){
