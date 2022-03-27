@@ -22,11 +22,8 @@ week: any = [
   "Sabado",
   "Domingo"
 ];
-
-
 @Input() indexh: string;
 monthSelect: any[];
-
 dateSelectM: any;
 dateSelectD: any;
 dateSelect: any;
@@ -41,19 +38,13 @@ constructor(private _Service: ServiceService,private router: Router,private acti
     const fecham =  new Date();
     var  month = fecham.getMonth() 
      var year  = fecham.getFullYear() 
-
-    
     this.getDaysFromDate(month,year)
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
         this.service = data.service;
         this.guardias = data.service.Guardias;
-     
         console.log(data)
-       
-
-        
        
       },
       error =>{
@@ -81,9 +72,6 @@ constructor(private _Service: ServiceService,private router: Router,private acti
       a = parseInt(a) + 1;
 // un dato tipo fecha para sabber que dia en el indice es 
       const dayObject = moment(`${year}-${month}-${a}`);
-    
-
-      
 
        let day = dayObject.format("dddd")
            const ChangeWeek = {
@@ -94,8 +82,6 @@ constructor(private _Service: ServiceService,private router: Router,private acti
       'Friday': 'Viernes',
       'Saturday': 'Sabado',
       'Sunday': 'Domingo',
-    
-      
     }
 
     const FechaD = ChangeWeek[day]
