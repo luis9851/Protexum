@@ -8,7 +8,9 @@ import { EquipI } from 'src/app/models/equip';
 import { ServiceResponseI } from 'src/app/models/service-response';
 import { ClientResponseI } from 'src/app/models/client-response';
 import { EquipResponseI } from 'src/app/models/equip-response';
-import { Services } from '../../models/services/services';
+
+import { PListaI } from 'src/app/models/paselista';
+import { PlistaResponseI } from 'src/app/models/paselista-response';
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -185,10 +187,15 @@ AgregarGuardias(id:any, Guardias:String): Observable<ServiceResponseI>{
   ),catchError(this.handleError) )
 }
 
+
+   // para regitrar los turnos
+   registrarL(id:string, turno:PListaI  ): Observable<PlistaResponseI>{
+    return this.http.put<PlistaResponseI>(`${this.apiUrl}idimage/paselista/${id}`,
+    turno).pipe(tap (
+      (res:PlistaResponseI)=>{
+
+      }
+    ), catchError(this.handleError))
 }
 
-   
-
-    
-
-  
+ }

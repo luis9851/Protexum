@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule, FormControl, NgForm } from '@angular/forms';
-import { LoginPage } from './login.page';
-import { AppComponent } from '../app.component';
 
-describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+import { NominaPage } from './nomina.page';
+
+describe('NominaPage', () => {
+  let component: NominaPage;
+  let fixture: ComponentFixture<NominaPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginPage , FormsModule],
+      declarations: [ NominaPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LoginPage);
+    fixture = TestBed.createComponent(NominaPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -22,6 +21,4 @@ describe('LoginPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
 });

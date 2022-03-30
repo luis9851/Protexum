@@ -7,7 +7,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'nomina',
     pathMatch: 'full'
   },
   {
@@ -104,6 +104,17 @@ const routes: Routes = [
     path: 'table/:id',
     loadChildren: () => import('./table/table.module').then( m => m.TablePageModule)
   },
+  {
+    path: 'nomina',
+    loadChildren: () => import('./nomina/nomina.module').then( m => m.NominaPageModule)
+  },  {
+    path: 'pase-lista',
+    loadChildren: () => import('./pase-lista/pase-lista.module').then( m => m.PaseListaPageModule)
+  },
+
+
+  
+
 
 
 
