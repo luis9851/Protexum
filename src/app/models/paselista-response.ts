@@ -1,4 +1,4 @@
-export interface TurnResponseI {
+export interface PlistaResponseI {
    
     dataTurn :{
         id: string,

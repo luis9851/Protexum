@@ -72,7 +72,7 @@ turnForm: FormGroup
       this.consultardatos()
   
     this.servicio0.disparadordedias.subscribe(data =>{
-      console.log("recibiendo",data.data[28])
+      console.log("recibiendo",data.data)
       // son vn = 29 t = 30 tu = 31 son para que no aprezcan en caso de que no existan esos valores 
      
       if( data.data[28] !== null  ){

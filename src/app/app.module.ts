@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { AngularDelegate, IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 
 /* Componets */
@@ -15,15 +15,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginPageModule } from './login/login.module';
 /* Pages */
 import { HomePageModule } from './home/home.module';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule,HttpClientModule, LoginPageModule,HomePageModule],
+  imports: [BrowserModule,
+     IonicModule.forRoot(), 
+     AppRoutingModule, 
+     ComponentsModule,
+     HttpClientModule,
+      LoginPageModule,
+      HomePageModule,
+     
+    BrowserAnimationsModule],
   exports:[AppComponent],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

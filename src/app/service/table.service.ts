@@ -47,7 +47,7 @@ export class TableService {
       }),  catchError(this.handleError) )    
        }
 
-         //actualizar el id de prestamo a usuario
+         //actualizar el id 
   
    actualizar_usuarioid(id:any ,idu:string ): Observable<TurnResponseI>{
     

@@ -15,7 +15,7 @@ import { ToastController } from '@ionic/angular';
 export class RegistroprestamosPage implements OnInit {
 
   id: string;
-  // variables para editar servicios
+  // variables para editar prestamos
 borrowingForm: FormGroup
   constructor(private servicio: BorrowingService,  private router: Router,
     private toast: ToastController,  private activatedRoute: ActivatedRoute, private fb: FormBuilder) {

@@ -27,6 +27,7 @@ export class AppComponent implements OnInit  {
   
   
   ];
+  form: any;
   
   constructor( private servicio: LoginService) {}
  

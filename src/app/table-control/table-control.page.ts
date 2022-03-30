@@ -2,9 +2,7 @@ import { Component, Directive, OnInit, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ServiceService } from '../service/services/service.service';
-import { ServiceI } from '../models/services';
-import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-table-control',
   templateUrl: './table-control.page.html',
@@ -24,7 +22,11 @@ week: any = [
 ];
 
 
+
+turno: boolean
+// variables del funcionamiento del calendario
 @Input() indexh: string;
+@Input() indexn: string;
 monthSelect: any[];
 
 dateSelectM: any;
@@ -35,25 +37,21 @@ guardias: any=[];
 service: any=[];
 id: string;
 
-constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) { }
+constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) {
+ 
+ }
 
    ngOnInit() : void{
     const fecham =  new Date();
-    var  month = fecham.getMonth() 
+    var month = fecham.getMonth() + 1;
      var year  = fecham.getFullYear() 
 
-    
     this.getDaysFromDate(month,year)
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
         this.service = data.service;
         this.guardias = data.service.Guardias;
-     
-        console.log(data)
-       
-
-        
        
       },
       error =>{
@@ -61,8 +59,11 @@ constructor(private _Service: ServiceService,private router: Router,private acti
       });
       
     })
+    
 
   }
+
+ 
 
   getDaysFromDate(month, year){
   
@@ -113,11 +114,6 @@ constructor(private _Service: ServiceService,private router: Router,private acti
 
     this.monthSelect =  arrayDays;
 
-  
-    
-  
-console.log(this.monthSelect)
-
       
     const Mes = this.monthSelect[0].month
 
@@ -154,7 +150,7 @@ console.log(this.monthSelect)
     })
    }
   
-  
+   
   
   // para navegar en las fechas
   changeMonth(flag){
@@ -172,6 +168,21 @@ console.log(this.monthSelect)
       this.getDaysFromDate(nextDate.format("MM"), nextDate.format("YYYY"));
     }
   }
+
+  cambiarEstadoLista(_id : string,form : NgForm){
+   console.log(form.value)
+    this._Service.registrarL(_id,form.value).subscribe( (res => {
+          console.log(res)
+          // this.exito()
+          
+       
+              
+          }))
+   }
+    
+      
+
+
 
 
 

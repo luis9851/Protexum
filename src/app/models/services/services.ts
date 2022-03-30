@@ -8,6 +8,5 @@ export class Services {
     domicilio: string;
     jefedeservicio: string;
     cantidaddeguardiasporturno: string;
-    
 
 }
