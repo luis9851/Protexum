@@ -1,0 +1,69 @@
+
+      <a class="navbar-brand" href="#">
+        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
+      </a>
+<ion-content  class="fondo" [fullscreen]="true">
+<ion-grid class="login" >
+  <ion-grid class=""></ion-grid>
+
+  <a class="navbar-brand" href="#">
+    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="60px" width="mr-auto" alt="Logo">
+  </a>
+  
+  <h2 class="login-header">Actualizar informacion</h2>
+
+
+  
+  <form [formGroup]="serviceForm" class="login-container" (ngSubmit)="actualizar()" >
+
+
+    <p><ion-input type="text" placeholder="Nombre" formControlName="nombre" require="" > </ion-input>
+    <p><ion-input type="text" name="contactodelservicio" placeholder="contactodelservicio" formControlName="contactodelservicio"  required="" > </ion-input> </p>
+    <p><ion-input type="tel" name="telefono" placeholder="telefono"  required="" formControlName="telefono"  > </ion-input> </p>
+    <p><ion-input type="tel" name="telefonoprotexum" placeholder="telefonoprotexum"  required="" formControlName="telefonoprotexum"  > </ion-input> </p>
+    <ion-item  >
+      <ion-label>Tipo de Servicio brindando:</ion-label>
+      <ion-select  formControlName="tipodeservicio"    name="servicio" required="" >
+        <ion-select-option value="Industrial">Industria</ion-select-option>
+        <ion-select-option value="Residencial">Residencial</ion-select-option>
+        <ion-select-option value="Centro-comercia">Centro comercia</ion-select-option>
+        <ion-select-option value="Empresarial">Empresarial</ion-select-option>
+        <ion-select-option value="Codependencia-de-gobierno">Codependencia-de-gobierno</ion-select-option>
+        
+        
+      </ion-select>
+  </ion-item>
+    <p><ion-input type="text" name="domicilio" placeholder="domicilio"  formControlName="domicilio"  required=""> </ion-input> </p>
+    <p><ion-input type="text" name="jefedeservicio" placeholder="jefedeservicio" formControlName="jefedeservicio"  required=""> </ion-input> </p>
+    <ion-label> Datos para la tabla de turno </ion-label>
+    <p><ion-input type="text" name="lturnodoce" placeholder="Cantidad de turnos de 12x12 lunes"  formControlName="lturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="lturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 lunes"  formControlName="lturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="lturnovienti" placeholder="Cantidad de turnos 24x24 lunes"  formControlName="lturnovienti"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="mturnodoce" placeholder="Cantidad de turnos de 12x12 Martes"  formControlName="mturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="mturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Martes"  formControlName="mturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="mturnovienti" placeholder="Cantidad de turnos 24x24 Martes"  formControlName="mturnovienti"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="miturnodoce" placeholder="Cantidad de turnos de 12x12 Miercoles"  formControlName="miturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="miturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Miercoles"  formControlName="miturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="miturnovienti" placeholder="Cantidad de turnos 24x24 Miercoles"  formControlName="miturnovienti"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="jturnodoce" placeholder="Cantidad de turnos de 12x12 Jueves"  formControlName="jturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="jturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Jueves"  formControlName="jturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="jturnovienti" placeholder="Cantidad de turnos 24x24 Jueves"  formControlName="jturnovienti"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="vturnodoce" placeholder="Cantidad de turnos de 12x12 Viernes"  formControlName="vturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="vturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Viernes"  formControlName="vturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="vturnovienti" placeholder="Cantidad de turnos 24x24 Viernes"  formControlName="vturnovienti"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="sturnoNdoce" placeholder="Cantidad de turnos de 12x12 Sabado"  formControlName="sturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="sturnodoce" placeholder="Cantidad de turnos nocturnos de 12x12 Sabado"  formControlName="sturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="sturnovienti" placeholder="Cantidad de turnos 24x24 Sabado"  formControlName="sturnovienti"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="dturnodoce" placeholder="Cantidad de turnos de 12x12 Domingo"  formControlName="dturnodoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="dturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Domingo"  formControlName="dturnoNdoce"  required="" > </ion-input> </p>
+    <p><ion-input type="text" name="dturnovienti" placeholder="Cantidad de turnos 24x24 Domingo"  formControlName="dturnovienti"  required="" > </ion-input> </p>
+
+  <p> 
+  <input  class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold;" type="submit" value="Actualizar">
+</p> 
+    
+  </form>
+
+ 
+</ion-grid>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+            <!-- <button type="button" class="boton-portada">
+                <i class="far fa-image"></i> Cambiar fondo
+            </button> -->
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo"></h3>
+            <p class="texto"> </p>
+        </div>
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Cliente:</th>
+              <th scope="col">Plazo </th>
+              <th scope="col">Taza_interes</th>
+              <th scope="col">Monto</th>
+              <th scope="col">interes</th>
+              <th scope="col">IVA</th>
+              <th scope="col">ago</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td> {{borrow.nombre}} </td>
+              <td> {{borrow.lturnoNdoce}} </td>
+              <td>{{borrow.lturnovienti}} </td>
+            </tr>
+        
+            
+           
+         
+            
+          </tbody>
+        </table>
+        <!-- <div class="perfil-usuario-footer">
+          
+            <ul class="lista-datos">
+              <li><i class="icono fas fa-file"></i>Nombre: {{ borrow.nombre }}</li>
+              <li><i class=""></i>Monto prestado: {{ borrow.montoprestado }}</li>
+              <li><i class="icono fas fa-map-signs"></i>Fecha de prestamo: {{ borrow.fechadeprestamo }} </li>
+              <li><i class="icono fas fa-phone-alt"></i>Numero de pagos: {{ borrow.numerodepagos}}</li>
+
+                
+            </ul>
+            
+
+        </div> -->
+       
+    </div>
+</section>
+</ion-content>

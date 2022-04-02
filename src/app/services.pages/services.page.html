@@ -1,0 +1,130 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+          
+            <!-- <button type="button" class="boton-portada">
+                <i class="far fa-image"></i> Cambiar fondo
+            </button> -->
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo">{{ service.nombre }} </h3>
+            <p class="texto">Jefe de turno:{{service.jefedeservicio}}</p>
+        </div>
+        <div class="perfil-usuario-footer">
+            <ul class="lista-datos">
+              <li><i class="icono fas fa-user"></i>Contacto directo:{{service.contactodelservicio}} </li>
+                <li><i class="icono fas fa-map-signs"></i>Dirección: {{ service.domicilio }}</li>
+                <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ service.telefono}}</li>
+                <li><i class="icono fas fa-phone-alt"></i>telefonoprotexum: {{ service.telefonoprotexum }}</li>
+                <li><i class=""></i>Servicio: {{ service.tipodeservicio }}</li>
+               
+            </ul>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Dias</th>
+                  <th scope="col">Turno 12x12</th>
+                  <th scope="col">Turno Nocturno 12x12</th>
+                  <th scope="col">Turno 24x24</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Lunes</th>
+                  <td> {{service.lturnodoce}} </td>
+                  <td> {{service.lturnoNdoce}} </td>
+                  <td>{{service.lturnovienti}} </td>
+                </tr>
+                <tr>
+                  <th scope="row">Martes</th>
+                  <td> {{service.mturnodoce}} </td>
+                  <td> {{service.mturnoNdoce}} </td>
+                  <td>{{service.mturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Miercoles</th>
+                  <td> {{service.miturnodoce}} </td>
+                  <td> {{service.miturnoNdoce}} </td>
+                  <td>{{service.miturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Jueves</th>
+                  <td> {{service.jturnodoce}} </td>
+                  <td> {{service.jturnoNdoce}} </td>
+                  <td>{{service.jturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Viernes</th>
+                  <td> {{service.vturnodoce}} </td>
+                  <td> {{service.vturnoNdoce}} </td>
+                  <td>{{service.vturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sabado</th>
+                  <td> {{service.sturnodoce}} </td>
+                  <td> {{service.sturnoNdoce}} </td>
+                  <td>{{service.sturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Domingo</th>
+                  <td> {{service.dturnodoce}} </td>
+                  <td> {{service.dturnoNdoce}} </td>
+                  <td>{{service.dturnovienti}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+       
+      
+         
+        <div class="perfil-usuario-footer" *ngFor="let equip of service.equiporecibido">
+          
+            <ul>
+          <ion-label> Equipo Entregado </ion-label>
+          <ion-icon name="clipboard" (click)="Editar_E(equip._id)"></ion-icon> 
+         <li><i class="icono fas fa-box-open"></i>Cantidad de celular:{{equip.celular}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion celular:{{equip.dcelular}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de radio:{{equip.radio}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion radio:{{equip.dradio}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de lamparas:{{equip.lamparas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion lamparas:{{equip.dlamparas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de fornitura:{{equip.fornitura}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion fornitura:{{equip.dfornitura}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de tonfa:{{equip.tonfa}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion tonfa:{{equip.dtonfa}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de gas:{{equip.gas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion gas:{{equip.dgas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de teaser:{{equip.teaser}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion teaser:{{equip.dteaser}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de impermeable:{{equip.impermeable}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion impermeable:{{equip.dimpermeable}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de espejoderevision:{{equip.espejoderevision}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion espejoderevision:{{equip.despejoderevision}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de detectordemetales:{{equip.detectordemetales}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion detectordemetales:{{equip.ddetectordemetales}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de mazo:{{equip.mazo}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion mazo:{{equip.dmazo}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de botasimpermeables:{{equip.botasimpermeables}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion botasimpermeables:{{equip.dbotasimpermeables}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de bicicleta:{{equip.bicicleta}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion bicicleta:{{equip.dbicicleta}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de patrulla:{{equip.patrulla}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion patrulla:{{equip.dpatrulla}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de rondinero:{{equip.rondinero}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion rondinero:{{equip.drondinero}} </li>
+   
+      </ul>
+       </div>
+      </div>
+  
+</section>
+</ion-content>
