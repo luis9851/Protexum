@@ -7,7 +7,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'nomina',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -107,7 +107,8 @@ const routes: Routes = [
   {
     path: 'nomina',
     loadChildren: () => import('./nomina/nomina.module').then( m => m.NominaPageModule)
-  },  {
+  },
+  {
     path: 'pase-lista',
     loadChildren: () => import('./pase-lista/pase-lista.module').then( m => m.PaseListaPageModule)
   },
