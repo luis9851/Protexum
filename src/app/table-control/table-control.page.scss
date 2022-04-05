@@ -29,6 +29,8 @@ Copiar esto
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+   overflow: auto;
+    text-align: center;
 }
 
 .seccion-perfil-usuario .perfil-usuario-header {
@@ -293,7 +295,7 @@ Copiar esto
           width: 100%;
           font-size: 13px;
         }
-        
+    
         .header-calendar button {
           cursor: pointer;
           background-color: transparent;
