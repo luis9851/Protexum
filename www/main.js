@@ -92,7 +92,7 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_editar-equip_editar-equip_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./editar-equip/editar-equip.module */ 94148)).then(m => m.EditarEquipPageModule)
     },
     {
-        path: 'borrow',
+        path: 'borrow/:id',
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_borrow_borrow_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./borrow/borrow.module */ 17408)).then(m => m.BorrowPageModule)
     },
     {
@@ -1394,7 +1394,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ClientsService = class ClientsService {
-    //AUTH_SERVER: string = 'http://localhost:3001';
+    // AUTH_SERVER: string = 'http://localhost:3001';
     constructor(http) {
         this.http = http;
         this.AUTH_SERVER = 'https://ionic-proyect.herokuapp.com';

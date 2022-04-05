@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service/services/service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController, IonicModule } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registroservices',
@@ -23,10 +24,10 @@ export class RegistroservicesPage implements OnInit {
     })
   }
 
-  Registerservice(form){
+  Registerservice(form: NgForm){
     console.log(form)
 
-    if(form.value.turno12x12 == "" || form.value.turno24x24 == "" || form.value.contactodelservicio == "" || 
+    if( form.value.contactodelservicio == "" || 
     form.value.domicilio == "" || form.value.jefedeservicio == "" || form.value.nombre == "" || form.value.telefono == ""  ||
     form.value.telefonoprotexum == "" || form.value.tipodeservicio == "" ||
     form.value.lturnodoce == "" || form.value.lturnoNdoce == "" || form.value.lturnovienti == "" ||
@@ -40,22 +41,23 @@ export class RegistroservicesPage implements OnInit {
      this.FaltanDatos()
      
     
-    } 
-
-
+    } else {
+      this.servicio.registrarS(this.id,form.value).subscribe( (res => {
+        console.log(res.dataService)
+         res.dataService.id;
+       
+        this.exito();
     
-  this.servicio.registrarS(this.id,form.value).subscribe( (res => {
-    console.log(res.dataService)
-     res.dataService.id;
-   
-    this.exito();
-
-
     
-     this.agregaridDeServicioausuario(res.dataService.id)
-     this.router.navigate([`/equiporecibido/${res.dataService.id}`])
-    
-  }))
+        
+         this.agregaridDeServicioausuario(res.dataService.id)
+         this.router.navigate([`/equiporecibido/${res.dataService.id}`])
+        
+      }))
+
+    }
+
+  
   }
 
   agregaridDeServicioausuario(idService){

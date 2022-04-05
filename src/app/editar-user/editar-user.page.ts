@@ -120,7 +120,7 @@ urlfile:any=[];
 
    
 
-      this.router.navigate(['/home'])
+      this.router.navigate(['/main'])
      }
     
      ))

@@ -11,7 +11,7 @@ import { ClientResponseI } from '../models/client-response';
   providedIn: 'root'
 })
 export class LoginService {
-  AUTH_SERVER: string = 'https://ionic-proyect.herokuapp.com';
+   AUTH_SERVER: string = 'https://ionic-proyect.herokuapp.com';
   //AUTH_SERVER: string = 'http://localhost:3001';
   authSubject = new BehaviorSubject(false);
   private token: string;

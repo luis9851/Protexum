@@ -178,7 +178,7 @@ let EditarUserPage = class EditarUserPage {
             console.log(res.dataUser);
             //  // igualo la variable idUser para que tenga los datos de id del user
             this.idUser = this.id;
-            this.router.navigate(['/home']);
+            this.router.navigate(['/main']);
         }));
     }
     onFileChange(event) {

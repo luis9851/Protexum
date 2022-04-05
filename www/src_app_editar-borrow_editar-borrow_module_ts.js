@@ -141,7 +141,7 @@ let EditarBorrowPage = class EditarBorrowPage {
         this.servicio.Editar_P(this.id, this.borrowingEForm.value).subscribe((res => {
             console.log(res.dataPrestamo.id);
             this.exito();
-            this.router.navigate(['/home']);
+            this.router.navigate(['/main']);
         }));
     }
     exito() {
