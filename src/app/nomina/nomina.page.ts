@@ -1,20 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NominaService } from '../service/nomina.service';
-import { Services } from '../models/services/services';
+import { ServiceService } from '../service/services/service.service';
+import * as XLSX from 'xlsx';
 
 
-export interface Nomina {
- nombre: string;
-Guardia: string;
-  
-}
 
-
-const ELEMENT_DATA: Nomina[] = [
-  { nombre: "hola" ,  Guardia: 'H'}
-  
-
-];
 
 
 @Component({
@@ -23,16 +13,15 @@ const ELEMENT_DATA: Nomina[] = [
   styleUrls: ['./nomina.page.scss'],
 })
 export class NominaPage implements OnInit {
-  service : any[] =[]
- 
+  service: any=[];
+  Diasasistidos: any=[];
+  fileName= 'Nomina.xlsx';
    
  
 
-  displayedColumns: string[] = [  'nombre',  'Guardia'];
-  dataSource = this.service;
-  
  
-  constructor(private servicio: NominaService) { }
+ 
+  constructor(private servicio: NominaService, private servicioS: ServiceService) { }
 
   ngOnInit() {
     this.cservices()
@@ -44,15 +33,43 @@ export class NominaPage implements OnInit {
       
     
       this.service = res.service
+      
+      for(let i = 0; i < this.service.Guardias.length; i ++){
+         console.log(this.service.Guardias[i])
+
+      }
+
+      
+    
+
+      
  
-      console.log(this.service)
+      
+
+   
       
     })
   }
-   
-  exportAsXLSX(){
-this.servicio.exportToExcel(this.dataSource, 'Nomina')
+  exportexcel(): void
+  {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+ 
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+ 
   }
+
+
+   
+//   exportAsXLSX(){
+// this.servicio.exportToExcel(this.dataSource, 'Nomina')
+//   }
 
 
 
