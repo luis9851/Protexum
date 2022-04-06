@@ -14,11 +14,46 @@ import * as XLSX from 'xlsx';
 })
 export class NominaPage implements OnInit {
   service: any=[];
-  Diasasistidos: any=[];
+  guardias: any=[];
+  Diasasistidos: number = 0;
   fileName= 'Nomina.xlsx';
    
- 
 
+
+ 
+  // diasdelmes: any = [
+  //   "tlpl",
+  //   "tmpl",
+  //   "tmipl",
+  //   "tjpl",
+  //   "tvpl",
+  //   "tspl",
+  //   "tdpl",
+  //   "tlsl",
+  //   "tmsl",
+  //   "tmisl",
+  //   "tjsl",
+  //   "tvsl",
+  //   "tssl",
+  //   "tdsl",
+  //   "tltl",
+  //   "tmtl",
+  //   "tmitl",
+  //   "tjtl",
+  //   "tvtl",
+  //   "tstl",
+  //   "tdtl",
+  //   "tlcl",
+  //   "tmcl",
+  //   "tmicl",
+  //   "tjcl",
+  //   "tvcl",
+  //   "tscl",
+  //   "tdcl",
+  //   "tlql",
+  //   "tmql" ,
+  //   "tmiql"
+  // ];
  
  
   constructor(private servicio: NominaService, private servicioS: ServiceService) { }
@@ -34,8 +69,32 @@ export class NominaPage implements OnInit {
     
       this.service = res.service
       
-      for(let i = 0; i < this.service.Guardias.length; i ++){
-         console.log(this.service.Guardias[i])
+      
+      for(let i = 0; i < this.service.length; i ++){
+         console.log(this.service[i].Guardias)
+         
+         for(let g = 0; g < this.service[i].Guardias.length; g ++ ){
+          console.log(this.service[i].Guardias[g].tlpl)
+          if(this.service[i].Guardias[g].tlpl == true){
+            this.Diasasistidos = this.Diasasistidos + 1;
+            console.log(this.Diasasistidos)
+      
+          }
+          if(this.service[i].Guardias[g].tmpl == true){
+           
+            this.Diasasistidos = this.Diasasistidos + 1;
+            console.log(this.Diasasistidos)
+      
+          }
+          
+        
+
+
+         }
+
+
+           
+  
 
       }
 
