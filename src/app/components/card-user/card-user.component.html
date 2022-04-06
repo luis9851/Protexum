@@ -1,0 +1,19 @@
+<ion-item *ngIf="users.activo">
+  <ion-avatar slot="start">
+    <img src="{{ users.fileUrl }}" style="width: 40px;height: 40px; border-radius: 150px;"/>
+  </ion-avatar>
+  <ion-label>
+    <h2>Nombre: {{ users.nombre }} {{ users.apellidos }} </h2>
+    <h2>Rol: {{ users.rol }}</h2>
+    <h3>Correo: {{ users.correoelectronico }}</h3>
+    <p>Domicilio: {{ users.domicilio }}</p>
+    <p>Telefono: {{ users.telefono }}</p>
+  </ion-label>
+  <button (click)=Agregar(users._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold; margin: 10px;" type="button" *ngIf="hayservicio" >Agregar Guardia</button>
+  <button (click)=prestamos(users._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold; margin: 10px;" type="button">Agregar Prestamos</button>
+  <button (click)=verUser(users._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold;" type="button">Ver más</button>
+  <!-- <ion-icon name="trash" (click)="delete(users._id)"></ion-icon> -->
+  <ion-icon name="trash" data-toggle="modal" data-backdrop="false" data-target="#messageModal"></ion-icon>
+  <ion-icon name="create-outline" (click)="Editar_U(users._id)"></ion-icon>
+</ion-item>
+<app-message *ngIf="!ismodelShown" (onConfirm)="cerrarModal($event)"></app-message>
