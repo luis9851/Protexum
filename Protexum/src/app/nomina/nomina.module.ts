@@ -13,6 +13,7 @@ import{ MatIconModule} from '@angular/material/icon'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatIconModule,
     MatTableModule,
     MatNativeDateModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ComponentsModule
     
   ],
   declarations: [NominaPage]

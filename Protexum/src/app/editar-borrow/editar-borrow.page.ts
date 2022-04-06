@@ -65,7 +65,7 @@ borrowingEForm: FormGroup
    console.log(res.dataPrestamo.id)
    this.exito()
  
-   this.router.navigate(['/home'])
+   this.router.navigate(['/main'])
        
    }))
   

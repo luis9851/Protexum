@@ -81,7 +81,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'borrow',
+    path: 'borrow/:id',
     loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
   },
   {

@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
 
   buscar(termino: string){
     this.find = termino;
-    this.router.navigate(['/home'], { queryParams: { search: this.find } });
+    this.router.navigate(['/main'], { queryParams: { search: this.find } });
   }
 
 }

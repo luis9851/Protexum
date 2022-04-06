@@ -1,25 +1,29 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef> Servicio </th>
-    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="Guardia">
-    <th mat-header-cell *matHeaderCellDef> Guardia  </th>
-    <td mat-cell *matCellDef="let element"> {{element.Guardias}} </td>
-  </ng-container>
-
-
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="table-responsive">
+    <table  id="excel-table" class="table table-striped">
+    
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Servicio</th>
+          <th scope="col">No.</th>
+          <th scope="col">Guardia</th>
+          <th scope="col">Sueldo</th> 
+        </tr>
+      </thead>
+      <tbody *ngFor="let s of service">
+        <tr *ngFor="let g of s.Guardias; let i = index ">
+          <th scope="row">{{s.nombre}}</th>
+          <th scope="row">{{s.Guardias[i]._id}}</th>
+          <th scope="row">{{s.Guardias[i].nombre}} {{s.Guardias[i].apellidos}} </th>
+          <th scope="row">{{s.Guardias[i].sueldo + 1}} </th>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="exportexcel()" class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;font-weight: bold;">Export to Excel</button>
+  </div>
+</ion-content>

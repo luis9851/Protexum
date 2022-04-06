@@ -10,18 +10,18 @@
     
     
     <!-- class="perfil-usuario-footer" -->
-     <div   >
+     <div class="table-responsive">
 
-     <div class ="header-calendar"  >
-       <div>
+     <div class ="header-calendar col-auto text-center"  >
+       <div class="col-auto text-center">
          <!-- es para ir al mes de atras -->
-         <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ></button> 
+         <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ><ion-icon name="arrow-up-outline"></ion-icon></button> 
        </div>
       
        <h1>{{dateSelectM}} {{dataSYear}}  </h1>
-      <div>
+      <div class="col-auto text-center">
         <!-- es para ir al mes de adelante -->
-        <button (click)="changeMonth(1)" value="Siguiente"></button> 
+        <button (click)="changeMonth(1)" value="Siguiente"><ion-icon name="arrow-down-outline"></ion-icon></button> 
      </div>
     
     </div>
@@ -138,18 +138,18 @@
     
     
        <!-- class="perfil-usuario-footer" -->
-        <div   >
+        <div class="table-responsive">
 
-        <div class ="header-calendar"  >
-          <div>
+        <div class ="header-calendar col-auto text-center"  >
+          <div class="col-auto text-center">
             <!-- es para ir al mes de atras -->
-            <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ></button> 
+            <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ><ion-icon name="arrow-up-outline"></ion-icon></button> 
           </div>
          
           <h1>{{dateSelectM}} {{dataSYear}}  </h1>
-         <div>
+         <div class="col-auto text-center">
            <!-- es para ir al mes de adelante -->
-           <button (click)="changeMonth(1)" value="Siguiente"></button> 
+           <button (click)="changeMonth(1)" value="Siguiente"><ion-icon name="arrow-down-outline"></ion-icon></button> 
         </div>
        
        </div>

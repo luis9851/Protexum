@@ -24,8 +24,8 @@ const httpOptions = {
     
     constructor(private http: HttpClient ) { 
     
-     // this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
-       this.apiUrl ="http://localhost:3001/api/";
+      this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
+     //  this.apiUrl ="http://localhost:3001/api/";
     }
     
   //detector de errores
