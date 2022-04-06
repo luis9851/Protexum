@@ -1,0 +1,33 @@
+<div>
+  <button (click)="exportexcel()">Export to Excel</button>
+  <table  id="excel-table" class="table table-bordered">
+   
+    <thead>
+      <tr>
+        <th scope="col">Servicio</th>
+        <th scope="col">No.</th>
+        <th scope="col">Guardia</th>
+        <th scope="col">Sueldo</th>
+
+        
+      </tr>
+    </thead>
+    <tbody *ngFor="let s of service">
+      <tr *ngFor="let g of s.Guardias; let i = index ">
+        <th scope="row">{{s.nombre}}</th>
+        <th scope="row">{{s.Guardias[i]._id}}</th>
+        <th scope="row">{{s.Guardias[i].nombre}} {{s.Guardias[i].apellidos}} </th>
+        <th scope="row">{{s.Guardias[i].sueldo + 1}} </th>
+        
+        
+        
+        
+      </tr>
+ 
+    
+      
+    
+    </tbody>
+    
+  </table>
+</div>

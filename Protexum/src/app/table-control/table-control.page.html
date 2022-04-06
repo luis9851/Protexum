@@ -1,0 +1,289 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar class="day-nam"></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <section class="seccion-perfil-usuario">
+    
+    
+    <!-- class="perfil-usuario-footer" -->
+     <div   >
+
+     <div class ="header-calendar"  >
+       <div>
+         <!-- es para ir al mes de atras -->
+         <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ></button> 
+       </div>
+      
+       <h1>{{dateSelectM}} {{dataSYear}}  </h1>
+      <div>
+        <!-- es para ir al mes de adelante -->
+        <button (click)="changeMonth(1)" value="Siguiente"></button> 
+     </div>
+    
+    </div>
+     
+       
+        <!-- <ol>
+       
+        <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}} </li>
+        
+
+        <li [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+        *ngFor="let day of monthSelect; let first = first">
+          <span >{{day ?.value}} 
+            <ion-select (click)="agregar(g._id, g.tlpl)" ngModel >
+             <ion-select-option *ngFor="let g of guardias"  value="day.value,g._id, g.tlpl" >{{g.nombre}} {{g.apellidos}} </ion-select-option>
+            </ion-select> </span>
+        </li>
+        
+
+
+       
+
+      
+      </ol>     -->
+      
+
+       <table class="table"   >
+        
+       <thead class="thead-dark" >
+        
+     
+
+         <tr >
+            
+           <th scope="col" > </th>
+           <th scope="col" > </th>
+           <th scope="col" > </th>
+           <th scope="col" *ngFor="let day of monthSelect">{{day.name | slice:0:3}} </th>
+          
+          
+         </tr>
+         
+         <tr>
+           <th scope="col" >  </th>
+           <th scope="col" >* </th>
+           <th scope="col" >Nombre </th>
+           <th scope="col" 
+           *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
+           
+         </tr>
+       </thead>
+       <tbody  > 
+      
+         <tr scope="row" *ngFor="let g of guardias; let i = index" >
+           <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold;" type="button"> + </th>
+           <th scope="row">{{i + 1}}</th>
+           <td > {{g.nombre}} {{g.apellidos}} </td>
+           <td > {{g.tlp}} </td>
+           <td > {{g.tmp}} </td>
+           <td > {{g.tmip}} </td>
+           <td > {{g.tjp}} </td>
+           <td > {{g.tvp}} </td>
+           <td > {{g.tsp}} </td>
+           <td > {{g.tdp}} </td>
+           <td > {{g.tls}} </td>
+           <td > {{g.tms}} </td>
+           <td > {{g.tmis}} </td>
+           <td > {{g.tjs}} </td>
+           <td > {{g.tvs}} </td>
+           <td > {{g.tss}} </td>
+           <td > {{g.tds}} </td>
+           <td > {{g.tlt}} </td>
+           <td > {{g.tmt}} </td>
+           <td > {{g.tmit}} </td>
+           <td > {{g.tjt}} </td>
+           <td > {{g.tvt}} </td>
+           <td > {{g.tst}} </td>
+           <td > {{g.tdt}} </td>
+           <td > {{g.tlc}} </td>
+           <td > {{g.tmc}} </td>
+           <td > {{g.tmic}} </td>
+           <td > {{g.tjc}} </td>
+           <td > {{g.tvc}} </td>
+           <td > {{g.tsc}} </td>
+           <td > {{g.tdc}} </td>
+           <td > {{g.tlq}} </td>
+           <td > {{g.tmq}} </td>
+           <td > {{g.tmiq}} </td>
+        
+          
+           
+        
+          
+         </tr>
+
+        
+
+        
+       
+       </tbody>
+     </table> 
+
+
+     </div>
+     
+     
+     
+    
+
+</section>
+
+<!-- esta es la tabla de pase de lista -->
+  <section class="seccion-perfil-usuario">
+    
+    
+       <!-- class="perfil-usuario-footer" -->
+        <div   >
+
+        <div class ="header-calendar"  >
+          <div>
+            <!-- es para ir al mes de atras -->
+            <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ></button> 
+          </div>
+         
+          <h1>{{dateSelectM}} {{dataSYear}}  </h1>
+         <div>
+           <!-- es para ir al mes de adelante -->
+           <button (click)="changeMonth(1)" value="Siguiente"></button> 
+        </div>
+       
+       </div>
+        
+          
+           <!-- <ol>
+          
+           <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}} </li>
+           
+
+           <li [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
+           *ngFor="let day of monthSelect; let first = first">
+             <span >{{day ?.value}} 
+               <ion-select (click)="agregar(g._id, g.tlpl)" ngModel >
+                <ion-select-option *ngFor="let g of guardias"  value="day.value,g._id, g.tlpl" >{{g.nombre}} {{g.apellidos}} </ion-select-option>
+               </ion-select> </span>
+           </li>
+           
+
+
+          
+
+         
+         </ol>     -->
+         
+
+           <table class="table"   >
+           
+          <thead class="thead-dark" >
+           
+        
+
+            <tr >
+               
+            
+              <th scope="col" > </th>
+              <th scope="col" > </th>
+              <th scope="col" *ngFor="let day of monthSelect">{{day.name | slice:0:3}} </th>
+             
+             
+            </tr>
+            
+            <tr>
+  
+              <th scope="col" >* </th>
+              <th scope="col" >Nombre </th>
+              <th scope="col" 
+              *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
+              
+            </tr>
+          </thead>
+          <tbody  > 
+           
+
+            
+            <tr  scope="row" *ngFor="let g of guardias; let i = index"  ngForm #frmRegister="ngForm" >
+              
+              <th scope="row">{{i + 1}}</th>
+               <td > {{g.nombre}} {{g.apellidos}} </td>
+               <!-- tlpl = turno lunes primero lista -->
+               <td > <ion-checkbox [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"   name="tlpl" ngModel > </ion-checkbox> </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmpl" ngModel> </ion-checkbox>  </td> 
+              <td > <ion-checkbox [(ngModel)]="g.tmipl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmipl" ngModel> </ion-checkbox>  </td> 
+              <td > <ion-checkbox [(ngModel)]="g.tjpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjpl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tspl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tspl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdpl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmisl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmisl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tjsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tssl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tssl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tltl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tltl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmitl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmitl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tjtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tstl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tstl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmicl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmicl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tjcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tscl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tscl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlql" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmql" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmiql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmiql" ngModel> </ion-checkbox> </td>
+              
+           
+             
+            </tr>
+       
+
+           
+          
+          </tbody>
+        </table>  
+
+
+
+        </div>
+        
+        
+        
+       
+  
+</section>
+</ion-content>
+ <style>
+  div{
+    text-align:center;
+    width: 400px;
+  }
+
+  li{
+    text-align: center;
+  }
+
+ol{
+
+list-style:  none;
+display: grid;
+grid-template-columns:  repeat(7, 1fr);
+padding: 0;
+}
+
+.first-day{
+  grid-column-start: 5;
+  font-weight: bold;
+  text-align: center ;
+}
+
+</style> 
