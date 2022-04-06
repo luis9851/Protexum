@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NominaService } from '../service/nomina.service';
+import { Router,ActivatedRoute } from '@angular/router';
 import { ServiceService } from '../service/services/service.service';
 import * as XLSX from 'xlsx';
 

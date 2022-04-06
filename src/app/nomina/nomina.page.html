@@ -1,33 +1,29 @@
-<div>
-  <button (click)="exportexcel()">Export to Excel</button>
-  <table  id="excel-table" class="table table-bordered">
-   
-    <thead>
-      <tr>
-        <th scope="col">Servicio</th>
-        <th scope="col">No.</th>
-        <th scope="col">Guardia</th>
-        <th scope="col">Sueldo</th>
-
-        
-      </tr>
-    </thead>
-    <tbody *ngFor="let s of service">
-      <tr *ngFor="let g of s.Guardias; let i = index ">
-        <th scope="row">{{s.nombre}}</th>
-        <th scope="row">{{s.Guardias[i]._id}}</th>
-        <th scope="row">{{s.Guardias[i].nombre}} {{s.Guardias[i].apellidos}} </th>
-        <th scope="row">{{s.Guardias[i].sueldo + 1}} </th>
-        
-        
-        
-        
-      </tr>
- 
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="table-responsive">
+    <table  id="excel-table" class="table table-striped">
     
-      
-    
-    </tbody>
-    
-  </table>
-</div>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Servicio</th>
+          <th scope="col">No.</th>
+          <th scope="col">Guardia</th>
+          <th scope="col">Sueldo</th> 
+        </tr>
+      </thead>
+      <tbody *ngFor="let s of service">
+        <tr *ngFor="let g of s.Guardias; let i = index ">
+          <th scope="row">{{s.nombre}}</th>
+          <th scope="row">{{s.Guardias[i]._id}}</th>
+          <th scope="row">{{s.Guardias[i].nombre}} {{s.Guardias[i].apellidos}} </th>
+          <th scope="row">{{s.Guardias[i].sueldo + 1}} </th>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="exportexcel()" class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;font-weight: bold;">Export to Excel</button>
+  </div>
+</ion-content>
