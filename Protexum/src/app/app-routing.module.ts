@@ -7,7 +7,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -81,7 +81,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'borrow/:id',
+    path: 'borrow',
     loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
   },
   {

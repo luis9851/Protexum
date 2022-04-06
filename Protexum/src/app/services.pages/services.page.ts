@@ -15,7 +15,6 @@ export class ServicesPage implements OnInit {
 
   public folder: string;
   service: any=[];
-  
   id: string;
   accion: string = "2";
   public ismodelShown: boolean = false;
@@ -27,7 +26,6 @@ export class ServicesPage implements OnInit {
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
         this.service = data.service;
         console.log(this.service)
-        
       
        
       },

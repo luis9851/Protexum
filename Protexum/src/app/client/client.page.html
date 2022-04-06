@@ -20,16 +20,16 @@
           </div>
           <div class="perfil-usuario-footer">
               <ul class="lista-datos">
-                  <li><ion-icon name="document"></ion-icon> RFC: {{ client.rfc }}</li>
-                  <li><ion-icon name="locate"></ion-icon> Servicio: {{ client.servicio }}</li>
-                  <li><ion-icon name="compass"></ion-icon> Dirección: {{ client.domicilio }} </li>
-                  <li><ion-icon name="call"></ion-icon> Telefono: {{ client.telefono}}</li>
-                  <li> informacion de contacto directo </li>
-                  <li><ion-icon name="person"></ion-icon> Nombre: {{ client.cdnombre }} </li>
-                  <li><ion-icon name="call"></ion-icon> Telefono: {{ client.cdtelefono }} </li>
-                  <li><ion-icon name="mail"></ion-icon> Correo de la empresa: {{ client.cdcorreoelectronicoempresa }}</li>
-                  <li><ion-icon name="mail"></ion-icon> Correo de el contacto : {{ client.cdcorreoelectronico }}</li>
-                  <li><ion-icon name="compass"></ion-icon> Dirección fiscal: {{ client.domciliofiscal }} </li>
+                  <li><i class="icono fas fa-file"></i>RFC: {{ client.rfc }}</li>
+                  <li><i class=""></i>Servicio: {{ client.servicio }}</li>
+                  <li><i class="icono fas fa-map-signs"></i>Dirección: {{ client.domicilio }} </li>
+                  <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ client.telefono}}</li>
+                  <li><i class=""></i> informacion de contacto directo </li>
+                  <li><i class="icono fas fa-map-signs"></i>Nombre: {{ client.cdnombre }} </li>
+                  <li><i class="icono fas fa-map-signs"></i>Telefono: {{ client.cdtelefono }} </li>
+                  <li><i class="icono fas fa-envelope"></i>Correo de la empresa: {{ client.cdcorreoelectronicoempresa }}</li>
+                  <li><i class="icono fas fa-envelope"></i>Correo de el contacto : {{ client.cdcorreoelectronico }}</li>
+                  <li><i class="icono fas fa-map-signs"></i>Dirección fiscal: {{ client.domciliofiscal }} </li>
                  
                   
                   
@@ -37,14 +37,14 @@
            
   
               <ul class="lista-datos">
-                  <li> informacion de Facturacion </li>
-                  <li><ion-icon name="document"></ion-icon> CFDI: {{ client.cfdi}}</li>
-                  <li><ion-icon name="document"></ion-icon> RFC de facturacion: {{ client.rfcdefacturacion }}</li>
-                  <li><ion-icon name="card"></ion-icon> Forma de pago:{{client.formadepago}} </li>
-                  <li><ion-icon name="card"></ion-icon> Metodo de pago:{{client.metododepago}} </li>
-                  <li><ion-icon name="calendar"></ion-icon> Fecha para facturacion: {{dd}}/{{mm}}/{{yy}} </li>
-                  <li><ion-icon name="card"></ion-icon> Tipo de credito:{{client.tipodecredito}} </li>
-                  <li><ion-icon name="mail"></ion-icon> Correo de facturacion: {{ client.correoelectronicofacturacion }}</li>
+                  <li><i class=""></i> informacion de Facturacion </li>
+                  <li><i class="icono fas fa-file"></i>CFDI: {{ client.cfdi}}</li>
+                  <li><i class="icono fas fa-file"></i>RFC de facturacion: {{ client.rfcdefacturacion }}</li>
+                  <li><i class="icono fa fa-credit-card-alt"></i>Forma de pago:{{client.formadepago}} </li>
+                  <li><i class="icono fa fa-credit-card-alt"></i>Metodo de pago:{{client.metododepago}} </li>
+                  <li><i class="icono fas fa-calendar-alt"></i> Fecha para facturacion: {{dd}}/{{mm}}/{{yy}} </li>
+                  <li><i class="icono fas fa-user"></i>Tipo de credito:{{client.tipodecredito}} </li>
+                  <li><i class="icono fas fa-envelope"></i>Correo de facturacion: {{ client.correoelectronicofacturacion }}</li>
   
                   
   
@@ -52,7 +52,7 @@
               </ul>
               <br>
               <ul>
-                <label > Servicios que tienen en uso: </label>
+                <label> Servicios que tienen en uso: </label>
                <ion-list>
                    <app-card-service  [services]="foo" [indexs]="i" *ngFor="let foo of services; let i = index"></app-card-service>
                       

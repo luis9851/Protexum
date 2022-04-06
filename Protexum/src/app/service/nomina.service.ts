@@ -48,7 +48,11 @@ export class NominaService {
   
 
 
-
+ private saveAsExcel(buffer:any , fileName:string) {
+    const data: Blob = new Blob([buffer], {type:EXCEL_TYPE});
+   
+    FileSaver.saveAs(data,fileName  + new Date().getDate() + '-' +new Date().getMonth()+ '-' + new Date().getFullYear()  + EXCEL_EXT);
+  }
   
 }
 

@@ -21,11 +21,11 @@
         </div>
         <div class="perfil-usuario-footer">
             <ul class="lista-datos">
-              <li><ion-icon name="person"></ion-icon> Contacto directo:{{service.contactodelservicio}} </li>
-                <li><ion-icon name="compass"></ion-icon> Dirección: {{ service.domicilio }}</li>
-                <li><ion-icon name="call"></ion-icon> Telefono: {{ service.telefono}}</li>
-                <li><ion-icon name="call"></ion-icon> telefonoprotexum: {{ service.telefonoprotexum }}</li>
-                <li><ion-icon name="locate"></ion-icon> Servicio: {{ service.tipodeservicio }}</li>
+              <li><i class="icono fas fa-user"></i>Contacto directo:{{service.contactodelservicio}} </li>
+                <li><i class="icono fas fa-map-signs"></i>Dirección: {{ service.domicilio }}</li>
+                <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ service.telefono}}</li>
+                <li><i class="icono fas fa-phone-alt"></i>telefonoprotexum: {{ service.telefonoprotexum }}</li>
+                <li><i class=""></i>Servicio: {{ service.tipodeservicio }}</li>
                
             </ul>
             <table class="table">
@@ -89,38 +89,38 @@
         <div class="perfil-usuario-footer" *ngFor="let equip of service.equiporecibido">
           
             <ul>
-          <ion-label > Equipo Entregado </ion-label>
-          <ion-icon name="create-outline" (click)="Editar_E(equip._id)"></ion-icon> 
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de celular:{{equip.celular}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion celular:{{equip.dcelular}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de radio:{{equip.radio}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion radio:{{equip.dradio}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de lamparas:{{equip.lamparas}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion lamparas:{{equip.dlamparas}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de fornitura:{{equip.fornitura}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion fornitura:{{equip.dfornitura}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de tonfa:{{equip.tonfa}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion tonfa:{{equip.dtonfa}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de gas:{{equip.gas}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion gas:{{equip.dgas}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de teaser:{{equip.teaser}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion teaser:{{equip.dteaser}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de impermeable:{{equip.impermeable}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion impermeable:{{equip.dimpermeable}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de espejoderevision:{{equip.espejoderevision}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion espejoderevision:{{equip.despejoderevision}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de detectordemetales:{{equip.detectordemetales}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion detectordemetales:{{equip.ddetectordemetales}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de mazo:{{equip.mazo}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion mazo:{{equip.dmazo}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de botasimpermeables:{{equip.botasimpermeables}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion botasimpermeables:{{equip.dbotasimpermeables}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de bicicleta:{{equip.bicicleta}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion bicicleta:{{equip.dbicicleta}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de patrulla:{{equip.patrulla}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion patrulla:{{equip.dpatrulla}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de rondinero:{{equip.rondinero}} </li>
-         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion rondinero:{{equip.drondinero}} </li>
+          <ion-label> Equipo Entregado </ion-label>
+          <ion-icon name="clipboard" (click)="Editar_E(equip._id)"></ion-icon> 
+         <li><i class="icono fas fa-box-open"></i>Cantidad de celular:{{equip.celular}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion celular:{{equip.dcelular}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de radio:{{equip.radio}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion radio:{{equip.dradio}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de lamparas:{{equip.lamparas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion lamparas:{{equip.dlamparas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de fornitura:{{equip.fornitura}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion fornitura:{{equip.dfornitura}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de tonfa:{{equip.tonfa}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion tonfa:{{equip.dtonfa}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de gas:{{equip.gas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion gas:{{equip.dgas}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de teaser:{{equip.teaser}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion teaser:{{equip.dteaser}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de impermeable:{{equip.impermeable}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion impermeable:{{equip.dimpermeable}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de espejoderevision:{{equip.espejoderevision}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion espejoderevision:{{equip.despejoderevision}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de detectordemetales:{{equip.detectordemetales}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion detectordemetales:{{equip.ddetectordemetales}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de mazo:{{equip.mazo}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion mazo:{{equip.dmazo}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de botasimpermeables:{{equip.botasimpermeables}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion botasimpermeables:{{equip.dbotasimpermeables}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de bicicleta:{{equip.bicicleta}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion bicicleta:{{equip.dbicicleta}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de patrulla:{{equip.patrulla}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion patrulla:{{equip.dpatrulla}} </li>
+         <li><i class="icono fas fa-box-open"></i>Cantidad de rondinero:{{equip.rondinero}} </li>
+         <li><i class="icono fas fa-box-open"></i>Descripcion rondinero:{{equip.drondinero}} </li>
    
       </ul>
        </div>

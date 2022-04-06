@@ -169,7 +169,7 @@ constructor(private _Service: ServiceService,private router: Router,private acti
     }
   }
 
-  cambiarEstadoLista(_id : string, form : NgForm){
+  cambiarEstadoLista(_id : string,form : NgForm){
    console.log(form.value)
     this._Service.registrarL(_id,form.value).subscribe( (res => {
           console.log(res)

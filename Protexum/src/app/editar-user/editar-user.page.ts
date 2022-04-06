@@ -60,7 +60,6 @@ urlfile:any=[];
        pensionado: ['', Validators.required],
        niveldeescolaridad: ['', Validators.required],
        contrasena: ['', Validators.required],
-       sueldo: ['', Validators.required]
        
      })
 
@@ -121,7 +120,7 @@ urlfile:any=[];
 
    
 
-      this.router.navigate(['/main'])
+      this.router.navigate(['/home'])
      }
     
      ))
