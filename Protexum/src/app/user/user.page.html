@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <app-navbar></app-navbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <section class="seccion-perfil-usuario">
+      <div class="perfil-usuario-header">
+          <div class="perfil-usuario-portada">
+              <div class="perfil-usuario-avatar">
+                  <img src="{{ user.fileUrl }}" alt="img-avatar">
+                  <button type="button" class="boton-avatar">
+                      <i class="far fa-image"></i>
+                  </button>
+              </div>
+              <!-- <button type="button" class="boton-portada">
+                  <i class="far fa-image"></i> Cambiar fondo
+              </button> -->
+          </div>
+      </div>
+      <div class="perfil-usuario-body">
+          <div class="perfil-usuario-bio">
+              <h3 class="titulo">{{ user.nombre }} {{ user.apellidos }} </h3>
+              <p class="texto">{{user.rol}}</p>
+          </div>
+          <ion-row class="perfil-usuario-footer">
+              <ul class="lista-datos">
+                  
+                  <ion-icon name="document"></ion-icon> CURP: {{ user.curp }}
+                  <li><ion-icon name="document"></ion-icon> No. Seguro Social: {{ user.nsegurosocial}}</li>
+                  <li><ion-icon name="document"></ion-icon> RFC: {{ user.rfc }}</li>
+                  <li><ion-icon name="compass"></ion-icon> Dirección: {{ user.domicilio }}</li>
+                  <li><ion-icon name="calendar"></ion-icon> Fecha de nac: {{dd}}/{{mm}}/{{yy}} </li>
+                  <li><ion-icon name="calendar"></ion-icon> Fecha de entra:{{ddE}}/{{mmE}}/{{yyE}}</li>
+                  <li><ion-icon name="call"></ion-icon> Telefono: {{ user.telefono}}</li>
+                  <li><ion-icon name="call"></ion-icon> Tel. adicional: {{ user.telefonoadicional }}</li>
+                  <li><ion-icon name="card"></ion-icon> Credito Infonavit: {{ user.creditodeInfonavit }}</li>
+                  <li><ion-icon name="home"></ion-icon> Estado civil: {{ user.estadocivil }}</li>
+                  <li><ion-icon name="mail"></ion-icon> Correo: {{ user.correoelectronico }}</li>
+                  <li><ion-icon name="briefcase"></ion-icon> Pensionado: {{ user.pensionado }}</li>
+                  <li><ion-icon name="medal"></ion-icon> Nivel de estudios: {{ user.niveldeescolaridad }}</li>
+                  <li><ion-icon name="cash"></ion-icon> Sueldo: {{ user.sueldo }}</li>
+              </ul>
+              <ul class="lista-datos">
+                  
+                 
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de playeras: {{ user.cdeplayera }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de playeras: {{ user.ddeplayera }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de pantalones: {{ user.cdepantalon }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de pantalones: {{ user.ddepantalon }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de botas: {{ user.cdebotas }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de botas: {{ user.ddebotas }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de cachuchas: {{ user.cdecachucha }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de cachuchas: {{ user.ddecachucha }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de chamarras: {{ user.cdechamarra }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de chamarras: {{ user.ddechamarra }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de chalecos: {{ user.cdechaleco }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de chalecos: {{ user.ddechaleco }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de lentes: {{ user.cdelentes }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de lentes: {{ user.ddelentes }} </li>
+                 
+                  
+                  <!-- <button routerLink="/editar-user/:id"  class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Editar Perfil</button> -->
+
+              </ul>
+              <ul>
+                <label> Prestamos que tienen: </label>
+               <ion-list>
+                   <app-card-borrow  [borrow]="foo" [indexEP]="i" *ngFor="let foo of borrow; let i = index"></app-card-borrow>
+                      
+                </ion-list>
+                </ul>
+
+          </ion-row>
+      </div>
+  </section>
+  </ion-content>
