@@ -7,8 +7,6 @@
 <ion-content [fullscreen]="true">
 
   <section class="seccion-perfil-usuario">
-    
-    
     <!-- class="perfil-usuario-footer" -->
      <div class="table-responsive">
 
@@ -25,248 +23,136 @@
      </div>
     
     </div>
-     
-       
-        <!-- <ol>
-       
-        <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}} </li>
-        
-
-        <li [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
-        *ngFor="let day of monthSelect; let first = first">
-          <span >{{day ?.value}} 
-            <ion-select (click)="agregar(g._id, g.tlpl)" ngModel >
-             <ion-select-option *ngFor="let g of guardias"  value="day.value,g._id, g.tlpl" >{{g.nombre}} {{g.apellidos}} </ion-select-option>
-            </ion-select> </span>
-        </li>
-        
-
-
-       
-
-      
-      </ol>     -->
-      
-
-       <table class="table"  >
-        
+       <table class="table table-striped table-hover table-bordered"  >
        <thead class="thead-dark" >
-        
-     
-
          <tr >
-            
            <th scope="col" > </th>
            <th scope="col" > </th>
            <th scope="col" > </th>
            <th scope="col" *ngFor="let day of monthSelect">{{day.name | slice:0:3}} </th>
-          
-          
          </tr>
-         
          <tr>
            <th scope="col" >  </th>
            <th scope="col" >* </th>
            <th scope="col" >Nombre </th>
            <th scope="col" 
            *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
-           
          </tr>
        </thead>
        <tbody  > 
-      
          <tr scope="row" *ngFor="let g of guardias; let i = index" >
-           <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #000000;font-weight: bold;" type="button"> + </th>
+           <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button"> + </th>
            <th scope="row">{{i + 1}}</th>
            <td > {{g.nombre}} {{g.apellidos}} </td>
-           <td > {{g.tlp}} </td>
-           <td > {{g.tmp}} </td>
-           <td > {{g.tmip}} </td>
-           <td > {{g.tjp}} </td>
-           <td > {{g.tvp}} </td>
-           <td > {{g.tsp}} </td>
-           <td > {{g.tdp}} </td>
-           <td > {{g.tls}} </td>
-           <td > {{g.tms}} </td>
-           <td > {{g.tmis}} </td>
-           <td > {{g.tjs}} </td>
-           <td > {{g.tvs}} </td>
-           <td > {{g.tss}} </td>
-           <td > {{g.tds}} </td>
-           <td > {{g.tlt}} </td>
-           <td > {{g.tmt}} </td>
-           <td > {{g.tmit}} </td>
-           <td > {{g.tjt}} </td>
-           <td > {{g.tvt}} </td>
-           <td > {{g.tst}} </td>
-           <td > {{g.tdt}} </td>
-           <td > {{g.tlc}} </td>
-           <td > {{g.tmc}} </td>
-           <td > {{g.tmic}} </td>
-           <td > {{g.tjc}} </td>
-           <td > {{g.tvc}} </td>
-           <td > {{g.tsc}} </td>
-           <td > {{g.tdc}} </td>
-           <td > {{g.tlq}} </td>
-           <td > {{g.tmq}} </td>
-           <td > {{g.tmiq}} </td>
-        
-          
-           
-        
-          
+           <td > {{g.tlp}} <br><ion-checkbox [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"   name="tlpl" ngModel > </ion-checkbox></td>
+           <td > {{g.tmp}} <br><ion-checkbox [(ngModel)]="g.tmpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmpl" ngModel> </ion-checkbox></td>
+           <td > {{g.tmip}} <br><ion-checkbox [(ngModel)]="g.tmipl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmipl" ngModel> </ion-checkbox></td>
+           <td > {{g.tjp}} <br><ion-checkbox [(ngModel)]="g.tjpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjpl" ngModel> </ion-checkbox></td>
+           <td > {{g.tvp}} <br><ion-checkbox [(ngModel)]="g.tvpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox></td>
+           <td > {{g.tsp}} <br><ion-checkbox [(ngModel)]="g.tspl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tspl" ngModel> </ion-checkbox></td>
+           <td > {{g.tdp}} <br><ion-checkbox [(ngModel)]="g.tdpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdpl" ngModel> </ion-checkbox></td>
+           <td > {{g.tls}} <br><ion-checkbox [(ngModel)]="g.tlsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlsl" ngModel> </ion-checkbox></td>
+           <td > {{g.tms}} <br><ion-checkbox [(ngModel)]="g.tmsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmsl" ngModel> </ion-checkbox></td>
+           <td > {{g.tmis}} <br><ion-checkbox [(ngModel)]="g.tmisl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmisl" ngModel> </ion-checkbox></td>
+           <td > {{g.tjs}} <br><ion-checkbox [(ngModel)]="g.tjsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjsl" ngModel> </ion-checkbox></td>
+           <td > {{g.tvs}}<br><ion-checkbox [(ngModel)]="g.tvsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvsl" ngModel> </ion-checkbox></td>
+           <td > {{g.tss}} <br><ion-checkbox [(ngModel)]="g.tssl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tssl" ngModel> </ion-checkbox></td>
+           <td > {{g.tds}} <br><ion-checkbox [(ngModel)]="g.tdsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox></td>
+           <td > {{g.tlt}} <br><ion-checkbox [(ngModel)]="g.tltl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tltl" ngModel> </ion-checkbox></td>
+           <td > {{g.tmt}} <br><ion-checkbox [(ngModel)]="g.tmtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmtl" ngModel> </ion-checkbox></td>
+           <td > {{g.tmit}} <br><ion-checkbox [(ngModel)]="g.tmitl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmitl" ngModel> </ion-checkbox></td>
+           <td > {{g.tjt}} <br><ion-checkbox [(ngModel)]="g.tjtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjtl" ngModel> </ion-checkbox></td>
+           <td > {{g.tvt}} <br><ion-checkbox [(ngModel)]="g.tvtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvtl" ngModel> </ion-checkbox></td>
+           <td > {{g.tst}} <br><ion-checkbox [(ngModel)]="g.tstl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tstl" ngModel> </ion-checkbox></td>
+           <td > {{g.tdt}} <br><ion-checkbox [(ngModel)]="g.tdtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdtl" ngModel> </ion-checkbox></td>
+           <td > {{g.tlc}} <br><ion-checkbox [(ngModel)]="g.tlcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlcl" ngModel> </ion-checkbox></td>
+           <td > {{g.tmc}} <br><ion-checkbox [(ngModel)]="g.tmcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmcl" ngModel> </ion-checkbox></td>
+           <td > {{g.tmic}} <br><ion-checkbox [(ngModel)]="g.tmicl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmicl" ngModel> </ion-checkbox></td>
+           <td > {{g.tjc}} <br><ion-checkbox [(ngModel)]="g.tjcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjcl" ngModel> </ion-checkbox></td>
+           <td > {{g.tvc}} <br><ion-checkbox [(ngModel)]="g.tvcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvcl" ngModel> </ion-checkbox></td>
+           <td > {{g.tsc}} <br><ion-checkbox [(ngModel)]="g.tscl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tscl" ngModel> </ion-checkbox></td>
+           <td > {{g.tdc}} <br><ion-checkbox [(ngModel)]="g.tdcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdcl" ngModel> </ion-checkbox></td>
+           <td > {{g.tlq}} <br><ion-checkbox [(ngModel)]="g.tlql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlql" ngModel> </ion-checkbox></td>
+           <td > {{g.tmq}} <br><ion-checkbox [(ngModel)]="g.tmql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmql" ngModel> </ion-checkbox></td>
+           <td > {{g.tmiq}} <br><ion-checkbox [(ngModel)]="g.tmiql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmiql" ngModel> </ion-checkbox></td>
          </tr>
-
-        
-
-        
-       
        </tbody>
      </table> 
-
-
      </div>
-     
-     
-     
-    
-
 </section>
 
 <!-- esta es la tabla de pase de lista -->
-  <section class="seccion-perfil-usuario" t>
-    
-    
-       <!-- class="perfil-usuario-footer" -->
+  <!-- <section class="seccion-perfil-usuario" t>
         <div class="table-responsive">
-
         <div class ="header-calendar col-auto text-center"  >
           <div class="col-auto text-center">
-            <!-- es para ir al mes de atras -->
             <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ><ion-icon name="arrow-up-outline"></ion-icon></button> 
           </div>
-         
           <h1>{{dateSelectM}} {{dataSYear}}  </h1>
          <div class="col-auto text-center">
-           <!-- es para ir al mes de adelante -->
            <button (click)="changeMonth(1)" value="Siguiente"><ion-icon name="arrow-down-outline"></ion-icon></button> 
         </div>
        
        </div>
         
-          
-           <!-- <ol>
-          
-           <li *ngFor="let day of week" class="day-name">{{day | slice:0:3}} </li>
-           
-
-           <li [style.gridColumnStart]="first ? day?.indexWeek : 'auto'"
-           *ngFor="let day of monthSelect; let first = first">
-             <span >{{day ?.value}} 
-               <ion-select (click)="agregar(g._id, g.tlpl)" ngModel >
-                <ion-select-option *ngFor="let g of guardias"  value="day.value,g._id, g.tlpl" >{{g.nombre}} {{g.apellidos}} </ion-select-option>
-               </ion-select> </span>
-           </li>
-           
-
-
-          
-
-         
-         </ol>     -->
-         
-
            <table class="table"   >
-           
           <thead class="thead-dark" >
-           
-        
-
             <tr >
-               
-            
               <th scope="col" > </th>
               <th scope="col" > </th>
               <th scope="col" *ngFor="let day of monthSelect">{{day.name | slice:0:3}} </th>
-             
-             
             </tr>
-            
             <tr>
-  
               <th scope="col" >* </th>
               <th scope="col" >Nombre </th>
               <th scope="col" 
               *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
-              
             </tr>
           </thead>
           <tbody  > 
-           
-
-            
             <tr  scope="row" *ngFor="let g of guardias; let i = index"  ngForm #frmRegister="ngForm" >
-              
               <th scope="row">{{i + 1}}</th>
-               <td > {{g.nombre}} {{g.apellidos}} </td>
-               <!-- tlpl = turno lunes primero lista -->
-               <td > <ion-input [(ngModel)]="g.tlpl" (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tlpl" ngModel ></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmpl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmpl" ngModel></ion-input> </td> 
-              <td > <ion-input [(ngModel)]="g.tmipl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmipl" ngModel></ion-input> </td> 
-              <td > <ion-input [(ngModel)]="g.tjpl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tjpl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tvpl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tvpl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tspl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tspl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tdpl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tdpl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tlsl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tlsl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmsl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmsl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmisl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmisl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tjsl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tjsl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tvsl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tvsl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tssl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tssl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tdsl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tdsl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tltl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tltl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmtl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmtl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmitl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmitl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tjtl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tjtl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tvtl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tvtl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tstl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tstl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tdtl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tdtl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tlcl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tlcl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmcl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmcl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmicl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmicl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tjcl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tjcl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tvcl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tvcl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tscl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tscl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tdcl"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tdcl" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tlql"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tlql" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmql"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmql" ngModel></ion-input> </td>
-              <td > <ion-input [(ngModel)]="g.tmiql"  (change)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" type="checkbox" name="tmiql" ngModel></ion-input> </td>
-              
-           
-             
+              <td > {{g.nombre}} {{g.apellidos}} </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"   name="tlpl" ngModel > </ion-checkbox> </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmpl" ngModel> </ion-checkbox>  </td> 
+              <td > <ion-checkbox [(ngModel)]="g.tmipl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmipl" ngModel> </ion-checkbox>  </td> 
+              <td > <ion-checkbox [(ngModel)]="g.tjpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjpl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tspl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tspl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdpl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmisl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmisl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tjsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tssl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tssl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdsl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tltl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tltl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmitl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmitl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tjtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tstl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tstl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdtl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmicl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmicl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tjcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tvcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tscl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tscl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tdcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdcl" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tlql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlql" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmql" ngModel> </ion-checkbox>  </td>
+              <td > <ion-checkbox [(ngModel)]="g.tmiql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmiql" ngModel> </ion-checkbox> </td>
             </tr>
-       
-
-           
-          
           </tbody>
-        </table>  
-
-
-
+        </table>
         </div>
-        
-        
-        
-       
-  
-</section>
+</section> -->
 </ion-content>
  <style>
   div{
     text-align:left
-   
-    
   }
 
   li{
@@ -289,4 +175,11 @@ padding: 0;
   
 }
 
-</style> 
+td{
+  text-align: center;
+}
+tr{
+  text-align: center;
+}
+
+</style>

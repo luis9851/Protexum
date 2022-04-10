@@ -6,9 +6,8 @@ import { throwError } from 'rxjs';
 import * as XLSX from 'xlsx'
 import { HttpClient, HttpParams, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-
-
-
+import { PlistaResponseI } from '../models/paselista-response';
+import { JwtResponseI } from '../models/jwt-response';
 const EXCEL_TYPE= 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; charset=UTF-8';
 
 const EXCEL_EXT = '.xlsx';
@@ -55,7 +54,15 @@ export class NominaService {
  
 
   
-
+//agregar la imagen en usuario
+Agregardiaasistido(idUser:any, diasasistidos:number): Observable<JwtResponseI>{
+  return this.http.put<JwtResponseI>(`${this.apiUrl}idimage/asistencia/${idUser}`,
+  {diasasistidos:diasasistidos}).pipe(tap(
+    (res: JwtResponseI)=> {
+    
+    }
+  ),catchError(this.handleError) )
+}
 
  private saveAsExcel(buffer:any , fileName:string) {
     const data: Blob = new Blob([buffer], {type:EXCEL_TYPE});
