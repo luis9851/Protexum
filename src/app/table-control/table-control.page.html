@@ -23,7 +23,7 @@
      </div>
     
     </div>
-       <table class="table table-striped table-hover table-bordered"  >
+       <table class="table table-striped table-hover"  >
        <thead class="thead-dark" >
          <tr >
            <th scope="col" > </th>
@@ -44,37 +44,316 @@
            <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button"> + </th>
            <th scope="row">{{i + 1}}</th>
            <td > {{g.nombre}} {{g.apellidos}} </td>
-           <td > {{g.tlp}} <br><ion-checkbox [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"   name="tlpl" ngModel > </ion-checkbox></td>
-           <td > {{g.tmp}} <br><ion-checkbox [(ngModel)]="g.tmpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmpl" ngModel> </ion-checkbox></td>
-           <td > {{g.tmip}} <br><ion-checkbox [(ngModel)]="g.tmipl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmipl" ngModel> </ion-checkbox></td>
-           <td > {{g.tjp}} <br><ion-checkbox [(ngModel)]="g.tjpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjpl" ngModel> </ion-checkbox></td>
-           <td > {{g.tvp}} <br><ion-checkbox [(ngModel)]="g.tvpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox></td>
-           <td > {{g.tsp}} <br><ion-checkbox [(ngModel)]="g.tspl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tspl" ngModel> </ion-checkbox></td>
-           <td > {{g.tdp}} <br><ion-checkbox [(ngModel)]="g.tdpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdpl" ngModel> </ion-checkbox></td>
-           <td > {{g.tls}} <br><ion-checkbox [(ngModel)]="g.tlsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlsl" ngModel> </ion-checkbox></td>
-           <td > {{g.tms}} <br><ion-checkbox [(ngModel)]="g.tmsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmsl" ngModel> </ion-checkbox></td>
-           <td > {{g.tmis}} <br><ion-checkbox [(ngModel)]="g.tmisl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmisl" ngModel> </ion-checkbox></td>
-           <td > {{g.tjs}} <br><ion-checkbox [(ngModel)]="g.tjsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjsl" ngModel> </ion-checkbox></td>
-           <td > {{g.tvs}}<br><ion-checkbox [(ngModel)]="g.tvsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvsl" ngModel> </ion-checkbox></td>
-           <td > {{g.tss}} <br><ion-checkbox [(ngModel)]="g.tssl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tssl" ngModel> </ion-checkbox></td>
-           <td > {{g.tds}} <br><ion-checkbox [(ngModel)]="g.tdsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox></td>
-           <td > {{g.tlt}} <br><ion-checkbox [(ngModel)]="g.tltl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tltl" ngModel> </ion-checkbox></td>
-           <td > {{g.tmt}} <br><ion-checkbox [(ngModel)]="g.tmtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmtl" ngModel> </ion-checkbox></td>
-           <td > {{g.tmit}} <br><ion-checkbox [(ngModel)]="g.tmitl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmitl" ngModel> </ion-checkbox></td>
-           <td > {{g.tjt}} <br><ion-checkbox [(ngModel)]="g.tjtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjtl" ngModel> </ion-checkbox></td>
-           <td > {{g.tvt}} <br><ion-checkbox [(ngModel)]="g.tvtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvtl" ngModel> </ion-checkbox></td>
-           <td > {{g.tst}} <br><ion-checkbox [(ngModel)]="g.tstl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tstl" ngModel> </ion-checkbox></td>
-           <td > {{g.tdt}} <br><ion-checkbox [(ngModel)]="g.tdtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdtl" ngModel> </ion-checkbox></td>
-           <td > {{g.tlc}} <br><ion-checkbox [(ngModel)]="g.tlcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlcl" ngModel> </ion-checkbox></td>
-           <td > {{g.tmc}} <br><ion-checkbox [(ngModel)]="g.tmcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmcl" ngModel> </ion-checkbox></td>
-           <td > {{g.tmic}} <br><ion-checkbox [(ngModel)]="g.tmicl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmicl" ngModel> </ion-checkbox></td>
-           <td > {{g.tjc}} <br><ion-checkbox [(ngModel)]="g.tjcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjcl" ngModel> </ion-checkbox></td>
-           <td > {{g.tvc}} <br><ion-checkbox [(ngModel)]="g.tvcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvcl" ngModel> </ion-checkbox></td>
-           <td > {{g.tsc}} <br><ion-checkbox [(ngModel)]="g.tscl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tscl" ngModel> </ion-checkbox></td>
-           <td > {{g.tdc}} <br><ion-checkbox [(ngModel)]="g.tdcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdcl" ngModel> </ion-checkbox></td>
-           <td > {{g.tlq}} <br><ion-checkbox [(ngModel)]="g.tlql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlql" ngModel> </ion-checkbox></td>
-           <td > {{g.tmq}} <br><ion-checkbox [(ngModel)]="g.tmql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmql" ngModel> </ion-checkbox></td>
-           <td > {{g.tmiq}} <br><ion-checkbox [(ngModel)]="g.tmiql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmiql" ngModel> </ion-checkbox></td>
+           <td > {{g.tlp}} <br>
+            <ion-item  class="formulario__input">
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+           </td>
+           <td > {{g.tmp}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmip}}<br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tjp}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tvp}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tsp}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tdp}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tls}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tms}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmis}}<br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tjs}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tvs}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tss}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tds}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tlt}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmt}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmit}}<br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tjt}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tvt}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tst}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tdt}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tlc}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmc}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmic}}<br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tjc}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tvc}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tsc}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tdc}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tlq}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmq}} <br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
+           <td > {{g.tmiq}}<br>
+          <ion-item>
+              <ion-label>Asistencia:</ion-label>
+              <ion-select ngModel   name="niveldeescolaridad" required="" >
+                  <ion-select-option value="Primaria">A</ion-select-option>
+                  <ion-select-option value="Secundaria">F </ion-select-option>
+                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </td>
          </tr>
        </tbody>
      </table> 
