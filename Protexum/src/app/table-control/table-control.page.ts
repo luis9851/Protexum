@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ServiceService } from '../service/services/service.service';
 import { NgForm } from '@angular/forms';
+import { TableService } from '../service/table.service';
 @Component({
   selector: 'app-table-control',
   templateUrl: './table-control.page.html',
@@ -37,7 +38,7 @@ guardias: any=[];
 service: any=[];
 id: string;
 
-constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) {
+constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute, private tablero:TableService) {
  
  }
 
@@ -170,7 +171,7 @@ constructor(private _Service: ServiceService,private router: Router,private acti
   }
 
   cambiarEstadoLista(_id : string,form : NgForm){
-   console.log(form.value)
+   
     this._Service.registrarL(_id,form.value).subscribe( (res => {
           console.log(res)
           // this.exito()
@@ -180,7 +181,12 @@ constructor(private _Service: ServiceService,private router: Router,private acti
           }))
    }
     
-      
+  planea(_id : string,form : NgForm){
+    console.log(form.value)
+   this.tablero.registrar(this.id,form.value).subscribe( (res=> {
+   console.log(res)
+   }))
+  } 
 
 
 
