@@ -1,0 +1,187 @@
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="login" style="position: absolute;width: 100%; height: auto;">
+    <main>
+      <h2 class="login-header">Registra a tu nuevo Servicio</h2>
+  
+    <form #frmRegister="ngForm" class="formulario" (ngSubmit)="Registerservice(frmRegister)">
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="nombre" placeholder="Nombre" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input " type="text" name="contactodelservicio" placeholder="Nombre de contacto del servicio" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefono" placeholder="telefono" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>  
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefonoprotexum" placeholder="telefonoprotexum" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>  
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p>
+            <ion-item class="formulario__input" >
+              <ion-label>Tipo de Servicio brindando:</ion-label>
+              <ion-select   ngModel   name="tipodeservicio" required="" >
+                  <ion-select-option value="Industrial">Industria</ion-select-option>
+                  <ion-select-option value="Residencial">Residencial</ion-select-option>
+                  <ion-select-option value="Centro-comercial">Centro comercial</ion-select-option>
+                  <ion-select-option value="Empresarial">Empresarial</ion-select-option>
+                  <ion-select-option value="Codependencia-de-gobierno">Dependencia de gobierno</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="domicilio" placeholder="Ejemplo:Av.Chicahuales, JesusMaria, Ags, codigo postal: 20000 " ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+    
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="jefedeservicio" placeholder="Quien es jefe de turno" ngModel required=""> </ion-input> </p>
+        </div>
+
+
+      </div>
+      <br>
+      <p><ion-label> Datos para la tabla de turno </ion-label></p>
+      <br>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="lturnodoce" placeholder="Cantidad de turnos de 12x12 lunes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="lturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 lunes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="lturnovienti" placeholder="Cantidad de turnos 24x24 lunes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="mturnodoce" placeholder="Cantidad de turnos de 12x12 Martes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="mturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Martes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="mturnovienti" placeholder="Cantidad de turnos 24x24 Martes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="miturnodoce" placeholder="Cantidad de turnos de 12x12 Miercoles" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="miturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Miercoles" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="miturnovienti" placeholder="Cantidad de turnos 24x24 Miercoles" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="jturnodoce" placeholder="Cantidad de turnos de 12x12 Jueves" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="jturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Jueves" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="jturnovienti" placeholder="Cantidad de turnos 24x24 Jueves" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="vturnodoce" placeholder="Cantidad de turnos de 12x12 Viernes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="vturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Viernes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="vturnovienti" placeholder="Cantidad de turnos 24x24 Viernes" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="sturnodoce" placeholder="Cantidad de turnos de 12x12 Sabado" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="sturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Sabado" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="sturnovienti" placeholder="Cantidad de turnos 24x24 Sabado" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="dturnodoce" placeholder="Cantidad de turnos de 12x12 Domingo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="dturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Domingo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="dturnovienti" placeholder="Cantidad de turnos 24x24 Domingo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      
+    
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;" type="submit" value="Registrar"> </p>
+    </form>
+  </main>
+   
+  </div>
+</ion-content>
+
+
+  

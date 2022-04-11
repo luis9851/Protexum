@@ -1,0 +1,359 @@
+/**
+ * 01/28/2016
+ * This pen is years old, and watching at the code after all
+ * those years made me fall from my chair, so I:
+ * - changed all IDs to classes
+ * - converted all units to pixels and em units
+ * - changed all global elements to classes or children of
+ *   .login
+ * - cleaned the syntax to be more consistent
+ * - added a lot of spaces that I so hard tried to avoid
+ *   a few years ago
+ *   (because it's cool to not use them)
+ * - and probably something else that I can't remember anymore
+ *
+ * I sticked to the same philosophy, meaning:
+ * - the design is almost the same
+ * - only pure HTML and CSS
+ * - no frameworks, preprocessors or resets
+ */
+
+/* 'Open Sans' font from Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/* body {
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
+} */
+
+.login {
+  width: auto;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+// Reset top and bottom margins from certain elements
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+// The triangle form is achieved by a CSS hack 
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
+}
+
+.login-header {
+  background: #FE693D;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: bold;
+  height: 100%;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+// Every row inside .login-container is defined with p tags 
+.login p {
+  padding: 12px;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+// Text fields' focus effect 
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+// Buttons' focus effect 
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+
+.mayusculas{
+  // es para hacer las letras mayusculas en curp 
+  text-transform: uppercase;
+}
+
+/* Navbar login */
+body{
+  padding-bottom: 50px;
+}
+
+.main-container{
+  margin-top: 0px;
+}
+
+.img-logo{
+    width: 120px;
+}
+
+
+
+
+/* Animaciones */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.login-inputs{
+  background-color: #FFFFFF; 
+  border-radius: 10px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  margin-left: 0;
+}
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-collapse {
+    margin-left: 70%;
+  }
+  .login {
+    width: 30%;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 16px;
+    background: #FFFFFF;
+    border-radius: 15px;
+     -webkit-box-shadow: 0 30px 60px 0 rgb(0, 0, 0);
+      box-shadow: 0 30px 60px 0 rgb(0, 0, 0)
+  }
+}
+
+/* CSS de prueba */
+main {
+	max-width: 800px;
+	width: 90%;
+	margin: auto;
+	padding: 0px;
+}
+
+.formulario {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+  background-color: #e4e4e4;
+}
+
+.formulario__label {
+	display: block;
+	font-weight: 700;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.formulario__grupo-input {
+	position: relative;
+}
+
+
+.formulario__input {
+	width: 100%;
+	/* background: #E5E5E5; */
+	background: #FFFFFF;
+	border: 3px solid transparent;
+	border-radius: 3px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__input:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
+
+.formulario__validacion-estado {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.formulario__checkbox {
+	margin-right: 10px;
+}
+
+.formulario__grupo-terminos, 
+.formulario__mensaje,
+.formulario__grupo-btn-regresar,
+.formulario__grupo-btn-enviar {
+	grid-column: span 2;
+}
+
+.formulario__mensaje {
+	height: 45px;
+	line-height: 45px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 3px;
+	display: none;
+}
+
+.formulario__mensaje-activo {
+	display: block;
+}
+
+.formulario__mensaje p {
+	margin: 0;
+}
+
+.formulario__grupo-btn-enviar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.formulario__grupo-btn-regresar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100% !important;
+}
+
+.formulario__btn {
+	height: 45px;
+	line-height: 45px;
+	width: 100%;
+	background: #000;
+	color: #fff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+
+.formulario__btn:hover:not([disabled]){
+	box-shadow: 3px 0px 30px #f04400;
+}
+
+.formulario__mensaje-exito {
+	font-size: 14px;
+	color: #119200;
+	display: none;
+}
+
+.formulario__mensaje-exito-activo {
+	display: block;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #bb2929;
+}
+
+
+
+/* ----- -----  Mediaqueries ----- ----- */
+@media screen and (max-width: 992px) {
+	.formulario {
+		grid-template-columns: 1fr;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-regresar,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+	
+	.formulario__btn {
+		width: 100%;
+	}
+	
+}
