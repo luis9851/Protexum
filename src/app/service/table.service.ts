@@ -32,7 +32,8 @@ export class TableService {
 
 
     // aqui empieza lo del modulo de turn
-   registrar(id:string, turno:TurnI  ): Observable<TurnResponseI>{
+   registrar(id:string, turno:any  ): Observable<TurnResponseI>{
+     console.log(turno);
     return this.http.put<TurnResponseI>(`${this.apiUrl}idimage/turno/${id}`,
     turno).pipe(tap (
       (res:TurnResponseI)=>{

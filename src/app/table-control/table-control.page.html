@@ -40,317 +40,326 @@
          </tr>
        </thead>
        <tbody  > 
-         <tr scope="row" *ngFor="let g of guardias; let i = index" >
+         <tr scope="row" *ngFor="let g of guardias; let i = index" ngForm #frmRegister="ngForm">
            <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button"> + </th>
            <th scope="row">{{i + 1}}</th>
            <td > {{g.nombre}} {{g.apellidos}} </td>
-           <td > {{g.tlp}} <br>
+           <td > 
+            <ion-item  class="formulario__input">
+              <ion-label>Turno:</ion-label>
+              <ion-select [(ngModel)]="g.tlp" (ngModelChange)="planea(g._id,frmRegister)"  name="tlp" ngModel required="" >
+                  <ion-select-option value="TD">Dia</ion-select-option>
+                  <ion-select-option value="TN">Noche </ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
+              </ion-select>
+            </ion-item> 
+             <br>
             <ion-item  class="formulario__input">
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tlpl" ngModel required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
            </td>
            <td > {{g.tmp}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmpl" ngModel required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmip}}<br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmipl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmipl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tjp}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tjpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjpl" ngModel required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
-          </td>
+    
            <td > {{g.tvp}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tvpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvpl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tsp}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tspl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tspl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tdp}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tdpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdpl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tls}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tlsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tlsl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tms}} <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmsl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmis}}<br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmisl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmisl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tjs}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tjsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjsl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tvs}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tvsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvsl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tss}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tssl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tssl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tds}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tdsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdsl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tlt}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tltl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tltl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmt}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmtl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmit}}<br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmitl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmitl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tjt}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tjtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjtl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tvt}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tvtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvtl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tst}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tstl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tstl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tdt}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tdtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdtl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tlc}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tlcll" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tlcll" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmc}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmcl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmic}}<br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmicl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmicl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tjc}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tjcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjcl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tvc}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tvcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvcl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tsc}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tscl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tscl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tdc}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tdcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdcl" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tlq}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tlql" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tlql" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmq}} <br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmql" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmql" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>
            <td > {{g.tmiq}}<br>
-          <ion-item>
+            <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select ngModel   name="niveldeescolaridad" required="" >
-                  <ion-select-option value="Primaria">A</ion-select-option>
-                  <ion-select-option value="Secundaria">F </ion-select-option>
-                  <ion-select-option value="Preparatoria">R</ion-select-option>
+              <ion-select [(ngModel)]="g.tmiql" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmiql" ngModel  required="" >
+                  <ion-select-option value="A">A</ion-select-option>
+                  <ion-select-option value="F">F </ion-select-option>
+                  <ion-select-option value="R">R</ion-select-option>
               </ion-select>
             </ion-item>
           </td>

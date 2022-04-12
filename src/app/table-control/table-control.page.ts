@@ -2,6 +2,7 @@ import { Component, Directive, OnInit, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ServiceService } from '../service/services/service.service';
+import { TableService } from '../service/table.service';
 import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-table-control',
@@ -37,7 +38,7 @@ guardias: any=[];
 service: any=[];
 id: string;
 
-constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) {
+constructor(private _Service: ServiceService,private _Table: TableService,private router: Router,private activatedRoute: ActivatedRoute) {
  
  }
 
@@ -172,18 +173,18 @@ constructor(private _Service: ServiceService,private router: Router,private acti
   cambiarEstadoLista(_id : string,form : NgForm){
    console.log(form.value)
     this._Service.registrarL(_id,form.value).subscribe( (res => {
-          console.log(res)
-          // this.exito()
-          
-       
-              
+          console.log(res);
+          // this.exito() 
           }))
    }
     
-      
-
-
-
+  // aqui empieza lo del modulo de turn
+  planea(_id : string,form : NgForm){
+    console.log(form.value)
+    this._Table.registrar(this.id,form.value).subscribe( (res=> {
+    console.log(res)
+    }))
+  }
 
 
 }

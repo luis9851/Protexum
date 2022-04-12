@@ -11,6 +11,8 @@ import { EquipResponseI } from 'src/app/models/equip-response';
 
 import { PListaI } from 'src/app/models/paselista';
 import { PlistaResponseI } from 'src/app/models/paselista-response';
+import { TurnResponseI } from 'src/app/models/turn-response';
+import { TurnI } from 'src/app/models/turn'; 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -197,5 +199,8 @@ AgregarGuardias(id:any, Guardias:String): Observable<ServiceResponseI>{
       }
     ), catchError(this.handleError))
 }
+
+// aqui empieza lo del modulo de turn
+  
 
  }
