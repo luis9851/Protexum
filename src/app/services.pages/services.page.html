@@ -1,0 +1,130 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="seccion-perfil-usuario">
+    <div class="perfil-usuario-header">
+        <div class="perfil-usuario-portada">
+          
+            <!-- <button type="button" class="boton-portada">
+                <i class="far fa-image"></i> Cambiar fondo
+            </button> -->
+        </div>
+    </div>
+    <div class="perfil-usuario-body">
+        <div class="perfil-usuario-bio">
+            <h3 class="titulo">{{ service.nombre }} </h3>
+            <p class="texto">Jefe de turno:{{service.jefedeservicio}}</p>
+        </div>
+        <div class="perfil-usuario-footer">
+            <ul class="lista-datos">
+              <li><ion-icon name="person"></ion-icon> Contacto directo:{{service.contactodelservicio}} </li>
+                <li><ion-icon name="compass"></ion-icon> Dirección: {{ service.domicilio }}</li>
+                <li><ion-icon name="call"></ion-icon> Telefono: {{ service.telefono}}</li>
+                <li><ion-icon name="call"></ion-icon> telefonoprotexum: {{ service.telefonoprotexum }}</li>
+                <li><ion-icon name="locate"></ion-icon> Servicio: {{ service.tipodeservicio }}</li>
+               
+            </ul>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Dias</th>
+                  <th scope="col">Turno 12x12</th>
+                  <th scope="col">Turno Nocturno 12x12</th>
+                  <th scope="col">Turno 24x24</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Lunes</th>
+                  <td> {{service.lturnodoce}} </td>
+                  <td> {{service.lturnoNdoce}} </td>
+                  <td>{{service.lturnovienti}} </td>
+                </tr>
+                <tr>
+                  <th scope="row">Martes</th>
+                  <td> {{service.mturnodoce}} </td>
+                  <td> {{service.mturnoNdoce}} </td>
+                  <td>{{service.mturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Miercoles</th>
+                  <td> {{service.miturnodoce}} </td>
+                  <td> {{service.miturnoNdoce}} </td>
+                  <td>{{service.miturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Jueves</th>
+                  <td> {{service.jturnodoce}} </td>
+                  <td> {{service.jturnoNdoce}} </td>
+                  <td>{{service.jturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Viernes</th>
+                  <td> {{service.vturnodoce}} </td>
+                  <td> {{service.vturnoNdoce}} </td>
+                  <td>{{service.vturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sabado</th>
+                  <td> {{service.sturnodoce}} </td>
+                  <td> {{service.sturnoNdoce}} </td>
+                  <td>{{service.sturnovienti}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Domingo</th>
+                  <td> {{service.dturnodoce}} </td>
+                  <td> {{service.dturnoNdoce}} </td>
+                  <td>{{service.dturnovienti}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+       
+      
+         
+        <div class="perfil-usuario-footer" *ngFor="let equip of service.equiporecibido">
+          
+            <ul>
+          <ion-label > Equipo Entregado </ion-label>
+          <ion-icon name="create-outline" (click)="Editar_E(equip._id)"></ion-icon> 
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de celular:{{equip.celular}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion celular:{{equip.dcelular}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de radio:{{equip.radio}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion radio:{{equip.dradio}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de lamparas:{{equip.lamparas}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion lamparas:{{equip.dlamparas}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de fornitura:{{equip.fornitura}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion fornitura:{{equip.dfornitura}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de tonfa:{{equip.tonfa}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion tonfa:{{equip.dtonfa}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de gas:{{equip.gas}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion gas:{{equip.dgas}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de teaser:{{equip.teaser}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion teaser:{{equip.dteaser}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de impermeable:{{equip.impermeable}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion impermeable:{{equip.dimpermeable}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de espejoderevision:{{equip.espejoderevision}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion espejoderevision:{{equip.despejoderevision}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de detectordemetales:{{equip.detectordemetales}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion detectordemetales:{{equip.ddetectordemetales}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de mazo:{{equip.mazo}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion mazo:{{equip.dmazo}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de botasimpermeables:{{equip.botasimpermeables}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion botasimpermeables:{{equip.dbotasimpermeables}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de bicicleta:{{equip.bicicleta}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion bicicleta:{{equip.dbicicleta}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de patrulla:{{equip.patrulla}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion patrulla:{{equip.dpatrulla}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Cantidad de rondinero:{{equip.rondinero}} </li>
+         <li><ion-icon name="logo-dropbox"></ion-icon> Descripcion rondinero:{{equip.drondinero}} </li>
+   
+      </ul>
+       </div>
+      </div>
+  
+</section>
+</ion-content>

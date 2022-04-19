@@ -1,0 +1,155 @@
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="login" style="position: absolute;width: 100%; height: auto;">
+    <main>
+      <h2 class="login-header">Registra a tu nuevo Cliente</h2>
+  
+    <form #frmRegister="ngForm" class="formulario" (ngSubmit)="Registerclient(frmRegister)">
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="nombre" placeholder="Nombre" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input mayusculas" type="text" name="rfc" placeholder="RFC" ngModel required=""> </ion-input> </p>
+        </div>
+      </div> 
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Tipo de Servicio brindando:</ion-label>
+            <ion-select   ngModel   name="servicio" required="" >
+                <ion-select-option value="Industrial">Industria</ion-select-option>
+                <ion-select-option value="Residencial">Residencial</ion-select-option>
+                <ion-select-option value="Centro-comercial">Centro comercial</ion-select-option>
+                <ion-select-option value="Empresarial">Empresarial</ion-select-option>
+                <ion-select-option value="Codependencia-de-gobierno">Dependencia-de-gobierno</ion-select-option>
+                
+                
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="domicilio" placeholder="Ejemplo:Av.Chicahuales, JesusMaria, Ags, codigo postal: 20000 " ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefono" placeholder="Telefono" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="cdnombre" placeholder="Nombre del contacto directo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="cdtelefono" placeholder="Telefono del contacto directo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" name="cdcorreoelectronicoempresa" placeholder="Correoelectronico Empresa del contacto directo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" name="cdcorreoelectronico" placeholder="Correoelectronico  del contacto directo" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" name="correoelectronicofacturacion" placeholder="Correoelectronico de facturacion" ngModel required=""> </ion-input> </p>
+        </div>
+      </div> 
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input mayusculas" type="text" name="rfcdefacturacion" placeholder="RFC de Facturacion" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="domciliofiscal" placeholder="Domicilio fiscal" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Uso del CFDI:</ion-label>
+            <ion-select   ngModel   name="cfdi" required="" >
+                <ion-select-option value="Por-definir">Por definir</ion-select-option>
+                <ion-select-option value="Gastos-en-general">Gastos en general</ion-select-option>
+                
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Agrega la forma de pago:</ion-label>
+            <ion-select   ngModel   name="formadepago" required="" >
+                <ion-select-option value="Efectivo">Efectivo</ion-select-option>
+                <ion-select-option value="Transferencia-electronica">Transferencia electronica</ion-select-option>
+                <ion-select-option value="Tarjeta-de-credito">Tarjeta de credito</ion-select-option>
+                <ion-select-option value="Tarjeta-de-debito">Tarjeta de debito</ion-select-option>
+                <ion-select-option value="Por-definir">por definir</ion-select-option>
+                
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label> Metodo de pago:</ion-label>
+            <ion-select   ngModel   name="metododepago" required="" >
+                <ion-select-option value="Por-definir">Por definir</ion-select-option>
+                <ion-select-option value="Parcialidades-o-deferido">Parcialidades o deferido</ion-select-option>
+                <ion-select-option value="Pago-en-una-exibicion">Pago en una exibicion</ion-select-option>
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-label class="formulario__label">Fecha de facturacion </ion-label>
+          <p><ion-input class="formulario__input" type="date" name="fechadefacturacion" placeholder="Fecha de facturacion" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="tipodecredito" placeholder="Tipo de credito" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="comentarios" placeholder="Comentarios" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+   
+   
+     
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;" type="submit" value="Registrar"> </p>
+    </form>
+  </main>
+   
+  </div>
+</ion-content>
+
+
+  
