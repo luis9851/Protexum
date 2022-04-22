@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes, Router } from '@angular/router';
+import { NominaPageModule } from './nomina/nomina.module';
 
 
 
@@ -7,7 +8,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -100,18 +101,15 @@ const routes: Routes = [
     path: 'main',
     loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
   },
-  {
-    path: 'table/:id',
-    loadChildren: () => import('./table/table.module').then( m => m.TablePageModule)
-  },
+ 
   {
     path: 'nomina',
     loadChildren: () => import('./nomina/nomina.module').then( m => m.NominaPageModule)
   },
   {
-    path: 'pase-lista',
-    loadChildren: () => import('./pase-lista/pase-lista.module').then( m => m.PaseListaPageModule)
-  },
+    path: "editar-client/:id",
+    loadChildren: () => import('./editar-client/editar-client.module').then(m => m.EditarClientPageModule)
+  }
 
 
   

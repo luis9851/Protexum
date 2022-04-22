@@ -15,25 +15,17 @@ export class NavbarComponent implements OnInit {
   Apermisos : boolean = false;
   Spermisos : boolean = false;
   Gpermisos : boolean = false;
-
- Admin: any = "Admin";
+A : string;
+ Admin: string = "Admin";
  Guardia: string =  "Guardia";
  Supervisor: string = "Supervisor";
   ngOnInit( ) {
-
-    console.log(this.Apermisos)
   this.servicio.disparadorderol.subscribe(data =>{
     console.log("recibiendo data ..", data.data)
-    if(data.data == this.Admin){
-      console.log(this.Admin)
-      this.Apermisos = true;
-    
-    
-    } if(data.data == this.Supervisor){
-      console.log(this.Spermisos);
-      this.Spermisos = true
-    }
   
+
+    this.A =data.data
+    console.log(this.A)
    
   })
     
@@ -43,7 +35,7 @@ export class NavbarComponent implements OnInit {
 
   buscar(termino: string){
     this.find = termino;
-    this.router.navigate(['/home'], { queryParams: { search: this.find } });
+    this.router.navigate(['/main'], { queryParams: { search: this.find } });
   }
 
 }

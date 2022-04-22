@@ -55,7 +55,7 @@ export class RegistropersonalPage implements OnInit {
       form.value.cdepantalon == "" || form.value.ddepantalon == "" || form.value.cdebotas == "" || form.value.ddebotas == "" ||
       form.value.cdecachucha == "" || form.value.ddecachucha == "" ||   form.value.cdechamarra == "" || form.value.ddechamarra == "" ||
       form.value.cdechaleco == "" || form.value.ddechaleco == "" ||       form.value.cdelentes == "" || form.value.ddelentes == "" ||
-       form.value.telefono == "" || form.value.telefonoadicional == ""){ 
+       form.value.telefono == "" || form.value.telefonoadicional == "" || form.value.sueldo == "" ){ 
   
        this.FaltanDatos()
        

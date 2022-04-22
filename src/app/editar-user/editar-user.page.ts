@@ -60,6 +60,7 @@ urlfile:any=[];
        pensionado: ['', Validators.required],
        niveldeescolaridad: ['', Validators.required],
        contrasena: ['', Validators.required],
+       sueldo: ['', Validators.required]
        
      })
 

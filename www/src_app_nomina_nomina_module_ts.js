@@ -1390,19 +1390,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NominaPageModule": () => (/* binding */ NominaPageModule)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 98806);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 14001);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 28267);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 18346);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ 78099);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 98806);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 14001);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 28267);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ 18346);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 78099);
 /* harmony import */ var _nomina_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./nomina-routing.module */ 74275);
 /* harmony import */ var _nomina_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nomina.page */ 29103);
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/input */ 58359);
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ 47752);
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ 58852);
-/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/core */ 34357);
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/table */ 73959);
-/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/form-field */ 73981);
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/input */ 58359);
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/button */ 47752);
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/icon */ 58852);
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/core */ 34357);
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/table */ 73959);
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/form-field */ 73981);
+/* harmony import */ var _components_components_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/components.module */ 57693);
+
 
 
 
@@ -1418,19 +1420,20 @@ __webpack_require__.r(__webpack_exports__);
 
 let NominaPageModule = class NominaPageModule {
 };
-NominaPageModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
+NominaPageModule = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.NgModule)({
         imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule,
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonicModule,
+            _angular_common__WEBPACK_IMPORTED_MODULE_5__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__.FormsModule,
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.IonicModule,
             _nomina_routing_module__WEBPACK_IMPORTED_MODULE_0__.NominaPageRoutingModule,
-            _angular_material_input__WEBPACK_IMPORTED_MODULE_7__.MatInputModule,
-            _angular_material_button__WEBPACK_IMPORTED_MODULE_8__.MatButtonModule,
-            _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIconModule,
-            _angular_material_table__WEBPACK_IMPORTED_MODULE_10__.MatTableModule,
-            _angular_material_core__WEBPACK_IMPORTED_MODULE_11__.MatNativeDateModule,
-            _angular_material_form_field__WEBPACK_IMPORTED_MODULE_12__.MatFormFieldModule
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_8__.MatInputModule,
+            _angular_material_button__WEBPACK_IMPORTED_MODULE_9__.MatButtonModule,
+            _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__.MatIconModule,
+            _angular_material_table__WEBPACK_IMPORTED_MODULE_11__.MatTableModule,
+            _angular_material_core__WEBPACK_IMPORTED_MODULE_12__.MatNativeDateModule,
+            _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__.MatFormFieldModule,
+            _components_components_module__WEBPACK_IMPORTED_MODULE_2__.ComponentsModule
         ],
         declarations: [_nomina_page__WEBPACK_IMPORTED_MODULE_1__.NominaPage]
     })
@@ -1451,44 +1454,573 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NominaPage": () => (/* binding */ NominaPage)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 98806);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 98806);
 /* harmony import */ var _C_Users_ivanp_Documents_Protexum_uta_181423_restserver_node_modules_ngtools_webpack_src_loaders_direct_resource_js_nomina_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !./node_modules/@ngtools/webpack/src/loaders/direct-resource.js!./nomina.page.html */ 25043);
 /* harmony import */ var _nomina_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nomina.page.scss */ 27558);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 14001);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 14001);
 /* harmony import */ var _service_nomina_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/nomina.service */ 87914);
+/* harmony import */ var _service_services_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/services/service.service */ 65868);
+/* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! xlsx */ 32551);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ 29243);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-const ELEMENT_DATA = [
-    { nombre: "hola", Guardia: 'H' }
-];
+
+
+
 let NominaPage = class NominaPage {
-    constructor(servicio) {
+    constructor(servicio, _servicio) {
         this.servicio = servicio;
+        this._servicio = _servicio;
         this.service = [];
-        this.displayedColumns = ['nombre', 'Guardia'];
-        this.dataSource = this.service;
+        //dias que fue al trabajo
+        this.Diasasistidos = [];
+        this.fileName = 'Nomina.xlsx';
+        this.Guardia = [];
+        this.week = [
+            "lunes",
+            "Martes",
+            "Miercoles",
+            "Jueves",
+            "Viernes",
+            "Sabado",
+            "Domingo"
+        ];
+        this.dayavoidn = false;
+        this.dayavoidt = false;
+        this.dayavoidtu = false;
     }
     ngOnInit() {
+        const fecham = new Date();
+        var month = fecham.getMonth() + 1;
+        var year = fecham.getFullYear();
+        this.getDaysFromDate(2, year);
         this.cservices();
+    }
+    getDaysFromDate(month, year) {
+        var _a, _b, _c;
+        //  se usa para agarrar mes y año y cree un objecto  basado en año mes y el 01 es para que inicie en ese mes
+        const startDate = moment__WEBPACK_IMPORTED_MODULE_5__(`${year}/${month}/01`);
+        // cuando finaliza el mes el clone es para que no iterar la fecha  
+        const endDate = startDate.clone().endOf('month');
+        this.dateSelect = startDate;
+        // aqui te trae la cantidad de dias que hay de diferencia entre las fecha de inicio y final , el true es para redondear numeros 
+        const diffDays = endDate.diff(startDate, 'days', true);
+        //30.999 con el mat round me redondea para que sean numeros enteros
+        const numberDays = Math.round(diffDays);
+        //usamos el array para pintarla plantilla 
+        const arrayDays = Object.keys([...Array(numberDays)]).map((a) => {
+            // convertimos a numero
+            a = parseInt(a) + 1;
+            // un dato tipo fecha para sabber que dia en el indice es 
+            const dayObject = moment__WEBPACK_IMPORTED_MODULE_5__(`${year}-${month}-${a}`);
+            let day = dayObject.format("dddd");
+            const ChangeWeek = {
+                'Monday': 'Lunes',
+                'Tuesday': 'Martes',
+                'Wednesday': 'Miercoles',
+                'Thursday': 'Jueves',
+                'Friday': 'Viernes',
+                'Saturday': 'Sabado',
+                'Sunday': 'Domingo',
+            };
+            const FechaD = ChangeWeek[day];
+            return {
+                name: FechaD,
+                month: dayObject.format("MMMM"),
+                year: dayObject.format("yyyy"),
+                value: a,
+                indexWeek: dayObject.isoWeekday()
+            };
+        });
+        this.monthSelect = arrayDays;
+        console.log(this.monthSelect);
+        if (((_a = this.monthSelect[28]) === null || _a === void 0 ? void 0 : _a.value) == 29) {
+            this.dayavoidn = true;
+            console.log(this.dayavoidn);
+        }
+        if (((_b = this.monthSelect[29]) === null || _b === void 0 ? void 0 : _b.value) == 30) {
+            this.dayavoidt = true;
+        }
+        if (((_c = this.monthSelect[30]) === null || _c === void 0 ? void 0 : _c.value) == 31) {
+            this.dayavoidtu = true;
+        }
+        const Mes = this.monthSelect[0].month;
+        const ChangeMonth = {
+            'January': 'Enero',
+            'February': 'Febrero',
+            'March': 'Marzo',
+            'April': 'Abril',
+            'May': 'Mayo',
+            'June': 'Junio',
+            'July': 'Julio',
+            'August': 'Agosto',
+            'September': 'Septiembre',
+            'October': 'Octubre',
+            'November': 'Noviembre',
+            'December': 'Diciembre'
+        };
+        const Fecha = ChangeMonth[Mes];
+        this.dateSelectM = Fecha;
+        this.dataSYear = year;
     }
     cservices() {
         this.servicio.getobtenerservices().subscribe((res) => {
+            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
             this.service = res.service;
-            console.log(this.service);
+            for (let i = 0; i < this.service.length; i++) {
+                // console.log(this.service[i].Guardias)
+                for (let g = 0; g < this.service[i].Guardias.length; g++) {
+                    console.log(this.service[i].Guardias[g]);
+                    var id = this.service[i].Guardias[g]._id;
+                    this.asistencias = this.service[i].Guardias[g].diasasistidos;
+                    console.log(this.asistencias + "asistencias");
+                    console.log(this.service[i].Guardias[g].prestamos[0]);
+                    let prestamo1 = this.service[i].Guardias[g].prestamos[0].montoprestado / this.service[i].Guardias[g].prestamos[0].numerodepagos;
+                    let prestamo2 = this.service[i].Guardias[g].prestamos[1].montoprestado / this.service[i].Guardias[g].prestamos[1].numerodepagos;
+                    let prestamo3 = ((_a = this.service[i].Guardias[g].prestamos[2]) === null || _a === void 0 ? void 0 : _a.montoprestado) / ((_b = this.service[i].Guardias[g].prestamos[2]) === null || _b === void 0 ? void 0 : _b.numerodepagos);
+                    let prestamo4 = ((_c = this.service[i].Guardias[g].prestamos[3]) === null || _c === void 0 ? void 0 : _c.montoprestado) / ((_d = this.service[i].Guardias[g].prestamos[3]) === null || _d === void 0 ? void 0 : _d.numerodepagos);
+                    let prestamo5 = ((_e = this.service[i].Guardias[g].prestamos[4]) === null || _e === void 0 ? void 0 : _e.montoprestado) / ((_f = this.service[i].Guardias[g].prestamos[4]) === null || _f === void 0 ? void 0 : _f.numerodepagos);
+                    let prestamo6 = ((_g = this.service[i].Guardias[g].prestamos[5]) === null || _g === void 0 ? void 0 : _g.montoprestado) / ((_h = this.service[i].Guardias[g].prestamos[5]) === null || _h === void 0 ? void 0 : _h.numerodepagos);
+                    let prestamo7 = ((_j = this.service[i].Guardias[g].prestamos[6]) === null || _j === void 0 ? void 0 : _j.montoprestado) / ((_k = this.service[i].Guardias[g].prestamos[6]) === null || _k === void 0 ? void 0 : _k.numerodepagos);
+                    let prestamo8 = ((_l = this.service[i].Guardias[g].prestamos[7]) === null || _l === void 0 ? void 0 : _l.montoprestado) / ((_m = this.service[i].Guardias[g].prestamos[7]) === null || _m === void 0 ? void 0 : _m.numerodepagos);
+                    let prestamo9 = ((_o = this.service[i].Guardias[g].prestamos[8]) === null || _o === void 0 ? void 0 : _o.montoprestado) / ((_p = this.service[i].Guardias[g].prestamos[8]) === null || _p === void 0 ? void 0 : _p.numerodepagos);
+                    let prestamo10 = ((_q = this.service[i].Guardias[g].prestamos[9]) === null || _q === void 0 ? void 0 : _q.montoprestado) / ((_r = this.service[i].Guardias[g].prestamos[9]) === null || _r === void 0 ? void 0 : _r.numerodepagos);
+                    this.Prestamos = prestamo1 + prestamo2;
+                    console.log(this.Prestamos);
+                    console.log(prestamo1);
+                    console.log(prestamo2);
+                    console.log(prestamo3);
+                    console.log(prestamo4);
+                    let Nsemana = this.service[i].Guardias[g].nsemana;
+                    // si es la semana 0 va entrar
+                    if (Nsemana == 0) {
+                        console.log(Nsemana);
+                        if (this.service[i].Guardias[g].tlpl == "A" || this.service[i].Guardias[g].tlpl == "D") {
+                            //aqui reiniciamos la viariable diasasistidos a 0
+                            this.asistencias = 0;
+                            this.diasasistidos = this.asistencias + 1;
+                            console.log("entro lp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tmpl == "A" || this.service[i].Guardias[g].tmpl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro mp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tmipl == "A" || this.service[i].Guardias[g].tmipl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro mip");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tjpl == "A" || this.service[i].Guardias[g].tjpl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro tjpl");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tvpl == "A" || this.service[i].Guardias[g].tvpl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro vp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tspl == "A" || this.service[i].Guardias[g].tspl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro sp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tdpl == "A" || this.service[i].Guardias[g].tdpl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            this.Diasasistidos = this.diasasistidos;
+                            console.log("entro dp /////////////////////");
+                            console.log(this.diasasistidos);
+                            Nsemana = 1;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                            console.log(Nsemana, "Numero de semana");
+                        }
+                        else {
+                            // condicionante en caso de que falte el dia de corte
+                            console.log("dp  Falto");
+                            Nsemana = 1;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                            console.log(Nsemana, "Numero de semana");
+                        }
+                    }
+                    // si es la semana 1 va entrar
+                    if (Nsemana == 1) {
+                        console.log(Nsemana);
+                        if (this.service[i].Guardias[g].tlsl == "A" || this.service[i].Guardias[g].tlsl == "D") {
+                            //aqui reiniciamos la viariable diasasistidos a 0
+                            this.asistencias = 0;
+                            this.diasasistidos = this.asistencias + 1;
+                            console.log("entro lp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tmsl == "A" || this.service[i].Guardias[g].tmsl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro mp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tmisl == "A" || this.service[i].Guardias[g].tmisl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro mip");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tjsl == "A" || this.service[i].Guardias[g].tjsl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro jp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tvsl == "A" || this.service[i].Guardias[g].tvsl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro vp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tssl == "A" || this.service[i].Guardias[g].tssl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro sp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tdsl == "A" || this.service[i].Guardias[g].tdsl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro ds //////////////////");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tltl == "A" || this.service[i].Guardias[g].tltl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro lt");
+                            console.log(this.diasasistidos);
+                            Nsemana = 2;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                            console.log(Nsemana, "Numero de semana");
+                        }
+                        else {
+                            // condicionante en caso de que falte el dia de corte
+                            console.log("lt  Falto");
+                            Nsemana = 2;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                            console.log(Nsemana, "Numero de semana");
+                        }
+                    }
+                    if (Nsemana == 2) {
+                        console.log(Nsemana);
+                        if (this.service[i].Guardias[g].tmtl == "A" || this.service[i].Guardias[g].tmtl == "D") {
+                            //aqui reiniciamos la viariable diasasistidos a 0
+                            this.asistencias = 0;
+                            console.log(this.asistencias);
+                            this.diasasistidos = this.asistencias + 1;
+                            console.log("entro mp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tmitl == "A" || this.service[i].Guardias[g].tmitl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro mip");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tjtl == "A" || this.service[i].Guardias[g].tjtl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro jp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tvtl == "A" || this.service[i].Guardias[g].tvtl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro vp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tstl == "A" || this.service[i].Guardias[g].tstl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro sp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tdtl == "A" || this.service[i].Guardias[g].tdtl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro dt ///////////////");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        ////
+                        if (this.service[i].Guardias[g].tlcl == "A" || this.service[i].Guardias[g].tlcl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro lc");
+                            console.log(this.diasasistidos);
+                            Nsemana = 3;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                            console.log(Nsemana, "Numero de semana");
+                        }
+                        else {
+                            // condicionante en caso de que falte el dia de corte
+                            console.log("lc  Falto");
+                            Nsemana = 3;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                            console.log(Nsemana, "Numero de semana");
+                        }
+                    }
+                    if (Nsemana == 3) {
+                        console.log(Nsemana);
+                        if (this.service[i].Guardias[g].tmcl == "A" || this.service[i].Guardias[g].tmcl == "D") {
+                            //aqui reiniciamos la viariable diasasistidos a 0
+                            this.asistencias = 0;
+                            console.log(this.asistencias);
+                            this.diasasistidos = this.asistencias + 1;
+                            console.log("entro mp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tmicl == "A" || this.service[i].Guardias[g].tmicl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro mip");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tjcl == "A" || this.service[i].Guardias[g].tjcl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro jp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tvcl == "A" || this.service[i].Guardias[g].tvcl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro vp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        if (this.service[i].Guardias[g].tscl == "A" || this.service[i].Guardias[g].tscl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro sp");
+                            console.log(this.diasasistidos);
+                        }
+                        else {
+                            console.log("falto el G");
+                        }
+                        //28
+                        console.log(this.monthSelect.length);
+                        if (this.monthSelect.length == 28) {
+                            if (this.service[i].Guardias[g].tdcl == "A" || this.service[i].Guardias[g].tdcl == "D") {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                console.log("entro dc");
+                                console.log(this.diasasistidos);
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                            else {
+                                // condicionante en caso de que falte el dia de corte
+                                console.log("dc  Falto");
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                        }
+                        else if (this.service[i].Guardias[g].tdcl == "A" || this.service[i].Guardias[g].tdcl == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro dc  ///////////");
+                            Nsemana = 0;
+                            console.log(this.diasasistidos);
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                        }
+                        ////29
+                        if (this.monthSelect.length == 29) {
+                            if (this.service[i].Guardias[g].tlql == "A" || this.service[i].Guardias[g].tlql == "D") {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                console.log("entro lq");
+                                console.log(this.diasasistidos);
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                            else {
+                                // condicionante en caso de que falte el dia de corte
+                                console.log("dc  Falto");
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                        }
+                        else if (this.service[i].Guardias[g].tlql == "A" || this.service[i].Guardias[g].tlql == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro dc  ///////////");
+                            console.log(this.diasasistidos);
+                            Nsemana = 0;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                        }
+                        //30
+                        if (this.monthSelect.length == 30) {
+                            if (this.service[i].Guardias[g].tmql == "A" || this.service[i].Guardias[g].tmql == "D") {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                console.log("entro mq");
+                                console.log(this.diasasistidos);
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                            else {
+                                // condicionante en caso de que falte el dia de corte
+                                console.log("dc  Falto");
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                        }
+                        else if (this.service[i].Guardias[g].tmql == "A" || this.service[i].Guardias[g].tmql == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro dc  ///////////");
+                            Nsemana = 0;
+                            console.log(this.diasasistidos);
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                        }
+                        //31
+                        if (this.monthSelect.length == 31) {
+                            if (this.service[i].Guardias[g].tmiql == "A" || this.service[i].Guardias[g].tmiql == "D") {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                console.log("entro miq");
+                                console.log(this.diasasistidos);
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                            else {
+                                // condicionante en caso de que falte el dia de corte
+                                console.log("dc  Falto");
+                                Nsemana = 0;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                    console.log(res);
+                                });
+                                console.log(Nsemana, "Numero de semana");
+                            }
+                        }
+                        else if (this.service[i].Guardias[g].tmiql == "A" || this.service[i].Guardias[g].tmiql == "D") {
+                            this.diasasistidos = this.diasasistidos + 1;
+                            console.log("entro dc  ///////////");
+                            console.log(this.diasasistidos);
+                            Nsemana = 0;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log(res);
+                            });
+                        }
+                    }
+                }
+            }
         });
     }
-    exportAsXLSX() {
-        this.servicio.exportToExcel(this.dataSource, 'Nomina');
+    exportexcel() {
+        /* pass here the table id */
+        let element = document.getElementById('excel-table');
+        const ws = xlsx__WEBPACK_IMPORTED_MODULE_4__.utils.table_to_sheet(element);
+        /* generate workbook and add the worksheet */
+        const wb = xlsx__WEBPACK_IMPORTED_MODULE_4__.utils.book_new();
+        xlsx__WEBPACK_IMPORTED_MODULE_4__.utils.book_append_sheet(wb, ws, 'Sheet1');
+        /* save to file */
+        xlsx__WEBPACK_IMPORTED_MODULE_4__.writeFile(wb, this.fileName);
     }
 };
 NominaPage.ctorParameters = () => [
-    { type: _service_nomina_service__WEBPACK_IMPORTED_MODULE_2__.NominaService }
+    { type: _service_nomina_service__WEBPACK_IMPORTED_MODULE_2__.NominaService },
+    { type: _service_services_service_service__WEBPACK_IMPORTED_MODULE_3__.ServiceService }
 ];
-NominaPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
+NominaPage.propDecorators = {
+    indexh: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.Input }],
+    indexn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_6__.Input }]
+};
+NominaPage = (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_6__.Component)({
         selector: 'app-nomina',
         template: _C_Users_ivanp_Documents_Protexum_uta_181423_restserver_node_modules_ngtools_webpack_src_loaders_direct_resource_js_nomina_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_nomina_page_scss__WEBPACK_IMPORTED_MODULE_1__]
@@ -1514,12 +2046,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 14001);
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! file-saver */ 68178);
 /* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ 9500);
-/* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! xlsx */ 32551);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ 9500);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ 83981);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 88377);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 10592);
-
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ 88377);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ 10592);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ 85029);
 
 
 
@@ -1542,23 +2073,30 @@ let NominaService = class NominaService {
         else {
             console.error(`Error status: ${error.status}, error: ${error.error}`);
         }
-        return (0,rxjs__WEBPACK_IMPORTED_MODULE_2__.throwError)('Hubo un error en la aplicacion. Verificar logs');
+        return (0,rxjs__WEBPACK_IMPORTED_MODULE_1__.throwError)('Hubo un error en la aplicacion. Verificar logs');
     }
     getobtenerservices() {
         let url = `${this.apiUrl}idimage/consultaservice`;
-        return this.http.get(url).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.map)((resp) => {
+        return this.http.get(url).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)((resp) => {
             return resp;
-        }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.catchError)(this.handleError));
+        }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.catchError)(this.handleError));
     }
-    exportToExcel(json, excelFileName) {
-        const worksheet = xlsx__WEBPACK_IMPORTED_MODULE_1__.utils.json_to_sheet(json);
-        const workbook = {
-            Sheets: { 'data': worksheet },
-            SheetNames: ['data']
-        };
-        const excelBuffer = xlsx__WEBPACK_IMPORTED_MODULE_1__.write(workbook, { bookType: 'xlsx', type: 'array' });
-        //call method buffer and fileName
-        this.saveAsExcel(excelBuffer, excelFileName);
+    //cambiar diasasistidos
+    actualizar_diasasistidos(id, idu) {
+        return this.http.put(`${this.apiUrl}idimage/paselista/${id}`, { turnossemana: idu }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.tap)((res) => {
+        }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.catchError)(this.handleError));
+    }
+    //agregar la imagen en usuario
+    Agregardiaasistido(idUser, diasasistidos, nsemana) {
+        return this.http.put(`${this.apiUrl}idimage/paselista/${idUser}`, { diasasistidos: diasasistidos, nsemana: nsemana }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.tap)((res) => {
+        }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.catchError)(this.handleError));
+    }
+    // obtiene la info del usuario para usarlo
+    getobtenerid(id) {
+        let url = `${this.apiUrl}idimage/consulta/${id}`;
+        return this.http.get(url).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)((resp) => {
+            return resp;
+        }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.catchError)(this.handleError));
     }
     saveAsExcel(buffer, fileName) {
         const data = new Blob([buffer], { type: EXCEL_TYPE });
@@ -1589,7 +2127,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n  <!--- Note that these columns can be defined in any order.\n        The actual rendered columns are set as a property on the row definition\" -->\n\n\n\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"nombre\">\n    <th mat-header-cell *matHeaderCellDef> Servicio </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.nombre}} </td>\n  </ng-container>\n\n  <!-- Weight Column -->\n  <ng-container matColumnDef=\"Guardia\">\n    <th mat-header-cell *matHeaderCellDef> Guardia  </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.Guardias}} </td>\n  </ng-container>\n\n\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar>\r\n    <app-navbar></app-navbar>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content>\r\n  <div class=\"table-responsive\">\r\n    <table  id=\"excel-table\" class=\"table table-striped\">\r\n    \r\n      <thead class=\"thead-dark\">\r\n        <tr>\r\n          <th scope=\"col\">Servicio</th>\r\n          <th scope=\"col\">No.</th>\r\n          <th scope=\"col\">Guardia</th>\r\n          <th scope=\"col\">Sueldo</th> \r\n          <th scope=\"col\">Monto prestado</th> \r\n        </tr>\r\n      </thead>\r\n      <tbody *ngFor=\"let s of service\">\r\n        <tr *ngFor=\"let g of s.Guardias; let i = index \">\r\n          <th scope=\"row\">{{s.nombre}}</th>\r\n          <th scope=\"row\">{{s.Guardias[i]._id}}</th>\r\n          <th scope=\"row\">{{s.Guardias[i].nombre}} {{s.Guardias[i].apellidos}} </th>\r\n          <th scope=\"row\">{{s.Guardias[i].sueldo * Diasasistidos  }} </th>\r\n          <th scope=\"row\">{{ Prestamos }} </th> \r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n    <button (click)=\"exportexcel()\" class=\"btn my-2 my-sm-0 btn-lg button\" style=\"width: 100%; background-color: #000000; color: #FFFFFF;font-weight: bold;\">Export to Excel</button>\r\n  </div>\r\n</ion-content>");
 
 /***/ }),
 

@@ -11,8 +11,9 @@ import { ClientResponseI } from '../models/client-response';
   providedIn: 'root'
 })
 export class LoginService {
-   AUTH_SERVER: string = 'https://ionic-proyect.herokuapp.com';
-  //AUTH_SERVER: string = 'http://localhost:3001';
+
+  //AUTH_SERVER: string = 'https://ionic-proyect.herokuapp.com';
+  AUTH_SERVER: string = 'http://localhost:3001';
   authSubject = new BehaviorSubject(false);
   private token: string;
   idimage : any = []
@@ -22,7 +23,9 @@ export class LoginService {
  @Output() disparadoralertas: EventEmitter<any> = new EventEmitter();
  @Output() disparadoractualizadorId: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    
+   }
 
   private handleError(error: HttpErrorResponse){
     if(error.error instanceof ErrorEvent){
@@ -130,7 +133,7 @@ cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
 
         }
       }
-    ))
+    ) )
     
   }
 //agregar el id de servicio a usuarios

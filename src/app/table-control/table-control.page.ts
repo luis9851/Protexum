@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ServiceService } from '../service/services/service.service';
 import { NgForm } from '@angular/forms';
+import { TableService } from '../service/table.service';
 @Component({
   selector: 'app-table-control',
   templateUrl: './table-control.page.html',
@@ -29,6 +30,10 @@ turno: boolean
 @Input() indexn: string;
 monthSelect: any[];
 
+dayavoidn:boolean = false;
+dayavoidt:boolean = false;
+dayavoidtu:boolean = false;
+
 dateSelectM: any;
 dateSelectD: any;
 dateSelect: any;
@@ -37,7 +42,7 @@ guardias: any=[];
 service: any=[];
 id: string;
 
-constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute) {
+constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute, private tablero:TableService) {
  
  }
 
@@ -62,6 +67,8 @@ constructor(private _Service: ServiceService,private router: Router,private acti
     
 
   }
+
+  
 
  
 
@@ -114,7 +121,23 @@ constructor(private _Service: ServiceService,private router: Router,private acti
 
     this.monthSelect =  arrayDays;
 
-      
+   
+      if(this.monthSelect[28]?.value == 29){
+   
+        this.dayavoidn = true
+      }
+    
+   
+
+      if(this.monthSelect[29]?.value  == 30){
+        this.dayavoidt = true
+      }
+ 
+  
+      if(this.monthSelect[30]?.value == 31){
+        this.dayavoidtu = true
+      }
+  
     const Mes = this.monthSelect[0].month
 
     const ChangeMonth = {
@@ -136,19 +159,9 @@ constructor(private _Service: ServiceService,private router: Router,private acti
     this.dateSelectM =  Fecha;
     this.dataSYear = year
 
-   
 
   }
-  
-  Agregarhorario( _id : string  ){
-    this.indexh = _id;
-    this.router.navigate(['/table',this.indexh]);
-    this._Service.disparadordedias.emit({
-      data: this.monthSelect
-      
-      
-    })
-   }
+
   
    
   
@@ -170,7 +183,7 @@ constructor(private _Service: ServiceService,private router: Router,private acti
   }
 
   cambiarEstadoLista(_id : string,form : NgForm){
-   console.log(form.value)
+   
     this._Service.registrarL(_id,form.value).subscribe( (res => {
           console.log(res)
           // this.exito()
@@ -179,8 +192,7 @@ constructor(private _Service: ServiceService,private router: Router,private acti
               
           }))
    }
-    
-      
+
 
 
 

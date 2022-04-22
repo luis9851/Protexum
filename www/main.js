@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        redirectTo: 'main',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {
@@ -101,7 +101,7 @@ const routes = [
     },
     {
         path: 'table-control/:id',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_table-control_table-control_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./table-control/table-control.module */ 64195)).then(m => m.TableControlPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_moment_moment_js"), __webpack_require__.e("src_app_table-control_table-control_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./table-control/table-control.module */ 64195)).then(m => m.TableControlPageModule)
     },
     {
         path: 'registroprestamos/:id',
@@ -112,17 +112,13 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_main_main_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./main/main.module */ 74261)).then(m => m.MainPageModule)
     },
     {
-        path: 'table/:id',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_table_table_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./table/table.module */ 18137)).then(m => m.TablePageModule)
-    },
-    {
         path: 'nomina',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_nomina_nomina_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./nomina/nomina.module */ 77906)).then(m => m.NominaPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_moment_moment_js"), __webpack_require__.e("src_app_nomina_nomina_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./nomina/nomina.module */ 77906)).then(m => m.NominaPageModule)
     },
     {
-        path: 'pase-lista',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pase-lista_pase-lista_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pase-lista/pase-lista.module */ 78925)).then(m => m.PaseListaPageModule)
-    },
+        path: "editar-client/:id",
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_editar-client_editar-client_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./editar-client/editar-client.module */ 62774)).then(m => m.EditarClientPageModule)
+    }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -577,10 +573,17 @@ let CardUserComponent = class CardUserComponent {
     ngOnInit() {
         this.activateRouter.params.subscribe(params => {
             this.idservice = params['id'];
-            console.log(this.users.Servicio._id);
             // falto cambiarle para que si ya le toco le servicio no aparezca
             if (this.idservice != null && this.users.rol == 'Guardia') {
-                this.hayservicio = true;
+                for (let i = 0; i < this.users.Servicio.length; i++) {
+                    console.log(this.users.Servicio[i]);
+                    if (this.users.Servicio[i]._id == this.idservice) {
+                        this.hayservicio = false;
+                    }
+                    else {
+                        this.hayservicio = true;
+                    }
+                }
             }
             else if (this.users.rol != 'Guardia') {
                 this.hayservicio = false;
@@ -831,16 +834,18 @@ let NavbarComponent = class NavbarComponent {
             if (data.data == this.Admin) {
                 console.log(this.Admin);
                 this.Apermisos = true;
+                console.log(this.Apermisos);
             }
             if (data.data == this.Supervisor) {
                 console.log(this.Spermisos);
                 this.Spermisos = true;
+                console.log(this.Spermisos);
             }
         });
     }
     buscar(termino) {
         this.find = termino;
-        this.router.navigate(['/home'], { queryParams: { search: this.find } });
+        this.router.navigate(['/main'], { queryParams: { search: this.find } });
     }
 };
 NavbarComponent.ctorParameters = () => [
@@ -1305,7 +1310,7 @@ let BorrowingService = class BorrowingService {
     constructor(http) {
         this.http = http;
         this.apiUrl = "https://ionic-proyect.herokuapp.com/api/";
-        //this.apiUrl ="http://localhost:3001/api/";
+        // this.apiUrl ="http://localhost:3001/api/";
     }
     //detector de errores
     handleError(error) {
@@ -2087,7 +2092,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item *ngIf=\"borrow.activo\">\n\n  <ion-label>\n    <h2>Nombre: {{ borrow.nombre }}  </h2>\n    <h2>monto prestado: {{ borrow.montoprestado }}</h2>\n    <h3>fechadeprestamo: {{ borrow.fechadeprestamo }}</h3>\n    <p>numerodepagos: {{ borrow.numerodepagos }}</p>\n   \n\n  </ion-label>\n  \n \n  <button (click)=verPrestamo(borrow._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;margin: 10px;\" type=\"button\">Ver más</button>\n  <ion-icon name=\"trash\" (click)=\"delete(borrow._id)\"></ion-icon>\n  <ion-icon name=\"create-outline\" (click)=\"Editar_P(borrow._id)\"></ion-icon> \n</ion-item>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item *ngIf=\"borrow.activo\">\r\n\r\n  <ion-label>\r\n    <h2>Nombre: {{ borrow.nombre }}  </h2>\r\n    <h2>monto prestado: {{ borrow.montoprestado }}</h2>\r\n    <h3>fechadeprestamo: {{ borrow.fechadeprestamo }}</h3>\r\n    <p>numerodepagos: {{ borrow.numerodepagos }}</p>\r\n   \r\n\r\n  </ion-label>\r\n  \r\n \r\n  <button (click)=verPrestamo(borrow._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;margin: 10px;\" type=\"button\">Ver más</button>\r\n  <ion-icon name=\"trash\" (click)=\"delete(borrow._id)\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_P(borrow._id)\"></ion-icon> \r\n</ion-item>");
 
 /***/ }),
 
@@ -2102,7 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item *ngIf=\"clients.activo\">\r\n\r\n  <ion-label>\r\n    <h2>Nombre: {{ clients.nombre }}  </h2>\r\n    <h2>RFC: {{ clients.rfc }}</h2>\r\n    <h3>Correo: {{ clients.correoelectronico }}</h3>\r\n    <p>Domicilio: {{ clients.domicilio }}</p>\r\n    <p>Telefono: {{ clients.telefono }}</p>\r\n\r\n  </ion-label>\r\n  \r\n  <button (click)=services(clients._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold; margin: 10px;\" type=\"button\">Agregar Servicio</button>\r\n  <button (click)=verClient(clients._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;margin: 10px;\" type=\"button\">Ver más</button>\r\n  <ion-icon name=\"trash\" (click)=\"delete(clients._id)\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_U(clients._id)\"></ion-icon> \r\n</ion-item>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item *ngIf=\"clients.activo\">\r\n\r\n  <ion-label>\r\n    <h2>Nombre: {{ clients.nombre }}  </h2>\r\n    <h2>RFC: {{ clients.rfc }}</h2>\r\n    <h3>Correo: {{ clients.correoelectronico }}</h3>\r\n    <p>Domicilio: {{ clients.domicilio }}</p>\r\n    <p>Telefono: {{ clients.telefono }}</p>\r\n\r\n  </ion-label>\r\n  \r\n  <button (click)=services(clients._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold; margin: 10px;\" type=\"button\">Agregar Servicio</button>\r\n  <button (click)=verClient(clients._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;margin: 10px;\" type=\"button\">Ver más</button>\r\n  <ion-icon name=\"trash\" (click)=\"delete(clients._id)\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_U(clients._id)\"></ion-icon> \r\n</ion-item>\r\n");
 
 /***/ }),
 
@@ -2117,7 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("\r\n<ion-item *ngIf=\"services.activo\">\r\n\r\n  <ion-label>\r\n    <h2>Nombre: {{ services.nombre }}  </h2>\r\n    <h2>jefe de turno : {{ services.jefedeservicio }}</h2>\r\n    <h3>telefono protexum: {{ services.telefonoprotexum }}</h3>\r\n    \r\n\r\n  </ion-label>\r\n  <button (click)=Controldeplaneacion(services._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;\" type=\"button\">Tabla de Planeacion</button>\r\n  <button (click)=AgregarGuardia(services._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;\" type=\"button\">lista de Guardia</button>\r\n  <button (click)=verService(services._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;\" type=\"button\">Ver más</button>\r\n  <ion-icon name=\"trash\" (click)=\"delete(services._id)\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_U(services._id)\"></ion-icon> \r\n</ion-item>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("\r\n<ion-item *ngIf=\"services.activo\">\r\n\r\n  <ion-label>\r\n    <h2>Nombre: {{ services.nombre }}  </h2>\r\n    <h2>jefe de turno : {{ services.jefedeservicio }}</h2>\r\n    <h3>telefono protexum: {{ services.telefonoprotexum }}</h3>\r\n    \r\n\r\n  </ion-label>\r\n  <button (click)=Controldeplaneacion(services._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">Tabla de Planeacion</button>\r\n  <button (click)=AgregarGuardia(services._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">lista de Guardia</button>\r\n  <button (click)=verService(services._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">Ver más</button>\r\n  <ion-icon name=\"trash\" (click)=\"delete(services._id)\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_U(services._id)\"></ion-icon> \r\n</ion-item>\r\n");
 
 /***/ }),
 
@@ -2132,7 +2137,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item *ngIf=\"users.activo\">\r\n  <ion-avatar slot=\"start\">\r\n    <img src=\"{{ users.fileUrl }}\" style=\"width: 40px;height: 40px; border-radius: 150px;\"/>\r\n  </ion-avatar>\r\n  <ion-label>\r\n    <h2>Nombre: {{ users.nombre }} {{ users.apellidos }} </h2>\r\n    <h2>Rol: {{ users.rol }}</h2>\r\n    <h3>Correo: {{ users.correoelectronico }}</h3>\r\n    <p>Domicilio: {{ users.domicilio }}</p>\r\n    <p>Telefono: {{ users.telefono }}</p>\r\n  </ion-label>\r\n  <button (click)=Agregar(users._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold; margin: 10px;\" type=\"button\" *ngIf=\"hayservicio\" >Agregar Guardia</button>\r\n  <button (click)=prestamos(users._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold; margin: 10px;\" type=\"button\">Agregar Prestamos</button>\r\n  <button (click)=verUser(users._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;\" type=\"button\">Ver más</button>\r\n  <!-- <ion-icon name=\"trash\" (click)=\"delete(users._id)\"></ion-icon> -->\r\n  <ion-icon name=\"trash\" data-toggle=\"modal\" data-backdrop=\"false\" data-target=\"#messageModal\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_U(users._id)\"></ion-icon>\r\n</ion-item>\r\n<app-message *ngIf=\"!ismodelShown\" (onConfirm)=\"cerrarModal($event)\"></app-message>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-item *ngIf=\"users.activo\">\r\n  <ion-avatar slot=\"start\">\r\n    <img src=\"{{ users.fileUrl }}\" style=\"width: 40px;height: 40px; border-radius: 150px;\"/>\r\n  </ion-avatar>\r\n  <ion-label>\r\n    <h2>Nombre: {{ users.nombre }} {{ users.apellidos }} </h2>\r\n    <h2>Rol: {{ users.rol }}</h2>\r\n    <h3>Correo: {{ users.correoelectronico }}</h3>\r\n    <p>Domicilio: {{ users.domicilio }}</p>\r\n    <p>Telefono: {{ users.telefono }}</p>\r\n  </ion-label>\r\n  <button (click)=Agregar(users._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold; margin: 10px;\" type=\"button\" *ngIf=\"hayservicio\" >Agregar Guardia</button>\r\n  <button (click)=prestamos(users._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold; margin: 10px;\" type=\"button\">Agregar Prestamos</button>\r\n  <button (click)=verUser(users._id) class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">Ver más</button>\r\n  <!-- <ion-icon name=\"trash\" (click)=\"delete(users._id)\"></ion-icon> -->\r\n  <ion-icon name=\"trash\" data-toggle=\"modal\" data-backdrop=\"false\" data-target=\"#messageModal\"></ion-icon>\r\n  <ion-icon name=\"create-outline\" (click)=\"Editar_U(users._id)\"></ion-icon>\r\n</ion-item>\r\n<app-message *ngIf=\"!ismodelShown\" (onConfirm)=\"cerrarModal($event)\"></app-message>");
 
 /***/ }),
 
@@ -2162,7 +2167,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" style=\"background-color: #FED03D !important;\">\r\n\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <a class=\"navbar-brand\" href=\"home\">\r\n    <img src=\"https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png\" height=\"30px\" width=\"mr-auto\" alt=\"Logo\">\r\n  </a>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n\r\n\r\n      <!-- active es la clase para hacer que resalte en el menu -->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\">\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Inicio</a>\r\n      </li>\r\n      <!--  aqui van los *ngif en el li para los permisos-->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\" >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Usuarios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"   >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-clients\" >Clientes</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Servicios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\" >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"#\">Prestamos</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"\">Planeacion</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <div class=\"form-inline my-2 my-lg-0\">\r\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Buscar usuario\" (keyup.enter)=\"buscar(buscarTexto.value)\"\r\n        #buscarTexto>\r\n      <button (click)=\"buscar(buscarTexto.value)\" class=\"btn my-2 my-sm-0\" style=\"background-color: #FE693D; color: #000000;font-weight: bold;\" type=\"button\">Buscar</button>\r\n    </div>\r\n\r\n  </div>\r\n</nav>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" style=\"background-color: #FED03D !important;\">\r\n\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <a class=\"navbar-brand\" href=\"home\">\r\n    <img src=\"https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png\" height=\"30px\" width=\"mr-auto\" alt=\"Logo\">\r\n  </a>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n\r\n\r\n      <!-- active es la clase para hacer que resalte en el menu -->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\">\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Inicio</a>\r\n      </li>\r\n      <!--  aqui van los *ngif en el li para los permisos-->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\" >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Usuarios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-clients\" >Clientes</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Servicios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Planeacion</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <div class=\"form-inline my-2 my-lg-0\">\r\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Buscar usuario\" (keyup.enter)=\"buscar(buscarTexto.value)\"\r\n        #buscarTexto>\r\n      <button (click)=\"buscar(buscarTexto.value)\" class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">Buscar</button>\r\n    </div>\r\n\r\n  </div>\r\n</nav>");
 
 /***/ }),
 
@@ -2192,7 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar class=\"color2\">\r\n    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" style=\"background-color: #FED03D !important;\">\r\n\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n        aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n    \r\n      <a class=\"navbar-brand\" href=\"#\">\r\n        <img src=\"https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png\" height=\"30px\" width=\"mr-auto\" alt=\"Logo\">\r\n      </a>\r\n    \r\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n          <!-- active es la clase para hacer que resalte en el menu -->\r\n          <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"#\">Inicio</a>\r\n          </li>\r\n          <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"/registro\">Registrarse</a>\r\n          </li>\r\n        </ul>\r\n    \r\n      </div>\r\n    </nav>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"fondo\">\r\n  <ion-grid class=\"login\"> \r\n    <h2 class=\"login-header\">\r\n    </h2>\r\n    <img class=\"logo\" src=\"../../assets/logonew01_v.png\" width=\"80%\" alt=\"logotipo\"/>\r\n    \r\n\r\n    <form #frmLogin=\"ngForm\" class=\"login-container\" (ngSubmit)=\"Login(frmLogin)\">\r\n      <p><ion-input class=\"login-inputs\" type=\"email\" name=\"correoelectronico\" placeholder=\"correoelectronico\"  ngModel required=\"\"> </ion-input> </p>\r\n      <p><ion-input class=\"login-inputs\" type=\"password\" name=\"contrasena\" placeholder=\"contrasena\" ngModel required=\"\"> </ion-input></p>\r\n      <p><button class=\"btn my-2 my-sm-0 btn-lg button\" style=\"width: 100%; background-color: #FE693D; color: #000000;font-weight: bold;\" type=\"submit\" value=\"Iniciar Sesion\">Iniciar Sesion</button></p>\r\n      <ion-label class=\"link\" [routerLink]=\"['/olvidastecontrasena']\" > ¿Olvidaste tu contraseña? </ion-label>\r\n    </form>\r\n  </ion-grid>\r\n</ion-content> \r\n\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\r\n  <ion-toolbar class=\"color2\">\r\n    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" style=\"background-color: #FED03D !important;\">\r\n\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n        aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n    \r\n      <a class=\"navbar-brand\" href=\"#\">\r\n        <img src=\"https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png\" height=\"30px\" width=\"mr-auto\" alt=\"Logo\">\r\n      </a>\r\n    \r\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n        <ul class=\"navbar-nav mr-auto\">\r\n          <!-- active es la clase para hacer que resalte en el menu -->\r\n          <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"#\">Inicio</a>\r\n          </li>\r\n          <li class=\"nav-item\" routerLinkActive=\"active\">\r\n            <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"/registro\">Registrarse</a>\r\n          </li>\r\n        </ul>\r\n    \r\n      </div>\r\n    </nav>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"fondo\">\r\n  <ion-grid class=\"login\"> \r\n    <h2 class=\"login-header\">\r\n    </h2>\r\n    <img class=\"logo\" src=\"../../assets/logonew01_v.png\" width=\"80%\" alt=\"logotipo\"/>\r\n    \r\n\r\n    <form #frmLogin=\"ngForm\" class=\"login-container\" (ngSubmit)=\"Login(frmLogin)\">\r\n      <p><ion-input class=\"login-inputs\" type=\"email\" name=\"correoelectronico\" placeholder=\"correoelectronico\"  ngModel required=\"\"> </ion-input> </p>\r\n      <p><ion-input class=\"login-inputs\" type=\"password\" name=\"contrasena\" placeholder=\"contrasena\" ngModel required=\"\"> </ion-input></p>\r\n      <p><button class=\"btn my-2 my-sm-0 btn-lg button\" style=\"width: 100%; background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"submit\" value=\"Iniciar Sesion\">Iniciar Sesion</button></p>\r\n      <ion-label class=\"link\" [routerLink]=\"['/olvidastecontrasena']\" > ¿Olvidaste tu contraseña? </ion-label>\r\n    </form>\r\n  </ion-grid>\r\n</ion-content> \r\n\r\n");
 
 /***/ }),
 
