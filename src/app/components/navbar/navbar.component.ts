@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   Apermisos : boolean = false;
   Spermisos : boolean = false;
   Gpermisos : boolean = false;
-A : string;
+  A : string;
  Admin: string = "Admin";
  Guardia: string =  "Guardia";
  Supervisor: string = "Supervisor";
