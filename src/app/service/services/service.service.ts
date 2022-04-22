@@ -24,7 +24,7 @@ const httpOptions = {
     
     constructor(private http: HttpClient ) { 
     
-      //this.apiUrl ="app.protexum.com.mx/api/";
+      //this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
        this.apiUrl ="http://localhost:3001/api/";
     }
     

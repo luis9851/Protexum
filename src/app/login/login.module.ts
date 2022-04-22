@@ -8,7 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
+import { ErrorInterceptor } from '../interceptors/error.interceptor';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: LoginPage,
+      useClass: ErrorInterceptor,
       multi: true
  
     }

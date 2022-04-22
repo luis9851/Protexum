@@ -15,17 +15,27 @@ export class NavbarComponent implements OnInit {
   Apermisos : boolean = false;
   Spermisos : boolean = false;
   Gpermisos : boolean = false;
-  A : string;
- Admin: string = "Admin";
+
+ Admin: any = "Admin";
  Guardia: string =  "Guardia";
  Supervisor: string = "Supervisor";
   ngOnInit( ) {
+
+    console.log(this.Apermisos)
   this.servicio.disparadorderol.subscribe(data =>{
     console.log("recibiendo data ..", data.data)
+    if(data.data == this.Admin){
+      console.log(this.Admin)
+      this.Apermisos = true;
+      console.log(this.Apermisos)
+    
+    
+    } if(data.data == this.Supervisor){
+      console.log(this.Spermisos);
+      this.Spermisos = true
+      console.log(this.Spermisos)
+    }
   
-
-    this.A =data.data
-    console.log(this.A)
    
   })
     

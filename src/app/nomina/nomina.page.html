@@ -22,7 +22,7 @@
           <th scope="row">{{s.Guardias[i]._id}}</th>
           <th scope="row">{{s.Guardias[i].nombre}} {{s.Guardias[i].apellidos}} </th>
           <th scope="row">{{s.Guardias[i].sueldo * Diasasistidos  }} </th>
-          <th scope="row" *ngFor="let gf of s.Guardias.prestamos; let p = index ">{{s.Guardias[i].prestamos[p].montoprestado}} </th> 
+          <th scope="row">{{ Prestamos }} </th> 
         </tr>
       </tbody>
     </table>

@@ -15,19 +15,19 @@
 
       <!-- active es la clase para hacer que resalte en el menu -->
       <li class="nav-item" routerLinkActive="active">
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Inicio {{A}}</a>
+        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Inicio</a>
       </li>
       <!--  aqui van los *ngif en el li para los permisos-->
-      <li class="nav-item" routerLinkActive="active" *ngIf="A==Admin" >
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Usuarios {{A}} </a>
+      <li class="nav-item" routerLinkActive="active" >
+        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Usuarios</a>
       </li>
-      <li class="nav-item" routerLinkActive="active"  *ngIf="A==Admin">
+      <li class="nav-item" routerLinkActive="active"  >
         <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-clients" >Clientes</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf="A == Guardia" >
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-services">Servicios {{A}}</a>
+      <li class="nav-item" routerLinkActive="active"  >
+        <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-services">Servicios</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf="A==Guardia" >
+      <li class="nav-item" routerLinkActive="active"  >
         <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-services">Planeacion</a>
       </li>
     </ul>

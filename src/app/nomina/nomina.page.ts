@@ -184,7 +184,6 @@ export class NominaPage implements OnInit {
     
 
       this.service = res.service
-      console.log(this.service)
      
       
       for(let i = 0; i < this.service.length; i ++){
@@ -221,7 +220,7 @@ export class NominaPage implements OnInit {
 
        
         this.Prestamos = prestamo1 + prestamo2 ; 
-         
+        console.log(this.Prestamos)
         console.log(prestamo1)
         console.log(prestamo2)
         console.log(prestamo3)

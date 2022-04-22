@@ -23,9 +23,7 @@ export class LoginService {
  @Output() disparadoralertas: EventEmitter<any> = new EventEmitter();
  @Output() disparadoractualizadorId: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http: HttpClient) {
-    
-   }
+  constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse){
     if(error.error instanceof ErrorEvent){
@@ -133,7 +131,7 @@ cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
 
         }
       }
-    ) )
+    ))
     
   }
 //agregar el id de servicio a usuarios

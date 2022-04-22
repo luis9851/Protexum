@@ -22,7 +22,6 @@ export class OlvidastecontrasenaPage implements OnInit {
       this.service.enviarcorreo(form.value).subscribe( (res => {
         this.exito()
         console.log(res.dataUser)
-       
      
       }))
 
