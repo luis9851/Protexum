@@ -46,4 +46,9 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/main'], { queryParams: { search: this.find } });
   }
 
+  SignOut(){
+    localStorage.clear();
+    window.location.reload();
+  }
+
 }

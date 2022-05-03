@@ -3,6 +3,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from '../../service/login.service';
 import { ServiceService } from 'src/app/service/services/service.service';
+import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-card-user',
   templateUrl: './card-user.component.html',
@@ -14,12 +16,12 @@ export class CardUserComponent implements OnInit {
   @Input() index: string;
   @Input() indexE: string;
   @Input() indexp: string;
+  @Input() indexD: string;
   @Output() userSeleccionado: EventEmitter<number>;
   public ismodelShown: boolean = false;
-  id: String = "";
   idservice: string ;
   hayservicio: boolean = false;
-  constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController, private servicio2: ServiceService) {
+  constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController, private servicio2: ServiceService,public alertController: AlertController) {
     this.userSeleccionado = new EventEmitter();
    }
 
@@ -70,14 +72,15 @@ export class CardUserComponent implements OnInit {
     this.ismodelShown = false;
   }
 
-  cerrarModal(configuracion:boolean){
+  cerrarModal(configuracion:boolean,_id:string){
     this.ismodelShown = false;
+    this.indexD == _id;
     if(configuracion){
-      console.log('Eliminar' + this.ismodelShown);
+      /* console.log('Eliminar' + this.ismodelShown); */
       /* this.delete(); */
-      console.log('Eliminado'+this.id);
+      console.log('Eliminado'+" "+this.indexD);
     }else{
-      console.log('No elimar' + this.ismodelShown);
+      console.log('No elimar' + " "+this.ismodelShown);
     }
   }
   
@@ -94,12 +97,42 @@ export class CardUserComponent implements OnInit {
     console.log(this.indexE)
   }
 
-  delete(_id: string){
-    this.id == _id;
-    this.servicio.eliminarusuario(_id).subscribe(data => {
-      this.presentToast();
+  /* delete(_id: string){
+      this.servicio.eliminarusuario(_id).subscribe(data => {
+        this.presentToast();
+      })
+      console.log(_id);
+  } */
 
-    })
+  async presentAlertConfirm(_id: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: '¿Estas seguro que deseas <strong>eliminarlo</strong>?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          id: 'confirm-button',
+          handler: () => {
+            console.log(_id);
+            this.servicio.eliminarusuario(_id).subscribe(data => {
+              this.presentToast();
+            })
+            window.location.reload();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 
