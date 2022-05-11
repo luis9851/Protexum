@@ -5,7 +5,9 @@ export interface BorrowingResponseI {
         nombreg: string,
         montoprestado: Number,
         fechadepresamo: Date,
-        numerodepagos: Number
+        numerodepagos: Number,
+        montoapagar:Number,
+        updatedAt: any
       
         
        

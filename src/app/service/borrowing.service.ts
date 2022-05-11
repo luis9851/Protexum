@@ -5,6 +5,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { BorrowingI } from '../models/borrowing';
 import { BorrowingResponseI } from '../models/borrowing-response';
+import { JwtResponseI } from '../models/jwt-response';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 }
@@ -16,7 +17,7 @@ export class BorrowingService {
   
   constructor(private http: HttpClient ) { 
   
-    //this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
+   // this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
      this.apiUrl ="http://localhost:3001/api/";
   }
     //detector de errores
@@ -88,4 +89,14 @@ export class BorrowingService {
            return resp 
         }),  catchError(this.handleError) )    
       }
+       
+//agregar total de dinero prestado
+Agregartotal(id:string, total: Number ): Observable<JwtResponseI>{
+  return this.http.put<JwtResponseI>(`${this.apiUrl}updateprestamo/${id}`,
+  {total:total }).pipe(tap(
+    (res: JwtResponseI)=> {
+    
+    }
+  ),catchError(this.handleError) )
+}
 }

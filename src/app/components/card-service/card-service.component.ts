@@ -26,9 +26,10 @@ export class CardServiceComponent implements OnInit {
     this.router.navigate(['/table-control',this.indexs]);
     console.log(this.indexs)
   }
-  AgregarGuardia(_id: string){
+  AgregarGuardia(_id: string, nombre:string){
     this.indexs = _id;
-    this.router.navigate(['/home',this.indexs]);
+    
+    this.router.navigate(['/home',this.indexs,nombre]);
     console.log(this.indexs)
   }
   verService(_id: string){

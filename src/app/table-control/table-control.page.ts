@@ -24,7 +24,7 @@ week: any = [
 
 
 
-turno: boolean
+
 // variables del funcionamiento del calendario
 @Input() indexh: string;
 @Input() indexn: string;
@@ -38,9 +38,11 @@ dateSelectM: any;
 dateSelectD: any;
 dateSelect: any;
 dataSYear: any;
+turno: any=[];
 guardias: any=[];
 service: any=[];
 id: string;
+idG: string;
 
 constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute, private tablero:TableService) {
  
@@ -55,17 +57,21 @@ constructor(private _Service: ServiceService,private router: Router,private acti
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
+        
         this.service = data.service;
-        this.guardias = data.service.Guardias;
-       
+        console.log(this.service)
+        this.guardias = data.service.Turnos;
+        console.log(this.guardias)
       },
       error =>{
 
       });
       
+      
     })
     
 
+  
   }
 
   
@@ -184,13 +190,14 @@ constructor(private _Service: ServiceService,private router: Router,private acti
 
   cambiarEstadoLista(_id : string,form : NgForm){
    
-    this._Service.registrarL(_id,form.value).subscribe( (res => {
-          console.log(res)
-          // this.exito()
-          
-       
-              
-          }))
+     
+           this._Service.registrarL(_id,form.value).subscribe( (res => {
+            console.log(res)
+            // this.exito()
+            }))
+
+         
+   
    }
 
 
