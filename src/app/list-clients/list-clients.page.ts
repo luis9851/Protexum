@@ -20,29 +20,17 @@ export class ListClientsPage implements OnInit {
   constructor(private servicio : ServiceService , private router: Router,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() : void{
-    // setInterval(() => this. obteneruser(), 15000)
+    
     this.obtenerclient();
-    // this.activatedRoute.queryParams.subscribe((params)=>{
-    //   this.load = true;
-    //   this.busc = params;
-    //   console.log(this.busc.search);
-    //   if(this.busc.search){
-    //     this.Bsearch(this.busc.search);
-    //   }else{
-    //     this.obtenerclient();
 
-    //   }
-    // })
   }
 
-  // se usa para mandar a llamar los clientes que estan activos en la base de datos
   obtenerclient(){
     this.servicio.getobtenerclients().subscribe(res => {
-      console.log(res.client)
       this.clients = res.client;
       this.load = false;
     }, error => {
-      console.log(error)
+    
     })
   }
 

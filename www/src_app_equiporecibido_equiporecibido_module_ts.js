@@ -208,10 +208,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let EquipoService = class EquipoService {
-    //AUTH_SERVER: string = 'http://localhost:3001';
     constructor(http) {
         this.http = http;
-        this.AUTH_SERVER = 'https://ionic-proyect.herokuapp.com';
+        this.AUTH_SERVER = '/admin';
     }
     handleError(error) {
         if (error.error instanceof ErrorEvent) {

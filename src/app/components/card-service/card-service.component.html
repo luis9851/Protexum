@@ -9,7 +9,7 @@
 
   </ion-label>
   <button (click)=Controldeplaneacion(services._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button">Tabla de Planeacion</button>
-  <button (click)=AgregarGuardia(services._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button">lista de Guardia</button>
+  <button (click)=AgregarGuardia(services._id,services.nombre) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button">lista de Guardia</button>
   <button (click)=verService(services._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button">Ver más</button>
   <ion-icon name="trash" (click)="delete(services._id)"></ion-icon>
   <ion-icon name="create-outline" (click)="Editar_U(services._id)"></ion-icon> 

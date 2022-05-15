@@ -29,8 +29,7 @@ const httpOptions = {
 let TableService = class TableService {
     constructor(http) {
         this.http = http;
-        this.apiUrl = "https://ionic-proyect.herokuapp.com/api/";
-        //  this.apiUrl ="http://localhost:3001/api/";
+        this.apiUrl = "/admin/api/";
     }
     //detector de errores
     handleError(error) {

@@ -17,7 +17,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'home/:id',
+    path: 'home/:id/:nombre',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -109,7 +109,12 @@ const routes: Routes = [
   {
     path: "editar-client/:id",
     loadChildren: () => import('./editar-client/editar-client.module').then(m => m.EditarClientPageModule)
+  },
+  {
+    path: 'registromulta/:id/:nombre/:apellidos/:idG',
+    loadChildren: () => import('./registromulta/registromulta.module').then( m => m.RegistromultaPageModule)
   }
+
 
 
   

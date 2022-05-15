@@ -18,7 +18,7 @@ constructor(private servicio:LoginService){}
                if(
                    [401, 403, 404, 409].indexOf(err.status) !== -1
                ){
-                 console.log(err.status)
+                 
                  this.servicio.disparadoralertas.emit({
                      data: err.status
                  })

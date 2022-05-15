@@ -11,32 +11,16 @@ export class NavbarComponent implements OnInit {
 
   public find: String = "";
 
-  constructor(private router: Router, private servicio: LoginService) { }
-  Apermisos : boolean = false;
-  Spermisos : boolean = false;
-  Gpermisos : boolean = false;
 
  Admin: any = "Admin";
- Guardia: string =  "Guardia";
- Supervisor: string = "Supervisor";
-  ngOnInit( ) {
+ 
+  constructor(private router: Router, private servicio: LoginService) { }
 
-    console.log(this.Apermisos)
+  ngOnInit( ) {
   this.servicio.disparadorderol.subscribe(data =>{
-    console.log("recibiendo data ..", data.data)
-    if(data.data == this.Admin){
-      console.log(this.Admin)
-      this.Apermisos = true;
-      console.log(this.Apermisos)
-    
-    
-    } if(data.data == this.Supervisor){
-      console.log(this.Spermisos);
-      this.Spermisos = true
-      console.log(this.Spermisos)
-    }
   
-   
+    
+
   })
     
   }

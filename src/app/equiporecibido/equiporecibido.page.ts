@@ -17,13 +17,13 @@ export class EquiporecibidoPage implements OnInit {
   ngOnInit() {
     this.activateRoute.params.subscribe( params => {
       this.id = params['id'];
-      console.log(this.id)
+      
     
     })
   }
 
   Register(form : NgForm){
-    console.log(form)
+
     
       if(form.value.celular == "" || form.value.radio == "" || form.value.lamparas == "" || 
       form.value.dcelular == "" || form.value.dradio == "" || form.value.dlamparas == "" || 
@@ -42,7 +42,7 @@ export class EquiporecibidoPage implements OnInit {
                  this.servicio.registerE(this.id, form.value).subscribe( (res => {
     
                  this.exito()
-                 console.log(res.dataEquip); 
+              
                
 
                   this.agregaridenequipo(res.dataEquip.id)
@@ -59,7 +59,7 @@ export class EquiporecibidoPage implements OnInit {
 
 
    this.servicio.actualizarIdUsuario( this.id, idservicio ).subscribe( (res => {
-     console.log(res)
+    
    }))
 
    

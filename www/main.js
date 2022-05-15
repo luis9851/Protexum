@@ -828,19 +828,8 @@ let NavbarComponent = class NavbarComponent {
         this.Supervisor = "Supervisor";
     }
     ngOnInit() {
-        console.log(this.Apermisos);
         this.servicio.disparadorderol.subscribe(data => {
             console.log("recibiendo data ..", data.data);
-            if (data.data == this.Admin) {
-                console.log(this.Admin);
-                this.Apermisos = true;
-                console.log(this.Apermisos);
-            }
-            if (data.data == this.Supervisor) {
-                console.log(this.Spermisos);
-                this.Spermisos = true;
-                console.log(this.Spermisos);
-            }
         });
     }
     buscar(termino) {
@@ -1309,8 +1298,7 @@ const httpOptions = {
 let BorrowingService = class BorrowingService {
     constructor(http) {
         this.http = http;
-        this.apiUrl = "https://ionic-proyect.herokuapp.com/api/";
-        // this.apiUrl ="http://localhost:3001/api/";
+        this.apiUrl = "/admin/api/";
     }
     //detector de errores
     handleError(error) {
@@ -1399,10 +1387,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ClientsService = class ClientsService {
-    // AUTH_SERVER: string = 'http://localhost:3001';
     constructor(http) {
         this.http = http;
-        this.AUTH_SERVER = 'https://ionic-proyect.herokuapp.com';
+        this.AUTH_SERVER = '/admin';
     }
     handleError(error) {
         if (error.error instanceof ErrorEvent) {
@@ -1476,8 +1463,7 @@ __webpack_require__.r(__webpack_exports__);
 let LoginService = class LoginService {
     constructor(http) {
         this.http = http;
-        this.AUTH_SERVER = 'https://ionic-proyect.herokuapp.com';
-        //AUTH_SERVER: string = 'http://localhost:3001';
+        this.AUTH_SERVER = '/admin';
         this.authSubject = new rxjs__WEBPACK_IMPORTED_MODULE_0__.BehaviorSubject(false);
         this.idimage = [];
         this.disparadorderol = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.EventEmitter();
@@ -1628,8 +1614,7 @@ let ServiceService = class ServiceService {
     constructor(http) {
         this.http = http;
         this.disparadordedias = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.EventEmitter();
-        this.apiUrl = "https://ionic-proyect.herokuapp.com/api/";
-        // this.apiUrl ="http://localhost:3001/api/";
+        this.apiUrl = "/admin/api/";
     }
     //detector de errores
     handleError(error) {
@@ -2167,7 +2152,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" style=\"background-color: #FED03D !important;\">\r\n\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <a class=\"navbar-brand\" href=\"home\">\r\n    <img src=\"https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png\" height=\"30px\" width=\"mr-auto\" alt=\"Logo\">\r\n  </a>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n\r\n\r\n      <!-- active es la clase para hacer que resalte en el menu -->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\">\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Inicio</a>\r\n      </li>\r\n      <!--  aqui van los *ngif en el li para los permisos-->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\" >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Usuarios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-clients\" >Clientes</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Servicios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Planeacion</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <div class=\"form-inline my-2 my-lg-0\">\r\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Buscar usuario\" (keyup.enter)=\"buscar(buscarTexto.value)\"\r\n        #buscarTexto>\r\n      <button (click)=\"buscar(buscarTexto.value)\" class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">Buscar</button>\r\n    </div>\r\n\r\n  </div>\r\n</nav>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\" style=\"background-color: #FED03D !important;\">\r\n\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\"\r\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    <span class=\"navbar-toggler-icon\"></span>\r\n  </button>\r\n\r\n  <a class=\"navbar-brand\" href=\"home\">\r\n    <img src=\"https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png\" height=\"30px\" width=\"mr-auto\" alt=\"Logo\">\r\n  </a>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n\r\n\r\n      <!-- active es la clase para hacer que resalte en el menu -->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\">\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Inicio {{Apermisos}} </a>\r\n      </li>\r\n      <!--  aqui van los *ngif en el li para los permisos-->\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"main\">Usuarios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-clients\" >Clientes</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Servicios</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLinkActive=\"active\"  >\r\n        <a style=\"color: #000000;font-weight: bold;\" class=\"nav-link\" href=\"list-services\">Planeacion</a>\r\n      </li>\r\n    </ul>\r\n\r\n    <div class=\"form-inline my-2 my-lg-0\">\r\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Buscar usuario\" (keyup.enter)=\"buscar(buscarTexto.value)\"\r\n        #buscarTexto>\r\n      <button (click)=\"buscar(buscarTexto.value)\" class=\"btn my-2 my-sm-0\" style=\"background-color: #000000; color: #FFFFFF;font-weight: bold;\" type=\"button\">Buscar</button>\r\n    </div>\r\n\r\n  </div>\r\n</nav>");
 
 /***/ }),
 

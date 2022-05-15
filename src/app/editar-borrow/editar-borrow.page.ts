@@ -45,7 +45,7 @@ borrowingEForm: FormGroup
      
       this.servicio.obtenerPrestamos(this.id).subscribe( data => {
 
-         console.log(data.prestamo)
+       
          
 
      let prestamo = data.prestamo;
@@ -62,7 +62,6 @@ borrowingEForm: FormGroup
  Editar_Pe(){
    // los datos de el elemento
    this.servicio.Editar_P(this.id,this.borrowingEForm.value).subscribe( (res => {
-   console.log(res.dataPrestamo.id)
    this.exito()
  
    this.router.navigate(['/main'])

@@ -1497,7 +1497,10 @@ let NominaPage = class NominaPage {
         const fecham = new Date();
         var month = fecham.getMonth() + 1;
         var year = fecham.getFullYear();
-        this.getDaysFromDate(2, year);
+        var daus = fecham.getDate();
+        this.hoy = daus;
+        console.log(this.hoy);
+        this.getDaysFromDate(month, year);
         this.cservices();
     }
     getDaysFromDate(month, year) {
@@ -1537,10 +1540,8 @@ let NominaPage = class NominaPage {
             };
         });
         this.monthSelect = arrayDays;
-        console.log(this.monthSelect);
         if (((_a = this.monthSelect[28]) === null || _a === void 0 ? void 0 : _a.value) == 29) {
             this.dayavoidn = true;
-            console.log(this.dayavoidn);
         }
         if (((_b = this.monthSelect[29]) === null || _b === void 0 ? void 0 : _b.value) == 30) {
             this.dayavoidt = true;
@@ -1569,36 +1570,45 @@ let NominaPage = class NominaPage {
     }
     cservices() {
         this.servicio.getobtenerservices().subscribe((res) => {
-            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
             this.service = res.service;
             for (let i = 0; i < this.service.length; i++) {
                 // console.log(this.service[i].Guardias)
                 for (let g = 0; g < this.service[i].Guardias.length; g++) {
-                    console.log(this.service[i].Guardias[g]);
+                    //  console.log(this.service[i].Guardias[g]);
                     var id = this.service[i].Guardias[g]._id;
                     this.asistencias = this.service[i].Guardias[g].diasasistidos;
-                    console.log(this.asistencias + "asistencias");
-                    console.log(this.service[i].Guardias[g].prestamos[0]);
-                    let prestamo1 = this.service[i].Guardias[g].prestamos[0].montoprestado / this.service[i].Guardias[g].prestamos[0].numerodepagos;
-                    let prestamo2 = this.service[i].Guardias[g].prestamos[1].montoprestado / this.service[i].Guardias[g].prestamos[1].numerodepagos;
-                    let prestamo3 = ((_a = this.service[i].Guardias[g].prestamos[2]) === null || _a === void 0 ? void 0 : _a.montoprestado) / ((_b = this.service[i].Guardias[g].prestamos[2]) === null || _b === void 0 ? void 0 : _b.numerodepagos);
-                    let prestamo4 = ((_c = this.service[i].Guardias[g].prestamos[3]) === null || _c === void 0 ? void 0 : _c.montoprestado) / ((_d = this.service[i].Guardias[g].prestamos[3]) === null || _d === void 0 ? void 0 : _d.numerodepagos);
-                    let prestamo5 = ((_e = this.service[i].Guardias[g].prestamos[4]) === null || _e === void 0 ? void 0 : _e.montoprestado) / ((_f = this.service[i].Guardias[g].prestamos[4]) === null || _f === void 0 ? void 0 : _f.numerodepagos);
-                    let prestamo6 = ((_g = this.service[i].Guardias[g].prestamos[5]) === null || _g === void 0 ? void 0 : _g.montoprestado) / ((_h = this.service[i].Guardias[g].prestamos[5]) === null || _h === void 0 ? void 0 : _h.numerodepagos);
-                    let prestamo7 = ((_j = this.service[i].Guardias[g].prestamos[6]) === null || _j === void 0 ? void 0 : _j.montoprestado) / ((_k = this.service[i].Guardias[g].prestamos[6]) === null || _k === void 0 ? void 0 : _k.numerodepagos);
-                    let prestamo8 = ((_l = this.service[i].Guardias[g].prestamos[7]) === null || _l === void 0 ? void 0 : _l.montoprestado) / ((_m = this.service[i].Guardias[g].prestamos[7]) === null || _m === void 0 ? void 0 : _m.numerodepagos);
-                    let prestamo9 = ((_o = this.service[i].Guardias[g].prestamos[8]) === null || _o === void 0 ? void 0 : _o.montoprestado) / ((_p = this.service[i].Guardias[g].prestamos[8]) === null || _p === void 0 ? void 0 : _p.numerodepagos);
-                    let prestamo10 = ((_q = this.service[i].Guardias[g].prestamos[9]) === null || _q === void 0 ? void 0 : _q.montoprestado) / ((_r = this.service[i].Guardias[g].prestamos[9]) === null || _r === void 0 ? void 0 : _r.numerodepagos);
+                    //  console.log(this.asistencias + "asistencias")
+                    // console.log( this.service[i].Guardias[g].prestamos[0]) 
+                    let prestamo1 = 0;
+                    let prestamo2 = 0;
+                    let prestamo3 = 0;
+                    let prestamo4 = 0;
+                    let prestamo5 = 0;
+                    let prestamo6 = 0;
+                    let prestamo7 = 0;
+                    let prestamo8 = 0;
+                    let prestamo9 = 0;
+                    let prestamo10 = 0;
+                    prestamo1 = ((_a = this.service[i].Guardias[g].prestamos[0]) === null || _a === void 0 ? void 0 : _a.montoprestado) / ((_b = this.service[i].Guardias[g].prestamos[0]) === null || _b === void 0 ? void 0 : _b.numerodepagos);
+                    prestamo2 = ((_c = this.service[i].Guardias[g].prestamos[1]) === null || _c === void 0 ? void 0 : _c.montoprestado) / ((_d = this.service[i].Guardias[g].prestamos[1]) === null || _d === void 0 ? void 0 : _d.numerodepagos);
+                    prestamo3 = ((_e = this.service[i].Guardias[g].prestamos[2]) === null || _e === void 0 ? void 0 : _e.montoprestado) / ((_f = this.service[i].Guardias[g].prestamos[2]) === null || _f === void 0 ? void 0 : _f.numerodepagos);
+                    prestamo4 = ((_g = this.service[i].Guardias[g].prestamos[3]) === null || _g === void 0 ? void 0 : _g.montoprestado) / ((_h = this.service[i].Guardias[g].prestamos[3]) === null || _h === void 0 ? void 0 : _h.numerodepagos);
+                    prestamo5 = ((_j = this.service[i].Guardias[g].prestamos[4]) === null || _j === void 0 ? void 0 : _j.montoprestado) / ((_k = this.service[i].Guardias[g].prestamos[4]) === null || _k === void 0 ? void 0 : _k.numerodepagos);
+                    prestamo6 = ((_l = this.service[i].Guardias[g].prestamos[5]) === null || _l === void 0 ? void 0 : _l.montoprestado) / ((_m = this.service[i].Guardias[g].prestamos[5]) === null || _m === void 0 ? void 0 : _m.numerodepagos);
+                    prestamo7 = ((_o = this.service[i].Guardias[g].prestamos[6]) === null || _o === void 0 ? void 0 : _o.montoprestado) / ((_p = this.service[i].Guardias[g].prestamos[6]) === null || _p === void 0 ? void 0 : _p.numerodepagos);
+                    prestamo8 = ((_q = this.service[i].Guardias[g].prestamos[7]) === null || _q === void 0 ? void 0 : _q.montoprestado) / ((_r = this.service[i].Guardias[g].prestamos[7]) === null || _r === void 0 ? void 0 : _r.numerodepagos);
+                    prestamo9 = ((_s = this.service[i].Guardias[g].prestamos[8]) === null || _s === void 0 ? void 0 : _s.montoprestado) / ((_t = this.service[i].Guardias[g].prestamos[8]) === null || _t === void 0 ? void 0 : _t.numerodepagos);
+                    prestamo10 = ((_u = this.service[i].Guardias[g].prestamos[9]) === null || _u === void 0 ? void 0 : _u.montoprestado) / ((_v = this.service[i].Guardias[g].prestamos[9]) === null || _v === void 0 ? void 0 : _v.numerodepagos);
                     this.Prestamos = prestamo1 + prestamo2;
                     console.log(this.Prestamos);
                     console.log(prestamo1);
                     console.log(prestamo2);
                     console.log(prestamo3);
                     console.log(prestamo4);
-                    let Nsemana = this.service[i].Guardias[g].nsemana;
+                    // el  se elimminara en caso de que funcione la otro
                     // si es la semana 0 va entrar
-                    if (Nsemana == 0) {
-                        console.log(Nsemana);
+                    if (this.hoy >= 0 && this.hoy <= 7) {
                         if (this.service[i].Guardias[g].tlpl == "A" || this.service[i].Guardias[g].tlpl == "D") {
                             //aqui reiniciamos la viariable diasasistidos a 0
                             this.asistencias = 0;
@@ -1607,10 +1617,16 @@ let NominaPage = class NominaPage {
                             console.log(this.diasasistidos);
                         }
                         else {
+                            this.asistencias = 0;
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tmpl == "A" || this.service[i].Guardias[g].tmpl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro mp");
                             console.log(this.diasasistidos);
                         }
@@ -1618,7 +1634,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tmipl == "A" || this.service[i].Guardias[g].tmipl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro mip");
                             console.log(this.diasasistidos);
                         }
@@ -1626,7 +1647,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tjpl == "A" || this.service[i].Guardias[g].tjpl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro tjpl");
                             console.log(this.diasasistidos);
                         }
@@ -1634,7 +1660,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tvpl == "A" || this.service[i].Guardias[g].tvpl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro vp");
                             console.log(this.diasasistidos);
                         }
@@ -1642,7 +1673,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tspl == "A" || this.service[i].Guardias[g].tspl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro sp");
                             console.log(this.diasasistidos);
                         }
@@ -1650,29 +1686,33 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tdpl == "A" || this.service[i].Guardias[g].tdpl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
-                            this.Diasasistidos = this.diasasistidos;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                                this.Diasasistidos = this.diasasistidos;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                this.Diasasistidos = this.diasasistidos;
+                            }
                             console.log("entro dp /////////////////////");
                             console.log(this.diasasistidos);
-                            Nsemana = 1;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                 console.log(res);
                             });
-                            console.log(Nsemana, "Numero de semana");
+                            console.log("Numero de semana");
                         }
                         else {
                             // condicionante en caso de que falte el dia de corte
                             console.log("dp  Falto");
-                            Nsemana = 1;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                            this.Diasasistidos = this.diasasistidos;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                 console.log(res);
                             });
-                            console.log(Nsemana, "Numero de semana");
+                            console.log(1, "Numero de semana");
                         }
                     }
                     // si es la semana 1 va entrar
-                    if (Nsemana == 1) {
-                        console.log(Nsemana);
+                    if (this.hoy >= 8 && this.hoy <= 15) {
                         if (this.service[i].Guardias[g].tlsl == "A" || this.service[i].Guardias[g].tlsl == "D") {
                             //aqui reiniciamos la viariable diasasistidos a 0
                             this.asistencias = 0;
@@ -1681,10 +1721,16 @@ let NominaPage = class NominaPage {
                             console.log(this.diasasistidos);
                         }
                         else {
+                            this.asistencias = 0;
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tmsl == "A" || this.service[i].Guardias[g].tmsl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro mp");
                             console.log(this.diasasistidos);
                         }
@@ -1692,7 +1738,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tmisl == "A" || this.service[i].Guardias[g].tmisl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro mip");
                             console.log(this.diasasistidos);
                         }
@@ -1700,7 +1751,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tjsl == "A" || this.service[i].Guardias[g].tjsl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro jp");
                             console.log(this.diasasistidos);
                         }
@@ -1708,7 +1764,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tvsl == "A" || this.service[i].Guardias[g].tvsl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro vp");
                             console.log(this.diasasistidos);
                         }
@@ -1716,7 +1777,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tssl == "A" || this.service[i].Guardias[g].tssl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro sp");
                             console.log(this.diasasistidos);
                         }
@@ -1724,7 +1790,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tdsl == "A" || this.service[i].Guardias[g].tdsl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro ds //////////////////");
                             console.log(this.diasasistidos);
                         }
@@ -1732,27 +1803,32 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tltl == "A" || this.service[i].Guardias[g].tltl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                                this.Diasasistidos = this.diasasistidos;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                this.Diasasistidos = this.diasasistidos;
+                            }
                             console.log("entro lt");
                             console.log(this.diasasistidos);
-                            Nsemana = 2;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                 console.log(res);
                             });
-                            console.log(Nsemana, "Numero de semana");
+                            console.log("Numero de semana");
                         }
                         else {
                             // condicionante en caso de que falte el dia de corte
                             console.log("lt  Falto");
-                            Nsemana = 2;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                            this.Diasasistidos = this.diasasistidos;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                 console.log(res);
                             });
-                            console.log(Nsemana, "Numero de semana");
+                            console.log(1, "Numero de semana");
                         }
                     }
-                    if (Nsemana == 2) {
-                        console.log(Nsemana);
+                    if (this.hoy >= 16 && this.hoy <= 22) {
                         if (this.service[i].Guardias[g].tmtl == "A" || this.service[i].Guardias[g].tmtl == "D") {
                             //aqui reiniciamos la viariable diasasistidos a 0
                             this.asistencias = 0;
@@ -1762,10 +1838,16 @@ let NominaPage = class NominaPage {
                             console.log(this.diasasistidos);
                         }
                         else {
+                            this.asistencias = 0;
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tmitl == "A" || this.service[i].Guardias[g].tmitl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro mip");
                             console.log(this.diasasistidos);
                         }
@@ -1773,7 +1855,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tjtl == "A" || this.service[i].Guardias[g].tjtl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro jp");
                             console.log(this.diasasistidos);
                         }
@@ -1781,7 +1868,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tvtl == "A" || this.service[i].Guardias[g].tvtl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro vp");
                             console.log(this.diasasistidos);
                         }
@@ -1789,7 +1881,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tstl == "A" || this.service[i].Guardias[g].tstl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro sp");
                             console.log(this.diasasistidos);
                         }
@@ -1797,36 +1894,45 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tdtl == "A" || this.service[i].Guardias[g].tdtl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro dt ///////////////");
                             console.log(this.diasasistidos);
                         }
                         else {
                             console.log("falto el G");
                         }
-                        ////
                         if (this.service[i].Guardias[g].tlcl == "A" || this.service[i].Guardias[g].tlcl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                                this.Diasasistidos = this.diasasistidos;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                                this.Diasasistidos = this.diasasistidos;
+                            }
                             console.log("entro lc");
                             console.log(this.diasasistidos);
-                            Nsemana = 3;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                 console.log(res);
                             });
-                            console.log(Nsemana, "Numero de semana");
+                            console.log("Numero de semana");
                         }
                         else {
                             // condicionante en caso de que falte el dia de corte
                             console.log("lc  Falto");
-                            Nsemana = 3;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                            this.Diasasistidos = this.diasasistidos;
+                            this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                 console.log(res);
                             });
-                            console.log(Nsemana, "Numero de semana");
+                            console.log(2, "Numero de semana");
                         }
                     }
-                    if (Nsemana == 3) {
-                        console.log(Nsemana);
+                    if (this.hoy >= 23) {
                         if (this.service[i].Guardias[g].tmcl == "A" || this.service[i].Guardias[g].tmcl == "D") {
                             //aqui reiniciamos la viariable diasasistidos a 0
                             this.asistencias = 0;
@@ -1836,10 +1942,16 @@ let NominaPage = class NominaPage {
                             console.log(this.diasasistidos);
                         }
                         else {
+                            this.asistencias = 0;
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tmicl == "A" || this.service[i].Guardias[g].tmicl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro mip");
                             console.log(this.diasasistidos);
                         }
@@ -1847,7 +1959,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tjcl == "A" || this.service[i].Guardias[g].tjcl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro jp");
                             console.log(this.diasasistidos);
                         }
@@ -1855,7 +1972,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tvcl == "A" || this.service[i].Guardias[g].tvcl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro vp");
                             console.log(this.diasasistidos);
                         }
@@ -1863,7 +1985,12 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         if (this.service[i].Guardias[g].tscl == "A" || this.service[i].Guardias[g].tscl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
                             console.log("entro sp");
                             console.log(this.diasasistidos);
                         }
@@ -1871,129 +1998,157 @@ let NominaPage = class NominaPage {
                             console.log("falto el G");
                         }
                         //28
-                        console.log(this.monthSelect.length);
                         if (this.monthSelect.length == 28) {
                             if (this.service[i].Guardias[g].tdcl == "A" || this.service[i].Guardias[g].tdcl == "D") {
-                                this.diasasistidos = this.diasasistidos + 1;
-                                console.log("entro dc");
+                                if (this.diasasistidos == undefined) {
+                                    this.diasasistidos = this.asistencias + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                else {
+                                    this.diasasistidos = this.diasasistidos + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                console.log("entro dcL");
                                 console.log(this.diasasistidos);
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                             else {
                                 // condicionante en caso de que falte el dia de corte
-                                console.log("dc  Falto");
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log("dcL  Falto");
+                                this.Diasasistidos = this.diasasistidos;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                         }
                         else if (this.service[i].Guardias[g].tdcl == "A" || this.service[i].Guardias[g].tdcl == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
-                            console.log("entro dc  ///////////");
-                            Nsemana = 0;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
+                            console.log("entro dcL");
                             console.log(this.diasasistidos);
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
-                                console.log(res);
-                            });
                         }
                         ////29
                         if (this.monthSelect.length == 29) {
                             if (this.service[i].Guardias[g].tlql == "A" || this.service[i].Guardias[g].tlql == "D") {
-                                this.diasasistidos = this.diasasistidos + 1;
-                                console.log("entro lq");
+                                if (this.diasasistidos == undefined) {
+                                    this.diasasistidos = this.asistencias + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                else {
+                                    this.diasasistidos = this.diasasistidos + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                console.log("entro lql");
                                 console.log(this.diasasistidos);
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                             else {
                                 // condicionante en caso de que falte el dia de corte
-                                console.log("dc  Falto");
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log("lql  Falto");
+                                this.Diasasistidos = this.diasasistidos;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                         }
                         else if (this.service[i].Guardias[g].tlql == "A" || this.service[i].Guardias[g].tlql == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
-                            console.log("entro dc  ///////////");
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
+                            console.log("entro lql  ///////////");
                             console.log(this.diasasistidos);
-                            Nsemana = 0;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
-                                console.log(res);
-                            });
                         }
                         //30
+                        console.log(this.monthSelect.length);
                         if (this.monthSelect.length == 30) {
                             if (this.service[i].Guardias[g].tmql == "A" || this.service[i].Guardias[g].tmql == "D") {
-                                this.diasasistidos = this.diasasistidos + 1;
-                                console.log("entro mq");
+                                if (this.diasasistidos == undefined) {
+                                    this.diasasistidos = this.asistencias + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                else {
+                                    this.diasasistidos = this.diasasistidos + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                console.log("entro mql 30");
                                 console.log(this.diasasistidos);
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                             else {
                                 // condicionante en caso de que falte el dia de corte
-                                console.log("dc  Falto");
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log("mql  Falto ");
+                                this.Diasasistidos = this.diasasistidos;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                         }
                         else if (this.service[i].Guardias[g].tmql == "A" || this.service[i].Guardias[g].tmql == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
-                            console.log("entro dc  ///////////");
-                            Nsemana = 0;
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
+                            console.log("entro mql");
                             console.log(this.diasasistidos);
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
-                                console.log(res);
-                            });
                         }
                         //31
                         if (this.monthSelect.length == 31) {
                             if (this.service[i].Guardias[g].tmiql == "A" || this.service[i].Guardias[g].tmiql == "D") {
-                                this.diasasistidos = this.diasasistidos + 1;
-                                console.log("entro miq");
+                                if (this.diasasistidos == undefined) {
+                                    this.diasasistidos = this.asistencias + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                else {
+                                    this.diasasistidos = this.diasasistidos + 1;
+                                    this.Diasasistidos = this.diasasistidos;
+                                }
+                                console.log("entro miql 31");
                                 console.log(this.diasasistidos);
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                             else {
                                 // condicionante en caso de que falte el dia de corte
-                                console.log("dc  Falto");
-                                Nsemana = 0;
-                                this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
+                                console.log("miql  Falto");
+                                this.Diasasistidos = this.diasasistidos;
+                                this.servicio.Agregardiaasistido(id, this.diasasistidos).subscribe((res) => {
                                     console.log(res);
                                 });
-                                console.log(Nsemana, "Numero de semana");
+                                console.log(3, "Numero de semana");
                             }
                         }
                         else if (this.service[i].Guardias[g].tmiql == "A" || this.service[i].Guardias[g].tmiql == "D") {
-                            this.diasasistidos = this.diasasistidos + 1;
-                            console.log("entro dc  ///////////");
+                            if (this.diasasistidos == undefined) {
+                                this.diasasistidos = this.asistencias + 1;
+                            }
+                            else {
+                                this.diasasistidos = this.diasasistidos + 1;
+                            }
+                            console.log("entro miql");
                             console.log(this.diasasistidos);
-                            Nsemana = 0;
-                            this.servicio.Agregardiaasistido(id, this.diasasistidos, Nsemana).subscribe((res) => {
-                                console.log(res);
-                            });
                         }
                     }
                 }
@@ -2062,8 +2217,7 @@ const EXCEL_EXT = '.xlsx';
 let NominaService = class NominaService {
     constructor(http) {
         this.http = http;
-        this.apiUrl = "https://ionic-proyect.herokuapp.com/api/";
-        //this.apiUrl ="http://localhost:3001/api/";
+        this.apiUrl = "/admin/api/";
     }
     //detector de errores
     handleError(error) {
@@ -2087,8 +2241,8 @@ let NominaService = class NominaService {
         }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.catchError)(this.handleError));
     }
     //agregar la imagen en usuario
-    Agregardiaasistido(idUser, diasasistidos, nsemana) {
-        return this.http.put(`${this.apiUrl}idimage/paselista/${idUser}`, { diasasistidos: diasasistidos, nsemana: nsemana }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.tap)((res) => {
+    Agregardiaasistido(idUser, diasasistidos) {
+        return this.http.put(`${this.apiUrl}idimage/paselista/${idUser}`, { diasasistidos: diasasistidos }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.tap)((res) => {
         }), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_3__.catchError)(this.handleError));
     }
     // obtiene la info del usuario para usarlo

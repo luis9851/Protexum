@@ -46,7 +46,8 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
      sturnovienti: ['', Validators.required], 
      dturnodoce: ['', Validators.required],
      dturnoNdoce: ['', Validators.required],
-     dturnovienti: ['', Validators.required] 
+     dturnovienti: ['', Validators.required],
+     sueldo: ['', Validators.required]
      
    })
 
@@ -67,7 +68,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
      
       this.servicio.obtenerservice(this.id).subscribe( data => {
 
-         console.log(data.service)
+        
          
 
      let service = data.service;
@@ -85,7 +86,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
  actualizar(){
     // recorada ponerle  y preguntar si los datos esta bien puestos
     this.servicio.Editar_S(this.id ,this.serviceForm.value ).subscribe(  ( res => {
-      console.log(res.dataService);
+     
     //  // igualo la variable idUser para que tenga los datos de id del user
        this.idService = this.id
        

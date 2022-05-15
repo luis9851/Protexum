@@ -24,24 +24,25 @@ export class CardServiceComponent implements OnInit {
   Controldeplaneacion(_id: string){
     this.indexs = _id;
     this.router.navigate(['/table-control',this.indexs]);
-    console.log(this.indexs)
+   
   }
-  AgregarGuardia(_id: string){
+  AgregarGuardia(_id: string, nombre:string){
     this.indexs = _id;
-    this.router.navigate(['/home',this.indexs]);
-    console.log(this.indexs)
+    
+    this.router.navigate(['/home',this.indexs,nombre]);
+   
   }
   verService(_id: string){
     this.indexs = _id;
     this.router.navigate(['/services',this.indexs]);
-    console.log(this.indexs)
+    
    
   }
 
   Editar_U(_id: string){
     this.indexS = _id;
     this.router.navigate(['/editar-service', this.indexS]);
-    console.log(this.indexS)
+    
   }
 
   delete(_id: string){

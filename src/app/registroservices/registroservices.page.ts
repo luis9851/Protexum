@@ -35,7 +35,8 @@ export class RegistroservicesPage implements OnInit {
     form.value.jturnodoce == "" || form.value.jturnoNdoce == "" ||form.value.jturnovienti == "" ||
     form.value.vturnodoce == "" || form.value.vturnoNdoce == "" || form.value.vturnovienti == "" ||
     form.value.sturnodoce == "" || form.value.sturnoNdoce == "" || form.value.sturnovienti == "" ||
-    form.value.dturnodoce == "" || form.value.dturnoNdoce == "" || form.value.dturnovienti == "" ){ 
+    form.value.dturnodoce == "" || form.value.dturnoNdoce == "" || form.value.dturnovienti == "" ||
+    form.value.sueldo == ""){ 
 
      this.FaltanDatos()
      

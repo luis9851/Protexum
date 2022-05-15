@@ -10,11 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditarClientPage implements OnInit {
 
-// esta variebles son para redirecionar informacion
+
 
 idUser : any
 id: string;
-  // variables para editar usuario
+  
 clientForm: FormGroup
 constructor(private servicio: ClientsService, private activatedRoute:ActivatedRoute , private router: Router,
   private fb: FormBuilder) {
@@ -58,7 +58,6 @@ constructor(private servicio: ClientsService, private activatedRoute:ActivatedRo
      
       this.servicio.obtenerClient(this.id).subscribe( data => {
 
-         console.log(data.client)
          
 
      let client = data.client;
@@ -74,10 +73,10 @@ constructor(private servicio: ClientsService, private activatedRoute:ActivatedRo
  }
 
  actualizar(){
-  // recorada ponerle  y preguntar si los datos esta bien puestos
+ 
       this.servicio.Editar_C(this.id ,this.clientForm.value ).subscribe(  ( res => {
-       console.log(res.dataClient);
-     //  // igualo la variable idUser para que tenga los datos de id del user
+  
+     
         this.idUser = this.id
         
        

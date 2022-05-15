@@ -6,7 +6,7 @@ import {tap, catchError, map} from 'rxjs/operators';
 import { Observable, BehaviorSubject, pipe } from 'rxjs';
 import { imageI } from '../models/images';
 import { throwError } from 'rxjs';
-import { ClientResponseI } from '../models/client-response';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -135,7 +135,7 @@ cambiarcontraseña(token:String, user:UserI): Observable<JwtResponseI>{
     
   }
 //agregar el id de servicio a usuarios
-AgregarServicios(id:any, Servicio:String): Observable<JwtResponseI>{
+AgregarServicios(id:any, Servicio:String ): Observable<JwtResponseI>{
   return this.http.put<JwtResponseI>(`${this.AUTH_SERVER}/api/idimage/idservecio/${id}`,
   {Servicio:Servicio}).pipe(tap(
     (res: JwtResponseI)=> {

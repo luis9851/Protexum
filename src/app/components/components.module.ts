@@ -7,6 +7,7 @@ import { CardClientComponent } from './card-client/card-client.component';
 import { CardServiceComponent } from './card-service/card-service.component';
 import { MessageComponent } from './message/message.component';
 import { CardBorrowComponent } from './card-borrow/card-borrow.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { CardBorrowComponent } from './card-borrow/card-borrow.component';
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    RouterModule
+    
   ]
 })
 export class ComponentsModule { }

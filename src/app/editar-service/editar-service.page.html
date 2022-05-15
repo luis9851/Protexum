@@ -1,69 +1,195 @@
 
-      <a class="navbar-brand" href="#">
-        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
-      </a>
-<ion-content  class="fondo" [fullscreen]="true">
-<ion-grid class="login" >
-  <ion-grid class=""></ion-grid>
-
-  <a class="navbar-brand" href="#">
-    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="60px" width="mr-auto" alt="Logo">
-  </a>
-  
-  <h2 class="login-header">Actualizar informacion</h2>
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
 
 
   
-  <form [formGroup]="serviceForm" class="login-container" (ngSubmit)="actualizar()" >
 
-
-    <p><ion-input type="text" placeholder="Nombre" formControlName="nombre" require="" > </ion-input>
-    <p><ion-input type="text" name="contactodelservicio" placeholder="contactodelservicio" formControlName="contactodelservicio"  required="" > </ion-input> </p>
-    <p><ion-input type="tel" name="telefono" placeholder="telefono"  required="" formControlName="telefono"  > </ion-input> </p>
-    <p><ion-input type="tel" name="telefonoprotexum" placeholder="telefonoprotexum"  required="" formControlName="telefonoprotexum"  > </ion-input> </p>
-    <ion-item  >
-      <ion-label>Tipo de Servicio brindando:</ion-label>
-      <ion-select  formControlName="tipodeservicio"    name="servicio" required="" >
-        <ion-select-option value="Industrial">Industria</ion-select-option>
-        <ion-select-option value="Residencial">Residencial</ion-select-option>
-        <ion-select-option value="Centro-comercia">Centro comercia</ion-select-option>
-        <ion-select-option value="Empresarial">Empresarial</ion-select-option>
-        <ion-select-option value="Codependencia-de-gobierno">Codependencia-de-gobierno</ion-select-option>
-        
-        
-      </ion-select>
-  </ion-item>
-    <p><ion-input type="text" name="domicilio" placeholder="domicilio"  formControlName="domicilio"  required=""> </ion-input> </p>
-    <p><ion-input type="text" name="jefedeservicio" placeholder="jefedeservicio" formControlName="jefedeservicio"  required=""> </ion-input> </p>
-    <ion-label> Datos para la tabla de turno </ion-label>
-    <p><ion-input type="text" name="lturnodoce" placeholder="Cantidad de turnos de 12x12 lunes"  formControlName="lturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="lturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 lunes"  formControlName="lturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="lturnovienti" placeholder="Cantidad de turnos 24x24 lunes"  formControlName="lturnovienti"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="mturnodoce" placeholder="Cantidad de turnos de 12x12 Martes"  formControlName="mturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="mturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Martes"  formControlName="mturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="mturnovienti" placeholder="Cantidad de turnos 24x24 Martes"  formControlName="mturnovienti"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="miturnodoce" placeholder="Cantidad de turnos de 12x12 Miercoles"  formControlName="miturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="miturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Miercoles"  formControlName="miturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="miturnovienti" placeholder="Cantidad de turnos 24x24 Miercoles"  formControlName="miturnovienti"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="jturnodoce" placeholder="Cantidad de turnos de 12x12 Jueves"  formControlName="jturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="jturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Jueves"  formControlName="jturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="jturnovienti" placeholder="Cantidad de turnos 24x24 Jueves"  formControlName="jturnovienti"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="vturnodoce" placeholder="Cantidad de turnos de 12x12 Viernes"  formControlName="vturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="vturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Viernes"  formControlName="vturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="vturnovienti" placeholder="Cantidad de turnos 24x24 Viernes"  formControlName="vturnovienti"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="sturnoNdoce" placeholder="Cantidad de turnos de 12x12 Sabado"  formControlName="sturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="sturnodoce" placeholder="Cantidad de turnos nocturnos de 12x12 Sabado"  formControlName="sturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="sturnovienti" placeholder="Cantidad de turnos 24x24 Sabado"  formControlName="sturnovienti"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="dturnodoce" placeholder="Cantidad de turnos de 12x12 Domingo"  formControlName="dturnodoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="dturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Domingo"  formControlName="dturnoNdoce"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="dturnovienti" placeholder="Cantidad de turnos 24x24 Domingo"  formControlName="dturnovienti"  required="" > </ion-input> </p>
-
-  <p> 
-  <input  class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="submit" value="Actualizar">
-</p> 
+<ion-content [fullscreen]="true">
+  <div class="login" style="position: absolute;width: 100%; height: auto;">
+    <main>
+      <h2 class="login-header">Registra a tu nuevo Servicio</h2>
+  
+    <form [formGroup]="serviceForm" class="formulario" (ngSubmit)="actualizar()">
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="nombre" formControlName="nombre" placeholder="Nombre"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input " type="text" name="contactodelservicio" formControlName="contactodelservicio" placeholder="Nombre de contacto del servicio"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefono" formControlName="telefono" placeholder="telefono"  required=""> </ion-input> </p>
+        </div>
+      </div>  
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="telefonoprotexum" formControlName="telefonoprotexum" placeholder="telefonoprotexum"  required=""> </ion-input> </p>
+        </div>
+      </div>  
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p>
+            <ion-item class="formulario__input" >
+              <ion-label>Tipo de Servicio brindando:</ion-label>
+              <ion-select    formControlName="tipodeservicio"  name="tipodeservicio" required="" >
+                  <ion-select-option value="Industrial">Industria</ion-select-option>
+                  <ion-select-option value="Residencial">Residencial</ion-select-option>
+                  <ion-select-option value="Centro-comercial">Centro comercial</ion-select-option>
+                  <ion-select-option value="Empresarial">Empresarial</ion-select-option>
+                  <ion-select-option value="Codependencia-de-gobierno">Dependencia de gobierno</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" name="domicilio" formControlName="domicilio" placeholder="Ejemplo:Av.Chicahuales, JesusMaria, Ags, codigo postal: 20000 "  required=""> </ion-input> </p>
+        </div>
+      </div>
     
-  </form>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" name="jefedeservicio" formControlName="jefedeservicio" placeholder="Quien es jefe de turno"  required=""> </ion-input> </p>
+        </div>
+
+
+      </div>
+      <br>
+      <p><ion-label> Datos para la tabla de turno </ion-label></p>
+      <br>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="lturnodoce" formControlName="lturnodoce" placeholder="Cantidad de turnos de 12x12 lunes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="lturnoNdoce" formControlName="lturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 lunes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="lturnovienti" formControlName="lturnovienti" placeholder="Cantidad de turnos 24x24 lunes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="mturnodoce" formControlName="mturnodoce" placeholder="Cantidad de turnos de 12x12 Martes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="mturnoNdoce" formControlName="mturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Martes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="mturnovienti" formControlName="mturnovienti" placeholder="Cantidad de turnos 24x24 Martes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="miturnodoce" formControlName="miturnodoce" placeholder="Cantidad de turnos de 12x12 Miercoles"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="miturnoNdoce" formControlName="miturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Miercoles"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="miturnovienti" formControlName="miturnovienti" placeholder="Cantidad de turnos 24x24 Miercoles"  required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="jturnodoce" formControlName="jturnodoce" placeholder="Cantidad de turnos de 12x12 Jueves"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="jturnoNdoce" formControlName="jturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Jueves"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="jturnovienti" formControlName="jturnovienti" placeholder="Cantidad de turnos 24x24 Jueves"  required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="vturnodoce" formControlName="vturnodoce" placeholder="Cantidad de turnos de 12x12 Viernes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="vturnoNdoce" formControlName="vturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Viernes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="vturnovienti" formControlName="vturnovienti" placeholder="Cantidad de turnos 24x24 Viernes"  required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="sturnodoce" formControlName="sturnodoce" placeholder="Cantidad de turnos de 12x12 Sabado"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="sturnoNdoce" formControlName="sturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Sabado"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="sturnovienti" formControlName="sturnovienti" placeholder="Cantidad de turnos 24x24 Sabado"  required=""> </ion-input> </p>
+        </div>
+      </div>
+
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="dturnodoce" formControlName="dturnodoce" placeholder="Cantidad de turnos de 12x12 Domingo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="dturnoNdoce" formControlName="dturnoNdoce" placeholder="Cantidad de turnos nocturnos de 12x12 Domingo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="number" name="dturnovienti" formControlName="dturnovienti" placeholder="Cantidad de turnos 24x24 Domingo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="Number" name="sueldo" formControlName="sueldo" placeholder="Sueldo a pagar por semana a Guardia"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      
+    
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;" type="submit" value="Registrar"> </p>
+    </form>
+  </main>
+   
+  </div>
+</ion-content>
+
 
  
-</ion-grid>
-</ion-content>

@@ -26,6 +26,7 @@ borrowingForm: FormGroup
         numerodepagos: ['', Validators.required],
         
       })
+   
 
       this.activatedRoute.params.subscribe( params => {
         this.id = params['id'];
@@ -58,7 +59,7 @@ borrowingForm: FormGroup
 
  }
   Register(){
-  
+     
      if(this.borrowingForm.value.nombre == "" || this.borrowingForm.value.montoprestado == "" || this.borrowingForm.value.fechadeprestamo == ""  
      ){
        this.FaltanDatos()

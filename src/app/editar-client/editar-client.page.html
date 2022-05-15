@@ -1,96 +1,155 @@
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
 
-      <a class="navbar-brand" href="#">
-        <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="30px" width="mr-auto" alt="Logo">
-      </a>
-<ion-content  class="fondo" [fullscreen]="true">
-<ion-grid class="login" >
-  <ion-grid class=""></ion-grid>
 
-  <a class="navbar-brand" href="#">
-    <img src="https://www.protexum.com.mx/wp-content/uploads/2018/01/logonew01.png" height="60px" width="mr-auto" alt="Logo">
-  </a>
+<ion-content [fullscreen]="true">
+  <div class="login" style="position: absolute;width: 100%; height: auto;">
+    <main>
+      <h2 class="login-header">Registra a tu nuevo Cliente</h2>
   
-  <h2 class="login-header">Actualizar informacion</h2>
-
-
-  
-  <form [formGroup]="clientForm" class="login-container" (ngSubmit)="actualizar()" >
-
-
-    <p><ion-input type="text" placeholder="Nombre" formControlName="nombre" require="" > </ion-input>
-    <p><ion-input type="text" name="rfc" placeholder="RFC" formControlName="rfc"  required="" class="mayusculas"> </ion-input> </p>
+    <form [formGroup]="clientForm" class="formulario" (ngSubmit)="actualizar()">
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" formControlName="nombre" name="nombre" placeholder="Nombre"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input mayusculas" type="text" formControlName="rfc" name="rfc" placeholder="RFC"  required=""> </ion-input> </p>
+        </div>
+      </div> 
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Tipo de Servicio brindando:</ion-label>
+            <ion-select      formControlName="servicio" name="servicio" required="" >
+                <ion-select-option value="Industrial">Industria</ion-select-option>
+                <ion-select-option value="Residencial">Residencial</ion-select-option>
+                <ion-select-option value="Centro-comercial">Centro comercial</ion-select-option>
+                <ion-select-option value="Empresarial">Empresarial</ion-select-option>
+                <ion-select-option value="Codependencia-de-gobierno">Dependencia-de-gobierno</ion-select-option>
+                
+                
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" formControlName="domicilio" name="domicilio" placeholder="Ejemplo:Av.Chicahuales, JesusMaria, Ags, codigo postal: 20000 "  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" formControlName="telefono" name="telefono" placeholder="Telefono"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" formControlName="cdnombre" name="cdnombre" placeholder="Nombre del contacto directo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="tel" formControlName="cdtelefono" name="cdtelefono" placeholder="Telefono del contacto directo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" formControlName="cdcorreoelectronicoempresa" name="cdcorreoelectronicoempresa" placeholder="Correoelectronico Empresa del contacto directo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" formControlName="cdcorreoelectronico" name="cdcorreoelectronico" placeholder="Correoelectronico  del contacto directo"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="email" formControlName="correoelectronicofacturacion" name="correoelectronicofacturacion" placeholder="Correoelectronico de facturacion"  required=""> </ion-input> </p>
+        </div>
+      </div> 
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input mayusculas" type="text" formControlName="rfcdefacturacion" name="rfcdefacturacion" placeholder="RFC de Facturacion"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" formControlName="domciliofiscal" name="domciliofiscal" placeholder="Domicilio fiscal"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Uso del CFDI:</ion-label>
+            <ion-select      formControlName="cfdi" name="cfdi" required="" >
+                <ion-select-option value="Por-definir">Por definir</ion-select-option>
+                <ion-select-option value="Gastos-en-general">Gastos en general</ion-select-option>
+                
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label>Agrega la forma de pago:</ion-label>
+            <ion-select      formControlName="formadepago" name="formadepago" required="" >
+                <ion-select-option value="Efectivo">Efectivo</ion-select-option>
+                <ion-select-option value="Transferencia-electronica">Transferencia electronica</ion-select-option>
+                <ion-select-option value="Tarjeta-de-credito">Tarjeta de credito</ion-select-option>
+                <ion-select-option value="Tarjeta-de-debito">Tarjeta de debito</ion-select-option>
+                <ion-select-option value="Por-definir">por definir</ion-select-option>
+                
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-item class="formulario__input" >
+            <ion-label> Metodo de pago:</ion-label>
+            <ion-select      formControlName="metododepago" name="metododepago" required="" >
+                <ion-select-option value="Por-definir">Por definir</ion-select-option>
+                <ion-select-option value="Parcialidades-o-deferido">Parcialidades o deferido</ion-select-option>
+                <ion-select-option value="Pago-en-una-exibicion">Pago en una exibicion</ion-select-option>
+              
+            </ion-select>
+          </ion-item>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <ion-label class="formulario__label">Fecha de facturacion </ion-label>
+          <p><ion-input class="formulario__input" type="date" formControlName="fechadefacturacion" name="fechadefacturacion" placeholder="Fecha de facturacion"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" formControlName="tipodecredito" name="tipodecredito" placeholder="Tipo de credito"  required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="text" formControlName="comentarios" name="comentarios" placeholder="Comentarios"  required=""> </ion-input> </p>
+        </div>
+      </div>
    
-    <ion-item  >
-      <ion-label>Tipo de Servicio brindando:</ion-label>
-      <ion-select  formControlName="servicio"    name="servicio" required="" >
-        <ion-select-option value="Industrial">Industria</ion-select-option>
-        <ion-select-option value="Residencial">Residencial</ion-select-option>
-        <ion-select-option value="Centro-comercia">Centro comercia</ion-select-option>
-        <ion-select-option value="Empresarial">Empresarial</ion-select-option>
-        <ion-select-option value="Codependencia-de-gobierno">Codependencia-de-gobierno</ion-select-option>
-        
-        
-      </ion-select>
-  </ion-item>
-    <p><ion-input type="text" name="domicilio" placeholder="domicilio"  formControlName="domicilio"  required=""> </ion-input> </p>
-    <p><ion-input type="tel" name="telefono" placeholder="telefono" formControlName="telefono"  required=""> </ion-input> </p>
-    <p><ion-input type="text" name="cdnombre" placeholder="cdnombre" formControlName="cdnombre"  required=""> </ion-input> </p>
-    <p><ion-input type="tel" name="cdtelefono" placeholder="cdtelefono"  formControlName="cdtelefono"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="cdcorreoelectronicoempresa" placeholder="cdcorreoelectronicoempresa"  formControlName="cdcorreoelectronicoempresa"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="cdcorreoelectronico" placeholder="correoelectronico de el contacto"  formControlName="cdcorreoelectronico"  required="" > </ion-input> </p>
-    <p><ion-input type="text" name="correoelectronicofacturacion" placeholder="correoelectronicofacturacion"  required="" formControlName="correoelectronicofacturacion"  > </ion-input> </p>
-    <p><ion-input type="text" name="rfcdefacturacion" placeholder="rfcdefacturacion"  formControlName="rfcdefacturacion" class="mayusculas" required="" > </ion-input> </p>
-     <p><ion-input type="text" name="domciliofiscal" placeholder="domciliofiscal"  formControlName="domciliofiscal"  required="" > </ion-input> </p>
-    
-  
-    <ion-item  >
-      <ion-label>Agrega el CFDI:</ion-label>
-      <ion-select  formControlName="cfdi"    name="cfdi" required="" >
-        <ion-select-option value="Por-definir">Por definir</ion-select-option>
-        <ion-select-option value="Gastos-en-general">Gastos en general</ion-select-option>
-        
-        
-      </ion-select>
-  </ion-item>
-
-    <ion-item  >
-      <ion-label>Agrega la forma de pago:</ion-label>
-      <ion-select  formControlName="formadepago"    name="formadepago" required="" >
-        <ion-select-option value="Efectivo">Efectivo</ion-select-option>
-        <ion-select-option value="Transferencia-electronica">Transferencia electronica</ion-select-option>
-        <ion-select-option value="Tarjeta-de-credito">Tarjeta de credito</ion-select-option>
-        <ion-select-option value="Tarjeta-de-debito">Tarjeta de debito</ion-select-option>
-        <ion-select-option value="Por-definir">por definir</ion-select-option>
-        
-        
-      </ion-select>
-  </ion-item>
-  
-  
-    <ion-item  >
-      <ion-label>Agrega el metodo de pago:</ion-label>
-      <ion-select    formControlName="metododepago"   name="metododepago" required="" >
-        <ion-select-option value="Por-definir">Por definir</ion-select-option>
-        <ion-select-option value="Parcialidades-o-deferido">Parcialidades o deferido</ion-select-option>
-        <ion-select-option value="Pago-en-una-exibicion">Pago en una exibicion</ion-select-option>
-      </ion-select>
-  </ion-item>
-
-
-  <p><ion-input type="date" name="fechadefacturacion" placeholder="fechadefacturacion"  formControlName="fechadefacturacion"  required=""> </ion-input> </p>
-  <p><ion-input type="text" placeholder="tipodecredito" formControlName="tipodecredito" require="" > </ion-input>
-    <p><ion-input type="text" name="comentarios" placeholder="comentarios" formControlName="comentarios"  required=""> </ion-input> </p>
-
-
-
-
-    
-  <p> 
-  <input  class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="submit" value="Actualizar">
-</p> 
-    
-  </form>
-
- 
-</ion-grid>
+   
+     
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;" type="submit" value="Registrar"> </p>
+    </form>
+  </main>
+   
+  </div>
 </ion-content>
+
+
+  
