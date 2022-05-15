@@ -17,7 +17,7 @@ ngOnInit(): void {
     this.id = params['id'];
     this.servicio.getobtenerprestamo(params['id']).subscribe(data =>{
       this.borrow= data.prestamo
-     
+     console.log(this.borrow)
     
     },
     error =>{

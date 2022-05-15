@@ -27,21 +27,21 @@ export class CardClientComponent implements OnInit {
   services(_id :string){
     this.indexc = _id;
     this.router.navigate(['/registroservices',this.indexc]);
-    
+    console.log(this.indexc)
 
   }
 
   verClient(_id: string){
     this.indexc = _id;
     this.router.navigate(['/client',this.indexc]);
-    
+    console.log(this.indexc)
    
   }
 
   Editar_U(_id: string){
     this.indexEc = _id;
     this.router.navigate(['/editar-client', this.indexEc]);
-    
+    console.log(this.indexEc)
   }
 
   delete(_id: string){

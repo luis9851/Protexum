@@ -70,7 +70,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
      
       this.servicio.obtenerequip(this.id).subscribe( data => {
 
-     
+         console.log(data.equip)
          
 
      let Equip = data.equip;
@@ -88,7 +88,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
  actualizar(){
   // recorada ponerle  y preguntar si los datos esta bien puestos
   this.servicio.Editar_Se(this.id ,this.EquipForm.value ).subscribe(  ( res => {
-
+    console.log(res.dataEquip);
   
      
     

@@ -34,12 +34,13 @@ export class CardUserComponent implements OnInit {
    
 
 
-     
+      // falto cambiarle para que si ya le toco le servicio no aparezca
       if( this.idservice != null && this.users.rol == 'Guardia' ){
         
             this.hayservicio =true;
           for(let i = 0; i < this.users.Servicio.length; i++){
-      
+            // console.log(this.users.Servicio[i]._id)
+            // console.log(this.idservice)
             if(this.users.Servicio[i]._id == this.idservice){
               this.hayservicio =false;
             }

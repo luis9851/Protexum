@@ -24,13 +24,23 @@ export class ClientPage implements OnInit {
 
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
-
+      console.log(this.id)
       this._Service.getobteneridcliente(params['id']).subscribe(data =>{
- 
+       console.log(data.client)
+       console.log(data.client.servicios)
+       
+      
+      
         this.client= data.client
         this.services= data.client.servicios
         
-    
+      
+          
+
+       
+
+        
+       // formato de fechas para facturacion
       this.yy = this.client.fechadefacturacion[0] + this.client.fechadefacturacion[1] + this.client.fechadefacturacion[2] + this.client.fechadefacturacion[3];
       this.mm =  this.client.fechadefacturacion[5] + this.client.fechadefacturacion[6];
       this.dd = this.client.fechadefacturacion[8] + this.client.fechadefacturacion[0];

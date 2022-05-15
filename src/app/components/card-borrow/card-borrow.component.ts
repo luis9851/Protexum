@@ -30,7 +30,7 @@ export class CardBorrowComponent implements OnInit {
   verPrestamo(_id: string){
     this.indexP = _id;
     this.router.navigate(['/borrow',this.indexP]);
-    
+    console.log(this.indexP)
    
   }
 
@@ -38,7 +38,7 @@ export class CardBorrowComponent implements OnInit {
   Editar_P(_id: string){
     this.indexEP = _id;
     this.router.navigate(['/editar-borrow', this.indexEP]);
-    
+    console.log(this.indexEP)
   }
 
   delete(_id: string){

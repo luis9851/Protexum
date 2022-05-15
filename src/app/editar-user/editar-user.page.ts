@@ -91,6 +91,7 @@ urlfile:any=[];
       
        this.servicio.obtenerUser(this.id).subscribe( data => {
 
+          console.log(data.user)
           this.urlfile = data.user.fileUrl
 
       let user = data.user;
@@ -106,12 +107,14 @@ urlfile:any=[];
   }
 
   actualizar(){
-
+    console.log(this.userForm)
+ // recorada ponerle una alerta para cuando actualizar las imagenes y preguntar si los datos esta bien puestos
+   
 
 
      this.servicio.Editar_U(this.id ,this.userForm.value ).subscribe(  ( res => {
-  
-   
+      console.log(res.dataUser);
+    //  // igualo la variable idUser para que tenga los datos de id del user
        this.idUser = this.id
        
       
@@ -133,7 +136,7 @@ urlfile:any=[];
         
  
         this.file = file;
-      
+        console.log(file)
       }else{
         console.log("there was an error")
       }

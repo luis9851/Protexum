@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
    })
   }
   this.servicio.login(form.value).subscribe(res =>{
-
+    console.log(res.dataUser)
     
     this.servicio.disparadorderol.emit({
       data: res.dataUser.rol
@@ -73,7 +73,7 @@ export class LoginPage implements OnInit {
     });
     await alert.present()
     let result = await alert.onDidDismiss();
-    
+    console.log(result);
   }
 
 }

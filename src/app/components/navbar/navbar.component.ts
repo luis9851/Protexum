@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit( ) {
   this.servicio.disparadorderol.subscribe(data =>{
-  
+    console.log("recibiendo data ..", data.data)
     
 
   })

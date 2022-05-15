@@ -9,6 +9,7 @@ import { Users } from '../models/users/users';
 })
 export class MainPage implements OnInit {
 
+  // recuerden que si le mueven documenten el para saber para que sirven las cosas
 
   load: boolean=false;
   res: any =[];
@@ -18,8 +19,9 @@ export class MainPage implements OnInit {
   
 
   constructor(private servicio : ServiceService , private router: Router,private activatedRoute: ActivatedRoute) { }
-
+ // obtener los usuario
   ngOnInit() : void{
+    // setInterval(() => this. obteneruser(), 15000)
     
     this.activatedRoute.queryParams.subscribe((params)=>{
       this.load = true;
@@ -35,7 +37,7 @@ export class MainPage implements OnInit {
     
     
   }
-
+  // se usa para mandar a llamar los usuarios que estan activos en la base de datos
   obteneruser(){
     this.servicio.getobtener().subscribe(res => {
       console.log(res.user)
