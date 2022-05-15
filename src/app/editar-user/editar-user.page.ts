@@ -58,9 +58,9 @@ urlfile:any=[];
        cdelentes: ['', Validators.required],
        ddelentes: ['', Validators.required],
        pensionado: ['', Validators.required],
-       niveldeescolaridad: ['', Validators.required],
-       contrasena: ['', Validators.required],
-       sueldo: ['', Validators.required]
+       niveldeescolaridad: ['', Validators.required]
+  
+      
        
      })
 

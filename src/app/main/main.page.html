@@ -1,7 +1,7 @@
-<div class="loading show" *ngIf="load">
-  <div class="spin"></div>
+<ion-grid class="loading show" *ngIf="load">
+  <ion-grid class="spin"></ion-grid>
   
-</div>
+</ion-grid>
 
 <ion-header>
   <ion-toolbar>
@@ -10,13 +10,13 @@
 </ion-header>
 
 <ion-content>
-  <div class="row animated fadeIn fast" *ngIf="users.length == 0">
-    <div class="col-md-12">
-      <div class="alert alert-info" role="alert">
+  <ion-grid class="row animated fadeIn fast" *ngIf="users.length == 0">
+    <ion-grid class="col-md-12">
+      <ion-grid class="alert alert-info" role="alert">
         No existen resultados con el termino: {{ this.busc.search }}
-      </div>
-    </div>
-  </div>
+      </ion-grid>
+    </ion-grid>
+  </ion-grid>
   <ion-list>
     <app-card-user (userSeleccionado)="verUser( $event )" [users]= "foo" [index]="i" *ngFor="let foo of users; let i = index"></app-card-user>
 

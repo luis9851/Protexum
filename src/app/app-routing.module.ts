@@ -109,7 +109,12 @@ const routes: Routes = [
   {
     path: "editar-client/:id",
     loadChildren: () => import('./editar-client/editar-client.module').then(m => m.EditarClientPageModule)
+  },
+  {
+    path: 'registromulta/:id/:nombre/:apellidos/:idG',
+    loadChildren: () => import('./registromulta/registromulta.module').then( m => m.RegistromultaPageModule)
   }
+
 
 
   

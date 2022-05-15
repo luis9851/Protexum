@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NominaService } from '../service/nomina.service';
 import { BorrowingService } from '../service/borrowing.service';
 import { ServiceService } from '../service/services/service.service';
+import { MultaService } from '../service/multa.service';
 import * as XLSX from 'xlsx';
 import * as moment from 'moment';
 
@@ -62,7 +63,7 @@ export class NominaPage implements OnInit {
   turnoa: any[] = []
   turnos: any[] = []
 
-  constructor(private servicio: NominaService ,private servicioP: BorrowingService , private servicioS: ServiceService) { }
+  constructor(private servicio: NominaService ,private servicioP: BorrowingService , private servicioS: ServiceService, private servicioM:MultaService) { }
 
   ngOnInit() {
     const fecham =  new Date();
@@ -72,7 +73,7 @@ export class NominaPage implements OnInit {
     this.hoy = 7;
     console.log(this.hoy)
 
-    this.getDaysFromDate(2,2021)
+    this.getDaysFromDate(5,2020)
     this.cservices()
   }
 
@@ -178,20 +179,22 @@ export class NominaPage implements OnInit {
       for(let i = 0; i < this.turnoa.length; i ++){
         var id =  this.turnoa[i]._id
         console.log(id)
-        console.log(this.turnoa)
+        console.log(this.turnoa[i])
    
            
            console.log(this.turnoa[i].nombre)
         
            var idG =  this.turnoa[i].Guardias._id;
            console.log(idG, 'idGuardia')
-           var sueldo = this.turnoa[i].sueldo;
+           var sueldo = this.turnoa[i].Servicio.sueldo;
         
          this.asistencias = this.turnoa[i].diasasistidos;
+         console.log(this.asistencias ,'con esto viene')
+        
          var pdiasT = 0;
          var pdias = 0;
         
-           console.log(this.turnoa[i])
+        
            
         for(let p = 0; p < this.turnoa[i].Guardias.prestamos.length; p++){ 
              
@@ -224,8 +227,8 @@ export class NominaPage implements OnInit {
 
            console.log(this.turnoa[i].Guardias.prestamos[p].updatedAt)
            const tiempoh =  new Date();
-          //  var fechadM = moment(this.turnoa[i].Guardias.prestamos[p].updatedAt).format("D");
-          var fechadM = 9;
+            var fechadM = moment(this.turnoa[i].Guardias.prestamos[p].updatedAt).format("D");
+          //var fechadM = 20;
            console.log(Number(fechadM ),'actdePres');
          
 
@@ -744,29 +747,312 @@ export class NominaPage implements OnInit {
           Montoapagartotal = 0;
           console.log(Montoapagartotal, 'no hay prestamos')
         }
+        for(let m = 0; m < this.turnoa[i].Guardias.multas.length; m++){ 
+             
+          var Montoapagarm = 0;
+          var Montoapagar1m = 0;
+          var Montoapagar2m = 0;
+          var Montoapagar3m = 0;
+          var Montoapagar4m = 0;
+          var Montoapagar5m = 0;
+          var Montoapagar6m = 0;
+          var Montoapagar7m = 0;
+          var Montoapagar8m = 0;
+          var Montoapagar9m = 0;
+          var Montoapagar10m = 0;
+          var Montoapagartotalm = 0;
+          var Multa = 0;
+          
+          Montoapagar1m = this.turnoa[i].Guardias.multas[0]?.cantidadmulta;
+          Montoapagar2m = this.turnoa[i].Guardias.multas[1]?.cantidadmulta;
+          Montoapagar3m = this.turnoa[i].Guardias.multas[2]?.cantidadmulta;
+          Montoapagar4m = this.turnoa[i].Guardias.multas[3]?.cantidadmulta;
+          Montoapagar5m = this.turnoa[i].Guardias.multas[4]?.cantidadmulta;
+          Montoapagar6m = this.turnoa[i].Guardias.multas[5]?.cantidadmulta;
+          Montoapagar7m = this.turnoa[i].Guardias.multas[6]?.cantidadmulta;
+          Montoapagar8m = this.turnoa[i].Guardias.multas[7]?.cantidadmulta;
+          Montoapagar9m = this.turnoa[i].Guardias.multas[8]?.cantidadmulta;
+          Montoapagar10m = this.turnoa[i].Guardias.multas[9]?.cantidadmulta;
+
+          var multaapagar = this.turnoa[i].Guardias.multaapagar;
+        
+        
+         
+          if(Montoapagar1m == null  ){
+            Montoapagar1m = 0;
+          }     
+          if(Montoapagar2m == null ){
+            Montoapagar2m = 0;
+          }   
+          if(Montoapagar3m == null  ){
+            Montoapagar3m = 0;
+          }     
+          if(Montoapagar4m == null ){
+            Montoapagar4m = 0;
+          }  
+          if(Montoapagar5m == null  ){
+            Montoapagar5m = 0;
+          }     
+          if(Montoapagar6m == null ){
+            Montoapagar6m = 0;
+          }
+          if(Montoapagar7m == null  ){
+            Montoapagar7m = 0;
+          }     
+          if(Montoapagar8m == null ){
+            Montoapagar8m = 0;
+          }    
+          if(Montoapagar9m == null  ){
+            Montoapagar9m = 0;
+          }     
+          if(Montoapagar10m == null ){
+            Montoapagar10m = 0;
+          }        
+         
+          Montoapagartotalm = Montoapagar1m + Montoapagar2m + Montoapagar3m +Montoapagar4m +Montoapagar5m + Montoapagar6m + Montoapagar7m + Montoapagar8m + Montoapagar9m + Montoapagar10m;  
+        
+  
+          var idGm  =  this.turnoa[i].Guardias._id;
+        
+          var idm  =  this.turnoa[i].Guardias.multas[m]?._id;
+     
+     
+
+      
+        if( this.hoy == 7  ){
+         
+            if(this.turnoa[i].tdpl == "A" || this.turnoa[i].tdpl == "D" ){
+
+            
+            
+             
+            if(multaapagar != Montoapagartotalm ){
+              // recuerda ponerle lo de eliminar la multa cuando se page
+             this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+          
+             })
+            }
+          
+            }else{
+        
+
+         
+          
+           if(multaapagar != Montoapagartotalm ){
+            
+           this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+        
+           })
+          }
+      
+            }
+          
+        }
+        if(this.hoy == 15){
+     
+          if(this.turnoa[i].tltl == "A" || this.turnoa[i].tltl == "D" ){
+    
+            
+               
+                
+               if(multaapagar != Montoapagartotalm ){
+                 
+                this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+             
+                })
+               }
+          }else{
+    
+         
+          
+           if(multaapagar != Montoapagartotalm ){
+            
+           this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+        
+           })
+          }
+       
+           
+          }
+        }
+        if( this.hoy == 22){
+        
+          if(this.turnoa[i].tlcl == "A" || this.turnoa[i].tlcl == "D" ){
+
+            
+           
+            
+           if(multaapagar != Montoapagartotalm ){
+             
+            this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+         
+            })
+           }
+           
+          }else{
+              
+         
+          
+           if(multaapagar != Montoapagartotalm ){
+            
+           this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+        
+           })
+          }
+            
+           }
+          }
+        
+            // 28
+            if(this.hoy == 28){ 
+           if(this.monthSelect.length == 28 ){
+             
+              if(this.turnoa[i].tdcl == "A" || this.turnoa[i].tdcl == "D" ){
+              
+         
+          
+           if(multaapagar != Montoapagartotalm ){
+            
+           this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+        
+           })
+          }
+              
+              }else{
+          
+        
+         
+          
+           if(multaapagar != Montoapagartotalm ){
+            
+           this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+        
+           })
+          }
+          }
+        }
+      }
+            ////29
+           if(this.hoy == 29){ 
+            if(this.monthSelect.length == 29 ){
+              if(this.turnoa[i].tlql == "A" || this.turnoa[i].tlql == "D" ){
+        
+                  
+                   
+                    if(multaapagar != Montoapagartotalm ){
+                     
+                    this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+                 
+                    })
+                   }
+           
+              }else{
+         
+         
+  
+            
+             
+              if(multaapagar != Montoapagartotalm ){
+               
+              this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+           
+              })
+             }
+              
+              }
+             
+            }
+          }
+            //30
+            if(this.hoy == 30){ 
+            
+            if(this.monthSelect.length == 30 ){
+              if(this.turnoa[i].tmql == "A" || this.turnoa[i].tmql == "D" ){
+  
+            
+             
+              if(multaapagar != Montoapagartotalm ){
+               
+              this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+           
+              })
+             }
+    
+              }else{
+          
+  
+            
+             
+              if(multaapagar != Montoapagartotalm ){
+               
+              this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+           
+              })
+             }
+              
+              }
+             
+            }
+          }
+
+            //31
+            if(this.hoy == 31){ 
+            if(this.monthSelect.length == 31 ){
+              if(this.turnoa[i].tmiql == "A" || this.turnoa[i].tmiql == "D" ){
+      
+                
+                 
+                  if(multaapagar != Montoapagartotalm ){
+                   
+                  this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+               
+                  })
+                 }
+              }else{
+      
+                
+                 
+                  if(multaapagar != Montoapagartotalm ){
+                   
+                  this.servicioM.AgregartotalM(idGm, Montoapagartotalm).subscribe( (res)=> {
+               
+                  })
+                 }
+              }
+             
+            }
+          }
+           
+        }
+       
+        if(this.turnoa[i].Guardias.multas.length == 0){
+          Montoapagartotalm = 0;
+        
+        }
+         
          
 // si es la semana 0 va entrar
           if(this.hoy >= 0  && this.hoy <= 7  ){
             // dias que tiene por laborar
-            if(this.turnoa[i].tlp == "TD" || this.turnoa[i].tlp == "TN" ){
+            if(this.turnoa[i].tlp == "TD" || this.turnoa[i].tlp == "TN" || this.turnoa[i].tlp == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tmp == "TD" || this.turnoa[i].tmp == "TN" ){
+            if(this.turnoa[i].tmp == "TD" || this.turnoa[i].tmp == "TN" || this.turnoa[i].tmp == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tmip == "TD" || this.turnoa[i].tmip == "TN" ){
+            if(this.turnoa[i].tmip == "TD" || this.turnoa[i].tmip == "TN" || this.turnoa[i].tmip == "D" ){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tjp == "TD" || this.turnoa[i].tjp == "TN" ){
+            if(this.turnoa[i].tjp == "TD" || this.turnoa[i].tjp == "TN" || this.turnoa[i].tjp == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tvp == "TD" || this.turnoa[i].tvp == "TN" ){
+            if(this.turnoa[i].tvp == "TD" || this.turnoa[i].tvp == "TN" || this.turnoa[i].tvp == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tsp == "TD" || this.turnoa[i].tsp == "TN" ){
+            if(this.turnoa[i].tsp == "TD" || this.turnoa[i].tsp == "TN" || this.turnoa[i].tsp == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tdp == "TD" || this.turnoa[i].tdp == "TN" ){
+            if(this.turnoa[i].tdp == "TD" || this.turnoa[i].tdp == "TN" || this.turnoa[i].tdp == "D"){
               pdias = pdias + 1;
             }
 
@@ -776,6 +1062,7 @@ export class NominaPage implements OnInit {
            
             //aqui reiniciamos la viariable diasasistidos a 0
             this.asistencias = 0;
+            this.diasasistidos = 0
             
             this.diasasistidos = this.asistencias + 1;
             console.log("entro lp")
@@ -783,6 +1070,7 @@ export class NominaPage implements OnInit {
           
           }else{
             this.asistencias = 0;
+            this.diasasistidos = 0
             console.log("falto el G")}
           if(this.turnoa[i].tmpl == "A" || this.turnoa[i].tmpl == "D" ){
            
@@ -876,6 +1164,7 @@ export class NominaPage implements OnInit {
             // aqui esta los dias que a asistido
             this.Diasfalto = 0;
             this.Diasfalto = pdiasT * this.diasasistidos;
+            console.log(this.diasasistidos,'cuantos dias fue')
             console.log(this.Diasfalto,'dinero * los dias que asistido')
             // dinero menos por faltar
             this.dinerofaltante = 0;
@@ -890,8 +1179,9 @@ export class NominaPage implements OnInit {
             })
             this.servicio.AgregarMonto(idG,Montoapagartotal).subscribe( (res)=> {
               console.log(res)
-
+             
             })
+            
             console.log("Numero de semana");
           }else{
             
@@ -905,13 +1195,14 @@ export class NominaPage implements OnInit {
             // aqui esta los dias que a asistido
             this.Diasfalto = 0;
             this.Diasfalto = pdiasT * this.diasasistidos;
+            console.log(this.diasasistidos,'cuantos dias fue')
             console.log(this.Diasfalto,'dinero * los dias que asistido')
             // dinero menos por faltar
             this.dinerofaltante = 0;
             this.dinerofaltante = sueldo - this.Diasfalto;
             console.log(this.dinerofaltante,'dinero faltante');
             // monto a pagar de prestamo
-            Prestamos = this.turnoa[i].montoapagartotal;
+            Prestamos = this.turnoa[i].Guardias.montoapagartotal;
             console.log(Prestamos, 'suma de prestamos');
             this.servicio.Agregardiaasistido(id, this.diasasistidos,this.dinerofaltante).subscribe( (res)=> {
               console.log(res)
@@ -927,28 +1218,28 @@ export class NominaPage implements OnInit {
 // si es la semana 1 va entrar
           if(this.hoy >= 8 && this.hoy <= 15){
             // dias que tiene por laborar
-            if(this.turnoa[i].tls == "TD" || this.turnoa[i].tls == "TN" ){
+            if(this.turnoa[i].tls == "TD" || this.turnoa[i].tls == "TN" || this.turnoa[i].tls == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tms == "TD" || this.turnoa[i].tms == "TN" ){
+            if(this.turnoa[i].tms == "TD" || this.turnoa[i].tms == "TN" || this.turnoa[i].tms == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tmis == "TD" || this.turnoa[i].tmis == "TN" ){
+            if(this.turnoa[i].tmis == "TD" || this.turnoa[i].tmis == "TN" || this.turnoa[i].tmis == "D" ){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tjs == "TD" || this.turnoa[i].tjs == "TN" ){
+            if(this.turnoa[i].tjs == "TD" || this.turnoa[i].tjs == "TN" || this.turnoa[i].tjs == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tvs == "TD" || this.turnoa[i].tvs == "TN" ){
+            if(this.turnoa[i].tvs == "TD" || this.turnoa[i].tvs == "TN" || this.turnoa[i].tvs == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tss == "TD" || this.turnoa[i].tss == "TN" ){
+            if(this.turnoa[i].tss == "TD" || this.turnoa[i].tss == "TN" || this.turnoa[i].tss == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tds == "TD" || this.turnoa[i].tds == "TN" ){
+            if(this.turnoa[i].tds == "TD" || this.turnoa[i].tds == "TN" || this.turnoa[i].tds == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tlt == "TD" || this.turnoa[i].tlt == "TN" ){
+            if(this.turnoa[i].tlt == "TD" || this.turnoa[i].tlt == "TN" || this.turnoa[i].tlt == "D"){
               pdias = pdias + 1;
             }
 
@@ -958,6 +1249,7 @@ export class NominaPage implements OnInit {
            
             //aqui reiniciamos la viariable diasasistidos a 0
             this.asistencias = 0;
+            this.diasasistidos = 0
            
             this.diasasistidos = this.asistencias + 1;
             
@@ -965,6 +1257,7 @@ export class NominaPage implements OnInit {
             console.log(this.diasasistidos)
           }else{
             this.asistencias = 0;
+            this.diasasistidos = 0
             console.log("falto el G")}
           if(this.turnoa[i].tmsl == "A" || this.turnoa[i].tmsl == "D" ){
            
@@ -1046,10 +1339,10 @@ export class NominaPage implements OnInit {
             console.log("entro lt")
             console.log(this.diasasistidos, 'dias asistido')
             //el da los dias que estan en la planeacion y saca el valor por dia 
-            pdiasT= sueldo / pdias;
+             pdiasT= sueldo / pdias;
             // aqui esta los dias que a asistido
             this.Diasfalto = 0;
-            this.Diasfalto = pdiasT * this.diasasistidos;
+            this.Diasfalto = sueldo * this.diasasistidos;
             // dinero menos por faltar
             this.dinerofaltante = 0;
             this.dinerofaltante = sueldo - this.Diasfalto;
@@ -1096,25 +1389,25 @@ export class NominaPage implements OnInit {
 
         if(this.hoy >= 16 && this.hoy <= 22){
                   // dias que tiene por laborar
-            if(this.turnoa[i].tmt == "TD" || this.turnoa[i].tmt == "TN" ){
+            if(this.turnoa[i].tmt == "TD" || this.turnoa[i].tmt == "TN" || this.turnoa[i].tmt == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tmit == "TD" || this.turnoa[i].tmit == "TN" ){
+            if(this.turnoa[i].tmit == "TD" || this.turnoa[i].tmit == "TN" || this.turnoa[i].tmit == "D" ){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tjt == "TD" || this.turnoa[i].tjt == "TN" ){
+            if(this.turnoa[i].tjt == "TD" || this.turnoa[i].tjt == "TN" || this.turnoa[i].tjt == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tvt == "TD" || this.turnoa[i].tvt == "TN" ){
+            if(this.turnoa[i].tvt == "TD" || this.turnoa[i].tvt == "TN" || this.turnoa[i].tvt == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tst == "TD" || this.turnoa[i].tst == "TN" ){
+            if(this.turnoa[i].tst == "TD" || this.turnoa[i].tst == "TN" || this.turnoa[i].tst == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tdt == "TD" || this.turnoa[i].tdt == "TN" ){
+            if(this.turnoa[i].tdt == "TD" || this.turnoa[i].tdt == "TN" || this.turnoa[i].tdt == "D"){
               pdias = pdias + 1;
             }
-            if(this.turnoa[i].tlc == "TD" || this.turnoa[i].tlc == "TN" ){
+            if(this.turnoa[i].tlc == "TD" || this.turnoa[i].tlc == "TN" || this.turnoa[i].tlc == "D"){
               pdias = pdias + 1;
             }
             console.log(pdias)
@@ -1123,6 +1416,7 @@ export class NominaPage implements OnInit {
 
            //aqui reiniciamos la viariable diasasistidos a 0
            this.asistencias = 0;
+           this.diasasistidos = 0
            console.log(this.asistencias)
             this.diasasistidos = this.asistencias + 1;
        
@@ -1130,6 +1424,7 @@ export class NominaPage implements OnInit {
             console.log(this.diasasistidos)
           }else{
             this.asistencias = 0;
+            this.diasasistidos = 0
             console.log("falto el G")}
           if(this.turnoa[i].tmitl == "A" || this.turnoa[i].tmitl == "D" ){
            
@@ -1257,31 +1552,31 @@ export class NominaPage implements OnInit {
 
         if(this.hoy >= 23){
                    // dias que tiene por laborar
-                   if(this.turnoa[i].tmc == "TD" || this.turnoa[i].tmc == "TN" ){
+                   if(this.turnoa[i].tmc == "TD" || this.turnoa[i].tmc == "TN" || this.turnoa[i].tmc == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tmic == "TD" || this.turnoa[i].tmic == "TN" ){
+                  if(this.turnoa[i].tmic == "TD" || this.turnoa[i].tmic == "TN" || this.turnoa[i].tmic == "D" ){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tjc == "TD" || this.turnoa[i].tjc == "TN" ){
+                  if(this.turnoa[i].tjc == "TD" || this.turnoa[i].tjc == "TN" || this.turnoa[i].tjc == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tvc == "TD" || this.turnoa[i].tvc == "TN" ){
+                  if(this.turnoa[i].tvc == "TD" || this.turnoa[i].tvc == "TN" || this.turnoa[i].tvc == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tsc == "TD" || this.turnoa[i].tsc == "TN" ){
+                  if(this.turnoa[i].tsc == "TD" || this.turnoa[i].tsc == "TN" || this.turnoa[i].tsc == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tdc == "TD" || this.turnoa[i].tdc == "TN" ){
+                  if(this.turnoa[i].tdc == "TD" || this.turnoa[i].tdc == "TN" || this.turnoa[i].tdc == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tlq == "TD" || this.turnoa[i].tlq == "TN" ){
+                  if(this.turnoa[i].tlq == "TD" || this.turnoa[i].tlq == "TN" || this.turnoa[i].tlq == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tmq == "TD" || this.turnoa[i].tmq == "TN" ){
+                  if(this.turnoa[i].tmq == "TD" || this.turnoa[i].tmq == "TN" || this.turnoa[i].tmq == "D"){
                     pdias = pdias + 1;
                   }
-                  if(this.turnoa[i].tmiq == "TD" || this.turnoa[i].tmiq == "TN" ){
+                  if(this.turnoa[i].tmiq == "TD" || this.turnoa[i].tmiq == "TN" || this.turnoa[i].tmiq == "D" ){
                     pdias = pdias + 1;
                   }
                   console.log(pdias)
@@ -1291,6 +1586,7 @@ export class NominaPage implements OnInit {
             
            //aqui reiniciamos la viariable diasasistidos a 0
            this.asistencias = 0;
+           this.diasasistidos = 0
            console.log(this.asistencias)
             this.diasasistidos = this.asistencias + 1;
        
@@ -1298,6 +1594,7 @@ export class NominaPage implements OnInit {
             console.log(this.diasasistidos)
           }else{
             this.asistencias = 0;
+            this.diasasistidos = 0
             console.log("falto el G")}
           if(this.turnoa[i].tmicl == "A" || this.turnoa[i].tmicl == "D" ){
            

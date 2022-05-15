@@ -45,6 +45,7 @@
            <th scope="row" > </th>
            <th scope="row">{{i + 1}}</th>
            <td > {{t.nombre}} {{t.apellidos}} </td>
+           
            <td> 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
@@ -60,10 +61,11 @@
               <ion-select [(ngModel)]="t.tlpl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tlpl" ngModel required="" >
                   <ion-select-option value="A">Asistencia</ion-select-option>
                   <ion-select-option value="F">Falta </ion-select-option>
-                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="R">Retardo </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
                   
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
            </td>
            <td>  
@@ -84,6 +86,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td> 
@@ -104,6 +107,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -114,6 +118,7 @@
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              
             </ion-item> 
              <br>
           <ion-item>
@@ -124,6 +129,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
             </td>
            <td> 
@@ -134,6 +140,7 @@
                 <ion-select-option value="TN">Noche </ion-select-option>
                 <ion-select-option value="D">Descanso</ion-select-option>
             </ion-select>
+
           </ion-item> 
            <br>
           <ion-item>
@@ -144,6 +151,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -164,6 +172,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -184,6 +193,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -204,6 +214,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -224,6 +235,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -244,6 +256,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -264,6 +277,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -284,6 +298,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -304,6 +319,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -324,6 +340,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -344,6 +361,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -364,6 +382,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -384,6 +403,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -404,6 +424,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -424,6 +445,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -444,6 +466,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -464,6 +487,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -484,6 +508,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td >
@@ -504,6 +529,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td >
@@ -524,6 +550,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -544,6 +571,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -564,6 +592,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -584,6 +613,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
@@ -604,6 +634,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td  *ngIf="dayavoidn"> 
@@ -624,6 +655,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td  *ngIf="dayavoidt" > 
@@ -644,6 +676,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td *ngIf="dayavoidtu" > 
@@ -664,6 +697,7 @@
                   <ion-select-option value="R">Retardo</ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
          </tr>

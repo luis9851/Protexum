@@ -201,6 +201,11 @@ constructor(private _Service: ServiceService,private router: Router,private acti
    }
 
 
+   agregarmulta(nombre:string, apellidos:string, idG:string){
+     console.log(nombre,apellidos,idG, this.id)
+     this.router.navigate(['registromulta',this.id,nombre,apellidos,idG  ])
+   }
+
 
 
 

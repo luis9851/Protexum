@@ -14,20 +14,22 @@
           <th scope="col">Guardia</th>
           <th scope="col">Salario</th> 
           <th scope="col">Adelanto</th>
+          <th scope="col">Multas</th>
           <th scope="col">Falta</th>
           <th scope="col">Total</th>
 
         </tr>
       </thead>
       <tbody *ngFor="let t of turnoa; let tu = index">
-        <tr>
+        <tr >
           <th scope="row">{{t.nombreS}} </th>
          <th scope="row">{{t.Guardias._id}}</th> 
           <th  scope="row">{{t.nombre}} {{t.apellidos}} </th>
-          <th scope="row">{{t.Guardias.sueldo}} </th>
-          <th  scope="row" >{{t.Guardias.montoapagartotal}} </th> 
-          <th scope="row">{{t.dinerofaltante}} </th>
-          <th scope="row">{{t.Guardias.sueldo - t.dinerofaltante - t.Guardias.montoapagartotal}} </th> 
+          <th scope="row">${{t.Servicio.sueldo}} </th>
+          <th  scope="row">${{t.Guardias.montoapagartotal}} </th> 
+          <th  scope="row">${{t.Guardias.multaapagar}} </th> 
+          <th scope="row">${{t.dinerofaltante}} </th>
+          <th scope="row">${{t.Servicio.sueldo - t.dinerofaltante - t.Guardias.montoapagartotal - t.Guardias.multaapagar }} </th> 
         </tr>
       </tbody>
     </table>

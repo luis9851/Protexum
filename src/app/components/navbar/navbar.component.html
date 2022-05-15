@@ -19,10 +19,10 @@
       </li>
       <!--  aqui van los *ngif en el li para los permisos-->
       <li class="nav-item" routerLinkActive="active"  >
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Usuarios</a>
+        <a style="color: #000000;font-weight: bold;" *ngFor="Admin" class="nav-link" href="main">Usuarios</a>
       </li>
       <li class="nav-item" routerLinkActive="active"  >
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-clients" >Clientes</a>
+        <a style="color: #000000;font-weight: bold;" *ngFor="Admin" class="nav-link" href="list-clients" >Clientes</a>
       </li>
       <li class="nav-item" routerLinkActive="active"  >
         <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-services">Servicios</a>

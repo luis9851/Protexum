@@ -1,4 +1,8 @@
-
+<ion-header>
+  <ion-toolbar>
+    <app-navbar></app-navbar>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="login" style="position: absolute;width: 100%; height: auto;">
@@ -18,7 +22,7 @@
       </div> 
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
-          <p><ion-input type="date" name="fechadeprestamo" placeholder="fechadeprestamo"  formControlName="fechadeprestamo"  required=""> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="date" name="fechadeprestamo"  formControlName="fechadeprestamo"  required=""> </ion-input> </p>
         </div>
       </div>
       <div class="formulario__grupo">

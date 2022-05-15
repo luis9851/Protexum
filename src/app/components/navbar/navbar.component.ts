@@ -10,13 +10,10 @@ import { LoginService } from '../../service/login.service';
 export class NavbarComponent implements OnInit {
 
   public find: String = "";
-  Apermisos : boolean = false;
-  Spermisos : boolean = false;
-  Gpermisos : boolean = false;
-A:string;
+
+
  Admin: any = "Admin";
- Guardia: string =  "Guardia";
- Supervisor: string = "Supervisor";
+ 
   constructor(private router: Router, private servicio: LoginService) { }
 
   ngOnInit( ) {
