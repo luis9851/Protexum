@@ -12,21 +12,14 @@ export class NavbarComponent implements OnInit {
   public find: String = "";
 
   constructor(private router: Router, private servicio: LoginService) { }
-  Apermisos : boolean = false;
-  Spermisos : boolean = false;
-  Gpermisos : boolean = false;
-  A : string;
- Admin: string = "Admin";
- Guardia: string =  "Guardia";
+  Admin: any = "Admin";
  Supervisor: string = "Supervisor";
-  ngOnInit( ) {
+
+ ngOnInit( ) {
   this.servicio.disparadorderol.subscribe(data =>{
     console.log("recibiendo data ..", data.data)
-  
+    
 
-    this.A =data.data
-    console.log(this.A)
-   
   })
     
   }
@@ -36,6 +29,11 @@ export class NavbarComponent implements OnInit {
   buscar(termino: string){
     this.find = termino;
     this.router.navigate(['/main'], { queryParams: { search: this.find } });
+  }
+
+  SignOut(){
+    localStorage.clear();
+    window.location.reload();
   }
 
 }

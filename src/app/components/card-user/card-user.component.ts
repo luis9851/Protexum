@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from '../../service/login.service';
 import { ServiceService } from 'src/app/service/services/service.service';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-card-user',
   templateUrl: './card-user.component.html',
@@ -19,7 +20,8 @@ export class CardUserComponent implements OnInit {
   id: String = "";
   idservice: string ;
   hayservicio: boolean = false;
-  constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController, private servicio2: ServiceService) {
+
+  constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController, private servicio2: ServiceService, public alertController: AlertController,) {
     this.userSeleccionado = new EventEmitter();
    }
 
@@ -110,6 +112,36 @@ export class CardUserComponent implements OnInit {
   }
 
 
+  async presentAlertConfirm(_id: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: '¿Estas seguro que deseas <strong>eliminarlo</strong>?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          id: 'confirm-button',
+          handler: () => {
+            console.log(_id);
+            this.servicio.eliminarusuario(_id).subscribe(data => {
+              this.presentToast();
+            })
+            window.location.reload();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
 
   
