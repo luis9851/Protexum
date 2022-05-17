@@ -47,7 +47,11 @@ export class EquiporecibidoPage implements OnInit {
 
                   this.agregaridenequipo(res.dataEquip.id)
                   
+<<<<<<< HEAD
                    this.router.navigate(['/list-clients'])
+=======
+                   this.router.navigate(['[/list-clients] '])
+>>>>>>> 71b56e215341e8c635abe65264214b8bfc280eee
 
                     
                   }))

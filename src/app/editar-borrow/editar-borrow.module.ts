@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditarBorrowPageRoutingModule } from './editar-borrow-routing.module';
 
 import { EditarBorrowPage } from './editar-borrow.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { EditarBorrowPage } from './editar-borrow.page';
     FormsModule,
     IonicModule,
     EditarBorrowPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
   declarations: [EditarBorrowPage]
 })

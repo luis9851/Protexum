@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditarUserPageRoutingModule } from './editar-user-routing.module';
 // import { MAT_DATE_LOCALE} from '@angular/material/core'
 import { EditarUserPage } from './editar-user.page';
-
+import { ComponentsModule } from '../components/components.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +15,7 @@ import { EditarUserPage } from './editar-user.page';
     IonicModule,
     EditarUserPageRoutingModule,
     ReactiveFormsModule,
+    ComponentsModule
     
    
   ],

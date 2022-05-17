@@ -13,7 +13,9 @@
   <button (click)=prestamos(users._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold; margin: 10px;" type="button">Agregar Prestamos</button>
   <button (click)=verUser(users._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button">Ver más</button>
   <!-- <ion-icon name="trash" (click)="delete(users._id)"></ion-icon> -->
-  <ion-icon name="trash" data-toggle="modal" data-backdrop="false" data-target="#messageModal"></ion-icon>
+
+  <ion-icon name="trash" (click)="presentAlertConfirm(users._id)"></ion-icon>
   <ion-icon name="create-outline" (click)="Editar_U(users._id)"></ion-icon>
 </ion-item>
-<!-- <app-message *ngIf="!ismodelShown" (onConfirm)="cerrarModal($event)"></app-message> -->
+<!-- <app-message *ngIf="!ismodelShown" (onConfirm)="cerrarModal($event,users.id)"></app-message> -->
+

@@ -16,7 +16,11 @@ ngOnInit(): void {
   this.activatedRoute.params.subscribe( params => {
     this.id = params['id'];
     this.servicio.getobtenerprestamo(params['id']).subscribe(data =>{
+<<<<<<< HEAD
       this.borrow= data.prestamo
+=======
+      this.borrow= data.prestamos
+>>>>>>> 71b56e215341e8c635abe65264214b8bfc280eee
      console.log(this.borrow)
     
     },

@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private router: Router, private servicio: LoginService) { }
   Admin: any = "Admin";
- Supervisor: string = "Supervisor";
+
 
  ngOnInit( ) {
   this.servicio.disparadorderol.subscribe(data =>{

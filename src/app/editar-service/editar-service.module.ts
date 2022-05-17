@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditarServicePageRoutingModule } from './editar-service-routing.module';
 
 import { EditarServicePage } from './editar-service.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EditarServicePage } from './editar-service.page';
     FormsModule,
     IonicModule,
     EditarServicePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
   declarations: [EditarServicePage]
 })
