@@ -20,7 +20,11 @@ export class CardUserComponent implements OnInit {
   @Output() userSeleccionado: EventEmitter<number>;
   public ismodelShown: boolean = false;
   idservice: string ;
+    nombreS: string;
   hayservicio: boolean = false;
+  activo: boolean = true;
+  idG:any;
+  idturno:any
   constructor(private router: Router, private activateRouter: ActivatedRoute,private servicio: LoginService, private toast: ToastController, private servicio2: ServiceService,public alertController: AlertController) {
     this.userSeleccionado = new EventEmitter();
    }
@@ -28,37 +32,78 @@ export class CardUserComponent implements OnInit {
   ngOnInit() {
     this.activateRouter.params.subscribe( params => {
       this.idservice = params['id'];
+      this.nombreS = params['nombre']
       console.log(this.users.Servicio._id)
 
    
 
 
-      // falto cambiarle para que si ya le toco le servicio no aparezca
-      if( this.idservice != null && this.users.rol == 'Guardia' ){
-        this.hayservicio = true ;
+       // falto cambiarle para que si ya le toco le servicio no aparezca
+       if( this.idservice != null && this.users.rol == 'Guardia' ){
         
-      }  else if( this.users.rol != 'Guardia' ){
-        this.hayservicio = false ;
-       
-      } 
+        this.hayservicio =true;
+      for(let i = 0; i < this.users.Servicio.length; i++){
+        // console.log(this.users.Servicio[i]._id)
+        // console.log(this.idservice)
+        if(this.users.Servicio[i]._id == this.idservice){
+          this.hayservicio =false;
+        }
+      }
+        
+        
+    
+  }  
+   if( this.users.rol != 'Guardia' ){
+   this.hayservicio = false
+   
+  }
       
     })
   }
 
-  Agregar(_id :string){
+  Agregar(_id :string, nombre:string, apellidos:string){
+    console.log(_id)
+    console.log(nombre)
+    console.log(apellidos)
    this.servicio.AgregarServicios(_id,this.idservice).subscribe((res => {
-  console.log(res)
+  console.log(res.dataUser)
+ 
+   this.idG = res.dataUser.id
+  
   this.router.navigate(['/list-services']);
+  this.AgregaraTurno(nombre,apellidos);
   this.AgregaraServicio(_id)
   } ))
-
   }
 
   AgregaraServicio(_id){
     this.servicio2.AgregarGuardias(this.idservice,_id).subscribe((res => {
    console.log(res)
    } ))
- 
+   }
+
+   AgregaraTurno(nombre:string,apellidos:string){
+    this.servicio2.Agregarturno(this.activo,this.idG,this.idservice,nombre,apellidos,this.nombreS).subscribe((res => {
+   console.log(res, 'turnos')
+   this.idturno = res.turno._id
+   console.log(this.idturno)
+
+   this.AgregaridturnoaGuardia()
+   this.Agregaridturnosaservicios()
+   } ))
+   }
+
+   
+   AgregaridturnoaGuardia(){
+    this.servicio2.AgregarturnoaGuardia(this.idG,this.idturno).subscribe((res => {
+   console.log(res)
+   } ))
+   }
+
+   Agregaridturnosaservicios(){
+    this.servicio2.Agregarturnosaservicios(this.idservice,this.idturno).subscribe((res => {
+   console.log(res)
+   } ))
    }
 
   prestamos(_id :string){

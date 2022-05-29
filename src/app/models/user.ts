@@ -19,4 +19,5 @@ export interface UserI {
     rol: string,
     correoelectronico: string,
     contrasena: string
+    
 }

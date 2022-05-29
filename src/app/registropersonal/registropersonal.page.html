@@ -93,7 +93,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de playera </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdeplayera" placeholder="Cantidad de playera" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdeplayera" placeholder="Cantidad de playera" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddeplayera" placeholder="Descripcion de playera" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -102,7 +102,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de pantalon </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdepantalon" placeholder="Cantidad de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdepantalon" placeholder="Cantidad de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddepantalon" placeholder="Descripcion de pantalon" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -111,7 +111,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de botas </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdebotas" placeholder="Cantidad de calzado" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdebotas" placeholder="Cantidad de calzado" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddebotas" placeholder="Descripcion de calzado" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -120,7 +120,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de cachucha </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdecachucha" placeholder="Cantidad de cachucha" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdecachucha" placeholder="Cantidad de cachucha" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddecachucha" placeholder="Descripcion de cachucha" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -129,7 +129,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de chamarra </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdechamarra" placeholder="Cantidad de chamarra" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdechamarra" placeholder="Cantidad de chamarra" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddechamarra" placeholder="Descripcion de chamarra" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -138,7 +138,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de chaleco </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdechaleco" placeholder="Cantidad de chaleco" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdechaleco" placeholder="Cantidad de chaleco" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddechaleco" placeholder="Descripcion de chaleco" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -147,7 +147,7 @@
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
           <ion-label > Cantidad y Descripcion de lentes </ion-label>
-          <p><ion-input class="formulario__input" type="text" name="cdelentes" placeholder="Cantidad de lentes" ngModel required="" maxlength="25"> </ion-input> </p>
+          <p><ion-input class="formulario__input" type="number" name="cdelentes" placeholder="Cantidad de lentes" ngModel required="" maxlength="25"> </ion-input> </p>
         </div>
         <div class="formulario__grupo-input">
           <p><ion-input class="formulario__input" type="text" name="ddelentes" placeholder="Descripcion de lentes" ngModel required="" maxlength="25"> </ion-input> </p>
@@ -204,6 +204,11 @@
       </div>
       <div class="formulario__grupo">
         <div class="formulario__grupo-input">
+          <p><ion-input class="formulario__input" type="Number" name="sueldo" placeholder="Sueldo inicial" ngModel required=""> </ion-input> </p>
+        </div>
+      </div>
+      <div class="formulario__grupo">
+        <div class="formulario__grupo-input">
           <ion-label>Agrega Foto del Elemento</ion-label>
           <form [formGroup]="imageForm" (ngSubmit)="onSubmit()">
             <input type="file" placeholder="File" (change)="onFileChange($event)"
@@ -211,7 +216,7 @@
           </form>
         </div>
       </div>
-      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #000000; color: #FFFFFF;font-weight: bold;" type="submit" value="Registrar"> </p>
+      <p><input class="btn my-2 my-sm-0 btn-lg button" style="width: 100%; background-color: #FE693D; color: #000000;font-weight: bold;" type="submit" value="Registrar"> </p>
     </form>
   </main>
    

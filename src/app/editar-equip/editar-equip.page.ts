@@ -95,7 +95,7 @@ constructor(private servicio: ServiceService , private activatedRoute:ActivatedR
 
  
 
-    this.router.navigate([''])
+    this.router.navigate(['list-services'])
    }
   
    ))

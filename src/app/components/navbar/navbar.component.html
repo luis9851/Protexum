@@ -14,21 +14,18 @@
 
 
       <!-- active es la clase para hacer que resalte en el menu -->
-      <li class="nav-item" routerLinkActive="active">
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Inicio</a>
+      <li class="nav-item" routerLinkActive="active" >
+        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Inicio </a>
       </li>
       <!--  aqui van los *ngif en el li para los permisos-->
-      <li class="nav-item" routerLinkActive="active" >
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="main">Usuarios</a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="Admin" >
+        <a style="color: #000000;font-weight: bold;"  class="nav-link" href="main">Usuarios</a>
       </li>
-      <li class="nav-item" routerLinkActive="active"   >
+      <li class="nav-item" routerLinkActive="active" *ngIf="Admin" >
         <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-clients" >Clientes</a>
       </li>
       <li class="nav-item" routerLinkActive="active"  >
         <a style="color: #000000;font-weight: bold;" class="nav-link" href="list-services">Servicios</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" >
-        <a style="color: #000000;font-weight: bold;" class="nav-link" href="#">Prestamos</a>
       </li>
       <li class="nav-item" routerLinkActive="active"  >
         <a style="color: #000000;font-weight: bold;" class="nav-link" href="">Planeacion</a>

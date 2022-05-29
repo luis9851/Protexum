@@ -11,8 +11,7 @@ import { EquipResponseI } from 'src/app/models/equip-response';
 
 import { PListaI } from 'src/app/models/paselista';
 import { PlistaResponseI } from 'src/app/models/paselista-response';
-import { TurnResponseI } from 'src/app/models/turn-response';
-import { TurnI } from 'src/app/models/turn'; 
+
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -26,7 +25,8 @@ const httpOptions = {
     
     constructor(private http: HttpClient ) { 
     
-      this.apiUrl ="http://localhost:3001/api/";
+      //this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
+       this.apiUrl ="http://localhost:3001/api/";
     }
     
   //detector de errores
@@ -69,6 +69,12 @@ getobtenerservices(): Observable<any> {
   }),  catchError(this.handleError) )    
 }
 
+getobtenerturnos(): Observable<any> {
+  let url = `${this.apiUrl}consultaturnos`;
+  return this.http.get<any>(url).pipe(map((resp) => {
+     return resp
+  }),  catchError(this.handleError) )    
+}
 
   // obtiene la info del usuario para ponerlo en el perfil
     getobtenerid(id: string): Observable<any> {
@@ -94,6 +100,16 @@ getobtenerservices(): Observable<any> {
       // obtiene la info del servicio para ponerlo en el perfil
       getobteneridservice(id: string): Observable<any> {
         let url = `${this.apiUrl}idimage/consultaservice/${id}`;
+        return this.http.get(url).pipe(map((resp) => {
+           return resp 
+        }),  catchError(this.handleError) )    
+      }
+
+      
+      // obtiene la info del servicio para ponerlo en el perfil
+      getobteneridturno(id:string, idG:any): Observable<any> {
+       
+        let url = `${this.apiUrl}consultaidturno/${id}/${idG}`;
         return this.http.get(url).pipe(map((resp) => {
            return resp 
         }),  catchError(this.handleError) )    
@@ -179,6 +195,15 @@ getobtenerservices(): Observable<any> {
     ), catchError(this.handleError))
   }
 
+    //agregar un turno
+Agregarturno( activo:boolean,Guardias:string,Servicio:string, nombre:string, apellidos:string, nombreS:string ): Observable<any>{
+  return this.http.put(`${this.apiUrl}agregarturno`,
+  {activo:activo, Guardias:Guardias, Servicio:Servicio, nombre:nombre, apellidos:apellidos,nombreS:nombreS}).pipe(tap(
+    (res: any)=> {
+    
+    }
+  ),catchError(this.handleError) )
+}
   //agregar el id de usuarios a servicios
 AgregarGuardias(id:any, Guardias:String): Observable<ServiceResponseI>{
   return this.http.put<ServiceResponseI>(`${this.apiUrl}idimage/idGuardia/${id}`,
@@ -189,10 +214,31 @@ AgregarGuardias(id:any, Guardias:String): Observable<ServiceResponseI>{
   ),catchError(this.handleError) )
 }
 
+  //agregar el id de Guardias a turnos
+  AgregarturnoaGuardia(id:string, Turnos:String): Observable<ServiceResponseI>{
+    console.log(id);
+    return this.http.put<ServiceResponseI>(`${this.apiUrl}idimage/idturnoaGuardia/${id}`,
+    {Turnos:Turnos}).pipe(tap(
+      (res: ServiceResponseI)=> {
+      
+      }
+    ),catchError(this.handleError) )
+  }
+
+    //agregar el id de servicios a turnos
+    Agregarturnosaservicios(id:string, Turnos:String): Observable<ServiceResponseI>{
+      console.log(id);
+      return this.http.put<ServiceResponseI>(`${this.apiUrl}idimage/idturnosaservicios/${id}`,
+      {Turnos:Turnos}).pipe(tap(
+        (res: ServiceResponseI)=> {
+        
+        }
+      ),catchError(this.handleError) )
+    }
 
    // para regitrar los turnos
    registrarL(id:string, turno:PListaI  ): Observable<PlistaResponseI>{
-    return this.http.put<PlistaResponseI>(`${this.apiUrl}idimage/paselista/${id}`,
+    return this.http.put<PlistaResponseI>(`${this.apiUrl}paselista/${id}`,
     turno).pipe(tap (
       (res:PlistaResponseI)=>{
 
@@ -200,7 +246,7 @@ AgregarGuardias(id:any, Guardias:String): Observable<ServiceResponseI>{
     ), catchError(this.handleError))
 }
 
-// aqui empieza lo del modulo de turn
-  
+   
+
 
  }

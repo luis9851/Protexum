@@ -24,41 +24,42 @@
               <h3 class="titulo">{{ user.nombre }} {{ user.apellidos }} </h3>
               <p class="texto">{{user.rol}}</p>
           </div>
-          <div class="perfil-usuario-footer">
+          <ion-row class="perfil-usuario-footer">
               <ul class="lista-datos">
                   
-                  <li><i class="icono fas fa-file"></i>CURP: {{ user.curp }}</li>
-                  <li><i class="icono fas fa-file"></i>No. Seguro Social: {{ user.nsegurosocial}}</li>
-                  <li><i class="icono fas fa-file"></i>RFC: {{ user.rfc }}</li>
-                  <li><i class="icono fas fa-map-signs"></i>Dirección: {{ user.domicilio }}</li>
-                  <li><i class="icono fas fa-calendar-alt"></i> Fecha de nac: {{dd}}/{{mm}}/{{yy}} </li>
-                  <li ><i class="icono fas fa-calendar-alt"></i> Fecha de entrada:{{ddE}}/{{mmE}}/{{yyE}}</li>
-                  <li><i class="icono fas fa-phone-alt"></i>Telefono: {{ user.telefono}}</li>
-                  <li><i class="icono fas fa-phone-alt"></i>Tel. adicional: {{ user.telefonoadicional }}</li>
-                  <li><i class="icono fas fa-credit-card"></i>Credito Infonavit: {{ user.creditodeInfonavit }}</li>
-                  <li><i class="icono fas fa-building"></i>Estado civil: {{ user.estadocivil }}</li>
-                  <li><i class="icono fas fa-envelope"></i>Correo: {{ user.correoelectronico }}</li>
-                  <li><i class="icono fas fa-briefcase"></i>Pensionado: {{ user.pensionado }}</li>
-                  <li><i class="icono fas fa-graduation-cap"></i>Nivel de estudios: {{ user.niveldeescolaridad }}</li>
+                  <ion-icon name="document"></ion-icon> CURP: {{ user.curp }}
+                  <li><ion-icon name="document"></ion-icon> No. Seguro Social: {{ user.nsegurosocial}}</li>
+                  <li><ion-icon name="document"></ion-icon> RFC: {{ user.rfc }}</li>
+                  <li><ion-icon name="compass"></ion-icon> Dirección: {{ user.domicilio }}</li>
+                  <li><ion-icon name="calendar"></ion-icon> Fecha de nac: {{dd}}/{{mm}}/{{yy}} </li>
+                  <li><ion-icon name="calendar"></ion-icon> Fecha de entra:{{ddE}}/{{mmE}}/{{yyE}}</li>
+                  <li><ion-icon name="call"></ion-icon> Telefono: {{ user.telefono}}</li>
+                  <li><ion-icon name="call"></ion-icon> Tel. adicional: {{ user.telefonoadicional }}</li>
+                  <li><ion-icon name="card"></ion-icon> Credito Infonavit: {{ user.creditodeInfonavit }}</li>
+                  <li><ion-icon name="home"></ion-icon> Estado civil: {{ user.estadocivil }}</li>
+                  <li><ion-icon name="mail"></ion-icon> Correo: {{ user.correoelectronico }}</li>
+                  <li><ion-icon name="briefcase"></ion-icon> Pensionado: {{ user.pensionado }}</li>
+                  <li><ion-icon name="medal"></ion-icon> Nivel de estudios: {{ user.niveldeescolaridad }}</li>
+                  
               </ul>
               <ul class="lista-datos">
                   
                  
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de playeras: {{ user.cdeplayera }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de playeras: {{ user.ddeplayera }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de pantalones: {{ user.cdepantalon }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de pantalones: {{ user.ddepantalon }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de botas: {{ user.cdebotas }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de botas: {{ user.ddebotas }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de cachuchas: {{ user.cdecachucha }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de cachuchas: {{ user.ddecachucha }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de chamarras: {{ user.cdechamarra }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de chamarras: {{ user.ddechamarra }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de chalecos: {{ user.cdechaleco }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de chalecos: {{ user.ddechaleco }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Cantidad de lentes: {{ user.cdelentes }} </li>
-                  <li><i class="icono fas fa-box-open"></i>Descripcion de lentes: {{ user.ddelentes }} </li>
-    
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de playeras: {{ user.cdeplayera }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de playeras: {{ user.ddeplayera }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de pantalones: {{ user.cdepantalon }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de pantalones: {{ user.ddepantalon }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de botas: {{ user.cdebotas }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de botas: {{ user.ddebotas }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de cachuchas: {{ user.cdecachucha }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de cachuchas: {{ user.ddecachucha }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de chamarras: {{ user.cdechamarra }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de chamarras: {{ user.ddechamarra }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de chalecos: {{ user.cdechaleco }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de chalecos: {{ user.ddechaleco }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Cantidad de lentes: {{ user.cdelentes }} </li>
+                  <li> <ion-icon name="logo-dropbox"></ion-icon>Descripcion de lentes: {{ user.ddelentes }} </li>
+                 
                   
                   <!-- <button routerLink="/editar-user/:id"  class="btn my-2 my-sm-0" style="background-color: #FE693D; color: #ffff;" type="button">Editar Perfil</button> -->
 
@@ -71,7 +72,7 @@
                 </ion-list>
                 </ul>
 
-          </div>
+          </ion-row>
       </div>
   </section>
   </ion-content>

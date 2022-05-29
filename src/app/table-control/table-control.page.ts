@@ -2,8 +2,8 @@ import { Component, Directive, OnInit, Input } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ServiceService } from '../service/services/service.service';
-import { TableService } from '../service/table.service';
 import { NgForm } from '@angular/forms';
+import { TableService } from '../service/table.service';
 @Component({
   selector: 'app-table-control',
   templateUrl: './table-control.page.html',
@@ -24,21 +24,27 @@ week: any = [
 
 
 
-turno: boolean
+
 // variables del funcionamiento del calendario
 @Input() indexh: string;
 @Input() indexn: string;
 monthSelect: any[];
 
+dayavoidn:boolean = false;
+dayavoidt:boolean = false;
+dayavoidtu:boolean = false;
+
 dateSelectM: any;
 dateSelectD: any;
 dateSelect: any;
 dataSYear: any;
+turno: any=[];
 guardias: any=[];
 service: any=[];
 id: string;
+idG: string;
 
-constructor(private _Service: ServiceService,private _Table: TableService,private router: Router,private activatedRoute: ActivatedRoute) {
+constructor(private _Service: ServiceService,private router: Router,private activatedRoute: ActivatedRoute, private tablero:TableService) {
  
  }
 
@@ -51,18 +57,24 @@ constructor(private _Service: ServiceService,private _Table: TableService,privat
     this.activatedRoute.params.subscribe( params => {
       this.id = params['id'];
       this._Service.getobteneridservice(params['id']).subscribe(data =>{
+        
         this.service = data.service;
-        this.guardias = data.service.Guardias;
-       
+        console.log(this.service)
+        this.guardias = data.service.Turnos;
+        console.log(this.guardias)
       },
       error =>{
 
       });
       
+      
     })
     
 
+  
   }
+
+  
 
  
 
@@ -115,7 +127,23 @@ constructor(private _Service: ServiceService,private _Table: TableService,privat
 
     this.monthSelect =  arrayDays;
 
-      
+   
+      if(this.monthSelect[28]?.value == 29){
+   
+        this.dayavoidn = true
+      }
+    
+   
+
+      if(this.monthSelect[29]?.value  == 30){
+        this.dayavoidt = true
+      }
+ 
+  
+      if(this.monthSelect[30]?.value == 31){
+        this.dayavoidtu = true
+      }
+  
     const Mes = this.monthSelect[0].month
 
     const ChangeMonth = {
@@ -137,19 +165,9 @@ constructor(private _Service: ServiceService,private _Table: TableService,privat
     this.dateSelectM =  Fecha;
     this.dataSYear = year
 
-   
 
   }
-  
-  Agregarhorario( _id : string  ){
-    this.indexh = _id;
-    this.router.navigate(['/table',this.indexh]);
-    this._Service.disparadordedias.emit({
-      data: this.monthSelect
-      
-      
-    })
-   }
+
   
    
   
@@ -171,20 +189,25 @@ constructor(private _Service: ServiceService,private _Table: TableService,privat
   }
 
   cambiarEstadoLista(_id : string,form : NgForm){
-   console.log(form.value)
-    this._Service.registrarL(_id,form.value).subscribe( (res => {
-          console.log(res);
-          // this.exito() 
-          }))
+   
+     
+           this._Service.registrarL(_id,form.value).subscribe( (res => {
+            console.log(res)
+            // this.exito()
+            }))
+
+         
+   
    }
-    
-  // aqui empieza lo del modulo de turn
-  planea(_id : string,form : NgForm){
-    console.log(form.value)
-    this._Table.registrar(this.id,form.value).subscribe( (res=> {
-    console.log(res)
-    }))
-  }
+
+
+   agregarmulta(nombre:string, apellidos:string, idG:string){
+     console.log(nombre,apellidos,idG, this.id)
+     this.router.navigate(['registromulta',this.id,nombre,apellidos,idG  ])
+   }
+
+
+
 
 
 }

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 
-
 import { AngularDelegate, IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 

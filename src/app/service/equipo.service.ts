@@ -12,7 +12,8 @@ import { JwtResponseI } from '../models/jwt-response';
 export class EquipoService {
 
 
-  AUTH_SERVER: string = 'http://localhost:3001';
+ //AUTH_SERVER: string = 'https://ionic-proyect.herokuapp.com';
+ AUTH_SERVER: string = 'http://localhost:3001';
 
   constructor(private http: HttpClient) { }
 

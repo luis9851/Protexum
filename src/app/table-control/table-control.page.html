@@ -9,6 +9,7 @@
   <section class="seccion-perfil-usuario">
     <!-- class="perfil-usuario-footer" -->
      <div class="table-responsive">
+      
 
      <div class ="header-calendar col-auto text-center"  >
        <div class="col-auto text-center">
@@ -39,15 +40,16 @@
            *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
          </tr>
        </thead>
-       <tbody  > 
-         <tr scope="row" *ngFor="let g of guardias; let i = index" ngForm #frmRegister="ngForm" >
-           <th scope="row"  (click)=Agregarhorario(g._id) class="btn my-2 my-sm-0" style="background-color: #000000; color: #FFFFFF;font-weight: bold;" type="button"> + </th>
+       <tbody > 
+         <tr scope="row" *ngFor="let t of guardias; let i = index"  ngForm #frmRegister="ngForm" >
+           <th scope="row" > </th>
            <th scope="row">{{i + 1}}</th>
-           <td > {{g.nombre}} {{g.apellidos}} </td>
-           <td > 
+           <td > {{t.nombre}} {{t.apellidos}} </td>
+           
+           <td> 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tlp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tlp" ngModel required="" >
+              <ion-select [(ngModel)]="t.tlp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tlp" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -56,16 +58,20 @@
              <br>
             <ion-item  class="formulario__input">
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tlpl" ngModel required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tlpl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tlpl" ngModel required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo </ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
+                  
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
            </td>
-           <td >  <ion-item  class="formulario__input">
+           <td>  
+             <ion-item  class="formulario__input">
             <ion-label>Turno:</ion-label>
-            <ion-select [(ngModel)]="g.tmp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmp" ngModel required="" >
+            <ion-select [(ngModel)]="t.tmp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmp" ngModel required="" >
                 <ion-select-option value="TD">Dia</ion-select-option>
                 <ion-select-option value="TN">Noche </ion-select-option>
                 <ion-select-option value="D">Descanso</ion-select-option>
@@ -74,17 +80,19 @@
            <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmpl" ngModel required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmpl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmpl" ngModel required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
-           <td > 
+           <td> 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmip" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmip" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmip" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmip" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -93,55 +101,63 @@
              <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmipl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmipl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmipl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmipl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tjp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tjp" ngModel required="" >
+              <ion-select [(ngModel)]="t.tjp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tjp" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              
             </ion-item> 
              <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tjpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjpl" ngModel required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tjpl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tjpl" ngModel required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
-    
-           <td > 
+            </td>
+           <td> 
               <ion-item  class="formulario__input">
             <ion-label>Turno:</ion-label>
-            <ion-select [(ngModel)]="g.tvp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tvp" ngModel required="" >
+            <ion-select [(ngModel)]="t.tvp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tvp" ngModel required="" >
                 <ion-select-option value="TD">Dia</ion-select-option>
                 <ion-select-option value="TN">Noche </ion-select-option>
                 <ion-select-option value="D">Descanso</ion-select-option>
             </ion-select>
+
           </ion-item> 
            <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tvpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvpl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tvpl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tvpl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tsp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tsp" ngModel required="" >
+              <ion-select [(ngModel)]="t.tsp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tsp" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -150,17 +166,19 @@
              <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tspl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tspl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tspl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tspl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tdp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tdp" ngModel required="" >
+              <ion-select [(ngModel)]="t.tdp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tdp" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -169,17 +187,19 @@
              <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tdpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdpl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tdpl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tdpl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tls" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tls" ngModel required="" >
+              <ion-select [(ngModel)]="t.tls" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tls" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -188,17 +208,19 @@
              <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tlsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tlsl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tlsl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tlsl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tms" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tms" ngModel required="" >
+              <ion-select [(ngModel)]="t.tms" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tms" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -207,17 +229,19 @@
              <br>
           <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmsl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmsl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmsl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmis" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmis" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmis" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmis" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -226,17 +250,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmisl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmisl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmisl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmisl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tjs" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tjs" ngModel required="" >
+              <ion-select [(ngModel)]="t.tjs" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tjs" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -245,17 +271,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tjsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjsl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tjsl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tjsl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tvs" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tvs" ngModel required="" >
+              <ion-select [(ngModel)]="t.tvs" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tvs" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -264,17 +292,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tvsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvsl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tvsl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tvsl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tss" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tss" ngModel required="" >
+              <ion-select [(ngModel)]="t.tss" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tss" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -283,17 +313,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tssl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tssl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tssl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tssl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tds" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tds" ngModel required="" >
+              <ion-select [(ngModel)]="t.tds" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tds" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -302,17 +334,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tdsl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdsl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tdsl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tdsl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tlt" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tlt" ngModel required="" >
+              <ion-select [(ngModel)]="t.tlt" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tlt" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -321,17 +355,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tltl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tltl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tltl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tltl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmt" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmt" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmt" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmt" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -340,17 +376,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmtl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmtl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmtl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmit" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmit" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmit" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmit" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -359,17 +397,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmitl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmitl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmitl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmitl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tjt" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tjt" ngModel required="" >
+              <ion-select [(ngModel)]="t.tjt" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tjt" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -378,17 +418,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tjtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjtl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tjtl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tjtl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tvt" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tvt" ngModel required="" >
+              <ion-select [(ngModel)]="t.tvt" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tvt" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -397,17 +439,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tvtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvtl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tvtl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tvtl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tst" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tst" ngModel required="" >
+              <ion-select [(ngModel)]="t.tst" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tst" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -416,17 +460,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tstl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tstl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tstl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tstl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tdt" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tdt" ngModel required="" >
+              <ion-select [(ngModel)]="t.tdt" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tdt" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -435,17 +481,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tdtl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdtl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tdtl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tdtl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tlc" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tlc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tlc" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tlc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -454,17 +502,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tlcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tlcl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tlcl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tlcl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td >
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmc" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmc" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -473,17 +523,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmcl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmcl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmcl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td >
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmic" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmic" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmic" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmic" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -492,17 +544,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmicl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmicl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmicl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmicl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tjp" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tjc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tjp" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tjc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -511,17 +565,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tjcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tjcl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tjcl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tjcl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tvc" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tvc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tvc" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tvc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -530,17 +586,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tvcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tvcl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tvcl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tvcl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tsc" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tsc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tsc" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tsc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -549,17 +607,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tscl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tscl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tscl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tscl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
            <td > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tdc" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tdc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tdc" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tdc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -568,17 +628,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tdcl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tdcl" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tdcl" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tdcl" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
-           <td > 
+           <td  *ngIf="dayavoidn"> 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tlq" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tlc" ngModel required="" >
+              <ion-select [(ngModel)]="t.tlq" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tlc" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -587,17 +649,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tlql" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tlql" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tlql" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tlql" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
-           <td > 
+           <td  *ngIf="dayavoidt" > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmq" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmq" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmq" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmq" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -606,17 +670,19 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmql" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmql" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmql" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmql" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
-           <td > 
+           <td *ngIf="dayavoidtu" > 
             <ion-item  class="formulario__input">
               <ion-label>Turno:</ion-label>
-              <ion-select [(ngModel)]="g.tmiq" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)"  name="tmiq" ngModel required="" >
+              <ion-select [(ngModel)]="t.tmiq" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)"  name="tmiq" ngModel required="" >
                   <ion-select-option value="TD">Dia</ion-select-option>
                   <ion-select-option value="TN">Noche </ion-select-option>
                   <ion-select-option value="D">Descanso</ion-select-option>
@@ -625,11 +691,13 @@
              <br>
             <ion-item>
               <ion-label>Asistencia:</ion-label>
-              <ion-select [(ngModel)]="g.tmiql" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" name="tmiql" ngModel  required="" >
-                  <ion-select-option value="A">A</ion-select-option>
-                  <ion-select-option value="F">F </ion-select-option>
-                  <ion-select-option value="R">R</ion-select-option>
+              <ion-select [(ngModel)]="t.tmiql" (ngModelChange)="cambiarEstadoLista(t._id,frmRegister)" name="tmiql" ngModel  required="" >
+                  <ion-select-option value="A">Asistencia</ion-select-option>
+                  <ion-select-option value="F">Falta </ion-select-option>
+                  <ion-select-option value="R">Retardo</ion-select-option>
+                  <ion-select-option value="D">Descanso</ion-select-option>
               </ion-select>
+              <ion-button (click)=(agregarmulta(t.nombre,t.apellidos,t.Guardias)) > Multas </ion-button>
             </ion-item>
           </td>
          </tr>
@@ -638,74 +706,7 @@
      </div>
 </section>
 
-<!-- esta es la tabla de pase de lista -->
-  <!-- <section class="seccion-perfil-usuario" t>
-        <div class="table-responsive">
-        <div class ="header-calendar col-auto text-center"  >
-          <div class="col-auto text-center">
-            <button (click)="changeMonth(-1)" name="arrow-back" value="Anterior" ><ion-icon name="arrow-up-outline"></ion-icon></button> 
-          </div>
-          <h1>{{dateSelectM}} {{dataSYear}}  </h1>
-         <div class="col-auto text-center">
-           <button (click)="changeMonth(1)" value="Siguiente"><ion-icon name="arrow-down-outline"></ion-icon></button> 
-        </div>
-       
-       </div>
-        
-           <table class="table"   >
-          <thead class="thead-dark" >
-            <tr >
-              <th scope="col" > </th>
-              <th scope="col" > </th>
-              <th scope="col" *ngFor="let day of monthSelect">{{day.name | slice:0:3}} </th>
-            </tr>
-            <tr>
-              <th scope="col" >* </th>
-              <th scope="col" >Nombre </th>
-              <th scope="col" 
-              *ngFor="let day of monthSelect; let first = first" >{{ day ?.value}}  </th>
-            </tr>
-          </thead>
-          <tbody  > 
-            <tr  scope="row" *ngFor="let g of guardias; let i = index"  ngForm #frmRegister="ngForm" >
-              <th scope="row">{{i + 1}}</th>
-              <td > {{g.nombre}} {{g.apellidos}} </td>
-              <td > <ion-checkbox [(ngModel)]="g.tlpl" (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"   name="tlpl" ngModel > </ion-checkbox> </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmpl" ngModel> </ion-checkbox>  </td> 
-              <td > <ion-checkbox [(ngModel)]="g.tmipl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmipl" ngModel> </ion-checkbox>  </td> 
-              <td > <ion-checkbox [(ngModel)]="g.tjpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjpl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tvpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvpl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tspl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tspl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tdpl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdpl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tlsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlsl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmsl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmisl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmisl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tjsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjsl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tvsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvsl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tssl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tssl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tdsl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdsl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tltl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tltl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmtl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmitl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmitl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tjtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjtl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tvtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvtl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tstl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tstl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tdtl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdtl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tlcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlcl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmcl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmicl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmicl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tjcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tjcl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tvcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tvcl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tscl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tscl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tdcl"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tdcl" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tlql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tlql" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}"  name="tmql" ngModel> </ion-checkbox>  </td>
-              <td > <ion-checkbox [(ngModel)]="g.tmiql"  (ngModelChange)="cambiarEstadoLista(g._id,frmRegister)" [ngModelOptions]="{standalone: false}" name="tmiql" ngModel> </ion-checkbox> </td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-</section> -->
+
 </ion-content>
  <style>
   div{

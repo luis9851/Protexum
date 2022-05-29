@@ -17,7 +17,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'home/:id',
+    path: 'home/:id/:nombre',
     canActivate: [UserGuardGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
@@ -95,7 +95,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'borrow',
+    path: 'borrow/:id',
     canActivate: [UserGuardGuard],
     loadChildren: () => import('./borrow/borrow.module').then( m => m.BorrowPageModule)
   },
@@ -119,21 +119,23 @@ const routes: Routes = [
     canActivate: [UserGuardGuard],
     loadChildren: () => import('./main/main.module').then( m => m.MainPageModule)
   },
-  {
-    path: 'table/:id',
-    canActivate: [UserGuardGuard],
-    loadChildren: () => import('./table/table.module').then( m => m.TablePageModule)
-  },
+ 
   {
     path: 'nomina',
     canActivate: [UserGuardGuard],
     loadChildren: () => import('./nomina/nomina.module').then( m => m.NominaPageModule)
   },
   {
-    path: 'pase-lista',
+    path: "editar-client/:id",
     canActivate: [UserGuardGuard],
-    loadChildren: () => import('./pase-lista/pase-lista.module').then( m => m.PaseListaPageModule)
+    loadChildren: () => import('./editar-client/editar-client.module').then(m => m.EditarClientPageModule)
   },
+  {
+    path: 'registromulta/:id/:nombre/:apellidos/:idG',
+    canActivate: [UserGuardGuard],
+    loadChildren: () => import('./registromulta/registromulta.module').then( m => m.RegistromultaPageModule)
+  }
+
 
 
   

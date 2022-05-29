@@ -58,8 +58,9 @@ urlfile:any=[];
        cdelentes: ['', Validators.required],
        ddelentes: ['', Validators.required],
        pensionado: ['', Validators.required],
-       niveldeescolaridad: ['', Validators.required],
-       contrasena: ['', Validators.required],
+       niveldeescolaridad: ['', Validators.required]
+  
+      
        
      })
 
@@ -120,7 +121,7 @@ urlfile:any=[];
 
    
 
-      this.router.navigate(['/home'])
+      this.router.navigate(['/main'])
      }
     
      ))

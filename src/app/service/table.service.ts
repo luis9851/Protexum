@@ -3,8 +3,8 @@ import { Observable, of, pipe } from 'rxjs';
 import { HttpClient, HttpParams, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { TurnI } from '../models/turn';
-import { TurnResponseI } from '../models/turn-response';
+import { PListaI } from 'src/app/models/paselista';
+import { PlistaResponseI } from 'src/app/models/paselista-response';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 }
@@ -17,6 +17,7 @@ export class TableService {
   
   constructor(private http: HttpClient ) { 
   
+    //this.apiUrl ="https://ionic-proyect.herokuapp.com/api/";
     this.apiUrl ="http://localhost:3001/api/";
   }
     //detector de errores
@@ -32,11 +33,11 @@ export class TableService {
 
 
     // aqui empieza lo del modulo de turn
-   registrar(id:string, turno:any  ): Observable<TurnResponseI>{
-     console.log(turno);
-    return this.http.put<TurnResponseI>(`${this.apiUrl}idimage/turno/${id}`,
+   registrar(id:string, turno:PListaI  ): Observable<PlistaResponseI>{
+    return this.http.put<PlistaResponseI>(`${this.apiUrl}idimage/turno/${id}`,
     turno).pipe(tap (
-      (res:TurnResponseI)=>{
+      (res:PlistaResponseI)=>{
+
 
       }
     ), catchError(this.handleError))
@@ -50,11 +51,11 @@ export class TableService {
 
          //actualizar el id 
   
-   actualizar_usuarioid(id:any ,idu:string ): Observable<TurnResponseI>{
+   actualizar_usuarioid(id:any ,idu:string ): Observable<PlistaResponseI>{
     
-    return this.http.put<TurnResponseI>(`${this.apiUrl}idimage/turno/${id}`,
+    return this.http.put<PlistaResponseI>(`${this.apiUrl}idimage/turno/${id}`,
     {turnossemana:idu }).pipe(tap(
-      (res: TurnResponseI)=> {
+      (res: PlistaResponseI)=> {
        
       }
     ), catchError(this.handleError))
